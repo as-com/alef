@@ -226,27 +226,27 @@
             
         </li>
     
-        <li class="chapter " data-level="1.3.3" >
+        <li class="chapter " data-level="1.3.3" data-path="../basics/Fonts.html">
             
-                <span>
+                <a href="../basics/Fonts.html">
             
                     
                     2.3. Fonts
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.3.4" >
+        <li class="chapter " data-level="1.3.4" data-path="../basics/Renderer.html">
             
-                <span>
+                <a href="../basics/Renderer.html">
             
                     
                     2.4. Renderer
             
-                </span>
+                </a>
             
 
             
@@ -271,66 +271,53 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" >
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/Plugins.html">
             
-                <span>
+                <a href="../advanced/Plugins.html">
             
                     
-                    3.1. Workflow
+                    3.1. Plugins
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" >
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/StaticStyle.html">
             
-                <span>
+                <a href="../advanced/StaticStyle.html">
             
                     
-                    3.2. Plugins
+                    3.2. Global & Third-Party Styles
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" >
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/CombinedRules.html">
             
-                <span>
+                <a href="../advanced/CombinedRules.html">
             
                     
-                    3.3. Middleware
+                    3.3. Combined Rules
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" >
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/Enhancers.md">
             
                 <span>
             
                     
-                    3.4. Global & Third-Party CSS
+                    3.4. Enhancers
             
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.4.5" >
-            
-                <span>
-            
-                    
-                    3.5. Combined Rules
-            
-                </span>
+                </a>
             
 
             
@@ -355,40 +342,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" >
+        <li class="chapter " data-level="1.5.1" data-path="../recipes/RendererConfiguration.html">
             
-                <span>
+                <a href="../recipes/RendererConfiguration.html">
             
                     
-                    4.1. Configuring your Renderer
+                    4.1. Renderer Configuration
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" >
+        <li class="chapter " data-level="1.5.2" data-path="../recipes/ServerRendering.html">
             
-                <span>
+                <a href="../recipes/ServerRendering.html">
             
                     
                     4.2. Server Rendering
             
-                </span>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" >
-            
-                <span>
-            
-                    
-                    4.3. Handling Specificity
-            
-                </span>
+                </a>
             
 
             
@@ -444,7 +418,7 @@
                 <a href="../api/combineRules.html">
             
                     
-                    5.5. combineRules
+                    5.3. combineRules
             
                 </a>
             
@@ -452,12 +426,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../api/applyMiddleware.html">
+        <li class="chapter " data-level="1.6.4" data-path="../api/enhance.html">
             
-                <a href="../api/applyMiddleware.html">
+                <a href="../api/enhance.html">
             
                     
-                    5.6. applyMiddleware
+                    5.4. enhance
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.5" data-path="../api/server/createRenderer.html">
+            
+                <a href="../api/server/createRenderer.html">
+            
+                    
+                    5.5. Server API
             
                 </a>
             
@@ -545,7 +532,7 @@
 <h4 id="1-universal-rendering">1. Universal Rendering</h4>
 <p>Fela was designed to be capable of universal rendering (server-side rendering) from the very beginning. The Renderer class which is the core of Fela ships with a simple <code>renderToString</code>-method which allows to get a valid CSS string of all rendered styles at any time. The DOM Renderer was not designed as the base, but rather as an extension to the universal Renderer.</p>
 <h4 id="2-local-namespace">2. Local Namespace</h4>
-<p>Each rule is locally scoped with a reference ID which is always unique by design. Hence there is no chance of any conflicts due to the global namespace. </p>
+<p>Each rule is locally scoped with a reference ID which is always unique by design. Hence there is no chance of any conflicts due to the global namespace.</p>
 <h4 id="3-dead-code-elimination">3. Dead Code Elimination</h4>
 <p>Fela only adds styles to your CSS that have actively been rendered. Unused style declarations are left out by default.</p>
 <h4 id="4-framework-agnostic">4. Framework-agnostic</h4>
@@ -595,7 +582,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.3. Benefits","level":"1.2.3","depth":2,"next":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"previous":{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/introduction/Benefits.md","mtime":"2016-06-08T22:33:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-08T22:34:54.838Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.3. Benefits","level":"1.2.3","depth":2,"next":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"previous":{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/introduction/Benefits.md","mtime":"2016-06-11T16:38:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-12T20:14:47.368Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
