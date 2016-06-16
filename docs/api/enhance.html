@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="" >
     <head>
-        <title>5.4. enhance · Fela</title>
+        <title>5.5. enhance · Fela</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -57,7 +57,7 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="server/createRenderer.html" />
+    <link rel="next" href="../FAQ.html" />
     
     
     <link rel="prev" href="combineRules.html" />
@@ -271,12 +271,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../advanced/Plugins.html">
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/DOMRendering.html">
+            
+                <a href="../advanced/DOMRendering.html">
+            
+                    
+                    3.1. DOM Rendering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/Plugins.html">
             
                 <a href="../advanced/Plugins.html">
             
                     
-                    3.1. Plugins
+                    3.2. Plugins
             
                 </a>
             
@@ -284,12 +297,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../advanced/StaticStyle.html">
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/StaticStyle.html">
             
                 <a href="../advanced/StaticStyle.html">
             
                     
-                    3.2. Global & Third-Party Styles
+                    3.3. Global & Third-Party Styles
             
                 </a>
             
@@ -297,12 +310,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../advanced/CombinedRules.html">
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/CombinedRules.html">
             
                 <a href="../advanced/CombinedRules.html">
             
                     
-                    3.3. Combined Rules
+                    3.4. Combined Rules
             
                 </a>
             
@@ -310,12 +323,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../advanced/Enhancers.md">
+        <li class="chapter " data-level="1.4.5" data-path="../advanced/Enhancers.html">
             
-                <span>
+                <a href="../advanced/Enhancers.html">
             
                     
-                    3.4. Enhancers
+                    3.5. Enhancers
             
                 </a>
             
@@ -413,12 +426,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="combineRules.html">
+        <li class="chapter " data-level="1.6.3" data-path="render.html">
+            
+                <a href="render.html">
+            
+                    
+                    5.3. render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="combineRules.html">
             
                 <a href="combineRules.html">
             
                     
-                    5.3. combineRules
+                    5.4. combineRules
             
                 </a>
             
@@ -426,25 +452,12 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.6.4" data-path="enhance.html">
+        <li class="chapter active" data-level="1.6.5" data-path="enhance.html">
             
                 <a href="enhance.html">
             
                     
-                    5.4. enhance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="server/createRenderer.html">
-            
-                <a href="server/createRenderer.html">
-            
-                    
-                    5.5. Server API
+                    5.5. enhance
             
                 </a>
             
@@ -513,7 +526,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >5.4. enhance</a>
+        <a href="../.." >5.5. enhance</a>
     </h1>
 </div>
 
@@ -529,9 +542,40 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="enhanceenhancers"><code>enhance(...enhancers)</code></h1>
+<p>Composes a renderer enhancer to enhance the basic <code>createRenderer</code> function.</p>
 <h2 id="arguments">Arguments</h2>
+<ol>
+<li><code>...enhancers</code> (<em>arguments</em>): Functions that enhance the basic renderer object. Each function takes the renderer and modifies its abilities.</li>
+</ol>
 <h2 id="returns">Returns</h2>
+<p>(<em>Function</em>): Renderer enhancer which is used to enhance the <code>createRenderer</code> function.</p>
 <h2 id="example">Example</h2>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer<span class="token punctuation">,</span> enhance <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+<span class="token keyword">import</span> logger from <span class="token string">&apos;fela-logger&apos;</span>
+<span class="token keyword">import</span> beautifier from <span class="token string">&apos;fela-beautifier&apos;</span>
+
+<span class="token keyword">const</span> enhancer <span class="token operator">=</span> <span class="token function">enhance</span><span class="token punctuation">(</span>
+  <span class="token function">logger</span><span class="token punctuation">(</span><span class="token punctuation">{</span> beautify<span class="token punctuation">:</span> <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">beautifier</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> createEnhancedRenderer <span class="token operator">=</span> <span class="token function">enhancer</span><span class="token punctuation">(</span>createRenderer<span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> enhancedRenderer <span class="token operator">=</span> <span class="token function">createEnhancedRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
+<p>You may also directly apply the enhancer using the following short version.</p>
+<pre><code class="lang-javascript"><span class="token keyword">const</span> createEnhancedRenderer <span class="token operator">=</span> <span class="token function">enhance</span><span class="token punctuation">(</span>
+  <span class="token function">logger</span><span class="token punctuation">(</span><span class="token punctuation">{</span> beautify<span class="token punctuation">:</span> <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">beautifier</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">(</span>createRenderer<span class="token punctuation">)</span>
+
+<span class="token comment" spellcheck="true">// or even shorter by directly creating the renderer</span>
+<span class="token comment" spellcheck="true">// but this is not very easy to read though</span>
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">enhance</span><span class="token punctuation">(</span>
+  <span class="token function">logger</span><span class="token punctuation">(</span><span class="token punctuation">{</span> beautify<span class="token punctuation">:</span> <span class="token keyword">false</span> <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token function">beautifier</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">)</span><span class="token punctuation">(</span>createRenderer<span class="token punctuation">)</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+</code></pre>
 
                                 
                                 </section>
@@ -559,12 +603,12 @@
 
             
                 
-                <a href="combineRules.html" class="navigation navigation-prev " aria-label="Previous page: 5.3. combineRules">
+                <a href="combineRules.html" class="navigation navigation-prev " aria-label="Previous page: 5.4. combineRules">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="server/createRenderer.html" class="navigation navigation-next " aria-label="Next page: 5.5. Server API">
+                <a href="../FAQ.html" class="navigation navigation-next " aria-label="Next page: 6. FAQ">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -575,7 +619,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.4. enhance","level":"1.6.4","depth":2,"next":{"title":"5.5. Server API","level":"1.6.5","depth":2,"path":"docs/api/server/createRenderer.md","ref":"docs/api/server/createRenderer.md","articles":[]},"previous":{"title":"5.3. combineRules","level":"1.6.3","depth":2,"path":"docs/api/combineRules.md","ref":"docs/api/combineRules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/api/enhance.md","mtime":"2016-06-11T16:38:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-12T20:14:47.368Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.5. enhance","level":"1.6.5","depth":2,"next":{"title":"6. FAQ","level":"1.7","depth":1,"path":"docs/FAQ.md","ref":"docs/FAQ.md","articles":[]},"previous":{"title":"5.4. combineRules","level":"1.6.4","depth":2,"path":"docs/api/combineRules.md","ref":"docs/api/combineRules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/api/enhance.md","mtime":"2016-06-16T17:56:33.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-16T18:42:19.248Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

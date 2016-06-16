@@ -5,35 +5,37 @@ import { renderToString } from 'react-dom/server'
 import fs from 'fs'
 
 import App from './app.js'
-import { createRenderer } from '../../modules/server'
+import { enhance, createRenderer } from '../../modules'
 import prefixer from '../../modules/plugins/prefixer'
 import fallbackValue from '../../modules/plugins/fallbackValue'
-import beautifier from '../../modules/enhance/beautifier'
-import logger from '../../modules/enhance/logger'
-import enhance from '../../modules/enhance'
+import beautifier from '../../modules/enhancers/beautifier'
+import logger from '../../modules/enhancers/logger'
 
 const app = express()
 
 app.get('/', (req, res) => {
   const plugins = [ prefixer(), fallbackValue() ]
-  const renderer = createRenderer({ plugins: plugins })
 
-  const enhancers = [ beautifier(), logger({ beautify: false }) ]
-  const enhancedRenderer = enhance(enhancers)(renderer)
+  const createEnhancedRenderer = enhance(
+    beautifier(),
+    logger({ beautify: false })
+  )(createRenderer)
 
-  enhancedRenderer.renderStatic({
+  const renderer = createEnhancedRenderer({ plugins: plugins })
+
+  renderer.renderStatic({
     width: '100%',
     height: '100%',
     margin: 0,
     padding: 0
   }, 'html, body,#app')
 
-  enhancedRenderer.renderStatic({ display: 'flex' }, 'div')
+  renderer.renderStatic({ display: 'flex' }, 'div')
   const indexHTML = fs.readFileSync(__dirname + '/index.html').toString()
   const appHtml = renderToString(
-    <App renderer={enhancedRenderer} />
+    <App renderer={renderer} />
   )
-  const appCSS = enhancedRenderer.renderToString()
+  const appCSS = renderer.renderToString()
 
   res.write(indexHTML.replace('<!-- {{app}} -->', appHtml).replace('<!-- {{css}} -->', appCSS))
   res.end()

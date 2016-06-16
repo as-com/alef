@@ -271,12 +271,25 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="../advanced/Plugins.html">
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/DOMRendering.html">
+            
+                <a href="../advanced/DOMRendering.html">
+            
+                    
+                    3.1. DOM Rendering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/Plugins.html">
             
                 <a href="../advanced/Plugins.html">
             
                     
-                    3.1. Plugins
+                    3.2. Plugins
             
                 </a>
             
@@ -284,12 +297,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../advanced/StaticStyle.html">
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/StaticStyle.html">
             
                 <a href="../advanced/StaticStyle.html">
             
                     
-                    3.2. Global & Third-Party Styles
+                    3.3. Global & Third-Party Styles
             
                 </a>
             
@@ -297,12 +310,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../advanced/CombinedRules.html">
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/CombinedRules.html">
             
                 <a href="../advanced/CombinedRules.html">
             
                     
-                    3.3. Combined Rules
+                    3.4. Combined Rules
             
                 </a>
             
@@ -310,12 +323,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../advanced/Enhancers.md">
+        <li class="chapter " data-level="1.4.5" data-path="../advanced/Enhancers.html">
             
-                <span>
+                <a href="../advanced/Enhancers.html">
             
                     
-                    3.4. Enhancers
+                    3.5. Enhancers
             
                 </a>
             
@@ -413,12 +426,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="../api/combineRules.html">
+        <li class="chapter " data-level="1.6.3" data-path="../api/render.html">
+            
+                <a href="../api/render.html">
+            
+                    
+                    5.3. render
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="../api/combineRules.html">
             
                 <a href="../api/combineRules.html">
             
                     
-                    5.3. combineRules
+                    5.4. combineRules
             
                 </a>
             
@@ -426,25 +452,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../api/enhance.html">
+        <li class="chapter " data-level="1.6.5" data-path="../api/enhance.html">
             
                 <a href="../api/enhance.html">
             
                     
-                    5.4. enhance
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.6.5" data-path="../api/server/createRenderer.html">
-            
-                <a href="../api/server/createRenderer.html">
-            
-                    
-                    5.5. Server API
+                    5.5. enhance
             
                 </a>
             
@@ -529,6 +542,50 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="server-rendering">Server Rendering</h1>
+<p>As <a href="../introduction/Benefits.html">already mentioned</a>, Fela supports server-side rendering from the very beginning.
+All you need to to is call <code>renderToString</code> once you are finished rendering styles and you will get the final CSS markup.<br>
+Basically that&apos;s it. No magic. No extra configuration.</p>
+<p>Usually you will render all styles on the server and inject the rendered CSS markup into the HTML markup which gets sent to the client.</p>
+<h2 id="example">Example</h2>
+<p>The following code shows a simple server example using <a href="https://github.com/expressjs/express" _target="blank">express</a> and <a href="https://github.com/facebook/react" _target="blank">React</a>. Assuming <code>app.js</code> is our root React component and we pass the renderer as a prop to use it.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> express from <span class="token string">&apos;express&apos;</span>
+<span class="token keyword">import</span> proxy from <span class="token string">&apos;express-http-proxy&apos;</span>
+<span class="token keyword">import</span> React from <span class="token string">&apos;react&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> from <span class="token string">&apos;react-dom/server&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+<span class="token keyword">import</span> App from <span class="token string">&apos;./app.js&apos;</span>
+<span class="token keyword">const</span> server <span class="token operator">=</span> <span class="token function">express</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// Our initial html template</span>
+<span class="token keyword">const</span> appHTML <span class="token operator">=</span> `
+<span class="token operator">&lt;</span><span class="token operator">!</span>DOCTYPE html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>html<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>head<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>style id<span class="token operator">=</span><span class="token string">&quot;stylesheet&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>css<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">--</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>style<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>title<span class="token operator">&gt;</span>Fela <span class="token operator">-</span> Server Rendering<span class="token operator">&lt;</span><span class="token operator">/</span>title<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>head<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span>body<span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span>div id<span class="token operator">=</span><span class="token string">&quot;app&quot;</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span><span class="token operator">!</span><span class="token operator">--</span> <span class="token punctuation">{</span><span class="token punctuation">{</span>app<span class="token punctuation">}</span><span class="token punctuation">}</span> <span class="token operator">--</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>body<span class="token operator">&gt;</span>
+<span class="token operator">&lt;</span><span class="token operator">/</span>html<span class="token operator">&gt;</span>
+`
+server<span class="token punctuation">.</span><span class="token keyword">get</span><span class="token punctuation">(</span><span class="token string">&apos;/&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>req<span class="token punctuation">,</span> res<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token keyword">const</span> htmlMarkup <span class="token operator">=</span> <span class="token function">renderToString</span><span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>App renderer<span class="token operator">=</span><span class="token punctuation">{</span>renderer<span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+
+  <span class="token keyword">const</span> cssMarkup <span class="token operator">=</span> renderer<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+  <span class="token comment" spellcheck="true">// inject the rendered html and css markup into the basic app html</span>
+  res<span class="token punctuation">.</span><span class="token function">write</span><span class="token punctuation">(</span>appHTML<span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">&apos;&lt;!-- {{app}} --&gt;&apos;</span><span class="token punctuation">,</span> htmlMarkup<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">replace</span><span class="token punctuation">(</span><span class="token string">&apos;&lt;!-- {{css}} --&gt;&apos;</span><span class="token punctuation">,</span> cssMarkup<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  res<span class="token punctuation">.</span><span class="token function">end</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+<span class="token comment" spellcheck="true">// provide the content via localhost:8080</span>
+server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">,</span> <span class="token string">&apos;localhost&apos;</span><span class="token punctuation">)</span>
+</code></pre>
 
                                 
                                 </section>
@@ -572,7 +629,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2. Server Rendering","level":"1.5.2","depth":2,"next":{"title":"5. API Reference","level":"1.6","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"5.1. createRenderer","level":"1.6.1","depth":2,"path":"docs/api/createRenderer.md","ref":"docs/api/createRenderer.md","articles":[]},{"title":"5.2. Renderer","level":"1.6.2","depth":2,"path":"docs/api/Renderer.md","ref":"docs/api/Renderer.md","articles":[]},{"title":"5.3. combineRules","level":"1.6.3","depth":2,"path":"docs/api/combineRules.md","ref":"docs/api/combineRules.md","articles":[]},{"title":"5.4. enhance","level":"1.6.4","depth":2,"path":"docs/api/enhance.md","ref":"docs/api/enhance.md","articles":[]},{"title":"5.5. Server API","level":"1.6.5","depth":2,"path":"docs/api/server/createRenderer.md","ref":"docs/api/server/createRenderer.md","articles":[]}]},"previous":{"title":"4.1. Renderer Configuration","level":"1.5.1","depth":2,"path":"docs/recipes/RendererConfiguration.md","ref":"docs/recipes/RendererConfiguration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/recipes/ServerRendering.md","mtime":"2016-06-12T16:46:02.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-12T20:14:47.368Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2. Server Rendering","level":"1.5.2","depth":2,"next":{"title":"5. API Reference","level":"1.6","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"5.1. createRenderer","level":"1.6.1","depth":2,"path":"docs/api/createRenderer.md","ref":"docs/api/createRenderer.md","articles":[]},{"title":"5.2. Renderer","level":"1.6.2","depth":2,"path":"docs/api/Renderer.md","ref":"docs/api/Renderer.md","articles":[]},{"title":"5.3. render","level":"1.6.3","depth":2,"path":"docs/api/render.md","ref":"docs/api/render.md","articles":[]},{"title":"5.4. combineRules","level":"1.6.4","depth":2,"path":"docs/api/combineRules.md","ref":"docs/api/combineRules.md","articles":[]},{"title":"5.5. enhance","level":"1.6.5","depth":2,"path":"docs/api/enhance.md","ref":"docs/api/enhance.md","articles":[]}]},"previous":{"title":"4.1. Renderer Configuration","level":"1.5.1","depth":2,"path":"docs/recipes/RendererConfiguration.md","ref":"docs/recipes/RendererConfiguration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","gitbook":"3.1.0"},"file":{"path":"docs/recipes/ServerRendering.md","mtime":"2016-06-16T17:56:33.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-16T18:42:19.248Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
