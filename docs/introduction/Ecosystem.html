@@ -556,9 +556,9 @@
                                 
                                 <h1 id="ecosystem">Ecosystem</h1>
 <p>We decided to keep Fela as small and simple as possible. It only includes the renderer and two simple helpers. Yet it is designed to be highly extendable with both plugins and middleware.
-Plugins are used to process your styles, middleware to enhance your renderer. <br>
-With this approach everyone is able to use their own configurations to fit their needs.</p>
-<p>Many plugins and even middlewares are already included in the <a href="https://github.com/rofrischmann/fela/tree/master/packages" _target="blank">main repository</a>.</p>
+Plugins are used to process your styles, enhancers to enhance your renderer. <br>
+With this approach everyone is able to create a custom version of Fela fitting their particular needs.</p>
+<p>Many plugins and enhancers are already included in the <a href="https://github.com/rofrischmann/fela/tree/master/packages" _target="blank">main repository</a>.</p>
 <h3 id="bindings">Bindings</h3>
 <ul>
 <li><a href="https://github.com/rofrischmann/react-fela" _target="blank">react-fela</a> - React</li>
@@ -568,19 +568,21 @@ With this approach everyone is able to use their own configurations to fit their
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-custom-property" _target="blank">fela-plugin-custom-property</a> - Resolves custom properties</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-fallback-value" _target="blank">fela-plugin-fallback-value</a> - Resolves arrays of fallback values</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-friendly-pseudo-class" _target="blank">fela-plugin-friendly-pseudo-class</a> - Transforms javascript-friendly pseudo class into valid syntax</li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-logger" _target="blank">fela-plugin-logger*</a> - Logs rendered style objects</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-lvha" _target="blank">fela-plugin-lvha</a> - Sorts pseudo classes according to LVH(F)A</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-prefixer" _target="blank">fela-plugin-prefixer</a> - Adds vendor prefixes to the styles</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-unit" _target="blank">fela-plugin-unit</a> - Automatically adds units to values if needed</li>
 </ul>
 <h3 id="enhancers">Enhancers</h3>
 <blockquote>
-<p>Most enhancers are only used in development (dev-tools) and should be excluded in production.</p>
+<p><strong>Warning</strong>: Enhancers are still experimental and the API might change.</p>
 </blockquote>
 <ul>
-<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-beautifier" _target="blank">fela-beautifier</a> - Beautifies the rendered CSS markup</li>
-<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-logger" _target="blank">fela-logger</a> - Logs changes (rendered CSS)</li>
-<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-perf" _target="blank">fela-perf</a> - Logs performance information (elapsed time to render)</li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-beautifier" _target="blank">fela-beautifier*</a> - Beautifies the rendered CSS markup</li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-perf" _target="blank">fela-perf*</a> - Logs performance information (time elapsed while rendering)</li>
 </ul>
+<h2 id=""><br></h2>
+<p>* Packages are considered dev tools and should therefore not be used in production.</p>
 
                                 
                                 </section>
@@ -624,7 +626,7 @@ With this approach everyone is able to use their own configurations to fit their
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"next":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"previous":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Ecosystem.md","mtime":"2016-06-16T19:24:06.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-19T19:24:19.411Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"next":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"previous":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Ecosystem.md","mtime":"2016-06-20T21:33:34.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-20T21:36:04.539Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
