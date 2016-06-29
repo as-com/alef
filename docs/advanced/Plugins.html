@@ -181,6 +181,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.6" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    1.6. Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -555,13 +568,15 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="plugins">Plugins</h1>
-<p>We have learned that the renderer is the universal interface to render basic styles, but yet all it does it to cache and transform simple shape-conform style objects into CSS markup. We do not have any fancy additional functionality such as autoprefixing. That&apos;s where the built-in plugin system come for the rescue.<br>
-Plugins are functions that take a style object, alert its shape and return a new style object, which in most cases is the mutated input itself.
+<p>We have learned that the renderer is the universal interface to render basic styles, but yet all it does it to cache and transform simple shape-conforming style objects into CSS markup. We do not have any fancy additional functionality such as auto-prefixing. That&apos;s where the built-in plugin system comes to the rescue!<br>
+Plugins are functions that take a style object, alter its shape and return a new style object, which in most cases is the mutated input itself.
 Before the resolved style object gets cached and transformed to CSS, it is piped through each plugin.</p>
 <h3 id="use-cases">Use Cases</h3>
-<p>They are especially helpful to automate certain aspects of styling such as autoprefixing. Also they are used to improve the developer experience e.g. by automatically adding a unit e.g. <code>px</code> to length values.</p>
+<p>They are especially helpful to automate certain aspects of styling such as auto-prefixing. They are also very handy to improve the developer experience e.g. by automatically adding a unit like <code>px</code> to dimension values.</p>
+<h3 id="order-matters">Order Matters</h3>
+<p>Your style objects get piped from left to right. Always remember that the plugin order sometimes matters as some plugins might depend on each other.</p>
 <h2 id="using-plugins">Using Plugins</h2>
-<p>To use plugins we need to add it to the renderer configuration directly. You can do this directly by passing a configuration object with the <code>plugins</code> key while creating your renderer.</p>
+<p>To use plugins we need to add them to the renderer configuration directly. You can do this by passing a configuration object with the <code>plugins</code> key while creating your renderer.</p>
 <pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -572,10 +587,8 @@ Before the resolved style object gets cached and transformed to CSS, it is piped
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
 </code></pre>
-<h3 id="order-matters">Order Matters</h3>
-<p>Your style objects get piped from left to right. Always remember that the plugin order sometimes matters as some plugins might depend on each other.</p>
-<h2 id="example">Example</h2>
-<p>Lets say we want to automatically add vendor prefixes to all of our style objects. Luckily there already is a package called <a href="https://github.com/rofrischmann/inline-style-prefix-all" _target="blank">inline-style-prefix-all</a> that adds all required vendor prefixes to your style object.<br>
+<h3 id="example">Example</h3>
+<p>Lets say we want to automatically add vendor prefixes to all of our style objects. Luckily there is already a package called inline-style-prefix-all which does exactly that.
 It turns out, to create the plugin we just need to create a function that takes our current styles and returns the prefixed styles. That&apos;s it.</p>
 <pre><code class="lang-javascript"><span class="token keyword">import</span> prefixAll from <span class="token string">&apos;inline-style-prefix-all&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
@@ -588,6 +601,29 @@ It turns out, to create the plugin we just need to create a function that takes 
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
 </code></pre>
+<h2 id="configuration">Configuration</h2>
+<p>Some advanced plugins might even have some options to configure it. The recommended way to do this is by wrapping the plugin itself in another function accepting those options.</p>
+<h3 id="example">Example</h3>
+<p>For example if we do not want to use the static inline-style-prefix-all, but rather the more advanced dynamic version called <a href="https://github.com/rofrischmann/inline-style-prefixer" _target="blank">inline-style-prefixer</a>, we need to pass at least the <code>userAgent</code>.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> Prefixer from <span class="token string">&apos;inline-style-prefixer&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+
+<span class="token keyword">const</span> prefixerPlugin <span class="token operator">=</span> userAgent <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> prefixer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Prefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> userAgent <span class="token punctuation">}</span><span class="token punctuation">)</span>
+  <span class="token keyword">return</span> styleObject <span class="token operator">=</span><span class="token operator">&gt;</span> prefixer<span class="token punctuation">.</span><span class="token function">prefix</span><span class="token punctuation">(</span>styleObject<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token function">prefixerPlugin</span><span class="token punctuation">(</span>navigator<span class="token punctuation">.</span>userAgent<span class="token punctuation">)</span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+</code></pre>
+<h2 id="official-plugins">Official Plugins</h2>
+<p>Fela already ships with some official plugins. Check out <a href="../introduction/Ecosystem.html">Introduction - Ecosystem</a> for more information.<br></p>
+<blockquote>
+<p><strong>Note</strong>: Official plugins are wrapped by a configuration function by default.</p>
+</blockquote>
 
                                 
                                 </section>
@@ -631,7 +667,7 @@ It turns out, to create the plugin we just need to create a function that takes 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2. Plugins","level":"1.4.2","depth":2,"next":{"title":"3.3. Global & Third-Party Styles","level":"1.4.3","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2016-06-19T19:25:23.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-20T21:36:04.539Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2. Plugins","level":"1.4.2","depth":2,"next":{"title":"3.3. Global & Third-Party Styles","level":"1.4.3","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2016-06-23T22:17:04.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-29T14:40:43.130Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

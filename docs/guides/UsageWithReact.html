@@ -181,6 +181,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.2.6" data-path="../introduction/Examples.html">
+            
+                <a href="../introduction/Examples.html">
+            
+                    
+                    1.6. Examples
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -560,10 +573,10 @@
 </code></pre>
 <h2 id="presentational-components">Presentational Components</h2>
 <p>While not required, we highly recommend to split your components into <a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.67qfcbme5" _target="blank">presentational and container components</a>.
-While container components manage the application logic, presentational components should only describe how your application looks like. They get data passed as <code>props</code> and return some static HTML markup.
+While container components manage the application logic, presentational components should only describe how your application looks. They get data passed as <code>props</code> and return a representation of your view for those props.
 <strong>If we strictly separate our components, we actually only use Fela for presentational components.</strong></p>
 <h2 id="passing-the-renderer">Passing the Renderer</h2>
-<p>We like to avoid using a global Fela renderer which is why the React bindings ship the <a href="https://github.com/rofrischmann/react-fela/blob/master/docs/api/Provider.md" _target="blank"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span><span class="token punctuation">&gt;</span></span></code></a> component. It takes our renderer and uses React&apos;s <a href="https://facebook.github.io/react/docs/context.html" _target="blank">context</a> to pass it down the whole component tree.<br>
+<p>We like to avoid using a global Fela renderer which is why the React bindings ship with a  <a href="https://github.com/rofrischmann/react-fela/blob/master/docs/api/Provider.md" _target="blank"><code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span><span class="token punctuation">&gt;</span></span></code></a> component. It takes our renderer and uses React&apos;s <a href="https://facebook.github.io/react/docs/context.html" _target="blank">context</a> to pass it down the whole component tree.<br>
 It also takes an optional <code>mountNode</code> prop which is used to render our final CSS markup into. <em>(If you use server rendering you do not need to pass a <code>mountNode</code>)</em>.</p>
 <h3 id="example">Example</h3>
 <pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
@@ -617,7 +630,7 @@ It also takes an optional <code>mountNode</code> prop which is used to render ou
 <span class="token operator">&lt;</span>Header title<span class="token operator">=</span><span class="token string">&apos;Hello&apos;</span> color<span class="token operator">=</span><span class="token string">&apos;red&apos;</span> size<span class="token operator">=</span><span class="token punctuation">{</span><span class="token number">17</span><span class="token punctuation">}</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
 </code></pre>
 <p>Yet it is does not really look convincing as we always have to add the <code>contextTypes</code>, mix the rendering process with our markup and always have to use the <code>context</code> parameter.<br>
-Therefore we also provide the <code>connect</code> HoC (<a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.njbld18x8" _target="blank">Higher-order Component</a>). It is used to map rendered classNames to the components <code>props</code> directly.</p>
+Therefore we also provide a HoC (<a href="https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.njbld18x8" _target="blank">Higher-order Component</a>) called <code>connect</code>. It is used to map the components <code>props</code> directly to rendered classNames.</p>
 <h3 id="example">Example</h3>
 <pre><code class="lang-javascript"><span class="token keyword">import</span> React from <span class="token string">&apos;react&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> connect <span class="token punctuation">}</span> from <span class="token string">&apos;react-fela&apos;</span>
@@ -698,7 +711,7 @@ Therefore we also provide the <code>connect</code> HoC (<a href="https://medium.
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"next":{"title":"4.2. Renderer Configuration","level":"1.5.2","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},"previous":{"title":"4. Usage Guides","level":"1.5","depth":1,"path":"docs/UsageGuides.md","ref":"docs/UsageGuides.md","articles":[{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},{"title":"4.2. Renderer Configuration","level":"1.5.2","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},{"title":"4.3. Server Rendering","level":"1.5.3","depth":2,"path":"docs/guides/ServerRendering.md","ref":"docs/guides/ServerRendering.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithReact.md","mtime":"2016-06-19T19:25:23.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-20T21:36:04.539Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"next":{"title":"4.2. Renderer Configuration","level":"1.5.2","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},"previous":{"title":"4. Usage Guides","level":"1.5","depth":1,"path":"docs/UsageGuides.md","ref":"docs/UsageGuides.md","articles":[{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},{"title":"4.2. Renderer Configuration","level":"1.5.2","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},{"title":"4.3. Server Rendering","level":"1.5.3","depth":2,"path":"docs/guides/ServerRendering.md","ref":"docs/guides/ServerRendering.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithReact.md","mtime":"2016-06-23T22:14:23.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-29T14:40:43.130Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
