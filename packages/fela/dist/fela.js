@@ -299,7 +299,7 @@
          * @return {string} rendered CSS output
          */
         renderStatic: function renderStatic(style, selector) {
-          var reference = typeof style === 'string' ? style : selector;
+          var reference = typeof style === 'string' ? style : selector + sortedStringify(style);
 
           if (!renderer.rendered.hasOwnProperty(reference)) {
             if (typeof style === 'string') {
@@ -533,8 +533,11 @@
         return mountNode.textContent = css;
       });
 
-      // render currently rendered styles to the DOM once
-      mountNode.textContent = renderer.renderToString();
+      // render currently rendered styles to the DOM once when it is not already in DOM
+      var css = renderer.renderToString();
+      if (mountNode.textContent !== css) {
+        mountNode.textContent = css;
+      }
     }
 
     var index = {

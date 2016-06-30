@@ -47,7 +47,7 @@
     return function (style) {
       return customProperty(style, properties);
     };
-  })
+  });
 
   return customProperty$1;
 

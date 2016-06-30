@@ -55,7 +55,7 @@
 
   var LVHA$1 = (function () {
     return LVHA;
-  })
+  });
 
   return LVHA$1;
 
