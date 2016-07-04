@@ -3,6 +3,10 @@ export default {
     name: 'Fela',
     entry: 'index.js'
   },
+  'fela-plugin-dynamic-prefixer': {
+    name: 'FelaPluginDynamicPrefixer',
+    entry: 'plugins/dynamicPrefixer.js'
+  },
   'fela-plugin-prefixer': {
     name: 'FelaPluginPrefixer',
     entry: 'plugins/prefixer.js'
@@ -42,9 +46,5 @@ export default {
   'fela-perf': {
     name: 'FelaPerf',
     entry: 'enhancers/perf.js'
-  },
-  'fela-stylesheet': {
-    name: 'FelaStyleSheet',
-    entry: 'tools/StyleSheet.js'
   }
 }

@@ -2,9 +2,9 @@
 
 
 <img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-prefixer.svg">
-<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-2.94kb-brightgreen.svg">
+<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-3.04kb-brightgreen.svg">
 
-Uses [inline-style-prefix-all](https://github.com/rofrischmann/inline-style-prefix-all) to add vendor prefixes to both property and value.
+Uses [inline-style-prefixer/static](https://github.com/rofrischmann/inline-style-prefix-all) to add vendor prefixes to both property and value.
 
 **Requires to use  [fela-plugin-fallback-value](../fela-plugin-fallback-value/) afterwards** in order to resolve alternative prefix values which get returned as an array by default.
 
@@ -16,9 +16,9 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [npmcdn](https://npmcdn.com/). It registers a  `FelaPluginPrefixer` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://npmcdn.com/fela-plugin-prefixer@1.0.2/dist/fela-plugin-prefixer.js"></script>
+<script src="https://npmcdn.com/fela-plugin-prefixer@1.0.3/dist/fela-plugin-prefixer.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://npmcdn.com/fela-plugin-prefixer@1.0.2/dist/fela-plugin-prefixer.min.js"></script>
+<script src="https://npmcdn.com/fela-plugin-prefixer@1.0.3/dist/fela-plugin-prefixer.min.js"></script>
 ```
 
 ## Example

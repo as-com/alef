@@ -1,6 +1,6 @@
 {
   "name": "fela-perf",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Performance middleware for Fela",
   "main": "index.js",
   "files": [
@@ -20,7 +20,7 @@
   ],
   "author": "Robin Frischmann",
   "license": "MIT",
-  "dependencies": {
-    "cssbeautify": "^0.3.1"
+  "peerDependecies": {
+    "fela": "1.0.2"
   }
 }

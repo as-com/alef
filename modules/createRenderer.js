@@ -53,19 +53,32 @@ export default function createRenderer(config = { }) {
       // only if the cached rule has not already been rendered
       // with a specific set of properties it actually renders
       if (!renderer.rendered.hasOwnProperty(className)) {
-        const style = renderer._processStyle(rule(props))
-        renderer._renderStyle(className, style, renderer.base[ruleId])
+        const diffedStyle = renderer._diffStyle(rule(props), renderer.base[ruleId])
 
-        renderer.rendered[className] = renderer._didChange
+        if (Object.keys(diffedStyle).length > 0) {
+          const style = renderer._processStyle(diffedStyle, {
+            type: 'rule',
+            className: className,
+            id: ruleId,
+            props: props,
+            rule: rule
+          })
 
-        if (renderer._didChange) {
-          renderer._didChange = false
-          renderer._emitChange()
+          renderer._renderStyle(className, style)
+
+          renderer.rendered[className] = renderer._didChange
+
+          if (renderer._didChange) {
+            renderer._didChange = false
+            renderer._emitChange()
+          }
+        } else {
+          renderer.rendered[className] = false
         }
 
         // keep static style to diff dynamic onces later on
         if (className === 'c' + ruleId) {
-          renderer.base[ruleId] = style
+          renderer.base[ruleId] = rule(props)
         }
       }
 
@@ -98,7 +111,13 @@ export default function createRenderer(config = { }) {
       // only if the cached keyframe has not already been rendered
       // with a specific set of properties it actually renders
       if (!renderer.rendered.hasOwnProperty(animationName)) {
-        const processedKeyframe = renderer._processStyle(keyframe(props))
+        const processedKeyframe = renderer._processStyle(keyframe(props), {
+          type: 'keyframe',
+          keyframe: keyframe,
+          props: props,
+          animationName: animationName,
+          id: renderer.ids.indexOf(keyframe)
+        })
         const css = cssifyKeyframe(processedKeyframe, animationName, renderer.keyframePrefixes)
         renderer.rendered[animationName] = true
         renderer.keyframes += css
@@ -148,7 +167,11 @@ export default function createRenderer(config = { }) {
           // remove new lines from template strings
           renderer.statics += style.replace(/\s{2,}/g, '')
         } else {
-          renderer.statics += selector + '{' + cssifyObject(renderer._processStyle(style)) + '}'
+          const processedStyle = renderer._processStyle(style, {
+            selector: selector,
+            type: 'static'
+          })
+          renderer.statics += selector + '{' + cssifyObject(processedStyle) + '}'
         }
 
         renderer.rendered[reference] = true
@@ -211,43 +234,66 @@ export default function createRenderer(config = { }) {
      * pipes a style object through a list of plugins
      *
      * @param {Object} style - style object to process
+     * @param {Object} meta - additional meta data
      * @return {Object} processed style
      */
-    _processStyle(style) {
-      return renderer.plugins.reduce((processedStyle, plugin) => plugin(processedStyle), style)
+    _processStyle(style, meta) {
+      return renderer.plugins.reduce((processedStyle, plugin) => plugin(processedStyle, meta), style)
     },
 
 
     /**
-     * iterates a style object and renders each rule to the cache
+     * diffs a style object against a base style object
      *
-     * @param {string} className - className reference to be rendered to
-     * @param {Object} style - style object which is rendered
-     * @param {Object`} base - base style subset for diffing
+     * @param {Object} style - style object which is diffed
+     * @param {Object?} base - base style object
      */
-    _renderStyle(className, style, base = { }, pseudo = '', media = '') {
-      const ruleset = Object.keys(style).reduce((ruleset, property) => {
+    _diffStyle(style, base = { }) {
+      return Object.keys(style).reduce((diff, property) => {
         const value = style[property]
         // recursive object iteration in order to render
         // pseudo class and media class declarations
         if (value instanceof Object && !Array.isArray(value)) {
-          if (property.charAt(0) === ':') {
-            renderer._renderStyle(className, value, base[property], pseudo + property, media)
-          } else if (property.substr(0, 6) === '@media') {
-            // combine media query rules with an `and`
-            const query = property.slice(6).trim()
-            const combinedMedia = media.length > 0 ? media + ' and ' + query : query
-            renderer._renderStyle(className, value, base[property], pseudo, combinedMedia)
+          const nestedDiff = this._diffStyle(value, base[property])
+          if (Object.keys(nestedDiff).length > 0) {
+            diff[property] = nestedDiff
           }
         } else {
           // diff styles with the base styles to only extract dynamic styles
           if (value !== undefined && !base.hasOwnProperty(property) || base[property] !== value) {
             // remove concatenated string values including `undefined`
             if (typeof value === 'string' && value.indexOf('undefined') > -1) {
-              return ruleset
+              return diff
             }
-            ruleset[property] = value
+            diff[property] = value
           }
+        }
+        return diff
+      }, { })
+    },
+
+    /**
+     * iterates a style object and renders each rule to the cache
+     *
+     * @param {string} className - className reference to be rendered to
+     * @param {Object} style - style object which is rendered
+     */
+    _renderStyle(className, style, pseudo = '', media = '') {
+      const ruleset = Object.keys(style).reduce((ruleset, property) => {
+        const value = style[property]
+        // recursive object iteration in order to render
+        // pseudo class and media class declarations
+        if (value instanceof Object && !Array.isArray(value)) {
+          if (property.charAt(0) === ':') {
+            renderer._renderStyle(className, value, pseudo + property, media)
+          } else if (property.substr(0, 6) === '@media') {
+            // combine media query rules with an `and`
+            const query = property.slice(6).trim()
+            const combinedMedia = media.length > 0 ? media + ' and ' + query : query
+            renderer._renderStyle(className, value, pseudo, combinedMedia)
+          }
+        } else {
+          ruleset[property] = value
         }
         return ruleset
       }, { })

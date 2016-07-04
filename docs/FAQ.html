@@ -597,10 +597,22 @@
 <h2 id="table-of-contents">Table of contents</h2>
 <h4 id="general">General</h4>
 <ul>
-<li><a href="#">Where does the name &quot;Fela&quot; come from?</a></li>
-<li>Can I use it together with CSS files?</li>
-<li>Can I use it together with inline styles?</li>
+<li><a href="#can-i-use-it-together-with-css">Can I use it together with CSS files?</a></li>
+<li><a href="#can-i-use-it-together-with-inline-styles">Can I use it together with inline styles?</a></li>
+<li><a href="#is-fela-production-ready">Is Fela production-ready?</a></li>
+<li><a href="#where-does-the-name-fela-come-from">Where does the name &quot;Fela&quot; come from?</a></li>
 </ul>
+<h2 id="general">General</h2>
+<h4 id="can-i-use-it-together-with-css-files">Can I use it together with CSS Files?</h4>
+<p><strong>Yes</strong>. Fela is encapsulated and can be integrated into any kind of application and therefore can also be used together with other CSS files/classes.<br>
+Just remember that you might again get into specificity problems if you mix different CSS classes from different sources.</p>
+<h4 id="can-i-use-it-together-with-inline-styles">Can I use it together with inline styles?</h4>
+<p><strong>Yes</strong>. You can always use inline styles together with Fela. It can be useful to overwrite single values for specific cases. Also state-depending styles might better fit as inline styles e.g. a progress bar which updates the inner width according to the progress. This might else lead to &gt;100 rendered Fela classes.</p>
+<h4 id="is-fela-production-ready">Is Fela production-ready?</h4>
+<p><strong>Yes</strong>. As of version 1.0.0 Fela is production-ready and fully covered with tests. It is already used in many applications in production.</p>
+<h4 id="where-does-the-name-fela-come-from">Where does the name &quot;Fela&quot; come from?</h4>
+<p>Fela actually is the name of a character in one of the author&apos;s favorite fantasy novel called <a href="https://en.wikipedia.org/wiki/The_Kingkiller_Chronicle" _target="blank">&quot;Kingslayer Chronicles&quot;</a> by <a href="http://www.patrickrothfuss.com/content/index.asp" _target="blank">Patrick Rothfuss</a>. <a href="http://kingkiller.wikia.com/wiki/Fela" _target="blank">Fela</a> is a young, attractive and smart woman practicing sculpturing among others at the university of Imre. She&apos;s one of <a href="http://kingkiller.wikia.com/wiki/Kvothe" _target="blank">Kvothe</a>&apos;s (the main protagonist), best friends there.<br>
+There is no deep connection to JavaScript styling in general, except the fact that she does sculpturing which seems to be kind of similar to what component styling is lately.</p>
 
                                 
                                 </section>
@@ -644,7 +656,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"7. FAQ","level":"1.8","depth":1,"next":{"title":"8. Feedback","level":"1.9","depth":1,"path":"docs/Feedback.md","ref":"docs/Feedback.md","articles":[]},"previous":{"title":"6. Troubleshooting","level":"1.7","depth":1,"path":"docs/Troubleshooting.md","ref":"docs/Troubleshooting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/FAQ.md","mtime":"2016-06-30T17:57:22.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-06-30T17:59:20.483Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"7. FAQ","level":"1.8","depth":1,"next":{"title":"8. Feedback","level":"1.9","depth":1,"path":"docs/Feedback.md","ref":"docs/Feedback.md","articles":[]},"previous":{"title":"6. Troubleshooting","level":"1.7","depth":1,"path":"docs/Troubleshooting.md","ref":"docs/Troubleshooting.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/FAQ.md","mtime":"2016-07-03T21:14:55.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-04T15:50:09.571Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

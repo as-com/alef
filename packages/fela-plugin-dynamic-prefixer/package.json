@@ -1,7 +1,7 @@
 {
-  "name": "fela-plugin-friendly-pseudo-class",
+  "name": "fela-plugin-dynamic-prefixer",
   "version": "1.0.3",
-  "description": "Fela plugin to support javascript-friendly pseudo class syntax",
+  "description": "Fela plugin to dynamically add a minimum set of vendor prefixes",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -13,11 +13,16 @@
   "keywords": [
     "fela",
     "fela-plugin",
-    "fallback value",
+    "vendor prefixing",
+    "prefixer",
+    "autoprefixer",
     "cssinjs"
   ],
   "author": "Robin Frischmann",
   "license": "MIT",
+  "dependencies": {
+    "inline-style-prefixer": "2.0.0"
+  },
   "peerDependecies": {
     "fela": "1.0.2"
   }
