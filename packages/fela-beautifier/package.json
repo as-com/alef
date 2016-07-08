@@ -1,7 +1,7 @@
 {
   "name": "fela-beautifier",
-  "version": "1.0.3",
-  "description": "Beautifier middleware for Fela",
+  "version": "1.1.0",
+  "description": "Fela enhancer to beautify CSS output",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -13,6 +13,7 @@
   "keywords": [
     "fela",
     "fela-devtools",
+    "fela-enhancer",
     "dx",
     "devtools",
     "cssinjs",
@@ -24,7 +25,7 @@
   "dependencies": {
     "cssbeautify": "0.3.1"
   },
-  "peerDependecies": {
-    "fela": "1.0.2"
+  "peerDependencies": {
+    "fela": "1.1.0"
   }
 }

@@ -11,6 +11,16 @@ describe('Renderer', () => {
       expect(renderer.fontFaces).to.eql('')
       expect(renderer.statics).to.eql('')
     })
+
+    it('should apply enhancers directly', () => {
+      const enhancer = renderer => {
+        renderer.foo = 'bar'
+        return renderer
+      }
+      const renderer = createRenderer({ enhancers: [ enhancer ] })
+
+      expect(renderer.foo).to.eql('bar')
+    })
   })
 
 
@@ -72,10 +82,7 @@ describe('Renderer', () => {
     })
 
     it('should reuse cached variations', () => {
-      const rule = props => ({
-        color: props.color,
-        fontSize: '23px'
-      })
+      const rule = props => ({ color: props.color, fontSize: '23px' })
       const renderer = createRenderer()
 
       renderer.renderRule(rule, { color: 'red' })
@@ -91,14 +98,28 @@ describe('Renderer', () => {
 
       const className = renderer.renderRule(rule, { color: 'red' })
       const className2 = renderer.renderRule(rule, { color: 'red' })
-      const className3 = renderer.renderRule(rule, {
-        color: 'blue'
-      })
+      const className3 = renderer.renderRule(rule, { color: 'blue' })
 
       expect(className).to.eql(className2)
       expect(className).to.eql(className3)
       expect(renderer.rules).to.eql('.c0{font-size:23px}')
       expect(Object.keys(renderer.rendered).length).to.eql(3)
+    })
+
+    it('should only additionally render static styles if not directly rendering those', () => {
+      const rule = props => ({ fontSize: '23px' })
+      const renderer = createRenderer()
+      const spy = sinon.spy()
+
+      const existingRenderRule = renderer.renderRule.bind(this)
+      renderer.renderRule = (rule, props) => {
+        spy()
+        return existingRenderRule(rule, props)
+      }
+
+      renderer.renderRule(rule)
+
+      expect(spy).to.have.been.calledOnce
     })
 
     it('should generate an incrementing reference id', () => {
