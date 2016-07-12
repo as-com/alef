@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>3.5. Enhancers · Fela</title>
+        <title>4.2. Usage with Inferno · Fela</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -57,10 +57,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="../UsageGuides.html" />
+    <link rel="next" href="RendererConfiguration.html" />
     
     
-    <link rel="prev" href="CombinedRules.html" />
+    <link rel="prev" href="UsageWithReact.html" />
     
 
     </head>
@@ -284,9 +284,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.4.1" data-path="DOMRendering.html">
+        <li class="chapter " data-level="1.4.1" data-path="../advanced/DOMRendering.html">
             
-                <a href="DOMRendering.html">
+                <a href="../advanced/DOMRendering.html">
             
                     
                     3.1. DOM Rendering
@@ -297,9 +297,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="Plugins.html">
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/Plugins.html">
             
-                <a href="Plugins.html">
+                <a href="../advanced/Plugins.html">
             
                     
                     3.2. Plugins
@@ -310,9 +310,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="StaticStyle.html">
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/StaticStyle.html">
             
-                <a href="StaticStyle.html">
+                <a href="../advanced/StaticStyle.html">
             
                     
                     3.3. Global & Third-Party Styles
@@ -323,9 +323,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="CombinedRules.html">
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/CombinedRules.html">
             
-                <a href="CombinedRules.html">
+                <a href="../advanced/CombinedRules.html">
             
                     
                     3.4. Combined Rules
@@ -336,9 +336,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.5" data-path="Enhancers.html">
+        <li class="chapter " data-level="1.4.5" data-path="../advanced/Enhancers.html">
             
-                <a href="Enhancers.html">
+                <a href="../advanced/Enhancers.html">
             
                     
                     3.5. Enhancers
@@ -368,9 +368,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../guides/UsageWithReact.html">
+        <li class="chapter " data-level="1.5.1" data-path="UsageWithReact.html">
             
-                <a href="../guides/UsageWithReact.html">
+                <a href="UsageWithReact.html">
             
                     
                     4.1. Usage with React
@@ -381,9 +381,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithInferno.html">
+        <li class="chapter active" data-level="1.5.2" data-path="UsageWithInferno.html">
             
-                <a href="../guides/UsageWithInferno.html">
+                <a href="UsageWithInferno.html">
             
                     
                     4.2. Usage with Inferno
@@ -394,9 +394,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../guides/RendererConfiguration.html">
+        <li class="chapter " data-level="1.5.3" data-path="RendererConfiguration.html">
             
-                <a href="../guides/RendererConfiguration.html">
+                <a href="RendererConfiguration.html">
             
                     
                     4.3. Renderer Configuration
@@ -407,9 +407,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../guides/ServerRendering.html">
+        <li class="chapter " data-level="1.5.4" data-path="ServerRendering.html">
             
-                <a href="../guides/ServerRendering.html">
+                <a href="ServerRendering.html">
             
                     
                     4.4. Server Rendering
@@ -591,7 +591,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >3.5. Enhancers</a>
+        <a href="../.." >4.2. Usage with Inferno</a>
     </h1>
 </div>
 
@@ -606,8 +606,26 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="enhancers">Enhancers</h1>
-<p>Coming soon.</p>
+                                <h1 id="usage-with-inferno">Usage with Inferno</h1>
+<p>Inferno is a modern React-like UI library which ships an almost identical API, but claims to be much faster.
+Due to the fact it is really similar to React&apos;s API, the <a href="https://github.com/rofrischmann/inferno-fela" _target="blank">Inferno bindings for Fela</a> are basically the same as the <a href="https://github.com/rofrischmann/react-fela" _target="blank">React bindings for Fela</a>.</p>
+<pre><code class="lang-sh">npm i --save inferno-fela
+</code></pre>
+<p>Instead of providing duplicate documentation, we therefore want you to check out the <a href="UsageWithReact.html">Usage with React</a> instead. Just &quot;replace&quot; React with Inferno and you should be fine. There are only some differences which we are listing below.</p>
+<h3 id="separate-packages">Separate packages</h3>
+<p>Instead of providing the whole isomorphic API as a single package (like React does), Inferno has separate packages.</p>
+<h5 id="component"><code>Component</code></h5>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Component <span class="token punctuation">}</span> from <span class="token string">&apos;react&apos;</span>
+<span class="token keyword">import</span> Component from <span class="token string">&apos;inferno-component&apos;</span>
+</code></pre>
+<h5 id="createelement"><code>createElement</code></h5>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createElement <span class="token punctuation">}</span> from <span class="token string">&apos;react&apos;</span>
+<span class="token keyword">import</span> createElement from <span class="token string">&apos;inferno-create-element&apos;</span>
+</code></pre>
+<h5 id="rendertostring"><code>renderToString</code></h5>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> from <span class="token string">&apos;react-dom/server&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> from <span class="token string">&apos;inferno-server&apos;</span>
+</code></pre>
 
                                 
                                 </section>
@@ -635,12 +653,12 @@
 
             
                 
-                <a href="CombinedRules.html" class="navigation navigation-prev " aria-label="Previous page: 3.4. Combined Rules">
+                <a href="UsageWithReact.html" class="navigation navigation-prev " aria-label="Previous page: 4.1. Usage with React">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="../UsageGuides.html" class="navigation navigation-next " aria-label="Next page: 4. Usage Guides">
+                <a href="RendererConfiguration.html" class="navigation navigation-next " aria-label="Next page: 4.3. Renderer Configuration">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -651,7 +669,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.5. Enhancers","level":"1.4.5","depth":2,"next":{"title":"4. Usage Guides","level":"1.5","depth":1,"path":"docs/UsageGuides.md","ref":"docs/UsageGuides.md","articles":[{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},{"title":"4.2. Usage with Inferno","level":"1.5.2","depth":2,"path":"docs/guides/UsageWithInferno.md","ref":"docs/guides/UsageWithInferno.md","articles":[]},{"title":"4.3. Renderer Configuration","level":"1.5.3","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},{"title":"4.4. Server Rendering","level":"1.5.4","depth":2,"path":"docs/guides/ServerRendering.md","ref":"docs/guides/ServerRendering.md","articles":[]}]},"previous":{"title":"3.4. Combined Rules","level":"1.4.4","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Enhancers.md","mtime":"2016-07-09T09:35:40.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2. Usage with Inferno","level":"1.5.2","depth":2,"next":{"title":"4.3. Renderer Configuration","level":"1.5.3","depth":2,"path":"docs/guides/RendererConfiguration.md","ref":"docs/guides/RendererConfiguration.md","articles":[]},"previous":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithInferno.md","mtime":"2016-07-12T18:54:42.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

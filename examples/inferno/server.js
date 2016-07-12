@@ -1,8 +1,8 @@
 import express from 'express'
 import proxy from 'express-http-proxy'
-import React from 'react'
-import { renderToString } from 'react-dom/server'
-import { Provider } from 'react-fela'
+import Inferno from 'inferno'
+import { renderToString } from 'inferno-server'
+import { Provider } from 'inferno-fela'
 import fs from 'fs'
 
 import App from './app.js'

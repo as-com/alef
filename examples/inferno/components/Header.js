@@ -1,5 +1,6 @@
-import React from 'react'
-import { connect } from 'react-fela'
+import Inferno from 'inferno'
+import Component from 'inferno-component'
+import { connect } from 'inferno-fela'
 
 const Header = ({ title, styles }) => (
   <div className={styles}>

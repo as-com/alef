@@ -381,12 +381,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../guides/RendererConfiguration.html">
+        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithInferno.html">
             
-                <a href="../guides/RendererConfiguration.html">
+                <a href="../guides/UsageWithInferno.html">
             
                     
-                    4.2. Renderer Configuration
+                    4.2. Usage with Inferno
             
                 </a>
             
@@ -394,12 +394,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../guides/ServerRendering.html">
+        <li class="chapter " data-level="1.5.3" data-path="../guides/RendererConfiguration.html">
+            
+                <a href="../guides/RendererConfiguration.html">
+            
+                    
+                    4.3. Renderer Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="../guides/ServerRendering.html">
             
                 <a href="../guides/ServerRendering.html">
             
                     
-                    4.3. Server Rendering
+                    4.4. Server Rendering
             
                 </a>
             
@@ -625,12 +638,26 @@ npm run client
 <ul>
 <li>Rules</li>
 <li>Keyframes</li>
+<li>Fonts</li>
 <li>Static Styles</li>
 <li>React Bindings</li>
 <li>Dynamic Rules</li>
 <li>Plugins</li>
 <li>Server-side Rendering</li>
 </ul>
+<h2 id="inferno">Inferno</h2>
+<p>A simple example application using the <a href="https://github.com/rofrischmann/inferno-fela" _target="blank">Inferno bindings</a>.
+It is basically the same examples as the React example and therefore also covers the same topics.<br>
+Sadly some features are not yet perfectly working with Inferno which we believe have to do with the <a href="https://github.com/trueadm/babel-plugin-inferno" _target="blank"><code>babel-plugin-inferno</code></a>. Manually testing all features without JSX was working greatly.</p>
+<pre><code class="lang-sh">git clone https://github.com/rofrischmann/fela.git
+
+cd fela/examples/inferno
+# starts the universal rendered application at localhost:8080
+npm start
+
+# starts the client-side application at localhost:8080
+npm run client
+</code></pre>
 
                                 
                                 </section>
@@ -674,7 +701,7 @@ npm run client
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.6. Examples","level":"1.2.6","depth":2,"next":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"previous":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Examples.md","mtime":"2016-07-04T15:53:13.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-08T20:41:12.966Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.6. Examples","level":"1.2.6","depth":2,"next":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"previous":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Examples.md","mtime":"2016-07-12T18:56:47.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

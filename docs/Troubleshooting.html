@@ -381,12 +381,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="guides/RendererConfiguration.html">
+        <li class="chapter " data-level="1.5.2" data-path="guides/UsageWithInferno.html">
             
-                <a href="guides/RendererConfiguration.html">
+                <a href="guides/UsageWithInferno.html">
             
                     
-                    4.2. Renderer Configuration
+                    4.2. Usage with Inferno
             
                 </a>
             
@@ -394,12 +394,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="guides/ServerRendering.html">
+        <li class="chapter " data-level="1.5.3" data-path="guides/RendererConfiguration.html">
+            
+                <a href="guides/RendererConfiguration.html">
+            
+                    
+                    4.3. Renderer Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.4" data-path="guides/ServerRendering.html">
             
                 <a href="guides/ServerRendering.html">
             
                     
-                    4.3. Server Rendering
+                    4.4. Server Rendering
             
                 </a>
             
@@ -597,9 +610,9 @@
 <h2 id="1-rendering-fonts">1. Rendering Fonts</h2>
 <p>Rendering custom <code>@font-face</code> rules into the same <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span><span class="token punctuation">&gt;</span></span></code> element used for any other styles can lead to some kind of FOUC as the fonts will be refetched and reloaded each time the renderer updates. This causes all elements to lose the font for a fraction of a second. Especially for DOM heavy or huge applications this can be in fact a visible issue and confuse the user.</p>
 <h3 id="solution">Solution</h3>
-<p>We have built an experimental enhancer which allocates each <code>renderFont</code> call to another Renderer instance. Check <a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-font-renderer" _target="blank">fela-font-renderer</a>.</p>
+<p>We have built an experimental enhancer which allocates each <code>renderFont</code> call to another Renderer instance. Check <a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-font-renderer" _target="blank">fela-font-renderer</a>. This still is not an optimal solution. You might also want to try out one of the other workarounds.</p>
 <h4 id="workaround-1-manually-add-fonts">Workaround 1: Manually add fonts</h4>
-<p>The most easy and straightforward workaround is to just not use Fela to render styles. One could simply add the fonts to the <code>document</code>&apos;s <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span></code>.</p>
+<p>The most easy and straightforward workaround is to just not use Fela to render fonts. One could simply add the fonts to the <code>document</code>&apos;s <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span></code>.</p>
 <h4 id="workaround-2-use-another-renderer">Workaround 2: Use another renderer</h4>
 <p>Another way would be to use a second Fela renderer which only renders fonts. This is a good solution as long as we can add all fonts directly. But as we can often only use a single renderer (e.g. passing the renderer to react-fela&apos;s <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span><span class="token punctuation">&gt;</span></span></code>) this will not work for dynamic font rendering.</p>
 
@@ -645,7 +658,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6. Troubleshooting","level":"1.7","depth":1,"next":{"title":"7. FAQ","level":"1.8","depth":1,"path":"docs/FAQ.md","ref":"docs/FAQ.md","articles":[]},"previous":{"title":"5.5. enhance","level":"1.6.5","depth":2,"path":"docs/api/enhance.md","ref":"docs/api/enhance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/Troubleshooting.md","mtime":"2016-07-08T14:25:00.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-08T20:41:12.966Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6. Troubleshooting","level":"1.7","depth":1,"next":{"title":"7. FAQ","level":"1.8","depth":1,"path":"docs/FAQ.md","ref":"docs/FAQ.md","articles":[]},"previous":{"title":"5.5. enhance","level":"1.6.5","depth":2,"path":"docs/api/enhance.md","ref":"docs/api/enhance.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/Troubleshooting.md","mtime":"2016-07-09T17:49:20.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>
