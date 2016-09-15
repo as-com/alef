@@ -1,4 +1,5 @@
 import createRenderer from '../modules/createRenderer'
+import generatePropsReference from '../modules/utils/generatePropsReference'
 
 describe('Renderer', () => {
   describe('Instantiating a new Renderer', () => {
@@ -172,6 +173,34 @@ describe('Renderer', () => {
       expect(renderer.rules).to.eql('.c0:hover{color:blue}.c0{color:red}')
     })
 
+    it('should render attribute selectors', () => {
+      const rule = props => ({
+        color: 'red',
+        '[bool=true]': {
+          color: 'blue'
+        }
+      })
+      const renderer = createRenderer()
+
+      const className = renderer.renderRule(rule)
+
+      expect(renderer.rules).to.eql('.c0[bool=true]{color:blue}.c0{color:red}')
+    })
+
+    it('should render child selectors', () => {
+      const rule = props => ({
+        color: 'red',
+        '> h1': {
+          color: 'blue'
+        }
+      })
+      const renderer = createRenderer()
+
+      const className = renderer.renderRule(rule)
+
+      expect(renderer.rules).to.eql('.c0> h1{color:blue}.c0{color:red}')
+    })
+
     it('should render media queries', () => {
       const rule = props => ({
         color: 'red',
@@ -280,12 +309,16 @@ describe('Renderer', () => {
   describe('Rendering Fonts', () => {
     it('should cache the font-face', () => {
       const renderer = createRenderer()
+      const family = 'Arial'
+      const properties = { fontWeight: 300 }
 
-      const family = renderer.renderFont('Arial', [ '../fonts/Arial.ttf', '../fonts/Arial.woff' ], {
-        fontWeight: 300
-      })
+      renderer.renderFont(family, [
+        '../fonts/Arial.ttf',
+        '../fonts/Arial.woff'
+      ], properties)
 
-      expect(renderer.rendered.hasOwnProperty(family)).to.eql(true)
+      const key = family + generatePropsReference(properties)
+      expect(renderer.rendered.hasOwnProperty(key)).to.eql(true)
     })
 
     it('should return the font family', () => {
@@ -296,31 +329,6 @@ describe('Renderer', () => {
       })
 
       expect(family).to.eql('Arial')
-    })
-  })
-
-
-  describe('Generating the props reference', () => {
-    it('should always return the same className with the same props', () => {
-      const renderer = createRenderer()
-
-      const className1 = renderer._generatePropsReference('foobar')
-      const className2 = renderer._generatePropsReference('foobar')
-      expect(className1).to.eql(className2)
-    })
-
-    it('should sort props before', () => {
-      const renderer = createRenderer()
-
-      const className1 = renderer._generatePropsReference({
-        foo: 'bar',
-        fontSize: 12
-      })
-      const className2 = renderer._generatePropsReference({
-        fontSize: 12,
-        foo: 'bar'
-      })
-      expect(className1).to.eql(className2)
     })
   })
 
@@ -351,150 +359,6 @@ describe('Renderer', () => {
 
       expect(unsubscriber.unsubscribe).to.be.a.function
       expect(renderer.listeners.length).to.eql(0)
-    })
-  })
-
-
-  describe('Processing style', () => {
-    it('should process style using data provided via the plugin interface', () => {
-
-      const plugin = style => ({
-        ...style,
-        foo: 'bar'
-      })
-
-      const renderer = createRenderer({ plugins: [ plugin ] })
-
-      expect(renderer._processStyle({ width: 20 })).to.eql({
-        width: 20,
-        foo: 'bar'
-      })
-    })
-
-    it('should pass meta data', () => {
-      const plugin = (style, meta) => ({
-        ...style,
-        foo: meta.type
-      })
-
-      const renderer = createRenderer({ plugins: [ plugin ] })
-      renderer.renderRule(() => ({ width: 20 }))
-
-      expect(renderer.rules).to.eql('.c0{width:20;foo:rule}')
-    })
-  })
-
-  describe('Diffing style objects', () => {
-    it('should only return new/dynamic values', () => {
-
-      const base = { color: 'blue', fontSize: '12px' }
-
-      const style = {
-        color: 'blue',
-        fontSize: '12px',
-        lineHeight: 1.2
-      }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        lineHeight: 1.2
-      })
-    })
-
-    it('should return modified values', () => {
-
-      const base = { color: 'blue', fontSize: '12px' }
-      const style = { color: 'red', fontSize: '12px' }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        color: 'red'
-      })
-    })
-
-    it('should ignore additional base properties', () => {
-
-      const base = {
-        color: 'blue',
-        fontSize: '12px',
-        lineHeight: 1.2
-      }
-      const style = { color: 'red', fontSize: '12px' }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        color: 'red'
-      })
-    })
-
-    it('should also diff nested objects', () => {
-      const base = {
-        color: 'blue',
-        fontSize: '12px',
-        ':hover': {
-          color: 'red',
-          lineHeight: 1.2
-        }
-      }
-      const style = {
-        color: 'red',
-        fontSize: '12px',
-        ':hover': {
-          color: 'red',
-          fontSize: '12px',
-          lineHeight: 1.5
-        }
-      }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        color: 'red',
-        ':hover': {
-          fontSize: '12px',
-          lineHeight: 1.5
-        }
-      })
-    })
-
-    it('should remove empty nested objects', () => {
-
-      const base = {
-        color: 'blue',
-        fontSize: '12px',
-        ':hover': {
-          color: 'red',
-          lineHeight: 1.2
-        }
-      }
-      const style = {
-        color: 'red',
-        fontSize: '12px',
-        ':hover': {
-          color: 'red',
-          lineHeight: 1.2
-        }
-      }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        color: 'red'
-      })
-    })
-
-    it('should remove undefined values', () => {
-      const base = { color: 'blue', fontSize: '12px' }
-
-      const style = {
-        color: 'red',
-        fontSize: '12px',
-        lineHeight: undefined,
-        animation: 'undefined 2s infinite'
-      }
-
-      const renderer = createRenderer()
-      expect(renderer._diffStyle(style, base)).to.eql({
-        color: 'red'
-      })
     })
   })
 })

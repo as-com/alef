@@ -1,6 +1,9 @@
-import generateContentHash from './utils/generateContentHash'
+import generatePropsReference from './utils/generatePropsReference'
 import sortedStringify from './utils/sortedStringify'
 import getFontFormat from './utils/getFontFormat'
+
+import processStyle from './utils/processStyle'
+import diffStyle from './utils/diffStyle'
 
 import cssifyKeyframe from './utils/cssifyKeyframe'
 import cssifyObject from './utils/cssifyObject'
@@ -50,23 +53,27 @@ export default function createRenderer(config = { }) {
 
       // uses the reference ID and the props to generate an unique className
       const ruleId = renderer.ids.indexOf(rule)
-      const className = 'c' + ruleId + renderer._generatePropsReference(props)
+      const className = 'c' + ruleId + generatePropsReference(props)
 
       // only if the cached rule has not already been rendered
       // with a specific set of properties it actually renders
       if (!renderer.rendered.hasOwnProperty(className)) {
-        const diffedStyle = renderer._diffStyle(rule(props), renderer.base[ruleId])
+        const resolvedStyle = renderer._resolveStyle(rule, props)
+
+        // process style using each plugin
+        const style = processStyle(resolvedStyle, {
+          type: 'rule',
+          className: className,
+          id: ruleId,
+          props: props,
+          rule: rule
+        }, renderer.plugins)
+
+        // diff style objects with base styles
+        const diffedStyle = diffStyle(style, renderer.base[ruleId])
 
         if (Object.keys(diffedStyle).length > 0) {
-          const style = renderer._processStyle(diffedStyle, {
-            type: 'rule',
-            className: className,
-            id: ruleId,
-            props: props,
-            rule: rule
-          })
-
-          renderer._renderStyle(className, style)
+          renderer._renderStyle(className, diffedStyle)
 
           renderer.rendered[className] = renderer._didChange
 
@@ -80,7 +87,7 @@ export default function createRenderer(config = { }) {
 
         // keep static style to diff dynamic onces later on
         if (className === 'c' + ruleId) {
-          renderer.base[ruleId] = rule(props)
+          renderer.base[ruleId] = diffedStyle
         }
       }
 
@@ -107,19 +114,20 @@ export default function createRenderer(config = { }) {
         renderer.ids.push(keyframe)
       }
 
-      const propsReference = renderer._generatePropsReference(props)
+      const propsReference = generatePropsReference(props)
       const animationName = 'k' + renderer.ids.indexOf(keyframe) + propsReference
 
       // only if the cached keyframe has not already been rendered
       // with a specific set of properties it actually renders
       if (!renderer.rendered.hasOwnProperty(animationName)) {
-        const processedKeyframe = renderer._processStyle(keyframe(props), {
+        const processedKeyframe = processStyle(renderer._resolveStyle(keyframe, props), {
           type: 'keyframe',
           keyframe: keyframe,
           props: props,
           animationName: animationName,
           id: renderer.ids.indexOf(keyframe)
-        })
+        }, renderer.plugins)
+
         const css = cssifyKeyframe(processedKeyframe, animationName, renderer.keyframePrefixes)
         renderer.rendered[animationName] = true
         renderer.keyframes += css
@@ -136,7 +144,9 @@ export default function createRenderer(config = { }) {
      * @return {string} fontFamily reference
      */
     renderFont(family, files, properties = { }) {
-      if (!renderer.rendered.hasOwnProperty(family)) {
+      const key = family + generatePropsReference(properties)
+
+      if (!renderer.rendered.hasOwnProperty(key)) {
         const fontFace = {
           fontFamily: '\'' + family + '\'',
           src: files.map(src => 'url(\'' + src + '\') format(\'' + getFontFormat(src) + '\')').join(',')
@@ -146,7 +156,7 @@ export default function createRenderer(config = { }) {
         Object.keys(properties).filter(prop => fontProperties.indexOf(prop) > -1).forEach(fontProp => fontFace[fontProp] = properties[fontProp])
 
         const css = '@font-face{' + cssifyObject(fontFace) + '}'
-        renderer.rendered[family] = true
+        renderer.rendered[key] = true
         renderer.fontFaces += css
         renderer._emitChange()
       }
@@ -169,10 +179,10 @@ export default function createRenderer(config = { }) {
           // remove new lines from template strings
           renderer.statics += style.replace(/\s{2,}/g, '')
         } else {
-          const processedStyle = renderer._processStyle(style, {
+          const processedStyle = processStyle(style, {
             selector: selector,
             type: 'static'
-          })
+          }, renderer.plugins)
           renderer.statics += selector + '{' + cssifyObject(processedStyle) + '}'
         }
 
@@ -211,6 +221,17 @@ export default function createRenderer(config = { }) {
     },
 
     /**
+     * Encapsulated style resolving method
+     *
+     * @param {Function} style - rule or keyframe to be resolved
+     * @param {Object} props - props used to resolve style
+     * @return {Object} resolved style
+     */
+    _resolveStyle(style, props) {
+      return style(props)
+    },
+
+    /**
      * calls each listener with the current CSS markup of all caches
      * gets only called if the markup actually changes
      *
@@ -220,58 +241,6 @@ export default function createRenderer(config = { }) {
     _emitChange() {
       const css = renderer.renderToString()
       renderer.listeners.forEach(listener => listener(css))
-    },
-
-    /**
-     * generates an unique reference id by content hashing props
-     *
-     * @param {Object} props - props that get hashed
-     * @return {string} reference - unique props reference
-     */
-    _generatePropsReference(props) {
-      return generateContentHash(sortedStringify(props))
-    },
-
-    /**
-     * pipes a style object through a list of plugins
-     *
-     * @param {Object} style - style object to process
-     * @param {Object} meta - additional meta data
-     * @return {Object} processed style
-     */
-    _processStyle(style, meta) {
-      return renderer.plugins.reduce((processedStyle, plugin) => plugin(processedStyle, meta), style)
-    },
-
-
-    /**
-     * diffs a style object against a base style object
-     *
-     * @param {Object} style - style object which is diffed
-     * @param {Object?} base - base style object
-     */
-    _diffStyle(style, base = { }) {
-      return Object.keys(style).reduce((diff, property) => {
-        const value = style[property]
-        // recursive object iteration in order to render
-        // pseudo class and media class declarations
-        if (value instanceof Object && !Array.isArray(value)) {
-          const nestedDiff = this._diffStyle(value, base[property])
-          if (Object.keys(nestedDiff).length > 0) {
-            diff[property] = nestedDiff
-          }
-        } else {
-          // diff styles with the base styles to only extract dynamic styles
-          if (value !== undefined && !base.hasOwnProperty(property) || base[property] !== value) {
-            // remove concatenated string values including `undefined`
-            if (typeof value === 'string' && value.indexOf('undefined') > -1) {
-              return diff
-            }
-            diff[property] = value
-          }
-        }
-        return diff
-      }, { })
     },
 
     /**
@@ -286,7 +255,8 @@ export default function createRenderer(config = { }) {
         // recursive object iteration in order to render
         // pseudo class and media class declarations
         if (value instanceof Object && !Array.isArray(value)) {
-          if (property.charAt(0) === ':') {
+          // allow pseudo classes, attribute selectors and the child selector
+          if (property.charAt(0) === ':' || property.charAt(0) === '[' || property.charAt(0) === '>') {
             renderer._renderStyle(className, value, pseudo + property, media)
           } else if (property.substr(0, 6) === '@media') {
             // combine media query rules with an `and`

@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>3.2. Plugins · Fela</title>
+        <title>3.3. Plugins · Fela</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -18,6 +18,10 @@
             
                 
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-prism/prism.css">
+                
+            
+                
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
                 
             
                 
@@ -57,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="StaticStyle.html" />
+    <link rel="next" href="RendererConfiguration.html" />
     
     
-    <link rel="prev" href="DOMRendering.html" />
+    <link rel="prev" href="ServerRendering.html" />
     
 
     </head>
@@ -297,12 +301,25 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.4.2" data-path="Plugins.html">
+        <li class="chapter " data-level="1.4.2" data-path="ServerRendering.html">
+            
+                <a href="ServerRendering.html">
+            
+                    
+                    3.2. Server Rendering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter active" data-level="1.4.3" data-path="Plugins.html">
             
                 <a href="Plugins.html">
             
                     
-                    3.2. Plugins
+                    3.3. Plugins
             
                 </a>
             
@@ -310,12 +327,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="StaticStyle.html">
+        <li class="chapter " data-level="1.4.4" data-path="RendererConfiguration.html">
+            
+                <a href="RendererConfiguration.html">
+            
+                    
+                    3.4. Renderer Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="StaticStyle.html">
             
                 <a href="StaticStyle.html">
             
                     
-                    3.3. Global & Third-Party Styles
+                    3.5. Global & Third-Party Styles
             
                 </a>
             
@@ -323,12 +353,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="CombinedRules.html">
+        <li class="chapter " data-level="1.4.6" data-path="CombinedRules.html">
             
                 <a href="CombinedRules.html">
             
                     
-                    3.4. Combined Rules
+                    3.6. Combined Rules
             
                 </a>
             
@@ -336,12 +366,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="Enhancers.html">
+        <li class="chapter " data-level="1.4.7" data-path="Enhancers.html">
             
                 <a href="Enhancers.html">
             
                     
-                    3.5. Enhancers
+                    3.7. Enhancers
             
                 </a>
             
@@ -381,38 +411,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithInferno.html">
+        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithAngular2.html">
+            
+                <a href="../guides/UsageWithAngular2.html">
+            
+                    
+                    4.2. Usage with Angular 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../guides/UsageWithInferno.html">
             
                 <a href="../guides/UsageWithInferno.html">
             
                     
-                    4.2. Usage with Inferno
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../guides/RendererConfiguration.html">
-            
-                <a href="../guides/RendererConfiguration.html">
-            
-                    
-                    4.3. Renderer Configuration
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../guides/ServerRendering.html">
-            
-                <a href="../guides/ServerRendering.html">
-            
-                    
-                    4.4. Server Rendering
+                    4.3. Usage with Inferno
             
                 </a>
             
@@ -591,7 +608,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >3.2. Plugins</a>
+        <a href="../.." >3.3. Plugins</a>
     </h1>
 </div>
 
@@ -616,7 +633,7 @@ Before the resolved style object gets cached and transformed to CSS, it is piped
 <p>Your style objects get piped from left to right. Always remember that the plugin order sometimes matters as some plugins might depend on each other.</p>
 <h2 id="using-plugins">Using Plugins</h2>
 <p>To use plugins we need to add them to the renderer configuration directly. You can do this by passing a configuration object with the <code>plugins</code> key while creating your renderer.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
   <span class="token comment" spellcheck="true">// It must be an array to be able</span>
@@ -629,8 +646,8 @@ Before the resolved style object gets cached and transformed to CSS, it is piped
 <h3 id="example">Example</h3>
 <p>Lets say we want to automatically add vendor prefixes to all of our style objects. Luckily there is already a package called <a href="https://github.com/rofrischmann/inline-style-prefixer" _target="blank">inline-style-prefixer</a> which does exactly that.
 It turns out, to create the plugin we just need to create a function that takes our current styles and returns the prefixed styles. That&apos;s it.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> prefixAll from <span class="token string">&apos;inline-style-prefixer/static&apos;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> prefixAll <span class="token keyword">from</span> <span class="token string">&apos;inline-style-prefixer/static&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> prefixerPlugin <span class="token operator">=</span> styleObject <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token function">prefixAll</span><span class="token punctuation">(</span>styleObject<span class="token punctuation">)</span>
 
@@ -644,8 +661,8 @@ It turns out, to create the plugin we just need to create a function that takes 
 <p>Some advanced plugins might even have some options to configure it. The recommended way to do this is by wrapping the plugin itself in another function accepting those options.</p>
 <h3 id="example">Example</h3>
 <p>For example if we do not want to use the static <code>inline-style-prefixer/static</code>, but rather the more advanced dynamic version, we need to pass at least the <code>userAgent</code>.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> Prefixer from <span class="token string">&apos;inline-style-prefixer&apos;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> from <span class="token string">&apos;fela&apos;</span>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> Prefixer <span class="token keyword">from</span> <span class="token string">&apos;inline-style-prefixer&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> prefixerPlugin <span class="token operator">=</span> userAgent <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
   <span class="token keyword">const</span> prefixer <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Prefixer</span><span class="token punctuation">(</span><span class="token punctuation">{</span> userAgent <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -690,12 +707,12 @@ It turns out, to create the plugin we just need to create a function that takes 
 
             
                 
-                <a href="DOMRendering.html" class="navigation navigation-prev " aria-label="Previous page: 3.1. DOM Rendering">
+                <a href="ServerRendering.html" class="navigation navigation-prev " aria-label="Previous page: 3.2. Server Rendering">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="StaticStyle.html" class="navigation navigation-next " aria-label="Next page: 3.3. Global & Third-Party Styles">
+                <a href="RendererConfiguration.html" class="navigation navigation-next " aria-label="Next page: 3.4. Renderer Configuration">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -706,7 +723,7 @@ It turns out, to create the plugin we just need to create a function that takes 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2. Plugins","level":"1.4.2","depth":2,"next":{"title":"3.3. Global & Third-Party Styles","level":"1.4.3","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2016-07-09T09:35:40.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"next":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},"previous":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2016-07-12T19:01:27.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-15T08:49:28.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -27,18 +27,23 @@
 
   babelHelpers;
 
+  var regex = new RegExp('^on([A-Z])');
+
   function friendlyPseudoClass(style) {
     Object.keys(style).forEach(function (property) {
       var value = style[property];
       if (value instanceof Object && !Array.isArray(value)) {
-        var regex = new RegExp('^on([A-Z])');
+        var resolvedValue = friendlyPseudoClass(value);
+
         if (regex.test(property)) {
           var pseudo = property.replace(regex, function (match, p1) {
             return ':' + p1.toLowerCase();
           });
 
-          style[pseudo] = friendlyPseudoClass(value);
+          style[pseudo] = resolvedValue;
           delete style[property];
+        } else {
+          style[property] = resolvedValue;
         }
       }
     });

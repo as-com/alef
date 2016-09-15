@@ -21,6 +21,10 @@
                 
             
                 
+                <link rel="stylesheet" href="../../gitbook/gitbook-plugin-advanced-emoji/emoji-website.css">
+                
+            
+                
                 <link rel="stylesheet" href="../../gitbook/gitbook-plugin-search/search.css">
                 
             
@@ -297,12 +301,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.2" data-path="../advanced/Plugins.html">
+        <li class="chapter " data-level="1.4.2" data-path="../advanced/ServerRendering.html">
+            
+                <a href="../advanced/ServerRendering.html">
+            
+                    
+                    3.2. Server Rendering
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.3" data-path="../advanced/Plugins.html">
             
                 <a href="../advanced/Plugins.html">
             
                     
-                    3.2. Plugins
+                    3.3. Plugins
             
                 </a>
             
@@ -310,12 +327,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.3" data-path="../advanced/StaticStyle.html">
+        <li class="chapter " data-level="1.4.4" data-path="../advanced/RendererConfiguration.html">
+            
+                <a href="../advanced/RendererConfiguration.html">
+            
+                    
+                    3.4. Renderer Configuration
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.4.5" data-path="../advanced/StaticStyle.html">
             
                 <a href="../advanced/StaticStyle.html">
             
                     
-                    3.3. Global & Third-Party Styles
+                    3.5. Global & Third-Party Styles
             
                 </a>
             
@@ -323,12 +353,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.4" data-path="../advanced/CombinedRules.html">
+        <li class="chapter " data-level="1.4.6" data-path="../advanced/CombinedRules.html">
             
                 <a href="../advanced/CombinedRules.html">
             
                     
-                    3.4. Combined Rules
+                    3.6. Combined Rules
             
                 </a>
             
@@ -336,12 +366,12 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.5" data-path="../advanced/Enhancers.html">
+        <li class="chapter " data-level="1.4.7" data-path="../advanced/Enhancers.html">
             
                 <a href="../advanced/Enhancers.html">
             
                     
-                    3.5. Enhancers
+                    3.7. Enhancers
             
                 </a>
             
@@ -381,38 +411,25 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithInferno.html">
+        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithAngular2.html">
+            
+                <a href="../guides/UsageWithAngular2.html">
+            
+                    
+                    4.2. Usage with Angular 2
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.5.3" data-path="../guides/UsageWithInferno.html">
             
                 <a href="../guides/UsageWithInferno.html">
             
                     
-                    4.2. Usage with Inferno
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.3" data-path="../guides/RendererConfiguration.html">
-            
-                <a href="../guides/RendererConfiguration.html">
-            
-                    
-                    4.3. Renderer Configuration
-            
-                </a>
-            
-
-            
-        </li>
-    
-        <li class="chapter " data-level="1.5.4" data-path="../guides/ServerRendering.html">
-            
-                <a href="../guides/ServerRendering.html">
-            
-                    
-                    4.4. Server Rendering
+                    4.3. Usage with Inferno
             
                 </a>
             
@@ -668,6 +685,61 @@ Properties should be written in camel-case.</p>
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
+<h4 id="4-attribute-selectors">4. Attribute Selectors</h4>
+<p>To be able to style elements according to their attributes, Fela introduces a special syntax for nested attribute selectors. It allows dynamic styles depending on passed attributes which adds another level of precise element selection.</p>
+<p>The API reflects the original <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Attribute_selectors" _target="blank">CSS attribute selectors</a> and therefore allows the following operators:</p>
+<ul>
+<li><code>=</code>: attributes <strong>equal</strong> to a value</li>
+<li><code>~=</code>: attributes <strong>containing</strong> a value</li>
+<li><code>^=</code>: attributes <strong>beginning</strong> with a value</li>
+<li><code>|=</code>: attributes <strong>starting</strong> with a value (whole word)</li>
+<li><code>$=</code>: attributes <strong>ending</strong> with a value</li>
+</ul>
+<p>Only passing the attributes checks if the attribute is present at all.</p>
+<blockquote>
+<p><strong>Note</strong>: Use attribute selectors with caution as they add complexity to your styling and have higher specificity as other selectors.</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">,</span>
+  <span class="token string">&apos;[checked=&quot;true&quot;]&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    color<span class="token punctuation">:</span> <span class="token string">&apos;yellow&apos;</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// they can be nested to achieve e.g.</span>
+    <span class="token comment" spellcheck="true">// [checked=&quot;true&quot;][traget]</span>
+    <span class="token string">&apos;[target]&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      color<span class="token punctuation">:</span> <span class="token string">&apos;purple&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">&apos;[data-name^=&quot;A&quot;]&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    color<span class="token punctuation">:</span> <span class="token string">&apos;black&apos;</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<h4 id="5-child-selector">5. Child Selector</h4>
+<p>Fela also supports a special syntax for child element styling know as <a href="https://developer.mozilla.org/es/docs/Web/CSS/Child_selectors" _target="blank">child selectors</a> in CSS.
+They should only be used for third-party class manipulation or semantic problems e.g. <em>parent component which defines how child components are ordered depending on some state.</em></p>
+<blockquote>
+<p><strong>Note</strong>: Use child selectors with caution as they add complexity to your styling and have higher specificity as other selectors.</p>
+</blockquote>
+<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">,</span>
+  <span class="token string">&apos;&gt; h1&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    color<span class="token punctuation">:</span> <span class="token string">&apos;blue&apos;</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// they can contain nested objects e.g.</span>
+    <span class="token comment" spellcheck="true">// &gt; h1:hover</span>
+    <span class="token string">&apos;:hover&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      color<span class="token punctuation">:</span> <span class="token string">&apos;black&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token string">&apos;&gt; #hardcoded&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+    color<span class="token punctuation">:</span> <span class="token string">&apos;yellow&apos;</span><span class="token punctuation">,</span>
+    <span class="token comment" spellcheck="true">// they can be nested to achieve e.g.</span>
+    <span class="token comment" spellcheck="true">// &gt; #hardcoded &gt; .third-party</span>
+    <span class="token string">&apos;.third-party&apos;</span><span class="token punctuation">:</span> <span class="token punctuation">{</span>
+      color<span class="token punctuation">:</span> <span class="token string">&apos;purple&apos;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
 <h2 id="tips--tricks">Tips &amp; Tricks</h2>
 <p>To write more advanced and/or simpler rules there are some helpful tips &amp; tricks you might want to know and use:</p>
 <ul>
@@ -744,7 +816,7 @@ Some values might only be applied, if a certain condition is fulfilled. Instead 
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.1. Rules","level":"1.3.1","depth":2,"next":{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},"previous":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/basics/Rules.md","mtime":"2016-07-09T09:35:40.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-07-12T19:00:24.781Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.1. Rules","level":"1.3.1","depth":2,"next":{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},"previous":{"title":"2. Basics","level":"1.3","depth":1,"path":"docs/Basics.md","ref":"docs/Basics.md","articles":[{"title":"2.1. Rules","level":"1.3.1","depth":2,"path":"docs/basics/Rules.md","ref":"docs/basics/Rules.md","articles":[]},{"title":"2.2. Keyframes","level":"1.3.2","depth":2,"path":"docs/basics/Keyframes.md","ref":"docs/basics/Keyframes.md","articles":[]},{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},{"title":"2.4. Renderer","level":"1.3.4","depth":2,"path":"docs/basics/Renderer.md","ref":"docs/basics/Renderer.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/basics/Rules.md","mtime":"2016-09-15T08:37:20.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-15T08:49:28.968Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
