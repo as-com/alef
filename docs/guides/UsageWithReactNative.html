@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>1.2. Principles · Fela</title>
+        <title>4.2. Usage with React Native · Fela</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Benefits.html" />
+    <link rel="next" href="UsageWithAngular2.html" />
     
     
-    <link rel="prev" href="Motivation.html" />
+    <link rel="prev" href="UsageWithReact.html" />
     
 
     </head>
@@ -120,9 +120,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.2.1" data-path="Motivation.html">
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
             
-                <a href="Motivation.html">
+                <a href="../introduction/Motivation.html">
             
                     
                     1.1. Motivation
@@ -133,9 +133,9 @@
             
         </li>
     
-        <li class="chapter active" data-level="1.2.2" data-path="Principles.html">
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/Principles.html">
             
-                <a href="Principles.html">
+                <a href="../introduction/Principles.html">
             
                     
                     1.2. Principles
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="Benefits.html">
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Benefits.html">
             
-                <a href="Benefits.html">
+                <a href="../introduction/Benefits.html">
             
                     
                     1.3. Benefits
@@ -159,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="Drawbacks.html">
+        <li class="chapter " data-level="1.2.4" data-path="../introduction/Drawbacks.html">
             
-                <a href="Drawbacks.html">
+                <a href="../introduction/Drawbacks.html">
             
                     
                     1.4. Drawbacks
@@ -172,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="Ecosystem.html">
+        <li class="chapter " data-level="1.2.5" data-path="../introduction/Ecosystem.html">
             
-                <a href="Ecosystem.html">
+                <a href="../introduction/Ecosystem.html">
             
                     
                     1.5. Ecosystem
@@ -185,9 +185,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="Examples.html">
+        <li class="chapter " data-level="1.2.6" data-path="../introduction/Examples.html">
             
-                <a href="Examples.html">
+                <a href="../introduction/Examples.html">
             
                     
                     1.6. Examples
@@ -398,9 +398,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.5.1" data-path="../guides/UsageWithReact.html">
+        <li class="chapter " data-level="1.5.1" data-path="UsageWithReact.html">
             
-                <a href="../guides/UsageWithReact.html">
+                <a href="UsageWithReact.html">
             
                     
                     4.1. Usage with React
@@ -411,9 +411,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.2" data-path="../guides/UsageWithReactNative.html">
+        <li class="chapter active" data-level="1.5.2" data-path="UsageWithReactNative.html">
             
-                <a href="../guides/UsageWithReactNative.html">
+                <a href="UsageWithReactNative.html">
             
                     
                     4.2. Usage with React Native
@@ -424,9 +424,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.3" data-path="../guides/UsageWithAngular2.html">
+        <li class="chapter " data-level="1.5.3" data-path="UsageWithAngular2.html">
             
-                <a href="../guides/UsageWithAngular2.html">
+                <a href="UsageWithAngular2.html">
             
                     
                     4.3. Usage with Angular 2
@@ -437,9 +437,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.5.4" data-path="../guides/UsageWithInferno.html">
+        <li class="chapter " data-level="1.5.4" data-path="UsageWithInferno.html">
             
-                <a href="../guides/UsageWithInferno.html">
+                <a href="UsageWithInferno.html">
             
                     
                     4.4. Usage with Inferno
@@ -621,7 +621,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >1.2. Principles</a>
+        <a href="../.." >4.2. Usage with React Native</a>
     </h1>
 </div>
 
@@ -636,28 +636,82 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="principles">Principles</h1>
-<h3 id="1-styles-are-pure-functions-of-your-application-state">1. Styles are pure functions of your application state</h3>
-<p>Modern UI libraries such as <a href="https://facebook.github.io/react/" _target="blank">React</a> provide neat APIs to implement the very basic concept of component-based views. <a href="https://github.com/leebyron" _target="blank">Lee Byron</a> used to describe components, during his <a href="https://vimeo.com/166790294" _target="blank">Render 2016</a> presentation, as the following:</p>
+                                <h1 id="usage-with-react-native">Usage with React Native</h1>
+<p>Fela is designed to be very modular and abstract. The renderer is the only platform specific component. With version 2.0.0 a new native renderer has been added which adds support for React Native. It can be used together with the existing  official <a href="https://github.com/rofrischmann/react-fela" _target="blank">React bindings for Fela</a>.</p>
+<pre><code class="lang-sh">npm i --save fela-native react-fela
+</code></pre>
+<p>Using Fela with React Native basically works the same as using with React itself. Therefore I really recommend using the <a href="https://medium.com/@dan_abramov/smart-and-dumb-components-7ca2f9a7c7d0#.67qfcbme5" _target="blank">presentational and container components</a> approach which is already described in <a href="UsageWithReact.html">Usage with React</a> section.</p>
+<h2 id="native-renderer">Native Renderer</h2>
+<p>As mentioned above, the only difference to Fela for Web is the renderer itself. It is directly imported from the <code>fela-native</code> package.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela-native&apos;</span>
+</code></pre>
 <blockquote>
-<p>&quot;The current state of things goes in and a representation of what you want on the screen comes out.&quot;</p>
+<p><strong>Note</strong>: Other APIs such as <code>combineRules</code> and <code>enhance</code> are still imported from <code>fela</code> directly. The <code>fela-native</code> package <strong>only</strong> ships the <code>createRenderer</code> method.</p>
 </blockquote>
-<pre><code class="lang-javascript"><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> view
+<p>We can use the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span><span class="token punctuation">&gt;</span></span></code> Component shipped with <code>react-fela</code> to pass the renderer via <code>context</code>.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> AppRegistry <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-native&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela-native&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-fela&apos;</span>
+<span class="token keyword">import</span> App <span class="token keyword">from</span> <span class="token string">&apos;./App&apos;</span>
+
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+
+<span class="token keyword">const</span> wrappedApp <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span>
+  <span class="token operator">&lt;</span>Provider renderer<span class="token operator">=</span><span class="token punctuation">{</span>renderer<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+    <span class="token operator">&lt;</span>App <span class="token operator">/</span><span class="token operator">&gt;</span>
+  <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">&gt;</span>
+<span class="token punctuation">)</span>
+
+AppRegistry<span class="token punctuation">.</span><span class="token function">registerComponent</span><span class="token punctuation">(</span><span class="token string">&apos;FelaNative&apos;</span><span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> wrappedApp<span class="token punctuation">)</span>
 </code></pre>
-<p>This simple concept allows us to compose multiple components into a complex and dynamic UI while always keeping what is displayed in sync with our application state.<br>
-Yet a component does not only describe <strong>which</strong> information is displayed, but also <strong>how</strong> it is displayed. In general we use CSS to style our components by creating static selectors that again define a fixed set of style declarations. This approach totally works fine as long as you have static a UI which only updates its displayed data, but does not suit dynamic a UI which alters its appearance depending on data it receives.<br>
-<strong>If the view is a function of state, your CSS should be too</strong>, as it is part of your view.</p>
-<pre><code class="lang-javascript"><span class="token punctuation">(</span>state<span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> style
-</code></pre>
-<p>Your styles are not just a static style declarations anymore. They can automatically adjust themselves to fit the displayed information at any point of time.<br>
-We call the relevant parts of the state properties, usually referred to as <strong>props</strong>.</p>
-<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
-  fontSize<span class="token punctuation">:</span> props<span class="token punctuation">.</span>size <span class="token operator">+</span> <span class="token string">&apos;px&apos;</span><span class="token punctuation">,</span>
-  color<span class="token punctuation">:</span> <span class="token string">&apos;blue&apos;</span><span class="token punctuation">,</span>
-  lineHeight<span class="token punctuation">:</span> props<span class="token punctuation">.</span>lineHeight<span class="token punctuation">,</span>
-  display<span class="token punctuation">:</span> <span class="token string">&apos;flex&apos;</span>
+<h2 id="rendering-styles">Rendering Styles</h2>
+<p>Only using the <code><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span><span class="token punctuation">&gt;</span></span></code> we actually got everything ready to fully use Fela within our presentational components. We can just use the renderer passed via <code>context</code>.</p>
+<pre><code class="lang-javascript"><span class="token keyword">import</span> React<span class="token punctuation">,</span> <span class="token punctuation">{</span> PropTypes <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
+<span class="token keyword">import</span> <span class="token punctuation">{</span> View <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-native&apos;</span>
+
+<span class="token keyword">const</span> container <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> props<span class="token punctuation">.</span>color<span class="token punctuation">,</span>
+  padding<span class="token punctuation">:</span> <span class="token number">20</span><span class="token punctuation">,</span>
+  height<span class="token punctuation">:</span> <span class="token number">200</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+
+<span class="token keyword">const</span> ColoredText <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> title<span class="token punctuation">,</span> size<span class="token punctuation">,</span> color <span class="token punctuation">}</span><span class="token punctuation">,</span> <span class="token punctuation">{</span> renderer <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">{</span>
+  <span class="token keyword">const</span> containerStyle <span class="token operator">=</span> renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>container<span class="token punctuation">,</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> color <span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+  <span class="token keyword">return</span> <span class="token punctuation">(</span>
+    <span class="token operator">&lt;</span>View style<span class="token operator">=</span><span class="token punctuation">{</span>containerStyle<span class="token punctuation">}</span><span class="token operator">&gt;</span>
+      I am <span class="token punctuation">{</span>props<span class="token punctuation">.</span>color<span class="token punctuation">}</span>
+    <span class="token operator">&lt;</span><span class="token operator">/</span>View<span class="token operator">&gt;</span>
+  <span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+
+ColoredText<span class="token punctuation">.</span>contextTypes <span class="token operator">=</span> <span class="token punctuation">{</span> renderer<span class="token punctuation">:</span> PropTypes<span class="token punctuation">.</span>object <span class="token punctuation">}</span>
+
+<span class="token comment" spellcheck="true">// Usage example</span>
+<span class="token operator">&lt;</span>ColoredText color<span class="token operator">=</span><span class="token string">&apos;red&apos;</span> <span class="token operator">/</span><span class="token operator">&gt;</span>
 </code></pre>
+<h2 id="advanced-usage">Advanced Usage</h2>
+<p>After passing the native renderer, we can use Fela and the React bindings just as shown within the <a href="UsageWithReact.html">Usage with React</a> section.</p>
+<h4 id="plugins--enhancers">Plugins &amp; Enhancers</h4>
+<p>The native renderer also supports plugins, though most plugins do not work with React Native and/or are not necessary for native development as they are web specific e.g. vendor prefixing.<br>
+The following plugins and enhancers will also work with React Native:</p>
+<ul>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-custom-property" _target="blank">fela-plugin-custom-property</a></li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-extend" _target="blank">fela-plugin-extend</a></li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-remove-undefined" _target="blank">fela-plugin-remove-undefined</a></li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-logger" _target="blank">fela-plugin-logger</a></li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-perf" _target="blank">fela-perf</a></li>
+</ul>
+<h2 id="differences">Differences</h2>
+<p>Below there are some key differences comparing Fela for React and Fela for React Native.</p>
+<ul>
+<li>Use <code>style</code> not <code>className</code></li>
+<li><code>createComponent</code> always requires the second parameter</li>
+<li>Length values do <strong>not</strong> have units</li>
+<li>Only supported style properties are possible <em>(It&apos;s not CSS!)</em></li>
+</ul>
 
                                 
                                 </section>
@@ -685,12 +739,12 @@ We call the relevant parts of the state properties, usually referred to as <stro
 
             
                 
-                <a href="Motivation.html" class="navigation navigation-prev " aria-label="Previous page: 1.1. Motivation">
+                <a href="UsageWithReact.html" class="navigation navigation-prev " aria-label="Previous page: 4.1. Usage with React">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Benefits.html" class="navigation navigation-next " aria-label="Next page: 1.3. Benefits">
+                <a href="UsageWithAngular2.html" class="navigation navigation-next " aria-label="Next page: 4.3. Usage with Angular 2">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -701,7 +755,7 @@ We call the relevant parts of the state properties, usually referred to as <stro
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.2. Principles","level":"1.2.2","depth":2,"next":{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},"previous":{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Principles.md","mtime":"2016-09-29T17:54:29.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-29T17:55:36.869Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2. Usage with React Native","level":"1.5.2","depth":2,"next":{"title":"4.3. Usage with Angular 2","level":"1.5.3","depth":2,"path":"docs/guides/UsageWithAngular2.md","ref":"docs/guides/UsageWithAngular2.md","articles":[]},"previous":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithReactNative.md","mtime":"2016-09-29T17:54:58.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-29T17:55:36.869Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
