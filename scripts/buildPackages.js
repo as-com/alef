@@ -68,6 +68,16 @@ const packages = {
     entry: 'plugins/validator.js',
     dependencies: false
   },
+  'fela-preset-web': {
+    name: 'FelaPresetWeb',
+    entry: 'presets/web.js',
+    dependencies: true
+  },
+  'fela-preset-dev': {
+    name: 'FelaPresetDev',
+    entry: 'presets/dev.js',
+    dependencies: true
+  },
   'fela-beautifier': {
     name: 'FelaBeautifier',
     entry: 'enhancers/beautifier.js',
@@ -189,3 +199,4 @@ function buildPackage(pkg) {
 }
 
 Object.keys(packages).forEach(pkg => buildPackage(pkg))
+updateVersion('fela-native')

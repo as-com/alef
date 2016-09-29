@@ -628,9 +628,13 @@
 Plugins are used to process your styles, enhancers to enhance your renderer. <br>
 With this approach everyone is able to create a custom version of Fela fitting their particular needs.</p>
 <p>Many plugins and enhancers are already included in the <a href="https://github.com/rofrischmann/fela/tree/master/packages" _target="blank">main repository</a>.</p>
+<h3 id="renderers">Renderers</h3>
+<ul>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-native" _target="blank">fela-native</a> - React Native</li>
+</ul>
 <h3 id="bindings">Bindings</h3>
 <ul>
-<li><a href="https://github.com/rofrischmann/react-fela" _target="blank">react-fela</a> - React</li>
+<li><a href="https://github.com/rofrischmann/react-fela" _target="blank">react-fela</a> - React &amp; React Native</li>
 <li><a href="https://github.com/rofrischmann/inferno-fela" _target="blank">inferno-fela</a> - Inferno</li>
 </ul>
 <h3 id="plugins">Plugins</h3>
@@ -647,6 +651,11 @@ With this approach everyone is able to create a custom version of Fela fitting t
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-unit" _target="blank">fela-plugin-unit</a> - Automatically adds units to values if needed</li>
 <li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-plugin-validator" _target="blank">fela-plugin-validator*</a> - Validates, logs &amp; optionally deletes invalid properties for keyframes and rules</li>
 </ul>
+<h4 id="plugin-presets">Plugin-Presets</h4>
+<ul>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-preset-web" _target="blank">fela-preset-web</a> - Preset for cross-browser web applications</li>
+<li><a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-preset-dev" _target="blank">fela-preset-dev</a> - Preset for development mode</li>
+</ul>
 <h3 id="enhancers">Enhancers</h3>
 <blockquote>
 <p><strong>Warning</strong>: Enhancers are still experimental and the API might change.</p>
@@ -658,12 +667,13 @@ With this approach everyone is able to create a custom version of Fela fitting t
 </ul>
 <h3 id="tools">Tools</h3>
 <ul>
-<li><a href="https://github.com/rofrischmann/fela-stylesheet" _target="blank">fela-stylesheet</a>: Organize your rules in a single StyleSheet</li>
+<li><a href="https://github.com/rofrischmann/fela-stylesheet" _target="blank">fela-stylesheet</a>: Organize your rules grouped StyleSheets</li>
 <li><a href="https://github.com/dustin-H/fela-styles-connector" _target="blank">fela-styles-connector</a>: Simplified react-fela <code>connect</code> with autobound styles</li>
 </ul>
 <h3 id="utilities">Utilities</h3>
 <ul>
 <li><a href="https://github.com/JedWatson/classnames" _target="blank">classnames</a>: Manage and combine multiple className values safely</li>
+<li><a href="https://github.com/FormidableLabs/react-animations" _target="blank">react-animations</a>: CSS animations to be used with CSS in JS solutions</li>
 <li><a href="https://github.com/halt-hammerzeit/react-styling" _target="blank">react-styling</a>: Write your styles as CSS with <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings" _target="blank">ECMAScript 2015 template strings</a></li>
 <li><a href="https://github.com/rofrischmann/inline-style-transformer" _target="blank">inline-style-transformer</a>: CSS &amp; style object transformation tools</li>
 <li><a href="https://github.com/bloodyowl/stile" _target="blank">stile</a>: Handle units and string values</li>
@@ -715,7 +725,7 @@ With this approach everyone is able to create a custom version of Fela fitting t
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"next":{"title":"1.6. Examples","level":"1.2.6","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]},"previous":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Ecosystem.md","mtime":"2016-09-15T08:38:20.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-15T08:49:28.968Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"next":{"title":"1.6. Examples","level":"1.2.6","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]},"previous":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Ecosystem.md","mtime":"2016-09-29T17:32:15.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-09-29T17:53:02.109Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
