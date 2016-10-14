@@ -214,6 +214,10 @@
         keyframePrefixes: config.keyframePrefixes || ['-webkit-', '-moz-'],
         plugins: config.plugins || [],
 
+        // try and use readable selectors when
+        // prettySelectors is on and not in a prod environment
+        prettySelectors: config.prettySelectors && true,
+
         /**
          * clears the sheet's cache but keeps all listeners
          */
@@ -257,7 +261,9 @@
 
           // uses the reference ID and the props to generate an unique className
           var ruleId = renderer.ids.indexOf(rule);
-          var className = 'c' + ruleId + generatePropsReference(props);
+
+          var classNamePrefix = renderer.prettySelectors && rule.name ? rule.name + '_' : 'c';
+          var className = classNamePrefix + ruleId + generatePropsReference(props);
 
           // only if the cached rule has not already been rendered
           // with a specific set of properties it actually renders
@@ -281,12 +287,12 @@
             }
 
             // keep static style to diff dynamic onces later on
-            if (className === 'c' + ruleId) {
+            if (className === classNamePrefix + ruleId) {
               renderer.base[ruleId] = diffedStyle;
             }
           }
 
-          var baseClassName = 'c' + ruleId;
+          var baseClassName = classNamePrefix + ruleId;
           if (!renderer.rendered[className]) {
             return baseClassName;
           }
@@ -315,7 +321,8 @@
           }
 
           var propsReference = generatePropsReference(props);
-          var animationName = 'k' + renderer.ids.indexOf(keyframe) + propsReference;
+          var prefix = renderer.prettySelectors && keyframe.name ? keyframe.name + '_' : 'k';
+          var animationName = prefix + renderer.ids.indexOf(keyframe) + propsReference;
 
           // only if the cached keyframe has not already been rendered
           // with a specific set of properties it actually renders

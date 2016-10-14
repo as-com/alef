@@ -68,6 +68,11 @@ const packages = {
     entry: 'plugins/validator.js',
     dependencies: false
   },
+  'fela-plugin-debug-layout': {
+    name: 'FelaPluginDebugLayout',
+    entry: 'plugins/debugLayout.js',
+    dependencies: false
+  },
   'fela-preset-web': {
     name: 'FelaPresetWeb',
     entry: 'presets/web.js',
@@ -177,7 +182,7 @@ function updateReadme(pkg, bundleSize) {
 
       fs.writeFile(path, readme, err => {
         errorOnFail(err, pkg)
-        console.log('Successfully updated ' + pkg + ' REAMDE.md to ' + globalVersion + '.')
+        console.log('Successfully updated ' + pkg + ' README.md to ' + globalVersion + '.')
       })
     })
   })
