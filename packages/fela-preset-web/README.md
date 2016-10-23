@@ -19,9 +19,9 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPresetWeb` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-preset-web@3.0.1/dist/fela-preset-web.js"></script>
+<script src="https://unpkg.com/fela-preset-web@3.0.2/dist/fela-preset-web.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-preset-web@3.0.1/dist/fela-preset-web.min.js"></script>
+<script src="https://unpkg.com/fela-preset-web@3.0.2/dist/fela-preset-web.min.js"></script>
 ```
 
 ## Usage
@@ -31,14 +31,12 @@ Simply use the spread operator to add the preset.
 import { createRenderer } from 'fela'
 import webPreset from 'fela-preset-web'
 
-const config = {
+const renderer = createRenderer({
   plugins: [
     ...webPreset,
     // other plugins
   ]
-}
-
-const renderer = createRenderer(config)
+})
 ```
 
 ## License

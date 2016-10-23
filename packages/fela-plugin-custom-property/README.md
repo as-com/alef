@@ -16,9 +16,44 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginCustomProperty` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-custom-property@3.0.1/dist/fela-plugin-custom-property.js"></script>
+<script src="https://unpkg.com/fela-plugin-custom-property@3.0.2/dist/fela-plugin-custom-property.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-custom-property@3.0.1/dist/fela-plugin-custom-property.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-custom-property@3.0.2/dist/fela-plugin-custom-property.min.js"></script>
+```
+
+## Usage
+Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+
+```javascript
+import { createRenderer } from 'fela'
+import customProperty from 'fela-plugin-custom-property'
+
+const renderer = createRenderer({
+  plugins: [ customProperty() ]
+})
+```
+
+### Configuration
+In order to get custom properties resolved, you need to configure the plugin with all custom properties once.
+
+```javascript
+import { createRenderer } from 'fela'
+import customProperty from 'fela-plugin-custom-property'
+
+const sizeProperty = size => ({
+  width: size + 'px',
+  height: size + 'px'
+})
+
+const customPropertyPlugin = customProperty({
+  // the key defines the used CSS property
+  // the value references the resolving function
+  size: sizeProperty
+})
+
+const renderer = createRenderer({
+  plugins: [ customPropertyPlugin ]
+})
 ```
 
 ## Example
@@ -36,24 +71,6 @@ Let's say we want to have a custom property `size` that accepts a single number 
   width: '25px',
   height: '25px'
 }
-```
-
-## Configuration
-
-In order to get custom properties resolved, you need to configure the plugin with all custom properties once.
-```javascript
-import customProperty from 'fela-plugin-custom-property'
-
-const sizeProperty = size => ({
-  width: size + 'px',
-  height: size + 'px'
-})
-
-const plugin = customProperty({
-  // the key defines the used CSS property
-  // the value references the resolving function
-  size: sizeProperty
-})
 ```
 
 ## License

@@ -6,7 +6,7 @@
 
 Uses [inline-style-prefixer/static](https://github.com/rofrischmann/inline-style-prefix-all) to add vendor prefixes to both property and value.
 
-**Requires to use  [fela-plugin-fallback-value](../fela-plugin-fallback-value/) afterwards** in order to resolve alternative prefix values which get returned as an array by default.
+**Requires to use [fela-plugin-fallback-value](../fela-plugin-fallback-value/) afterwards** in order to resolve alternative prefix values which get returned as an array by default.
 
 ## Installation
 ```sh
@@ -16,9 +16,21 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginPrefixer` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-prefixer@3.0.1/dist/fela-plugin-prefixer.js"></script>
+<script src="https://unpkg.com/fela-plugin-prefixer@3.0.2/dist/fela-plugin-prefixer.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-prefixer@3.0.1/dist/fela-plugin-prefixer.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-prefixer@3.0.2/dist/fela-plugin-prefixer.min.js"></script>
+```
+
+## Usage
+Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+
+```javascript
+import { createRenderer } from 'fela'
+import prefixer from 'fela-plugin-prefixer'
+
+const renderer = createRenderer({
+  plugins: [ prefixer() ]
+})
 ```
 
 ## Example
@@ -33,7 +45,7 @@ Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily 
 #### Output
 ```javascript
 {
-  display: ['webkit-box', '-moz-box', '-ms-flexbox', '-webkit-flex', 'flex'],
+  display: [ 'webkit-box', '-moz-box', '-ms-flexbox', '-webkit-flex', 'flex' ],
   WebkitAppearance: 'none',
   MozAppearance: 'none',
   appearance: 'none'

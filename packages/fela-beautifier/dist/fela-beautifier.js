@@ -507,31 +507,37 @@
 
     var cssbeautify$1 = (cssbeautify && typeof cssbeautify === 'object' && 'default' in cssbeautify ? cssbeautify['default'] : cssbeautify);
 
-    var defaultOptions = {
-      indent: '  ',
-      openbrace: 'end-of-line',
-      autosemicolon: false
-    };
-
-    function beautifier(renderer, options) {
+    /**
+     * beautifies CSS output of renderToString
+     *
+     * @param {Object} renderer - renderer which gets enhanced
+     * @param {Object} options - beautifier options
+     * @return {Object} enhanced renderer
+     */
+    function addBeautifier(renderer, options) {
       var existingRenderToString = renderer.renderToString.bind(renderer);
 
       renderer.renderToString = function () {
         var css = existingRenderToString();
-
-        return cssbeautify$1(css, babelHelpers.extends({}, defaultOptions, options));
+        return cssbeautify$1(css, options);
       };
 
       return renderer;
     }
 
-    var beautifier$1 = (function (options) {
+    var defaultOptions = {
+      indent: '  ',
+      openbrace: 'end-of-line',
+      autosemicolon: false
+    };
+    var beautifier = (function () {
+      var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
       return function (renderer) {
-        return beautifier(renderer, options);
+        return addBeautifier(renderer, babelHelpers.extends({}, defaultOptions, options));
       };
     });
 
-    return beautifier$1;
+    return beautifier;
 
 }));
 //# sourceMappingURL=fela-beautifier.js.map

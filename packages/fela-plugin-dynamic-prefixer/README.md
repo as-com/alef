@@ -16,9 +16,39 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginDynamicPrefixer` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-dynamic-prefixer@3.0.1/dist/fela-plugin-dynamic-prefixer.js"></script>
+<script src="https://unpkg.com/fela-plugin-dynamic-prefixer@3.0.2/dist/fela-plugin-dynamic-prefixer.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-dynamic-prefixer@3.0.1/dist/fela-plugin-dynamic-prefixer.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-dynamic-prefixer@3.0.2/dist/fela-plugin-dynamic-prefixer.min.js"></script>
+```
+
+## Usage
+Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+
+```javascript
+import { createRenderer } from 'fela'
+import dynamicPrefixer from 'fela-plugin-dynamic-prefixer'
+
+const renderer = createRenderer({
+  plugins: [ dynamicPrefixer() ]
+})
+```
+
+
+### Configuration
+It can be configured using the same options as [inline-style-prefixer's Prefixer](https://github.com/rofrischmann/inline-style-prefixer/blob/master/docs/API.md#configuration).
+
+```javascript
+import { createRenderer } from 'fela'
+import dynamicPrefixer from 'fela-plugin-dynamic-prefixer'
+
+const dynamicPrefixerPlugin = dynamicPrefixer({
+  userAgent: navigator.userAgent,
+  keepUnprefixed: true
+})
+
+const renderer = createRenderer({
+  plugins: [ dynamicPrefixerPlugin ]
+})
 ```
 
 ## Example
@@ -43,19 +73,6 @@ Assuming we are using e.g. Chrome 25.
   display: '-webkit-flex',
   color: 'blue'
 }
-```
-
-## Configuration
-
-It can be configured using the same options as [inline-style-prefixer's Prefixer](https://github.com/rofrischmann/inline-style-prefixer/blob/master/docs/API.md#configuration).
-
-```javascript
-import dynamicPrefixer from 'fela-plugin-dynamic-prefixer'
-
-const plugin = dynamicPrefixer({
-  userAgent: navigator.userAgent,
-  keepUnprefixed: true
-})
 ```
 
 ## License

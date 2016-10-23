@@ -15,9 +15,44 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginDebugLayout` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-debug-layout@3.0.1/dist/fela-plugin-debug-layout.js"></script>
+<script src="https://unpkg.com/fela-plugin-debug-layout@3.0.2/dist/fela-plugin-debug-layout.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-debug-layout@3.0.1/dist/fela-plugin-debug-layout.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-debug-layout@3.0.2/dist/fela-plugin-debug-layout.min.js"></script>
+```
+
+## Usage
+Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+
+```javascript
+import { createRenderer } from 'fela'
+import debugLayout from 'fela-plugin-debug-layout'
+
+const renderer = createRenderer({
+  plugins: [ debugLayout() ]
+})
+```
+
+
+### Configuration
+##### Options
+| Option | Value | Default | Description |
+| --- | --- | --- | --- |
+| `mode` | `outline`, `backgroundColor` | `outline` | sets the debug mode |
+| `thickness` | *(number)* | `1` | outline thickness for `outline` mode |
+
+##### Example
+```javascript
+import { createRenderer } from 'fela'
+import debugLayout from 'fela-plugin-debug-layout'
+
+const debugLayoutPlugin = debugLayout({
+  mode: 'outline',
+  thickness: 4
+})
+
+const renderer = createRenderer({
+  plugins: [ debugLayoutPlugin ]
+})
 ```
 
 ## Example
@@ -26,24 +61,6 @@ Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily 
 
 #### outline-mode
 ![Preview Outline](preview-outline.png)
-
-
-
-## Configuration
-The debug layout plugin uses two different option flags.
-
-```javascript
-import debugLayout from 'fela-plugin-debug-layout'
-
-const plugin = debugLayout({
-  // will use the background color module
-  // instead of the outline mode
-  backgroundColor: true,
-  // defines the outline thickness
-  // if using the outline mode
-  thickness: 1
-})
-```
 
 
 ## License

@@ -13,45 +13,48 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaFontRenderer` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-font-renderer@3.0.1/dist/fela-font-renderer.js"></script>
+<script src="https://unpkg.com/fela-font-renderer@3.0.2/dist/fela-font-renderer.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-font-renderer@3.0.1/dist/fela-font-renderer.min.js"></script>
+<script src="https://unpkg.com/fela-font-renderer@3.0.2/dist/fela-font-renderer.min.js"></script>
 ```
 
 ## Usage
-#### Client
+### Configuration
+##### Options
+| Option | Value | Default | Description |
+| ------ | --- | ------------ | --- |
+|mountNode| *([HTMLElement](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement))* | | DOM node to render `@font-face` markup into |
+
+
+##### Example
+###### Client
 Using the enhancer for client-side rendering can be achieved by simply passing another `mountNode` to the enhancer.
 ```javascript
 import { createRenderer, render } from 'fela'
 import fontRenderer from 'fela-font-renderer'
 
 const mountNode = document.getElementById('font-stylesheet')
-const enhancer = fontRenderer(mountNode)
+const fontEnhancer = fontRenderer(mountNode)
 
-const renderer = createRenderer({ enhancers: [enhancer] })
-
-render(renderer, document.getElementById('stylesheet'))
+const renderer = createRenderer({
+  enhancers: [ fontEnhancer ]
+})
 ```
 
-#### Server
+###### Server
 To get the static CSS markup for both renderers can be achieved using the `renderer.fontRenderer` to generate the `@font-face` markup.
+
 ```javascript
 import { createRenderer } from 'fela'
 import fontRenderer from 'fela-font-renderer'
 
-const renderer = createRenderer({ enhancers: [fontRenderer()] })
-
-// renderer styles ...
+const renderer = createRenderer({
+  enhancers: [ fontRenderer() ]
+})
 
 const CSS = renderer.renderToString()
 const fontCSS = renderer.fontRenderer.renderToString()
 ```
-
-## Configuration
-
-| option | value | default |description |
-| ------ | --- | ------------ | --- |
-|mountNode| [`HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement) | | DOM node to render `@font-face` markup into |
 
 ## License
 Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
