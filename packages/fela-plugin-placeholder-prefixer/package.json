@@ -1,7 +1,7 @@
 {
-  "name": "fela-plugin-lvha",
+  "name": "fela-plugin-placeholder-prefixer",
   "version": "3.0.4",
-  "description": "Fela plugin that sorts pseudo classes according to LVH(F)A",
+  "description": "Fela plugin to add ::placeholder prefxies",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -13,8 +13,9 @@
   "keywords": [
     "fela",
     "fela-plugin",
-    "lvha",
-    "pseudo classes",
+    "vendor prefixing",
+    "prefixer",
+    "autoprefixer",
     "cssinjs"
   ],
   "author": "Robin Frischmann",
