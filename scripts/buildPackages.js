@@ -107,16 +107,30 @@ const packages = {
     name: 'FelaLogger',
     entry: 'enhancers/logger.js',
     dependencies: true
+  },
+  'fela-stylesheet': {
+    name: 'FelaStyleSheet',
+    entry: 'tools/StyleSheet.js',
+    dependencies: false
+  },
+  'react-fela': {
+    name: 'ReactFela',
+    entry: 'bindings/react/index.js',
+    dependencies: true
   }
 }
 
 
 const babelPlugin = babel({
   babelrc: false,
-  presets: [ 'es2015-rollup', 'stage-0' ],
+  presets: [ 'es2015-rollup', 'stage-0', 'react' ],
   plugins: [ 'transform-class-properties', 'transform-dev-warning', 'transform-node-env-inline' ]
 })
-const nodeResolverPlugin = nodeResolver({ jsnext: true, main: true })
+const nodeResolverPlugin = nodeResolver({
+  jsnext: true,
+  main: true,
+  skip: [ 'react' ]
+})
 const commonJSPlugin = commonjs({ include: 'node_modules/**' })
 const uglifyPlugin = uglify()
 
@@ -132,6 +146,7 @@ function bundleConfig(pkg, info, minify) {
   return {
     format: 'umd',
     globals: {
+      react: 'React',
       fela: 'Fela'
     },
     moduleName: info.name,
