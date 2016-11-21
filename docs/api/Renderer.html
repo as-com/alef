@@ -652,29 +652,29 @@
                                 <h1 id="renderer">Renderer</h1>
 <p>The renderer is the most important utility providing methods to render your styles. It caches every single style that is rendered at any time. Therefore it always has an up-to-date snapshot of your current CSS environment.<br></p>
 <p>You should only have a single renderer which handles all styles of your whole application.
-To create a new renderer instance, simply use the <code>createRenderer</code> method to actually get a renderer instance.</p>
+To create a new renderer instance, simply use the <code class="language-">createRenderer</code> method to actually get a renderer instance.</p>
 <h2 id="methods">Methods</h2>
 <ul>
-<li><a href="#renderrulerule-props"><code>renderRule(rule, [props])</code></a></li>
-<li><a href="#renderkeyframe-props"><code>renderKeyframe(keyframe, [props])</code></a></li>
-<li><a href="#renderfontfamily-files-properties"><code>renderFont(family, files, [properties])</code></a></li>
-<li><a href="#renderstaticstyle-reference"><code>renderStatic(style, [selector])</code></a></li>
-<li><a href="#rendertostring"><code>renderToString()</code></a></li>
-<li><a href="#subscribelistener"><code>subscribe(listener)</code></a></li>
-<li><a href="#rehydrate"><code>rehydrate()</code></a></li>
-<li><a href="#clear"><code>clear()</code></a></li>
+<li><a href="#renderrulerule-props"><code class="language-">renderRule(rule, [props])</code></a></li>
+<li><a href="#renderkeyframe-props"><code class="language-">renderKeyframe(keyframe, [props])</code></a></li>
+<li><a href="#renderfontfamily-files-properties"><code class="language-">renderFont(family, files, [properties])</code></a></li>
+<li><a href="#renderstaticstyle-reference"><code class="language-">renderStatic(style, [selector])</code></a></li>
+<li><a href="#rendertostring"><code class="language-">renderToString()</code></a></li>
+<li><a href="#subscribelistener"><code class="language-">subscribe(listener)</code></a></li>
+<li><a href="#rehydrate"><code class="language-">rehydrate()</code></a></li>
+<li><a href="#clear"><code class="language-">clear()</code></a></li>
 </ul>
-<h2 id="renderrulerule-props"><code>renderRule(rule, [props])</code></h2>
-<p>Renders a <code>rule</code> using the <code>props</code> to resolve it.</p>
+<h2 id="renderrulerule-props"><code class="language-">renderRule(rule, [props])</code></h2>
+<p>Renders a <code class="language-">rule</code> using the <code class="language-">props</code> to resolve it.</p>
 <h3 id="arguments">Arguments</h3>
 <ol>
-<li><code>rule</code> (<em>Function</em>): A function which satisfies the <a href="../basics/Rules.html">rule</a> behavior. It <strong>must</strong> return a valid <a href="../basics/Rules.html#styleobject">style object</a>.</li>
-<li><code>props</code> (<em>Object?</em>): An object containing properties to resolve dynamic rule values. <em>Defaults to an empty object.</em></li>
+<li><code class="language-">rule</code> (<em>Function</em>): A function which satisfies the <a href="../basics/Rules.html">rule</a> behavior. It <strong>must</strong> return a valid <a href="../basics/Rules.html#styleobject">style object</a>.</li>
+<li><code class="language-">props</code> (<em>Object?</em>): An object containing properties to resolve dynamic rule values. <em>Defaults to an empty object.</em></li>
 </ol>
 <h3 id="returns">Returns</h3>
-<p>(<em>string</em>): The CSS class name used to render the <code>rule</code>.</p>
+<p>(<em>string</em>): The CSS class name used to render the <code class="language-">rule</code>.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -691,9 +691,9 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <p>To write more advanced and/or simpler rules there are some helpful tips &amp; tricks you might want to know and use:</p>
 <ul>
 <li><strong>Optional props &amp; Default values</strong><br>
-Sometimes you do not pass all props required to completely resolve all style declarations, but want to use a default value in order to not produce any invalid CSS markup. You can achieve this in two ways. Either with ECMA2015 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters" _target="blank">default function parameters</a> or with the logical OR (<code>||</code>) operator.</li>
+Sometimes you do not pass all props required to completely resolve all style declarations, but want to use a default value in order to not produce any invalid CSS markup. You can achieve this in two ways. Either with ECMA2015 <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Default_parameters" _target="blank">default function parameters</a> or with the logical OR (<code class="language-">||</code>) operator.</li>
 </ul>
-<pre><code class="lang-javascript"><span class="token comment" spellcheck="true">// default parameters</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token comment" spellcheck="true">// default parameters</span>
 <span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> color <span class="token operator">=</span> <span class="token string">&apos;red&apos;</span> <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   color<span class="token punctuation">:</span> color
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
@@ -711,9 +711,9 @@ Sometimes you do not pass all props required to completely resolve all style dec
 </code></pre>
 <ul>
 <li><strong>Conditional values</strong><br>
-Some values might only be applied, if a certain condition is fulfilled. Instead of complex and big <code>if</code> statements you can use the ternary operator.</li>
+Some values might only be applied, if a certain condition is fulfilled. Instead of complex and big <code class="language-">if</code> statements you can use the ternary operator.</li>
 </ul>
-<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> type <span class="token punctuation">}</span> <span class="token operator">=</span> <span class="token punctuation">{</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   color<span class="token punctuation">:</span> type <span class="token operator">===</span> <span class="token string">&apos;error&apos;</span> <span class="token operator">?</span> <span class="token string">&apos;red&apos;</span> <span class="token punctuation">:</span> <span class="token string">&apos;green&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
@@ -724,7 +724,7 @@ Some values might only be applied, if a certain condition is fulfilled. Instead 
 <li><strong>Flat &amp; Nested props</strong>:<br>
 Try not to use nested props at all as the renderer initially triggers rule rendering with an empty props object. Nested props would fail to evaluate if they do not get precisely checked within your rule. If one still wants to use nested props be sure to verify each level separately.</li>
 </ul>
-<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> nested <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> nested <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   color<span class="token punctuation">:</span> nested <span class="token operator">&amp;&amp;</span> nested<span class="token punctuation">.</span>is <span class="token operator">&amp;&amp;</span> nested<span class="token punctuation">.</span>is<span class="token punctuation">.</span>bad <span class="token operator">||</span> <span class="token string">&apos;green&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
@@ -736,7 +736,7 @@ Try not to use nested props at all as the renderer initially triggers rule rende
 Whenever you need to calculate values using the props or use props within expressions, try to do this within the associated render method. It then passes the final props to the rule only.<br>
 Doing this keeps your rules clean and declarative and helps preventing issues such as undefined nested props.</li>
 </ul>
-<pre><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> fontSize <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">const</span> rule <span class="token operator">=</span> <span class="token punctuation">(</span><span class="token punctuation">{</span> fontSize <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   fontSize<span class="token punctuation">:</span> fontSize <span class="token operator">+</span> <span class="token string">&apos;px&apos;</span> <span class="token operator">||</span> <span class="token string">&apos;10px&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
@@ -751,17 +751,17 @@ Doing this keeps your rules clean and declarative and helps preventing issues su
 <span class="token function">rule</span><span class="token punctuation">(</span><span class="token punctuation">{</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; { color: 10px }</span>
 </code></pre>
 <hr>
-<h2 id="renderkeyframekeyframe-props"><code>renderKeyframe(keyframe, [props])</code></h2>
-<p>Renders a <code>keyframe</code> using the <code>props</code> to resolve it.</p>
+<h2 id="renderkeyframekeyframe-props"><code class="language-">renderKeyframe(keyframe, [props])</code></h2>
+<p>Renders a <code class="language-">keyframe</code> using the <code class="language-">props</code> to resolve it.</p>
 <h3 id="arguments">Arguments</h3>
 <ol>
-<li><code>keyframe</code> (<em>Function</em>): A function which satisfies the <a href="../basics/Keyframes.html">keyframe</a> behavior. It <strong>must</strong> return a valid <a href="../basics/Keyframes.html#keyframeobject">keyframe object</a>.</li>
-<li><code>props</code> (<em>Object?</em>): An object containing properties to resolve dynamic keyframe values. <em>Defaults to an empty object.</em></li>
+<li><code class="language-">keyframe</code> (<em>Function</em>): A function which satisfies the <a href="../basics/Keyframes.html">keyframe</a> behavior. It <strong>must</strong> return a valid <a href="../basics/Keyframes.html#keyframeobject">keyframe object</a>.</li>
+<li><code class="language-">props</code> (<em>Object?</em>): An object containing properties to resolve dynamic keyframe values. <em>Defaults to an empty object.</em></li>
 </ol>
 <h3 id="returns">Returns</h3>
-<p>(<em>string</em>): The <code>@keyframes</code> animation name used to render the <code>keyframe</code>.</p>
+<p>(<em>string</em>): The <code class="language-">@keyframes</code> animation name used to render the <code class="language-">keyframe</code>.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -778,19 +778,19 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <h3 id="tips--tricks">Tips &amp; Tricks</h3>
 <ul>
 <li>Be sure to only use <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_animated_properties" _target="blank">animateable properties</a>. Other properties will be ignored.</li>
-<li>Keyframe objects <strong>must</strong> at least have the steps <code>0%</code> and <code>100%</code> or rather <code>from</code> and <code>to</code>. Otherwise it might not be used at all.</li>
+<li>Keyframe objects <strong>must</strong> at least have the steps <code class="language-">0%</code> and <code class="language-">100%</code> or rather <code class="language-">from</code> and <code class="language-">to</code>. Otherwise it might not be used at all.</li>
 </ul>
 <hr>
-<h2 id="renderfontfamily-files-properties"><code>renderFont(family, files, [properties])</code></h2>
-<p>Renders a <code>@font-face</code> rule using the <code>family</code> as reference.</p>
+<h2 id="renderfontfamily-files-properties"><code class="language-">renderFont(family, files, [properties])</code></h2>
+<p>Renders a <code class="language-">@font-face</code> rule using the <code class="language-">family</code> as reference.</p>
 <h3 id="arguments">Arguments</h3>
 <ol>
-<li><code>family</code> (<em>string</em>): A font family reference which is later required to use this font face.</li>
-<li><code>files</code> (<em>string[]</em>): An array of valid source paths. It may either be relative (within your project) or absolute (hosted on an external server). It must have one of the following file extensions: <code>.woff</code>, <code>.eof</code>, <code>.ttf</code> or <code>.svg</code>.</li>
-<li><code>properties</code>(<em>Object?</em>): Additional font properties which are <code>fontVariant</code>, <code>fontWeight</code>, <code>fontStretch</code>, <code>fontStyle</code> and <code>unicodeRange</code>.</li>
+<li><code class="language-">family</code> (<em>string</em>): A font family reference which is later required to use this font face.</li>
+<li><code class="language-">files</code> (<em>string[]</em>): An array of valid source paths. It may either be relative (within your project) or absolute (hosted on an external server). It must have one of the following file extensions: <code class="language-">.woff</code>, <code class="language-">.eof</code>, <code class="language-">.ttf</code> or <code class="language-">.svg</code>.</li>
+<li><code class="language-">properties</code>(<em>Object?</em>): Additional font properties which are <code class="language-">fontVariant</code>, <code class="language-">fontWeight</code>, <code class="language-">fontStretch</code>, <code class="language-">fontStyle</code> and <code class="language-">unicodeRange</code>.</li>
 </ol>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -804,18 +804,18 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 </code></pre>
 <h3 id="caveats">Caveats</h3>
 <ul>
-<li>If you are using relative paths such as <code>../fonts/Lato.ttf</code>, keep in mind that it is relative to your <code>index.html</code>.</li>
+<li>If you are using relative paths such as <code class="language-">../fonts/Lato.ttf</code>, keep in mind that it is relative to your <code class="language-">index.html</code>.</li>
 </ul>
 <hr>
-<h2 id="renderstaticstyle-selector"><code>renderStatic(style, [selector])</code></h2>
+<h2 id="renderstaticstyle-selector"><code class="language-">renderStatic(style, [selector])</code></h2>
 <p>Renders static styles.</p>
 <h3 id="arguments">Arguments</h3>
 <ol>
-<li><code>style</code> (<em>string|Object</em>): Either a pure CSS string or an object of style declarations.</li>
-<li><code>selector</code> (<em>string</em>): If <code>style</code> is passed as an object you <strong>must</strong> specify a <code>selector</code> selector.</li>
+<li><code class="language-">style</code> (<em>string|Object</em>): Either a pure CSS string or an object of style declarations.</li>
+<li><code class="language-">selector</code> (<em>string</em>): If <code class="language-">style</code> is passed as an object you <strong>must</strong> specify a <code class="language-">selector</code> selector.</li>
 </ol>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -835,7 +835,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 </ul>
 <h5 id="pro-tip">Pro Tip</h5>
 <p>You can even reuse existing formatted CSS using <a href="http://www.ecma-international.org/ecma-262/6.0/" _target="blank">ECMAScript 2015</a> <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings" _target="blank">template strings</a>.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -853,7 +853,7 @@ div {
 `</span></span><span class="token punctuation">)</span>
 </code></pre>
 <hr>
-<h2 id="rendertostring"><code>renderToString()</code></h2>
+<h2 id="rendertostring"><code class="language-">renderToString()</code></h2>
 <p>Renders all cached styles into a single CSS string. Styles are grouped in the following order:</p>
 <ol>
 <li>Fonts</li>
@@ -865,7 +865,7 @@ div {
 <h3 id="returns">Returns</h3>
 <p>(<em>string</em>): Single concatenated CSS string containing all cached styles by that time.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -884,16 +884,16 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">// .c0{color:blue}.c0--w5u07{font-size:12px}</span>
 </code></pre>
 <hr>
-<h2 id="subscribelistener"><code>subscribe(listener)</code></h2>
-<p>Adds a change <code>listener</code> to get notified when changes happen.</p>
+<h2 id="subscribelistener"><code class="language-">subscribe(listener)</code></h2>
+<p>Adds a change <code class="language-">listener</code> to get notified when changes happen.</p>
 <h3 id="arguments">Arguments</h3>
 <ol>
-<li><code>listener</code> (<em>Function</em>): A callback function that is called on every change. It passes a change object containing information on what actually got rendered or changed. Every change object at least has a unique <code>type</code> and optionally some meta data. In addition it passes the <code>renderer</code> that triggered the change.</li>
+<li><code class="language-">listener</code> (<em>Function</em>): A callback function that is called on every change. It passes a change object containing information on what actually got rendered or changed. Every change object at least has a unique <code class="language-">type</code> and optionally some meta data. In addition it passes the <code class="language-">renderer</code> that triggered the change.</li>
 </ol>
 <h3 id="returns">Returns</h3>
-<p>(<em>Object</em>): An object containing the corresponding <code>unsubscribe</code>-method.</p>
+<p>(<em>Object</em>): An object containing the corresponding <code class="language-">unsubscribe</code>-method.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -911,10 +911,10 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 subscription<span class="token punctuation">.</span><span class="token function">unsubscribe</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
 <hr>
-<h2 id="rehydrate"><code>rehydrate()</code></h2>
-<p>Rehydrates the whole style cache by rerunning every single render call. Subscribing change listener will receive two change objects of type <code>rehydrate</code> and a <code>done</code> flag. One before the rehydration gets trigger and the second right after the rehydration process has finished.</p>
+<h2 id="rehydrate"><code class="language-">rehydrate()</code></h2>
+<p>Rehydrates the whole style cache by rerunning every single render call. Subscribing change listener will receive two change objects of type <code class="language-">rehydrate</code> and a <code class="language-">done</code> flag. One before the rehydration gets trigger and the second right after the rehydration process has finished.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
@@ -938,7 +938,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
 <span class="token comment" spellcheck="true">// .c0{color:red}</span>
 </code></pre>
 <hr>
-<h2 id="clear"><code>clear()</code></h2>
+<h2 id="clear"><code class="language-">clear()</code></h2>
 <p>Clears the whole cache and updates the DOM node to remove all CSS rules.</p>
 
                                 
@@ -983,7 +983,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"5.2. Renderer","level":"1.6.2","depth":2,"next":{"title":"5.3. render","level":"1.6.3","depth":2,"path":"docs/api/render.md","ref":"docs/api/render.md","articles":[]},"previous":{"title":"5.1. createRenderer","level":"1.6.1","depth":2,"path":"docs/api/createRenderer.md","ref":"docs/api/createRenderer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/api/Renderer.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-18T08:07:35.574Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.2. Renderer","level":"1.6.2","depth":2,"next":{"title":"5.3. render","level":"1.6.3","depth":2,"path":"docs/api/render.md","ref":"docs/api/render.md","articles":[]},"previous":{"title":"5.1. createRenderer","level":"1.6.1","depth":2,"path":"docs/api/createRenderer.md","ref":"docs/api/createRenderer.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/api/Renderer.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-21T20:06:24.529Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

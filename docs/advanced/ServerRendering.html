@@ -651,12 +651,12 @@
                                 
                                 <h1 id="server-rendering">Server Rendering</h1>
 <p>As <a href="../introduction/Benefits.html">already mentioned</a>, Fela supports server-side rendering out of the box.
-All you need to to is call <code>renderToString</code> once you are finished rendering styles and you will get the final CSS markup.<br>
+All you need to to is call <code class="language-">renderToString</code> once you are finished rendering styles and you will get the final CSS markup.<br>
 That&apos;s it. No magic. No extra configuration.</p>
 <p>Usually you will render all styles on the server and inject the rendered CSS markup into the HTML markup which gets sent to the client.</p>
 <h2 id="example">Example</h2>
 <p>The following code shows a simple server example using <a href="https://github.com/expressjs/express" _target="blank">express</a> and <a href="https://github.com/facebook/react" _target="blank">React</a>.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> React <span class="token keyword">from</span> <span class="token string">&apos;react&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-dom/server&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
@@ -710,7 +710,7 @@ server<span class="token punctuation">.</span><span class="token keyword">get</s
 server<span class="token punctuation">.</span><span class="token function">listen</span><span class="token punctuation">(</span><span class="token number">8080</span><span class="token punctuation">,</span> <span class="token string">&apos;localhost&apos;</span><span class="token punctuation">)</span>
 </code></pre>
 <h4 id="output-localhost8080">Output <em>(localhost:8080)</em></h4>
-<pre><code class="lang-HTML"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
+<pre class="language-"><code class="lang-HTML language-"><span class="token doctype">&lt;!DOCTYPE html&gt;</span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>html</span><span class="token punctuation">&gt;</span></span>
 <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>head</span><span class="token punctuation">&gt;</span></span>
   <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>style</span> <span class="token attr-name">id</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>stylesheet<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token style language-css">
@@ -731,7 +731,7 @@ server<span class="token punctuation">.</span><span class="token function">liste
 <hr>
 <h3 id="related">Related</h3>
 <ul>
-<li><a href="../api/Renderer.html#rendertostring">API reference - <code>Renderer.renderToString</code></a></li>
+<li><a href="../api/Renderer.html#rendertostring">API reference - <code class="language-">Renderer.renderToString</code></a></li>
 </ul>
 
                                 
@@ -776,7 +776,7 @@ server<span class="token punctuation">.</span><span class="token function">liste
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"next":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"previous":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/ServerRendering.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-18T08:07:35.574Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"next":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"previous":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/ServerRendering.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-21T20:06:24.529Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

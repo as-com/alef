@@ -652,7 +652,7 @@
                                 <h1 id="combined-rules">Combined Rules</h1>
 <p>Until now we only saw simple examples, each using only one rule per element, but in reality you often see multiple different CSS classes applied to a single element.</p>
 <p>Basically you can do the same with Fela too as you could just concatenate multiple rendered rules.</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -677,13 +677,13 @@
 <p>Specificity is the means by which browsers decide which CSS property values are the most relevant to an element and, therefore, will be applied. Specificity is based on the matching rules which are composed of CSS selectors of different sorts.</p>
 </blockquote>
 <p>The browser calculates a weight for each CSS property to figure out which properties finally get applied to which element. <br>
-Fela already simplifies the problem a lot, becauseit only renders flat CSS classes and leaves out all the combinators such as <code>+</code>, <code>&gt;</code>, <code>~</code> or <code> </code>. Still there is one thing we need to consider.</p>
+Fela already simplifies the problem a lot, becauseit only renders flat CSS classes and leaves out all the combinators such as <code class="language-">+</code>, <code class="language-">&gt;</code>, <code class="language-">~</code> or <code class="language-"> </code>. Still there is one thing we need to consider.</p>
 <h3 id="problem-order-matters">Problem: Order Matters</h3>
 <blockquote>
 <p>When specificity is equal to any of the multiple declarations, the last declaration found in the CSS is applied to the element.</p>
 </blockquote>
-<p>So, if we render two rules, both setting a CSS <code>color</code>, the last rendered one always wins. Consider the following use-case:</p>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<p>So, if we render two rules, both setting a CSS <code class="language-">color</code>, the last rendered one always wins. Consider the following use-case:</p>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -701,9 +701,9 @@ Fela already simplifies the problem a lot, becauseit only renders flat CSS class
 </code></pre>
 <h2 id="solution-combined-rules">Solution: Combined Rules</h2>
 <p>By using combined rules we can merge multiple rules into a single one. Again, the order matters. But this time we can determine the order on our own.
-To combine rules, Fela provides the <a href="../api/combineRules.html"><code>combineRules</code></a> helper.</p>
+To combine rules, Fela provides the <a href="../api/combineRules.html"><code class="language-">combineRules</code></a> helper.</p>
 <h3 id="example">Example</h3>
-<pre><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer<span class="token punctuation">,</span> combineRules <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer<span class="token punctuation">,</span> combineRules <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -725,12 +725,12 @@ To combine rules, Fela provides the <a href="../api/combineRules.html"><code>com
   <span class="token operator">&lt;</span><span class="token operator">/</span>div<span class="token operator">&gt;</span>
 <span class="token punctuation">)</span>
 </code></pre>
-<p>It does not matter whether <code>ruleA</code> and <code>ruleB</code> get rendered later or if they won&apos;t get rendered at all. <code>ruleAB</code> and <code>ruleBA</code> are completely new rules which are not dependent on their base rules.</p>
+<p>It does not matter whether <code class="language-">ruleA</code> and <code class="language-">ruleB</code> get rendered later or if they won&apos;t get rendered at all. <code class="language-">ruleAB</code> and <code class="language-">ruleBA</code> are completely new rules which are not dependent on their base rules.</p>
 <p><br></p>
 <hr>
 <h3 id="related">Related</h3>
 <ul>
-<li><a href="../api/combineRules.html">API reference - <code>combineRules</code></a></li>
+<li><a href="../api/combineRules.html">API reference - <code class="language-">combineRules</code></a></li>
 </ul>
 
                                 
@@ -775,7 +775,7 @@ To combine rules, Fela provides the <a href="../api/combineRules.html"><code>com
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"next":{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},"previous":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/CombinedRules.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-18T08:07:35.574Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"next":{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},"previous":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/CombinedRules.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-21T20:06:24.529Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
