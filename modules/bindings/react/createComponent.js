@@ -1,32 +1,31 @@
+/* @flow weak */
 import { createElement, PropTypes } from 'react'
 
-export default function createComponent(rule, type = 'div', passThroughProps = {}) {
-  const component = ({ children, className, style, passThrough, ...felaProps }, { renderer }) => {
+export default function createComponent(rule, type = 'div', passThroughProps = [], defaultProps = {}) {
+  const FelaComponent = ({ children, className, style, passThrough = [], ...ruleProps }, { renderer, theme }) => {
 
     // filter props to extract props to pass through
-    const componentProps = Object.keys({
-      ...passThroughProps,
-      ...passThrough
-    }).reduce((output, prop) => {
-      output[prop] = felaProps[prop]
-      if (!passThroughProps[prop]) {
-        delete felaProps[prop]
-      }
+    const componentProps = [ ...passThroughProps, ...passThrough ].reduce((output, prop) => {
+      output[prop] = ruleProps[prop]
       return output
     }, { })
 
     componentProps.style = style
 
     const cls = className ? className + ' ' : ''
-    componentProps.className = cls + renderer.renderRule(rule, felaProps)
+    defaultProps.theme = theme || { }
+
+    componentProps.className = cls + renderer.renderRule(rule, ruleProps, defaultProps)
 
     return createElement(type, componentProps, children)
   }
 
-  component.contextTypes = { renderer: PropTypes.object }
+  FelaComponent.contextTypes = {
+    renderer: PropTypes.object,
+    theme: PropTypes.object
+  }
 
   // use the rule name as display name to better debug with react inspector
-  component.displayName = rule.name && rule.name || 'FelaComponent'
-
-  return component
+  FelaComponent.displayName = rule.name && rule.name || 'FelaComponent'
+  return FelaComponent
 }

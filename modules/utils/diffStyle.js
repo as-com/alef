@@ -16,7 +16,7 @@ export default function diffStyle(style, base = { }) {
       }
     } else {
       // diff styles with the base styles to only extract dynamic styles
-      if (value !== undefined && !base.hasOwnProperty(property) || base[property] !== value) {
+      if (value !== undefined && base[property] !== value) {
         // remove concatenated string values including `undefined`
         if (typeof value === 'string' && value.indexOf('undefined') > -1) {
           return diff

@@ -384,7 +384,7 @@
                 <a href="UnderTheHood.html">
             
                     
-                    3.8. Under The Hood
+                    3.7. Under The Hood
             
                 </a>
             
@@ -651,14 +651,14 @@
                                 
                                 <h1 id="global--third-party-styles">Global &amp; Third-Party Styles</h1>
 <p>It is a common technique to start the whole styling process by adding some global styles such as CSS resets.<br>
-In addition you might also include some fancy third-party styles. For this the renderer provides a method called <code class="language-">renderStatic</code>.
+In addition you might also include some fancy third-party styles. For this the renderer provides a method called <code>renderStatic</code>.
 It accepts either a valid CSS string or a basic style object with a custom selector to be rendered into.<br></p>
 <h3 id="style-object">Style Object</h3>
 <p>If you prefer using style objects, do not forget to provide a selector as well.</p>
 <blockquote>
 <p><strong>Note</strong>: Style objects will also be processed by all applied plugins.</p>
 </blockquote>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -673,14 +673,14 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <h3 id="css-string">CSS String</h3>
 <p>Rendering CSS strings is especially helpful if you want to use third-party or legacy styles written in CSS.<br>
 This method is <strong>not recommended</strong> as no further processing with plugins is done. It only be used to insert large third-party CSS files.</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
 renderer<span class="token punctuation">.</span><span class="token function">renderStatic</span><span class="token punctuation">(</span><span class="token string">&apos;*{margin:0;padding:0}&apos;</span><span class="token punctuation">)</span>
 </code></pre>
 <p>Using <a href="https://developer.mozilla.org/de/docs/Web/JavaScript/Reference/template_strings" _target="blank">ECMAScript 2015 template strings</a> we can even write multi-line CSS styles. <br>This is helpful if we want to copy large CSS files directly into our JavaScript file.</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -706,7 +706,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <hr>
 <h3 id="related">Related</h3>
 <ul>
-<li><a href="../api/Renderer.html#renderstaticstyle-selector">API reference - <code class="language-">Renderer.renderStatic</code></a></li>
+<li><a href="../api/Renderer.html#renderstaticstyle-selector">API reference - <code>Renderer.renderStatic</code></a></li>
 </ul>
 
                                 
@@ -751,7 +751,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"next":{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},"previous":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/StaticStyle.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-21T20:06:24.529Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"next":{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},"previous":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/StaticStyle.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-12-01T19:04:17.579Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

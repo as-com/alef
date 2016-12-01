@@ -384,7 +384,7 @@
                 <a href="../advanced/UnderTheHood.html">
             
                     
-                    3.8. Under The Hood
+                    3.7. Under The Hood
             
                 </a>
             
@@ -652,8 +652,8 @@
                                 <h1 id="renderer">Renderer</h1>
 <p>We have learned about all basic renderable elements which are rules, keyframes and fonts. Now we can finally learn how to actually render and use them within our application. In order to do so we need a renderer.</p>
 <p>The renderer is a single object that coordinates the whole rendering workflow. It also uses a special caching mechanism to access previously rendered styles faster and reduce the amount of DOM manipulations.</p>
-<p>To create a new renderer, Fela provides the <a href="../api/createRenderer.html"><code class="language-">createRenderer</code></a> function.</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<p>To create a new renderer, Fela provides the <a href="../api/createRenderer.html"><code>createRenderer</code></a> function.</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 </code></pre>
@@ -661,17 +661,18 @@
 <h2 id="rendering-styles">Rendering Styles</h2>
 <p>The renderer provides dedicated render methods for each of the three renderable components which we introduced in the previous articles.</p>
 <ul>
-<li><a href="../api/Renderer.html#renderrulerule-props">renderRule</a></li>
+<li><a href="../api/Renderer.html#renderrulerule-props-defaultprops">renderRule</a></li>
 <li><a href="../api/Renderer.html#renderkeyframe-props">renderKeyframe</a></li>
 <li><a href="../api/Renderer.html#renderfontfamily-files-properties">renderFont</a></li>
 </ul>
 <blockquote>
-<p><strong>Tip</strong>: Read the tips and tricks of each render method first. Especially the <a href="../api/Renderer.html#renderrulerule-props">renderRule</a> tips are very helpful for beginners as well as advanced users.</p>
+<p><strong>Tip</strong>: Read the tips and tricks of each render method first. Especially the <a href="../api/Renderer.html#renderrulerule-props-defaultprops">renderRule</a> tips are very helpful for beginners as well as advanced users.</p>
 </blockquote>
 <h3 id="renderrule">renderRule</h3>
-<p>Takes a <a href="Rules.html">rule</a> and some <code class="language-">props</code> to resolve the rule. If no <code class="language-">props</code> are passed it defaults to an empty object. It reuses the static subset of a rule to produce less markup.<br>
+<p>Takes a <a href="Rules.html">rule</a> and some <code>props</code> to resolve the rule. If no <code>props</code> are passed it defaults to an empty object.<br>
+It reuses the static subset of a rule to produce less markup.
 It returns the rendered CSS class(es).</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -681,28 +682,28 @@ It returns the rendered CSS class(es).</p>
   color<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c0</span>
-renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> fontSize<span class="token punctuation">:</span> <span class="token string">&apos;12px&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c0 c0--w5u07</span>
-renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> fontSize<span class="token punctuation">:</span> <span class="token string">&apos;15px&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c0 c0--w5rs4</span>
+renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c1</span>
+renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> fontSize<span class="token punctuation">:</span> <span class="token string">&apos;12px&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c1 c2</span>
+renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> fontSize<span class="token punctuation">:</span> <span class="token string">&apos;15px&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; c1 c3</span>
 </code></pre>
-<pre class="language-"><code class="lang-CSS language-">.c0 {
+<pre class="language-"><code class="lang-CSS">.c1 {
   background-color: blue;
   color: red
 }
 
-.c0--w5u07 {
+.c2 {
   font-size: 12px
 }
 
-.c0--w5rs4 {
+.c3 {
   font-size: 15px
 }
 </code></pre>
 <h3 id="renderkeyframe">renderKeyframe</h3>
-<p>Takes a <a href="Keyframes.html">keyframe</a> and some <code class="language-">props</code> to resolve the keyframe. If no <code class="language-">props</code> are passed it defaults to an empty object.
+<p>Takes a <a href="Keyframes.html">keyframe</a> and some <code>props</code> to resolve the keyframe. If no <code>props</code> are passed it defaults to an empty object.
 It returns the rendered animation name.
-It also adds the keyframe with both <code class="language-">@-webkit-</code> and <code class="language-">@-moz-</code> prefixes, but we will ignore them here for brevity.</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+It also adds the keyframe with both <code>@-webkit-</code> and <code>@-moz-</code> prefixes, but we will ignore them here for brevity.</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -711,10 +712,10 @@ It also adds the keyframe with both <code class="language-">@-webkit-</code> and
   to<span class="token punctuation">:</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> props<span class="token punctuation">.</span>toColor <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> toColor<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; k0--aqbnkn</span>
-renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> toColor<span class="token punctuation">:</span> <span class="token string">&apos;blue&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; k0-mh8wzm</span>
+renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> toColor<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; k1</span>
+renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> toColor<span class="token punctuation">:</span> <span class="token string">&apos;blue&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; k2</span>
 </code></pre>
-<pre class="language-"><code class="lang-CSS language-">@keyframes k0--aqbnkn {
+<pre class="language-"><code class="lang-CSS">@keyframes k1 {
   from {
     color: green
   }
@@ -723,7 +724,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
   }
 }
 
-@keyframes k0-mh8wzm {
+@keyframes k2 {
   from {
     color: green
   }
@@ -733,8 +734,8 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 }
 </code></pre>
 <h3 id="renderfont">renderFont</h3>
-<p>Rendering <a href="Fonts.html">fonts</a> is a bit different. <code class="language-">renderFont</code> takes the font family and an array of font source files as mandatory arguments and an optional object containing additional font properties.</p>
-<pre class="language-"><code class="lang-javascript language-"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
+<p>Rendering <a href="Fonts.html">fonts</a> is a bit different. <code>renderFont</code> takes the font family and an array of font source files as mandatory arguments and an optional object containing additional font properties.</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
 
@@ -746,7 +747,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 renderer<span class="token punctuation">.</span><span class="token function">renderFont</span><span class="token punctuation">(</span><span class="token string">&apos;Lato&apos;</span><span class="token punctuation">,</span> files<span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">renderFont</span><span class="token punctuation">(</span><span class="token string">&apos;Lato-Bold&apos;</span><span class="token punctuation">,</span> files<span class="token punctuation">,</span> <span class="token punctuation">{</span> fontWeight<span class="token punctuation">:</span> <span class="token string">&apos;bold&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class="language-"><code class="lang-CSS language-">@font-face {
+<pre class="language-"><code class="lang-CSS">@font-face {
   font-family: &apos;Lato&apos;;
   src: url(&apos;./fonts/Lato.ttf&apos;) format(truetype),
        url(&apos;./fonts/Lato.woff&apos;) format(woff)
@@ -760,7 +761,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 }
 </code></pre>
 <h2 id="advanced-api">Advanced API</h2>
-<p>Check out the <a href="../api/Renderer.html">API reference - Renderer</a> to learn about all of its methods. This article only describes the basic rendering methods. It does not include <code class="language-">clear</code>, <code class="language-">subscribe</code>, <code class="language-">rehydrate</code> or even <code class="language-">renderStatic</code>.</p>
+<p>Check out the <a href="../api/Renderer.html">API reference - Renderer</a> to learn about all of its methods. This article only describes the basic rendering methods. It does not include <code>clear</code>, <code>subscribe</code>, <code>rehydrate</code> or even <code>renderStatic</code>.</p>
 <p><br></p>
 <hr>
 <h3 id="related">Related</h3>
@@ -769,7 +770,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
 <li><a href="../advanced/ServerRendering.html">Server Rendering</a></li>
 <li><a href="../advanced/RendererConfiguration.html">Renderer Configuration</a></li>
 <li><a href="../api/Renderer.html">API reference - Renderer</a></li>
-<li><a href="../api/createRenderer.html">API reference - <code class="language-">createRenderer</code></a></li>
+<li><a href="../api/createRenderer.html">API reference - <code>createRenderer</code></a></li>
 <li><a href="../FAQ.html#renderer">FAQ - Renderer</a></li>
 </ul>
 <h4 id="tools">Tools</h4>
@@ -818,7 +819,7 @@ Renderer for React Native</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"2.4. Renderer","level":"1.3.4","depth":2,"next":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},{"title":"3.8. Under The Hood","level":"1.4.8","depth":2,"path":"docs/advanced/UnderTheHood.md","ref":"docs/advanced/UnderTheHood.md","articles":[]}]},"previous":{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/basics/Renderer.md","mtime":"2016-10-13T17:15:46.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-11-21T20:06:24.529Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"2.4. Renderer","level":"1.3.4","depth":2,"next":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},{"title":"3.7. Under The Hood","level":"1.4.8","depth":2,"path":"docs/advanced/UnderTheHood.md","ref":"docs/advanced/UnderTheHood.md","articles":[]}]},"previous":{"title":"2.3. Fonts","level":"1.3.3","depth":2,"path":"docs/basics/Fonts.md","ref":"docs/basics/Fonts.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/basics/Renderer.md","mtime":"2016-12-01T08:02:19.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-12-01T19:04:17.579Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

@@ -18,13 +18,35 @@ describe('Creating Components from Fela rules', () => {
     const element = component({ color: 'black' }, { renderer })
 
     expect(element.type).to.eql('div')
-    expect(element.props.className).to.eql('c0 c0-ldchvg')
-    expect(renderer.rules).to.eql('.c0{font-size:16}.c0-ldchvg{color:black}')
+
+    expect(element.props.className).to.eql('c1 c2')
+    expect(renderer.rules).to.eql('.c1{font-size:16}.c2{color:black}')
+  })
+
+  it('should use the theme for static rendering by default', () => {
+    const rule = props => ({
+      color: props.theme.color,
+      fontSize: 16
+    })
+    const component = createComponent(rule)
+    const renderer = createRenderer()
+
+    const element = component({ }, {
+      renderer,
+      theme: {
+        color: 'red'
+      }
+    })
+
+    expect(element.type).to.eql('div')
+
+    expect(element.props.className).to.eql('c1')
+    expect(renderer.rules).to.eql('.c1{color:red;font-size:16}')
   })
 
   it('should only pass explicit props to the element', () => {
     const rule = props => ({ color: props.color, fontSize: 16 })
-    const component = createComponent(rule, 'div', { onClick: false })
+    const component = createComponent(rule, 'div', [ 'onClick' ])
 
     const renderer = createRenderer()
 
@@ -38,10 +60,10 @@ describe('Creating Components from Fela rules', () => {
 
   it('should only use passed props to render Fela rules', () => {
     const rule = props => ({
-      color: props.foo && props.color || 'red',
+      color: props.foo && props.color,
       fontSize: 16
     })
-    const component = createComponent(rule, 'div', { foo: true })
+    const component = createComponent(rule, 'div', [ 'foo' ])
 
     const renderer = createRenderer()
 
@@ -50,7 +72,7 @@ describe('Creating Components from Fela rules', () => {
     })
 
     expect(element.props.foo).to.eql(true)
-    expect(renderer.rules).to.eql('.c0{color:red;font-size:16}.c0--1u3zxk{color:black}')
+    expect(renderer.rules).to.eql('.c1{font-size:16}.c2{color:black}')
   })
 
   it('should only use the rule name as displayName', () => {

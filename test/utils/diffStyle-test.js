@@ -26,11 +26,7 @@ describe('Diffing style objects', () => {
 
   it('should ignore additional base properties', () => {
 
-    const base = {
-      color: 'blue',
-      fontSize: '12px',
-      lineHeight: 1.2
-    }
+    const base = { color: 'blue', fontSize: '12px', lineHeight: 1.2 }
     const style = { color: 'red', fontSize: '12px' }
 
     expect(diffStyle(style, base)).to.eql({ color: 'red' })
@@ -81,19 +77,6 @@ describe('Diffing style objects', () => {
         color: 'red',
         lineHeight: 1.2
       }
-    }
-
-    expect(diffStyle(style, base)).to.eql({ color: 'red' })
-  })
-
-  it('should remove undefined values', () => {
-    const base = { color: 'blue', fontSize: '12px' }
-
-    const style = {
-      color: 'red',
-      fontSize: '12px',
-      lineHeight: undefined,
-      animation: 'undefined 2s infinite'
     }
 
     expect(diffStyle(style, base)).to.eql({ color: 'red' })

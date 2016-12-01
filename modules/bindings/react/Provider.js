@@ -1,4 +1,5 @@
-import { Component, PropTypes } from 'react'
+/* @flow weak */
+import { Component, PropTypes, Children } from 'react'
 import render from '../../render'
 
 export default class Provider extends Component {
@@ -18,6 +19,6 @@ export default class Provider extends Component {
   }
 
   render() {
-    return this.props.children
+    return Children.only(this.props.children)
   }
 }

@@ -1,3 +1,4 @@
+/* @flow weak */
 import React, { Component, PropTypes } from 'react'
 
 export default function connect(mapStylesToProps) {
@@ -7,17 +8,23 @@ export default function connect(mapStylesToProps) {
 
     static contextTypes = {
       ...Comp.contextTypes,
-      renderer: PropTypes.object
+      renderer: PropTypes.object,
+      theme: PropTypes.object
     };
 
     render() {
+      const { renderer, theme } = this.context
+
       // invoke the component name for better CSS debugging
       if (process.env.NODE_ENV !== 'production') {
         this.context.renderer._selectorPrefix = Comp.displayName || Comp.name || 'ConnectedFelaComponent'
       }
 
       // invoke props and renderer to render all styles
-      const styles = mapStylesToProps(this.props)(this.context.renderer)
+      const styles = mapStylesToProps({
+        ...this.props,
+        theme: theme || { }
+      })(renderer)
 
       // remove the component name after rendering
       if (process.env.NODE_ENV !== 'production') {

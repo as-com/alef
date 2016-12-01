@@ -15,9 +15,9 @@ Assuming you are using [npm](https://www.npmjs.com) as your package mananger you
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginValidator` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-validator@3.0.8/dist/fela-plugin-validator.js"></script>
+<script src="https://unpkg.com/fela-plugin-validator@4.0.0/dist/fela-plugin-validator.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-validator@3.0.8/dist/fela-plugin-validator.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-validator@4.0.0/dist/fela-plugin-validator.min.js"></script>
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ Make sure to read the documentation on [how to use plugins](http://fela.js.org/d
 
 ```javascript
 import { createRenderer } from 'fela'
-import unit from 'fela-plugin-validator'
+import validator from 'fela-plugin-validator'
 
 const renderer = createRenderer({
   plugins: [ validator() ]

@@ -1,3 +1,4 @@
+/* @flow weak */
 let warning = () => true
 
 if (process.env.NODE_ENV !== 'production') {
@@ -6,7 +7,6 @@ if (process.env.NODE_ENV !== 'production') {
       if (typeof console !== 'undefined') {
         console.error(message) // eslint-disable-line
       }
-      throw new Error(message)
     }
   }
 }

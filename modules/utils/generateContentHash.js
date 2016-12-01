@@ -1,3 +1,4 @@
+/* @flow weak */
 /**
  * generates a hashcode from a string
  * taken from http://stackoverflow.com/a/7616484
@@ -5,7 +6,7 @@
  * @param {string} str - str used to generate the unique hash code
  * @return {string} compressed content hash
  */
-export default function generateHash(str) {
+export default function generateContentHash(str) {
   let hash = 0
   let iterator = 0
   let char
