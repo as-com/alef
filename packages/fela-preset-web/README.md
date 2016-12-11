@@ -15,13 +15,13 @@ It contains everything you need to start building cross-browser compatible apps.
 ```sh
 npm i --save fela-preset-web
 ```
-Assuming you are using [npm](https://www.npmjs.com) as your package mananger you can just `npm install`.<br>
+Assuming you are using [npm](https://www.npmjs.com) as your package manager you can just `npm install`.<br>
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPresetWeb` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-preset-web@4.0.1/dist/fela-preset-web.js"></script>
+<script src="https://unpkg.com/fela-preset-web@4.1.0/dist/fela-preset-web.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-preset-web@4.0.1/dist/fela-preset-web.min.js"></script>
+<script src="https://unpkg.com/fela-preset-web@4.1.0/dist/fela-preset-web.min.js"></script>
 ```
 
 ## Usage

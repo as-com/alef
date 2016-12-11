@@ -1,7 +1,7 @@
 # fela-logger
 
 <img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-logger.svg">
-<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-2.05kb-brightgreen.svg">
+<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-2.04kb-brightgreen.svg">
 
 Logging tool for Fela. Logs changes to the console, grouped by selector, animation name or font family.
 
@@ -9,13 +9,13 @@ Logging tool for Fela. Logs changes to the console, grouped by selector, animati
 ```sh
 npm i --save fela-logger
 ```
-Assuming you are using [npm](https://www.npmjs.com) as your package mananger you can just `npm install`.<br>
+Assuming you are using [npm](https://www.npmjs.com) as your package manager you can just `npm install`.<br>
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaLogger` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-logger@4.0.1/dist/fela-logger.js"></script>
+<script src="https://unpkg.com/fela-logger@4.1.0/dist/fela-logger.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-logger@4.0.1/dist/fela-logger.min.js"></script>
+<script src="https://unpkg.com/fela-logger@4.1.0/dist/fela-logger.min.js"></script>
 ```
 
 
@@ -32,7 +32,6 @@ const renderer = createRenderer({
 ##### Options
 | Option | Value | Default | Description |
 | --- | --- | --- | --- |
-| `logStyleObject` | *(boolean)* | `true` | logs pure style objects |
 | `logCSS` | *(boolean)* | `false` | logs rendered CSS string |
 | `formatCSS` | *(boolean)* | `false` |  logs formatted CSS strings<br>only together with `logCSS: true` |
 
@@ -42,7 +41,6 @@ import { createRenderer } from 'fela'
 import logger from 'fela-logger'
 
 const loggerEnhancer = logger({
-  logStyleObject: false,
   logCSS: true,
   formatCSS: true
 })

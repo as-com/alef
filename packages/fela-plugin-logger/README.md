@@ -2,7 +2,7 @@
 
 
 <img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-logger.svg">
-<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.55kb-brightgreen.svg">
+<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.39kb-brightgreen.svg">
 
 Logs processed styles to the `console` at a given point of processing.<br>
 **Not to be confused with [fela-logger](../fela-logger)** which is used to render the real rendered output.
@@ -13,13 +13,13 @@ This plugin is intended to be used to debug style processing steps.
 ```sh
 npm i --save fela-plugin-logger
 ```
-Assuming you are using [npm](https://www.npmjs.com) as your package mananger you can just `npm install`.<br>
+Assuming you are using [npm](https://www.npmjs.com) as your package manager you can just `npm install`.<br>
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a `FelaPluginLogger` global.
 ```HTML
 <!-- Fela (Development): Unminified version including all warnings -->
-<script src="https://unpkg.com/fela-plugin-logger@4.0.1/dist/fela-plugin-logger.js"></script>
+<script src="https://unpkg.com/fela-plugin-logger@4.1.0/dist/fela-plugin-logger.js"></script>
 <!-- Fela (Production): Minified version -->
-<script src="https://unpkg.com/fela-plugin-logger@4.0.1/dist/fela-plugin-logger.min.js"></script>
+<script src="https://unpkg.com/fela-plugin-logger@4.1.0/dist/fela-plugin-logger.min.js"></script>
 ```
 
 ## Usage
@@ -31,26 +31,6 @@ import logger from 'fela-plugin-logger'
 
 const renderer = createRenderer({
   plugins: [ logger() ]
-})
-```
-
-### Configuration
-##### Options
-| Option | Value | Default | Description |
-| --- | --- | --- | --- |
-| `logMetaData` | *(boolean)* | `false` | also logs available meta data |
-
-##### Example
-```javascript
-import { createRenderer } from 'fela'
-import logger from 'fela-plugin-logger'
-
-const loggerPlugin = logger({
-  logMetaData: true
-})
-
-const renderer = createRenderer({
-  plugins: [ loggerPlugin ]
 })
 ```
 
