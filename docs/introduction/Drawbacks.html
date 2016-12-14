@@ -379,19 +379,6 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="../advanced/UnderTheHood.md">
-            
-                <span>
-            
-                    
-                    3.7. Under The Hood
-            
-                </a>
-            
-
-            
-        </li>
-    
 
             </ul>
             
@@ -690,7 +677,27 @@
                                 <h1 id="drawbacks">Drawbacks</h1>
 <p>Like every solution, also Fela is not <strong>the</strong> ultimate solution and should not be blindly used without evaluating its benefits and disadvantages. The strict design decisions also have some drawbacks.</p>
 <h4 id="1-computed-selectors">1. Computed Selectors</h4>
-<p>The unique computed selectors are quite handy as they <a href="Benefits.html#local-namespace">prevent namespacing conflicts</a>. But they are not designed to be human-readable nor to be mutated at all. This can be a problem especially if you need to overwrite them which often is the case e.g. if you provide a customizable UI library. There are options such as using inline styles or add the <code>!important</code> flag to each declaration, but that again is not an optimal solution either.</p>
+<p>The unique computed selectors are quite handy as they <a href="Benefits.html#local-namespace">prevent namespacing conflicts</a>. But they are not designed to be human-readable nor to be mutated at all. <br>
+However, if you need to mutate the styles from outside, consider providing an API to pass the props.</p>
+<h4 id="2-shorthand--longhand-properties">2. Shorthand &amp; Longhand Properties</h4>
+<p>Probably the biggest downside of using atomic CSS design, is the fact that shorthand and longhand properties can&apos;t safely be mixed in a single rule.</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  border<span class="token punctuation">:</span> <span class="token string">&apos;1px solid black&apos;</span><span class="token punctuation">,</span>
+  borderColor<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>The above example will not unconditionally render a red border as we can&apos;t tell which rule might be rendered before and therefore appears first in the stylesheet. There might have been another rule that renders <code>borderColor: red</code> which is rendered before this rule. Now rendering this rule, would cause <code>border: 1px solid black</code> to always be preferred based on how CSS specificity works.</p>
+<p>To solve this problem, you should not use shorthand and longhand properties together in a single rule. Perhaps the best is to avoid them at all. To give you an example, here&apos;s how you would write the above:</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  borderStyle<span class="token punctuation">:</span> <span class="token string">&apos;solid&apos;</span><span class="token punctuation">,</span>
+  borderWidth<span class="token punctuation">:</span> <span class="token string">&apos;1px&apos;</span><span class="token punctuation">,</span>
+  borderColor<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+</code></pre>
+<p>It might be more code to type, but its also more self-explanatory and descriptive.<br></p>
+<blockquote>
+<p>PS: There will soon be a tool, that automatically checks for mixed shorthand / longhand properties and throws a warning if used together.</p>
+</blockquote>
 
                                 
                                 </section>
@@ -734,7 +741,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"next":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"previous":{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Drawbacks.md","mtime":"2016-12-11T21:38:56.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-12-11T21:43:13.007Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"next":{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},"previous":{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Drawbacks.md","mtime":"2016-12-14T20:48:43.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-12-14T21:05:27.525Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
