@@ -712,6 +712,12 @@
 <td><code>[]</code></td>
 <td>An explicit order in which media query rules are rendered</td>
 </tr>
+<tr>
+<td><code>selectorPrefix</code></td>
+<td><code>string</code></td>
+<td><code>&apos;&apos;</code></td>
+<td>Prepend a static prefix to every every generated class and keyframe</td>
+</tr>
 </tbody>
 </table>
 <h2 id="example">Example</h2>
@@ -731,7 +737,7 @@
     <span class="token string">&apos;(min-height: 300px)&apos;</span><span class="token punctuation">,</span>
     <span class="token string">&apos;(min-height: 500px)&apos;</span>
   <span class="token punctuation">]</span><span class="token punctuation">,</span>
-  prettySelectors<span class="token punctuation">:</span> <span class="token boolean">true</span>
+  selectorPrefix<span class="token punctuation">:</span> <span class="token string">&apos;fela_&apos;</span>
 <span class="token punctuation">}</span>
 
 <span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
@@ -747,11 +753,17 @@
   <span class="token punctuation">}</span>
 <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
+<span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
+  color<span class="token punctuation">:</span> props<span class="token punctuation">.</span>color<span class="token punctuation">,</span>
+  fontSize<span class="token punctuation">:</span> <span class="token number">12</span>
+<span class="token punctuation">}</span><span class="token punctuation">)</span>
+
+renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">&apos;red &apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
 console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>renderer<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
-<pre class="language-"><code class="lang-CSS">@-webkit-keyframes k1 {
+<pre class="language-"><code class="lang-CSS">@-webkit-keyframes fela_k1 {
   from {
     width: -webkit-calc(100% - 50px);
     width: -moz-calc(100% - 50px);
@@ -767,7 +779,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
   }
 }
 
-@keyframes k1 {
+@keyframes fela_k1 {
   from {
     width: -webkit-calc(100% - 50px);
     width: -moz-calc(100% - 50px);
@@ -781,6 +793,14 @@ console<span class="token punctuation">.</span><span class="token function">log<
     width: calc(50% - 50px);
     height: 100em
   }
+}
+
+.fela_a {
+  color: red
+}
+
+.fela_b {
+  font-size: 12px
 }
 </code></pre>
 <p><br></p>
@@ -834,7 +854,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"next":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/RendererConfiguration.md","mtime":"2016-12-11T18:43:32.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2016-12-14T21:05:27.525Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"next":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/RendererConfiguration.md","mtime":"2016-12-16T13:11:20.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-01-11T19:57:25.622Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
