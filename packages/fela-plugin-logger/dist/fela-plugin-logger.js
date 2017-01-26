@@ -65,7 +65,7 @@
     return base;
   }
 
-  function addLogger(style, type) {
+  function addLogger(style, props, type) {
     if (true) {
       console.log(type, assign({}, style)); // eslint-disable-line
     }

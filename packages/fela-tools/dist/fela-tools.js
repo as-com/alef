@@ -1,7 +1,7 @@
 (function (global, factory) {
   typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
   typeof define === 'function' && define.amd ? define(factory) :
-  (global.FelaStyleSheet = factory());
+  (global.FelaTools = factory());
 }(this, function () { 'use strict';
 
   var babelHelpers = {};
@@ -42,7 +42,6 @@
 
   babelHelpers;
 
-  /*  weak */
   var StyleSheet = {
     create: function create(styles) {
       var rules = {};
@@ -65,7 +64,25 @@
     }
   };
 
-  return StyleSheet;
+  function mapValueToMediaQuery() {
+    var queryValueMap = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+    var mapper = arguments[1];
+
+    var style = {};
+
+    for (var query in queryValueMap) {
+      style[query] = mapper(queryValueMap[query]);
+    }
+
+    return style;
+  }
+
+  var index = {
+    StyleSheet: StyleSheet,
+    mapValueToMediaQuery: mapValueToMediaQuery
+  };
+
+  return index;
 
 }));
-//# sourceMappingURL=fela-stylesheet.js.map
+//# sourceMappingURL=fela-tools.js.map

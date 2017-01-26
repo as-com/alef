@@ -1,22 +1,46 @@
 /* @flow weak */
 import { createElement, PropTypes } from 'react'
 
+import extractPassThroughProps from '../../utils/extractPassThroughProps'
+import resolvePassThrough from '../../utils/resolvePassThrough'
+import combineRules from '../../combineRules'
+
 export default function createComponent(rule, type = 'div', passThroughProps = []) {
-  const FelaComponent = ({ children, className, id, style, passThrough = [], ...ruleProps }, { renderer, theme }) => {
+  const FelaComponent = (
+    { children, _felaRule, passThrough = [], ...ruleProps },
+    { renderer, theme }
+  ) => {
+    const combinedRule = _felaRule ? combineRules(rule, _felaRule) : rule
 
-    // filter props to extract props to pass through
-    const componentProps = [ ...passThroughProps, ...passThrough ].reduce((output, prop) => {
-      output[prop] = ruleProps[prop]
-      return output
-    }, { })
+      // compose passThrough props from arrays or functions
+    const resolvedPassThrough = [
+      ...resolvePassThrough(passThroughProps, ruleProps),
+      ...resolvePassThrough(passThrough, ruleProps)
+    ]
 
-    componentProps.style = style
-    componentProps.id = id
+      // if the component renders into another Fela component
+      // we pass down the combinedRule as well as both
+    if (type._isFelaComponent) {
+      return createElement(
+          type,
+        {
+          _felaRule: combinedRule,
+          passThrough: resolvedPassThrough,
+          ...ruleProps
+        },
+          children
+        )
+    }
 
-    const cls = className ? className + ' ' : ''
-    ruleProps.theme = theme || { }
+    const componentProps = extractPassThroughProps(resolvedPassThrough, ruleProps)
 
-    componentProps.className = cls + renderer.renderRule(rule, ruleProps)
+    componentProps.style = ruleProps.style
+    componentProps.id = ruleProps.id
+
+    const cls = ruleProps.className ? `${ruleProps.className} ` : ''
+    ruleProps.theme = theme || {}
+
+    componentProps.className = cls + renderer.renderRule(combinedRule, ruleProps)
     return createElement(type, componentProps, children)
   }
 
@@ -26,6 +50,8 @@ export default function createComponent(rule, type = 'div', passThroughProps = [
   }
 
   // use the rule name as display name to better debug with react inspector
-  FelaComponent.displayName = rule.name && rule.name || 'FelaComponent'
+  FelaComponent.displayName = rule.name ? rule.name : 'FelaComponent'
+  FelaComponent._isFelaComponent = true
+
   return FelaComponent
 }

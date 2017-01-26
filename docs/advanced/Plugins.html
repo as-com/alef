@@ -379,6 +379,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.4.8" data-path="HotReloading.html">
+            
+                <a href="HotReloading.html">
+            
+                    
+                    3.8. Hot Reloading
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -678,12 +691,12 @@
 <p>We have learned that the renderer is the universal interface to render basic styles, but yet all it does it to cache and transform simple shape-conforming style objects into CSS markup. We do not have any fancy additional functionality such as auto-prefixing. That&apos;s where the built-in plugin system comes to the rescue!<br>
 Plugins are functions that take a style object, alter its shape and return a new style object, which in most cases is the mutated input itself.
 Before the resolved style object gets cached and transformed to CSS, it is piped through each plugin.</p>
-<h3 id="use-cases">Use Cases</h3>
+<h3 id="use-case">Use Case</h3>
 <p>They are especially helpful to automate certain aspects of styling such as auto-prefixing. They are also very handy to improve the developer experience e.g. by automatically adding a unit like <code>px</code> to dimension values.</p>
 <h3 id="order-matters">Order Matters</h3>
 <p>Your style objects get piped from left to right. Always remember that the plugin order sometimes matters as some plugins might depend on each other.</p>
 <h2 id="using-plugins">Using Plugins</h2>
-<p>To use plugins we need to add them to the renderer configuration directly. You can do this by passing a configuration object with the <code>plugins</code> key while creating your renderer.</p>
+<p>To use plugins we need to add them to the renderer configuration directly. You can do this by passing a configuration object using the <code>plugins</code> key while creating your renderer.</p>
 <pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
@@ -785,7 +798,7 @@ Right now there are two different presets available, a basic web preset <a href=
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"next":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},"previous":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2016-12-11T13:27:49.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-01-11T19:58:00.879Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"next":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},"previous":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/Plugins.md","mtime":"2017-01-20T22:56:17.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-01-26T17:59:03.112Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

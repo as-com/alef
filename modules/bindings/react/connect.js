@@ -1,10 +1,11 @@
 /* @flow weak */
+/* eslint-disable react/prefer-stateless-function */
 import React, { Component, PropTypes } from 'react'
 
 export default function connect(mapStylesToProps) {
   return Comp => class EnhancedComponent extends Component {
     // reuse the initial displayName name
-    static displayName = Comp.displayName || Comp.name || 'ConnectedFelaComponent'
+    static displayName = Comp.displayName || Comp.name || 'ConnectedFelaComponent';
 
     static contextTypes = {
       ...Comp.contextTypes,
@@ -17,7 +18,7 @@ export default function connect(mapStylesToProps) {
 
       const styles = mapStylesToProps({
         ...this.props,
-        theme: theme || { }
+        theme: theme || {}
       })(renderer)
 
       return <Comp {...this.props} styles={styles} />

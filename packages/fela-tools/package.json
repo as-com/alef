@@ -1,12 +1,14 @@
 {
-  "name": "fela-stylesheet",
-  "version": "4.1.2",
-  "description": "Fela tool to organize multiple rules in StyleSheets",
+  "name": "fela-tools",
+  "version": "4.2.0",
+  "description": "Useful tools for working with Fela",
   "main": "index.js",
   "files": [
     "LICENSE",
     "README.md",
     "index.js",
+    "StyleSheet.js",
+    "mapValueToMediaQuery.js",
     "/dist"
   ],
   "repository": "https://github.com/rofrischmann/fela/",
@@ -18,6 +20,6 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "peerDependencies": {
-    "fela": "4.1.2"
+    "fela": "4.2.0"
   }
 }
