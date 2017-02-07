@@ -3,7 +3,7 @@
 A set of useful tools to work with Fela.
 
 <img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-tools.svg">
-<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.50kb-brightgreen.svg">
+<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.52kb-brightgreen.svg">
 
 ## Installation
 ```sh
@@ -13,9 +13,9 @@ Assuming you are using [npm](https://www.npmjs.com) as your package manager you 
 Otherwise we also provide a [UMD](https://github.com/umdjs/umd). You can easily use it via [unpkg](https://unpkg.com/). It registers a  `FelaTools` global.
 ```HTML
 <!-- (Development) Unminified version -->
-<script src="https://unpkg.com/fela-tools@4.2.0/dist/fela-tools.js"></script>
+<script src="https://unpkg.com/fela-tools@4.2.1/dist/fela-tools.js"></script>
 <!-- (Production) Minified version -->
-<script src="https://unpkg.com/fela-tools@4.2.0/dist/fela-tools.min.js"></script>
+<script src="https://unpkg.com/fela-tools@4.2.1/dist/fela-tools.min.js"></script>
 ```
 
 ## Usage
@@ -35,6 +35,7 @@ import StyleSheet from 'fela-tools/StyleSheet'
 
 * [`mapValueToMediaQuery(queryValueMap, mapper)`](docs/mapValueToMediaQuery.md)
 * [StyleSheet](docs/StyleSheet.md)
+
 ## License
 Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
