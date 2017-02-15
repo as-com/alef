@@ -42,6 +42,16 @@
     return target;
   };
 
+  babelHelpers.toConsumableArray = function (arr) {
+    if (Array.isArray(arr)) {
+      for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
+
+      return arr2;
+    } else {
+      return Array.from(arr);
+    }
+  };
+
   babelHelpers;
 
   function generateCSSDeclaration(property, value) {
@@ -267,7 +277,7 @@
         var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
 
         var processedStyle = processStyleWithPlugins(renderer.plugins, rule(props), RULE_TYPE);
-        return renderer._renderStyleToClassNames(processedStyle).slice(1);
+        return renderer._renderStyleToClassNames(processedStyle);
       },
       _renderStyleToClassNames: function _renderStyleToClassNames(style) {
         var pseudo = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '';
@@ -325,7 +335,7 @@
           }
         }
 
-        return classNames;
+        return classNames.trim();
       },
       renderKeyframe: function renderKeyframe(keyframe) {
         var props = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
