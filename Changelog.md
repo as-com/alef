@@ -1,6 +1,12 @@
 # Changelog
 
 ## 4.0
+#### 4.2.5
+* updated both prefixer to [inline-style-prefixer](https://github.com/rofrischmann/inline-style-prefixer/blob/master/Changelog.md#300) 3.0.0
+* added the `is` prop to `createComponent` to define a custom type on runtime
+
+#### 4.2.4
+* (hot)fixed weird bug introduced by switching `slice(1)` to `trim()`
 
 #### 4.2.3
 * introducing the [fela-monolithic](packages/fela-monolithic) enhancer to use component-based CSS classes instead of atomic ones ( [#195](https://github.com/rofrischmann/fela/issues/195) )
