@@ -197,4 +197,4 @@ var fallbackValue = (function () {
   return resolveFallbackValues;
 });
 
-export { resolveFallbackValues };export default fallbackValue;
+export default fallbackValue;

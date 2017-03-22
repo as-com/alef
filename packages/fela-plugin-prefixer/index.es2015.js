@@ -902,19 +902,23 @@ function isObject$1(value) {
   return (typeof value === 'undefined' ? 'undefined' : babelHelpers.typeof(value)) === 'object' && !Array.isArray(value);
 }
 
-function resolveFallbackValues(style) {
+function resolveFallbackValues$1(style) {
   for (var property in style) {
     var value = style[property];
 
     if (Array.isArray(value)) {
       style[property] = resolveArrayValue$1(property, value);
     } else if (isObject$1(value)) {
-      style[property] = resolveFallbackValues(value);
+      style[property] = resolveFallbackValues$1(value);
     }
   }
 
   return style;
 }
+
+var fallbackValue = (function () {
+  return resolveFallbackValues$1;
+});
 
 function objectReduce(object, iterator, initialValue) {
   for (var key in object) {
@@ -923,6 +927,8 @@ function objectReduce(object, iterator, initialValue) {
 
   return initialValue;
 }
+
+var resolveFallbackValues = fallbackValue();
 
 function addVendorPrefixes(style) {
   return objectReduce(style, function (prefixedStyle, value, property) {
