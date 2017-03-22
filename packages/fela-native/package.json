@@ -1,7 +1,8 @@
 {
   "name": "fela-native",
-  "version": "4.2.5",
+  "version": "4.3.0",
   "description": "Fela Renderer for React Native",
+  "module": "index.es2015.js",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -21,7 +22,7 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "peerDependencies": {
-    "fela": "4.2.5",
+    "fela": "4.3.0",
     "react-native": "*"
   }
 }

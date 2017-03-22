@@ -42,7 +42,7 @@
 
   babelHelpers;
 
-  /*  weak */
+  /* eslint-disable no-console */
   var counter = 0;
 
   function addPerfTool(renderer) {
@@ -65,11 +65,9 @@
     return renderer;
   }
 
-  var perf = (function () {
-    return function (renderer) {
-      return addPerfTool(renderer);
-    };
-  });
+  function perf() {
+    return addPerfTool;
+  }
 
   return perf;
 

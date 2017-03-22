@@ -1,7 +1,8 @@
 {
   "name": "fela-plugin-dynamic-prefixer",
-  "version": "4.2.5",
+  "version": "4.3.0",
   "description": "Fela plugin to dynamically add a minimum set of vendor prefixes",
+  "module": "index.es2015.js",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -24,6 +25,6 @@
     "inline-style-prefixer": "^3.0.0"
   },
   "peerDependencies": {
-    "fela": "4.2.5"
+    "fela": "4.3.0"
   }
 }

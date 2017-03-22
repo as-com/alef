@@ -88,16 +88,6 @@
       return call && (typeof call === "object" || typeof call === "function") ? call : self;
     };
 
-    babelHelpers.toConsumableArray = function (arr) {
-      if (Array.isArray(arr)) {
-        for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) arr2[i] = arr[i];
-
-        return arr2;
-      } else {
-        return Array.from(arr);
-      }
-    };
-
     babelHelpers;
 
 
@@ -584,10 +574,8 @@
 
     function addLogger(renderer, options) {
       renderer.subscribe(function (change) {
-        // log clearing
         if (change.type === CLEAR_TYPE) {
           console.log('Cleared renderer cache.');
-          // eslint-disable-line
           return true;
         }
 
@@ -614,12 +602,14 @@
       logCSS: false,
       formatCSS: false
     };
-    var logger = (function () {
+
+    function logger() {
       var options = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {};
+
       return function (renderer) {
         return addLogger(renderer, babelHelpers.extends({}, defaultOptions, options));
       };
-    });
+    }
 
     return logger;
 

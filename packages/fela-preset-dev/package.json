@@ -1,7 +1,8 @@
 {
   "name": "fela-preset-dev",
-  "version": "4.2.5",
+  "version": "4.3.0",
   "description": "Fela plugin preset for web applications",
+  "module": "index.es2015.js",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -18,6 +19,6 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "peerDependencies": {
-    "fela": "4.2.5"
+    "fela": "4.3.0"
   }
 }

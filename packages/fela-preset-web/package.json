@@ -1,7 +1,8 @@
 {
   "name": "fela-preset-web",
-  "version": "4.2.5",
+  "version": "4.3.0",
   "description": "Fela plugin preset for web applications",
+  "module": "index.es2015.js",
   "main": "index.js",
   "files": [
     "LICENSE",
@@ -18,10 +19,10 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "inline-style-prefixer": "^2.0.5",
-    "unitless-css-property": "1.0.2"
+    "inline-style-prefixer": "^3.0.0",
+    "css-in-js-utils": "^1.0.3"
   },
   "peerDependencies": {
-    "fela": "4.2.5"
+    "fela": "4.3.0"
   }
 }
