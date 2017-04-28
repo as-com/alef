@@ -1,36 +1,10 @@
-/* @flow weak */
-/* eslint-disable react/prefer-stateless-function */
-import React, { Component, PropTypes } from 'react'
+/* @flow */
+import { Component, createElement } from 'react'
+import PropTypes from 'prop-types'
 
-const generateDisplayName = (Comp) => {
-  const displayName = Comp.displayName || Comp.name
-  if (displayName) {
-    return `Fela${displayName}`
-  }
+import connectFactory from '../connectFactory'
 
-  return 'ConnectedFelaComponent'
-}
-
-export default function connect(mapStylesToProps) {
-  return Comp => class EnhancedComponent extends Component {
-    // reuse the initial displayName name
-    static displayName = generateDisplayName(Comp);
-
-    static contextTypes = {
-      ...Comp.contextTypes,
-      renderer: PropTypes.object,
-      theme: PropTypes.object
-    };
-
-    render() {
-      const { renderer, theme } = this.context
-
-      const styles = mapStylesToProps({
-        ...this.props,
-        theme: theme || {}
-      })(renderer)
-
-      return <Comp {...this.props} styles={styles} />
-    }
-  }
-}
+export default connectFactory(Component, createElement, {
+  renderer: PropTypes.object,
+  theme: PropTypes.object
+})

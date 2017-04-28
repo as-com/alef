@@ -822,11 +822,24 @@ The following plugins and enhancers will also work with React Native:</p>
 <p>Below there are some key differences comparing Fela for React and Fela for React Native.</p>
 <ul>
 <li>Use <code>style</code> not <code>className</code></li>
-<li><code>createComponent</code> always requires the second parameter</li>
+<li><code>createComponent</code> always requires the second parameter, and the second parameter should be the type and not the string (see example below)</li>
 <li>Length values do <strong>not</strong> have units</li>
 <li>Only supported style properties are possible <em>(It&apos;s not CSS!)</em></li>
 </ul>
-<p><br></p>
+<h3 id="createcomponent-example">createComponent Example</h3>
+<p>Create the Component using the Type</p>
+<pre class="language-"><code>const WelcomeText = createComponent(rule, View)
+</code></pre><p>You can now use the component as a component or a wrapper</p>
+<pre class="language-"><code> render() {
+    return (
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Provider</span> <span class="token attr-name">renderer</span><span class="token attr-value"><span class="token punctuation">=</span>{renderer}</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>View</span><span class="token punctuation">&gt;</span></span>
+          <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>WelcomeText</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>Text</span><span class="token punctuation">&gt;</span></span>Welcome to this awesome app<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Text</span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>WelcomeText</span><span class="token punctuation">&gt;</span></span>
+        <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>View</span><span class="token punctuation">&gt;</span></span>
+      <span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>Provider</span><span class="token punctuation">&gt;</span></span>
+    )
+ }
+</code></pre><p><br></p>
 <hr>
 <h3 id="related">Related</h3>
 <ul>
@@ -882,7 +895,7 @@ Renderer for React Native</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"4.2. Usage with React Native","level":"1.5.2","depth":2,"next":{"title":"4.3. Usage with Preact","level":"1.5.3","depth":2,"path":"docs/guides/UsageWithPreact.md","ref":"docs/guides/UsageWithPreact.md","articles":[]},"previous":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithReactNative.md","mtime":"2017-01-26T16:49:19.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-03-23T09:41:11.733Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"4.2. Usage with React Native","level":"1.5.2","depth":2,"next":{"title":"4.3. Usage with Preact","level":"1.5.3","depth":2,"path":"docs/guides/UsageWithPreact.md","ref":"docs/guides/UsageWithPreact.md","articles":[]},"previous":{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/guides/UsageWithReactNative.md","mtime":"2017-04-27T16:48:53.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-04-28T07:49:41.517Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

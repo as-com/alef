@@ -1,5 +1,13 @@
-import createComponent from '../createComponent'
-import createRenderer from '../../../createRenderer'
+import { createElement } from 'react'
+import PropTypes from 'prop-types'
+
+import createComponentFactory from '../createComponentFactory'
+import createRenderer from '../../createRenderer'
+
+const createComponent = createComponentFactory(createElement, {
+  renderer: PropTypes.object,
+  theme: PropTypes.object
+})
 
 describe('Creating Components from Fela rules', () => {
   it('should return a Component', () => {
