@@ -508,6 +508,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.2" data-path="../recipes/TestingFelaComponents.html">
+            
+                <a href="../recipes/TestingFelaComponents.html">
+            
+                    
+                    5.2. Testing Fela Components
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -625,6 +638,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.2.2" data-path="../api/fela-dom/renderToMarkup.html">
+            
+                <a href="../api/fela-dom/renderToMarkup.html">
+            
+                    
+                    6.2.2. renderToMarkup
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -644,27 +670,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.3.1" >
+        <li class="chapter " data-level="1.7.3.1" data-path="../api/fela-native/createRenderer.html">
             
-                <span>
+                <a href="../api/fela-native/createRenderer.html">
             
                     
-                    6.3.1. createRenderer (soon)
+                    6.3.1. createRenderer
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.7.3.2" >
+        <li class="chapter " data-level="1.7.3.2" data-path="../api/fela-native/Renderer.html">
             
-                <span>
+                <a href="../api/fela-native/Renderer.html">
             
                     
-                    6.3.2. Renderer (soon)
+                    6.3.2. Renderer
             
-                </span>
+                </a>
             
 
             
@@ -680,9 +706,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.html">
+        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.md">
             
-                <a href="../Troubleshooting.html">
+                <span>
             
                     
                     7. Troubleshooting
@@ -778,35 +804,6 @@
                                 <section class="normal markdown-section">
                                 
                                 <h1 id="developer-experience">Developer Experience</h1>
-<h1 id="hot-reloading">Hot Reloading</h1>
-<p>Right now there is no built-in solution for hot reloading by default.
-But with the following pattern, one can enable HMR.</p>
-<blockquote>
-<p>Tip: Check how <a href="https://github.com/este/este/blob/c7e1138e51be6a8c27ba534dc8ecd0c74a695a57/src/browser/app/Root.js#L13" _target="blank">este</a> is doing it!</p>
-</blockquote>
-<p>The following example uses the <a href="https://github.com/rofrischmann/fela/tree/master/packages/react-fela" _target="blank">React bindings for Fela</a>.</p>
-<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> Provider <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;react-fela&apos;</span>
-<span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
-
-<span class="token keyword">function</span> <span class="token function">getNextMountNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
-  <span class="token keyword">const</span> mountNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">getElementById</span><span class="token punctuation">(</span><span class="token string">&apos;stylesheet&apos;</span><span class="token punctuation">)</span>
-  <span class="token keyword">const</span> parentNode <span class="token operator">=</span> mountNode<span class="token punctuation">.</span>parentNode
-
-  <span class="token keyword">const</span> nextMountNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;style&apos;</span><span class="token punctuation">)</span>
-  nextMountNode<span class="token punctuation">.</span>id <span class="token operator">=</span> <span class="token string">&apos;stylesheet&apos;</span>
-
-  parentNode<span class="token punctuation">.</span><span class="token function">replaceChild</span><span class="token punctuation">(</span>nextMountNode<span class="token punctuation">,</span> mountNode<span class="token punctuation">)</span>
-  <span class="token keyword">return</span> nextMountNode
-<span class="token punctuation">}</span>
-
-<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
-
-<span class="token keyword">const</span> App <span class="token operator">=</span> <span class="token punctuation">(</span>
-  <span class="token operator">&lt;</span>Provider mountNode<span class="token operator">=</span><span class="token punctuation">{</span><span class="token function">getNextMountNode</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span><span class="token punctuation">}</span> renderer<span class="token operator">=</span><span class="token punctuation">{</span>renderer<span class="token punctuation">}</span><span class="token operator">&gt;</span>
-    <span class="token comment" spellcheck="true">// your app code here</span>
-  <span class="token operator">&lt;</span><span class="token operator">/</span>Provider<span class="token operator">&gt;</span>
-<span class="token punctuation">)</span>
-</code></pre>
 <h2 id="monolithic-class-names">Monolithic class names</h2>
 <p>Using atomic class names design for developing can be quite hard to debug so we support monolithic class names.
 Atomic class names will give you <code>n</code> number of classes when you <code>renderer.renderRule</code> while monolithic design will give you one class name with all the rules. By default, the class names are based on properties (it&apos;s a simple hash function). If you want to fix the class name, you can add property <code>className</code> into your rule set. This can be useful if you want to generate an external stylesheet that&apos;s human readable, deterministic and can be used on non-JS projects.</p>
@@ -862,7 +859,7 @@ Atomic class names will give you <code>n</code> number of classes when you <code
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.8. Developer Experience","level":"1.4.8","depth":2,"next":{"title":"4. Usage Guides","level":"1.5","depth":1,"path":"docs/UsageGuides.md","ref":"docs/UsageGuides.md","articles":[{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},{"title":"4.2. Usage with React Native","level":"1.5.2","depth":2,"path":"docs/guides/UsageWithReactNative.md","ref":"docs/guides/UsageWithReactNative.md","articles":[]},{"title":"4.3. Usage with Preact","level":"1.5.3","depth":2,"path":"docs/guides/UsageWithPreact.md","ref":"docs/guides/UsageWithPreact.md","articles":[]},{"title":"4.4. Usage with Inferno","level":"1.5.4","depth":2,"path":"docs/guides/UsageWithInferno.md","ref":"docs/guides/UsageWithInferno.md","articles":[]},{"title":"4.5. Usage with Angular 2","level":"1.5.5","depth":2,"path":"docs/guides/UsageWithAngular2.md","ref":"docs/guides/UsageWithAngular2.md","articles":[]}]},"previous":{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/DeveloperExperience.md","mtime":"2017-03-24T12:53:15.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-04-28T09:25:37.718Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.8. Developer Experience","level":"1.4.8","depth":2,"next":{"title":"4. Usage Guides","level":"1.5","depth":1,"path":"docs/UsageGuides.md","ref":"docs/UsageGuides.md","articles":[{"title":"4.1. Usage with React","level":"1.5.1","depth":2,"path":"docs/guides/UsageWithReact.md","ref":"docs/guides/UsageWithReact.md","articles":[]},{"title":"4.2. Usage with React Native","level":"1.5.2","depth":2,"path":"docs/guides/UsageWithReactNative.md","ref":"docs/guides/UsageWithReactNative.md","articles":[]},{"title":"4.3. Usage with Preact","level":"1.5.3","depth":2,"path":"docs/guides/UsageWithPreact.md","ref":"docs/guides/UsageWithPreact.md","articles":[]},{"title":"4.4. Usage with Inferno","level":"1.5.4","depth":2,"path":"docs/guides/UsageWithInferno.md","ref":"docs/guides/UsageWithInferno.md","articles":[]},{"title":"4.5. Usage with Angular 2","level":"1.5.5","depth":2,"path":"docs/guides/UsageWithAngular2.md","ref":"docs/guides/UsageWithAngular2.md","articles":[]}]},"previous":{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/DeveloperExperience.md","mtime":"2017-05-24T07:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-07T20:37:09.173Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

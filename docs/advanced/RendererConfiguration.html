@@ -508,6 +508,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.2" data-path="../recipes/TestingFelaComponents.html">
+            
+                <a href="../recipes/TestingFelaComponents.html">
+            
+                    
+                    5.2. Testing Fela Components
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -625,6 +638,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.2.2" data-path="../api/fela-dom/renderToMarkup.html">
+            
+                <a href="../api/fela-dom/renderToMarkup.html">
+            
+                    
+                    6.2.2. renderToMarkup
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -644,27 +670,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.3.1" >
+        <li class="chapter " data-level="1.7.3.1" data-path="../api/fela-native/createRenderer.html">
             
-                <span>
+                <a href="../api/fela-native/createRenderer.html">
             
                     
-                    6.3.1. createRenderer (soon)
+                    6.3.1. createRenderer
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.7.3.2" >
+        <li class="chapter " data-level="1.7.3.2" data-path="../api/fela-native/Renderer.html">
             
-                <span>
+                <a href="../api/fela-native/Renderer.html">
             
                     
-                    6.3.2. Renderer (soon)
+                    6.3.2. Renderer
             
-                </span>
+                </a>
             
 
             
@@ -680,9 +706,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.html">
+        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.md">
             
-                <a href="../Troubleshooting.html">
+                <span>
             
                     
                     7. Troubleshooting
@@ -832,6 +858,8 @@
 
 <span class="token keyword">import</span> beautifier <span class="token keyword">from</span> <span class="token string">&apos;fela-beautifier&apos;</span>
 
+<span class="token keyword">import</span> <span class="token punctuation">{</span> renderToString <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela-dom/server&apos;</span>
+
 <span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
   plugins<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token function">unit</span><span class="token punctuation">(</span><span class="token string">&apos;em&apos;</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">prefixer</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">,</span> <span class="token function">fallbackValue</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span><span class="token punctuation">,</span>
   keyframePrefixes<span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">&apos;-webkit-&apos;</span><span class="token punctuation">]</span><span class="token punctuation">,</span>
@@ -864,7 +892,7 @@
 renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> color<span class="token punctuation">:</span> <span class="token string">&apos;red &apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span>
 renderer<span class="token punctuation">.</span><span class="token function">renderKeyframe</span><span class="token punctuation">(</span>keyframe<span class="token punctuation">,</span> <span class="token punctuation">{</span> height<span class="token punctuation">:</span> <span class="token number">100</span> <span class="token punctuation">}</span><span class="token punctuation">)</span>
 
-console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span>renderer<span class="token punctuation">.</span><span class="token function">renderToString</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
+console<span class="token punctuation">.</span><span class="token function">log</span><span class="token punctuation">(</span><span class="token function">renderToString</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span><span class="token punctuation">)</span>
 </code></pre>
 <pre class="language-"><code class="lang-CSS">@-webkit-keyframes fela_k1 {
   from {
@@ -957,7 +985,7 @@ console<span class="token punctuation">.</span><span class="token function">log<
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"next":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/RendererConfiguration.md","mtime":"2017-03-24T12:53:15.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-04-28T09:25:37.718Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"next":{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},"previous":{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/RendererConfiguration.md","mtime":"2017-05-24T07:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-07T20:37:09.173Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

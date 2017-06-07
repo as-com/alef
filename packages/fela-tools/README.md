@@ -2,8 +2,7 @@
 
 A set of useful tools to work with Fela.
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-tools.svg">
-<img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-tools.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
 
 ## Installation
 ```sh
@@ -34,6 +33,7 @@ import StyleSheet from 'fela-tools/StyleSheet'
 ## API Reference
 
 * [`mapValueToMediaQuery(queryValueMap, mapper)`](docs/mapValueToMediaQuery.md)
+* [`renderToString(renderer)`](docs/renderToString.md)
 * [StyleSheet](docs/StyleSheet.md)
 
 ## License

@@ -62,7 +62,7 @@
 
     
     
-    <link rel="prev" href="recipes/ResponsiveComponents.html" />
+    <link rel="prev" href="recipes/TestingFelaComponents.html" />
     
 
     </head>
@@ -506,6 +506,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.2" data-path="recipes/TestingFelaComponents.html">
+            
+                <a href="recipes/TestingFelaComponents.html">
+            
+                    
+                    5.2. Testing Fela Components
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -623,6 +636,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.2.2" data-path="api/fela-dom/renderToMarkup.html">
+            
+                <a href="api/fela-dom/renderToMarkup.html">
+            
+                    
+                    6.2.2. renderToMarkup
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -642,27 +668,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.3.1" >
+        <li class="chapter " data-level="1.7.3.1" data-path="api/fela-native/createRenderer.html">
             
-                <span>
+                <a href="api/fela-native/createRenderer.html">
             
                     
-                    6.3.1. createRenderer (soon)
+                    6.3.1. createRenderer
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.7.3.2" >
+        <li class="chapter " data-level="1.7.3.2" data-path="api/fela-native/Renderer.html">
             
-                <span>
+                <a href="api/fela-native/Renderer.html">
             
                     
-                    6.3.2. Renderer (soon)
+                    6.3.2. Renderer
             
-                </span>
+                </a>
             
 
             
@@ -678,9 +704,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="Troubleshooting.html">
+        <li class="chapter " data-level="1.8" data-path="Troubleshooting.md">
             
-                <a href="Troubleshooting.html">
+                <span>
             
                     
                     7. Troubleshooting
@@ -778,25 +804,38 @@
                                 <h1 id="api-reference">API Reference</h1>
 <p>Last but not least this chapter ships the API reference in detail. Despite explaining every single method its arguments and return value, you will also find some tips on some pages.</p>
 <h2 id="top-level-api">Top-Level API</h2>
-<h4 id="fela">fela</h4>
+<h3 id="fela">fela</h3>
 <ul>
-<li><a href="api/fela/fela/createRenderer.md"><code>createRenderer([config])</code></a></li>
-<li><a href="api/fela/fela/combineRules.md"><code>combineRules(...rules)</code></a></li>
-<li><a href="api/fela/fela/enhance.md"><code>enhance(...enhancers)</code></a></li>
+<li><a href="api/fela/createRenderer.html"><code>createRenderer([config])</code></a></li>
+<li><a href="api/fela/combineRules.html"><code>combineRules(...rules)</code></a></li>
+<li><a href="api/fela/enhance.html"><code>enhance(...enhancers)</code></a></li>
 </ul>
-<h4 id="fela-dom">fela-dom</h4>
+<h4 id="renderer-api"><a href="api/fela/Renderer.html">Renderer API</a></h4>
 <ul>
-<li><a href="api/fela/fela-dom/render.md"><code>render(renderer, mountNode)</code></a></li>
+<li><a href="api/fela/Renderer.html#renderrulerule--props"><code>.renderRule(rule, [props])</code></a></li>
+<li><a href="api/fela/Renderer.html#renderkeyframe--props"><code>.renderKeyframe(keyframe, [props])</code></a></li>
+<li><a href="api/fela/Renderer.html#renderfontfamily-files--properties"><code>.renderFont(family, files, [properties])</code></a></li>
+<li><a href="api/fela/Renderer.html#renderstaticstyle--selector"><code>.renderStatic(style, [selector])</code></a></li>
+<li><a href="api/fela/Renderer.html#rendertostring"><code>.renderToString()</code></a> <em>(Deprecated)</em></li>
+<li><a href="api/fela/Renderer.html#subscribelistener"><code>.subscribe(listener)</code></a></li>
+<li><a href="api/fela/Renderer.html#clear"><code>.clear()</code></a></li>
 </ul>
-<h2 id="renderer-api"><a href="api/fela/fela/Renderer.md">Renderer API</a></h2>
+<hr>
+<h3 id="fela-dom">fela-dom</h3>
 <ul>
-<li><a href="api/fela/fela/Renderer.md#renderrulerule--props"><code>.renderRule(rule, [props])</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#renderkeyframe--props"><code>.renderKeyframe(keyframe, [props])</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#renderfontfamily-files--properties"><code>.renderFont(family, files, [properties])</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#renderstaticstyle--reference"><code>.renderStatic(style, [selector])</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#rendertostring"><code>.renderToString()</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#subscribelistener"><code>.subscribe(listener)</code></a></li>
-<li><a href="api/fela/fela/Renderer.md#clear"><code>.clear()</code></a></li>
+<li><a href="api/fela-dom/render.html"><code>render(renderer)</code></a></li>
+<li><a href="api/fela-dom/renderToMarkup.html"><code>renderToMarkup(renderer)</code></a></li>
+</ul>
+<hr>
+<h3 id="fela-native">fela-native</h3>
+<ul>
+<li><a href="api/fela-native/createRenderer.html"><code>createRenderer([config])</code></a></li>
+</ul>
+<h4 id="renderer-api"><a href="api/fela-native/Renderer.html">Renderer API</a></h4>
+<ul>
+<li><a href="api/fela-native/Renderer.html#renderrulerule--props"><code>.renderRule(rule, [props])</code></a></li>
+<li><a href="api/fela-native/Renderer.html#subscribelistener"><code>.subscribe(listener)</code></a></li>
+<li><a href="api/fela-native/Renderer.html#clear"><code>.clear()</code></a></li>
 </ul>
 
                                 
@@ -825,7 +864,7 @@
 
             
                 
-                <a href="recipes/ResponsiveComponents.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 5.1. Responsive Components">
+                <a href="recipes/TestingFelaComponents.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page: 5.2. Testing Fela Components">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
@@ -837,7 +876,7 @@
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"6. API Reference","level":"1.7","depth":1,"next":{"title":"6.1. fela","level":"1.7.1","depth":2,"ref":"","articles":[{"title":"6.1.1. createRenderer","level":"1.7.1.1","depth":3,"path":"docs/api/fela/createRenderer.md","ref":"docs/api/fela/createRenderer.md","articles":[]},{"title":"6.1.2. Renderer","level":"1.7.1.2","depth":3,"path":"docs/api/fela/Renderer.md","ref":"docs/api/fela/Renderer.md","articles":[]},{"title":"6.1.3. combineRules","level":"1.7.1.3","depth":3,"path":"docs/api/fela/combineRules.md","ref":"docs/api/fela/combineRules.md","articles":[]},{"title":"6.1.4. enhance","level":"1.7.1.4","depth":3,"path":"docs/api/fela/enhance.md","ref":"docs/api/fela/enhance.md","articles":[]}]},"previous":{"title":"5.1. Responsive Components","level":"1.6.1","depth":2,"path":"docs/recipes/ResponsiveComponents.md","ref":"docs/recipes/ResponsiveComponents.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/API.md","mtime":"2017-03-24T12:53:15.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-04-28T09:25:37.718Z"},"basePath":"..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"6. API Reference","level":"1.7","depth":1,"next":{"title":"6.1. fela","level":"1.7.1","depth":2,"ref":"","articles":[{"title":"6.1.1. createRenderer","level":"1.7.1.1","depth":3,"path":"docs/api/fela/createRenderer.md","ref":"docs/api/fela/createRenderer.md","articles":[]},{"title":"6.1.2. Renderer","level":"1.7.1.2","depth":3,"path":"docs/api/fela/Renderer.md","ref":"docs/api/fela/Renderer.md","articles":[]},{"title":"6.1.3. combineRules","level":"1.7.1.3","depth":3,"path":"docs/api/fela/combineRules.md","ref":"docs/api/fela/combineRules.md","articles":[]},{"title":"6.1.4. enhance","level":"1.7.1.4","depth":3,"path":"docs/api/fela/enhance.md","ref":"docs/api/fela/enhance.md","articles":[]}]},"previous":{"title":"5.2. Testing Fela Components","level":"1.6.2","depth":2,"path":"docs/recipes/TestingFelaComponents.md","ref":"docs/recipes/TestingFelaComponents.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/API.md","mtime":"2017-06-07T20:20:31.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-07T20:37:09.173Z"},"basePath":"..","book":{"language":""}});
         });
     </script>
 </div>

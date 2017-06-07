@@ -508,6 +508,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.2" data-path="../recipes/TestingFelaComponents.html">
+            
+                <a href="../recipes/TestingFelaComponents.html">
+            
+                    
+                    5.2. Testing Fela Components
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -625,6 +638,19 @@
             
         </li>
     
+        <li class="chapter " data-level="1.7.2.2" data-path="../api/fela-dom/renderToMarkup.html">
+            
+                <a href="../api/fela-dom/renderToMarkup.html">
+            
+                    
+                    6.2.2. renderToMarkup
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -644,27 +670,27 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.7.3.1" >
+        <li class="chapter " data-level="1.7.3.1" data-path="../api/fela-native/createRenderer.html">
             
-                <span>
+                <a href="../api/fela-native/createRenderer.html">
             
                     
-                    6.3.1. createRenderer (soon)
+                    6.3.1. createRenderer
             
-                </span>
+                </a>
             
 
             
         </li>
     
-        <li class="chapter " data-level="1.7.3.2" >
+        <li class="chapter " data-level="1.7.3.2" data-path="../api/fela-native/Renderer.html">
             
-                <span>
+                <a href="../api/fela-native/Renderer.html">
             
                     
-                    6.3.2. Renderer (soon)
+                    6.3.2. Renderer
             
-                </span>
+                </a>
             
 
             
@@ -680,9 +706,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.html">
+        <li class="chapter " data-level="1.8" data-path="../Troubleshooting.md">
             
-                <a href="../Troubleshooting.html">
+                <span>
             
                     
                     7. Troubleshooting
@@ -780,21 +806,18 @@
                                 <h1 id="dom-rendering">DOM Rendering</h1>
 <p>Knowing all the basics, we are already able to build up our whole styling environment. But we still do not know how to actually render our styles into the DOM. Luckily this is really simple as all we have to do is call a single function.<br>
 The <code>fela-dom</code> package is used for any DOM specific methods.
-It provides a <code>render</code> function which takes two parameters: our renderer and a valid DOM node to render our CSS into.</p>
+It provides a <code>render</code> function which takes the renderer as a parameter.</p>
 <h2 id="automatic-updates">Automatic Updates</h2>
-<p>Once rendered into a DOM node, a change listener will subscribe to changes. The DOM node will automatically be updated on changes.</p>
+<p>Once rendered to the DOM, a change listener will subscribe to changes. The DOM nodes will automatically be updated on changes.</p>
 <h4 id="development-vs-production">Development vs. Production</h4>
-<p><strong>In production</strong> it uses an optimized rendering mechanism based on <a href="https://developer.mozilla.org/en-US/docs/Web/api/fela/CSSStyleSheet/insertRule" _target="blank"><code>CSSStyleSheet.insertRule</code></a> to update as performant as possible. Therefore be sure to <strong>only</strong> use <code>style</code> nodes in production.</p>
-<p><strong>In development</strong> you may use any valid DOM node as it uses <code>node.textContent</code> to update styles. This also implies that Fela is even faster in production, so be sure to use the production environment for production builds.</p>
+<blockquote>
 <p>These two modes exist as <a href="https://bugs.chromium.org/p/chromium/issues/detail?id=387952" _target="blank">Chrome Developer Tools does not support <code>CSSStyleSheet.insertRule</code></a>.</p>
+</blockquote>
+<p><strong>In production</strong> it uses an optimized rendering mechanism based on <a href="https://developer.mozilla.org/en-US/docs/Web/api/fela/CSSStyleSheet/insertRule" _target="blank"><code>CSSStyleSheet.insertRule</code></a> to update as performant as possible.</p>
+<p><strong>In development</strong> it uses <code>node.textContent</code> to update styles. This also implies that Fela is even faster in production, so be sure to use the production environment for production builds.</p>
 <h2 id="example">Example</h2>
 <pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> <span class="token punctuation">{</span> createRenderer <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela&apos;</span>
 <span class="token keyword">import</span> <span class="token punctuation">{</span> render <span class="token punctuation">}</span> <span class="token keyword">from</span> <span class="token string">&apos;fela-dom&apos;</span>
-
-<span class="token comment" spellcheck="true">// create and append a new stylesheet</span>
-<span class="token comment" spellcheck="true">// alternatively select an existing one</span>
-<span class="token keyword">const</span> mountNode <span class="token operator">=</span> document<span class="token punctuation">.</span><span class="token function">createElement</span><span class="token punctuation">(</span><span class="token string">&apos;style&apos;</span><span class="token punctuation">)</span>
-document<span class="token punctuation">.</span>head<span class="token punctuation">.</span><span class="token function">appendChild</span><span class="token punctuation">(</span>mountNode<span class="token punctuation">)</span>
 
 <span class="token keyword">const</span> rule <span class="token operator">=</span> props <span class="token operator">=</span><span class="token operator">&gt;</span> <span class="token punctuation">(</span><span class="token punctuation">{</span>
   backgroundColor<span class="token punctuation">:</span> <span class="token string">&apos;red&apos;</span><span class="token punctuation">,</span>
@@ -806,7 +829,7 @@ document<span class="token punctuation">.</span>head<span class="token punctuati
 
 renderer<span class="token punctuation">.</span><span class="token function">render</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> size<span class="token punctuation">:</span> <span class="token string">&apos;12px&apos;</span> <span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; a b c</span>
 
-<span class="token function">render</span><span class="token punctuation">(</span>renderer<span class="token punctuation">,</span> mountNode<span class="token punctuation">)</span>
+<span class="token function">render</span><span class="token punctuation">(</span>renderer<span class="token punctuation">)</span>
 
 <span class="token comment" spellcheck="true">// automatically adds the rule to the mountNode</span>
 renderer<span class="token punctuation">.</span><span class="token function">renderRule</span><span class="token punctuation">(</span>rule<span class="token punctuation">,</span> <span class="token punctuation">{</span> size<span class="token punctuation">:</span> <span class="token string">&apos;15px &apos;</span><span class="token punctuation">}</span><span class="token punctuation">)</span> <span class="token comment" spellcheck="true">// =&gt; a d c</span>
@@ -860,7 +883,7 @@ renderer<span class="token punctuation">.</span><span class="token function">ren
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"next":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},"previous":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},{"title":"3.8. Developer Experience","level":"1.4.8","depth":2,"path":"docs/advanced/DeveloperExperience.md","ref":"docs/advanced/DeveloperExperience.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/DOMRendering.md","mtime":"2017-03-24T12:53:15.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-04-28T09:25:37.718Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"next":{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},"previous":{"title":"3. Advanced","level":"1.4","depth":1,"path":"docs/Advanced.md","ref":"docs/Advanced.md","articles":[{"title":"3.1. DOM Rendering","level":"1.4.1","depth":2,"path":"docs/advanced/DOMRendering.md","ref":"docs/advanced/DOMRendering.md","articles":[]},{"title":"3.2. Server Rendering","level":"1.4.2","depth":2,"path":"docs/advanced/ServerRendering.md","ref":"docs/advanced/ServerRendering.md","articles":[]},{"title":"3.3. Plugins","level":"1.4.3","depth":2,"path":"docs/advanced/Plugins.md","ref":"docs/advanced/Plugins.md","articles":[]},{"title":"3.4. Renderer Configuration","level":"1.4.4","depth":2,"path":"docs/advanced/RendererConfiguration.md","ref":"docs/advanced/RendererConfiguration.md","articles":[]},{"title":"3.5. Global & Third-Party Styles","level":"1.4.5","depth":2,"path":"docs/advanced/StaticStyle.md","ref":"docs/advanced/StaticStyle.md","articles":[]},{"title":"3.6. Combined Rules","level":"1.4.6","depth":2,"path":"docs/advanced/CombinedRules.md","ref":"docs/advanced/CombinedRules.md","articles":[]},{"title":"3.7. Enhancers","level":"1.4.7","depth":2,"path":"docs/advanced/Enhancers.md","ref":"docs/advanced/Enhancers.md","articles":[]},{"title":"3.8. Developer Experience","level":"1.4.8","depth":2,"path":"docs/advanced/DeveloperExperience.md","ref":"docs/advanced/DeveloperExperience.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/advanced/DOMRendering.md","mtime":"2017-05-24T07:16:57.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-07T20:37:09.173Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>

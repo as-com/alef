@@ -1,6 +1,27 @@
 # Changelog
 
-## 4.0
+## 5.0
+
+#### 5.0.0
+Although all API changes ship with backward compatibility, we still publish a new major version as we changed a lot of internal infrastructure and want to make sure to not break existing applications in any way.
+
+##### API Changes
+* introducing the new [fela-dom](packages/fela-dom) server-side method `renderToMarkup` as well as a new improved `render` for to avoid FOUCs and big stylesheet rerenders. ( [#156](https://github.com/rofrischmann/fela/pull/156) )
+* `connect` now directly accepts an object of named rules that are mapped to the `styles` prop. ( [#260](https://github.com/rofrischmann/fela/pull/260) )
+* `createComponent`'s *passThroughProps* now either accept an array of prop keys or a function that returns an array of prop keys (instead of an object of props)
+
+##### Improvements
+* only set `id` and/or `style` on `createComponent` if actually required to reduce overhead
+* introducing [fela-plugin-embedded](packages/fela-plugin-embedded) supporting inlined keyframes and font faces in rules ( [#238](https://github.com/rofrischmann/fela/pull/238) )
+* introducing [fela-plugin-important](packages/fela-plugin-important) that adds `!important` to every declaration ( [#249](https://github.com/rofrischmann/fela/pull/249) )
+* font rendering, especially SVG fonts, has been improved in many ways ( [#282](https://github.com/rofrischmann/fela/pull/282) )
+* a bug in [fela-plugin-validator](packages/fela-plugin-validator) has been fixed to improve keyframe validation ( [#257](https://github.com/rofrischmann/fela/pull/257) )
+* the [fela-monolithic](packages/fela-monolithic) enhancer has been completely rewritten for better performance ( [#256](https://github.com/rofrischmann/fela/pull/256) )
+
+##### Infrastructure
+We switched the whole project to an improved workflow with Lerna. This release is the first one done by Lerna.
+
+---
 
 #### 4.3.5 (hot fix)
 * fix wrong `<ThemeProvider>` export
