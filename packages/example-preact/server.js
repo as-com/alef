@@ -3,14 +3,17 @@ import proxy from 'express-http-proxy'
 import { h } from 'preact'
 import render from 'preact-render-to-string'
 import { Provider } from 'preact-fela'
+import { renderToMarkup } from 'fela-dom'
 import fs from 'fs'
-
 import App from './app.js'
 import createRenderer from './renderer'
 
 const app = express()
 
-app.use('/bundle.js', proxy('localhost:8080', { forwardPath: () => '/bundle.js' }))
+app.use(
+  '/bundle.js',
+  proxy('localhost:8080', { forwardPath: () => '/bundle.js' })
+)
 
 app.get('/', (req, res) => {
   const renderer = createRenderer()
@@ -21,9 +24,13 @@ app.get('/', (req, res) => {
       <App />
     </Provider>
   )
-  const appCSS = renderer.renderToString()
+  const appCSS = renderToMarkup(renderer)
 
-  res.write(indexHTML.replace('<!-- {{app}} -->', appHtml).replace('<!-- {{css}} -->', appCSS))
+  res.write(
+    indexHTML
+      .replace('<!-- {{app}} -->', appHtml)
+      .replace('<!-- {{css}} -->', appCSS)
+  )
   res.end()
 })
 

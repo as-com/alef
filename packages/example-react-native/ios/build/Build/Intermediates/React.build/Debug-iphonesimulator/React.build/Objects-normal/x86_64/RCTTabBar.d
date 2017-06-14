@@ -1,0 +1,22 @@
+dependencies: \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTTabBar.m \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTTabBar.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTTabBarItem.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTUtils.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTView.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTViewControllerProtocol.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTWrapperViewController.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/UIView+React.h

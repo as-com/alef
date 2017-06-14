@@ -1,0 +1,24 @@
+dependencies: \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTSegmentedControlManager.m \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTSegmentedControlManager.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTViewManager.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridgeModule.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTDefines.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTConvert.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/CSSLayout/CSSLayout.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/CSSLayout/CSSMacros.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTAnimationType.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTBorderStyle.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTTextDecorationLineType.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTLog.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTAssert.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTPointerEvents.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTEventDispatcher.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridge.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTBridgeDelegate.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTJavaScriptLoader.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTFrameUpdate.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Base/RCTInvalidating.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/UIView+React.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTComponent.h \
+  /Users/Grindelwald/Code/fela/packages/example-react-native/node_modules/react-native/React/Views/RCTSegmentedControl.h

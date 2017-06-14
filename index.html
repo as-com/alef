@@ -377,9 +377,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.4.8" data-path="docs/advanced/DeveloperExperience.html">
+        <li class="chapter " data-level="1.4.8" data-path="docs/advanced/DeveloperExperience.md">
             
-                <a href="docs/advanced/DeveloperExperience.html">
+                <span>
             
                     
                     3.8. Developer Experience
@@ -519,6 +519,32 @@
             
         </li>
     
+        <li class="chapter " data-level="1.6.3" data-path="docs/recipes/DisplayNameComponents.html">
+            
+                <a href="docs/recipes/DisplayNameComponents.html">
+            
+                    
+                    5.3. Explicit Component displayName
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.6.4" data-path="docs/recipes/MonolithicClassNames.md">
+            
+                <span>
+            
+                    
+                    5.4. Monolithic Class Names
+            
+                </a>
+            
+
+            
+        </li>
+    
 
             </ul>
             
@@ -642,6 +668,19 @@
             
                     
                     6.2.2. renderToMarkup
+            
+                </a>
+            
+
+            
+        </li>
+    
+        <li class="chapter " data-level="1.7.2.3" data-path="docs/api/fela-dom/renderToSheetList.html">
+            
+                <a href="docs/api/fela-dom/renderToSheetList.html">
+            
+                    
+                    6.2.3. renderToSheetList
             
                 </a>
             
@@ -807,19 +846,10 @@ It is dynamic by design and renders your styles depending on your application st
 <p>It generates CSS and therefore supports all common CSS features such as media queries, pseudo classes, keyframes and font-faces. It also renders on server-side with ease and ships with a powerful plugin API adding e.g. <a href="packages/fela-plugin-prefixer">automatic vendor prefixing</a> or <a href="packages/fela-plugin-fallback-value">fallback value</a> support.</p>
 <p>Fela can be used with <a href="https://github.com/rofrischmann/fela/tree/master/packages/react-fela" _target="blank">React</a> or with any other view library. It even supports <a href="http://fela.js.org/docs/guides/UsageWithReactNative.html" _target="blank">React Native</a>.</p>
 <p><img alt="TravisCI" src="https://travis-ci.org/rofrischmann/fela.svg?branch=master"> <a href="https://codeclimate.com/github/rofrischmann/fela/coverage" _target="blank"><img alt="Test Coverage" src="https://codeclimate.com/github/rofrischmann/fela/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/fela.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-3.16kb-brightgreen.svg"> <img alt="npm version" src="https://badge.fury.io/js/fela.svg"> <a href="https://gitter.im/rofrischmann/fela" _target="blank"><img alt="Gitter" src="https://img.shields.io/gitter/room/rofrischmann/fela.svg"></a></p>
-<blockquote>
-<p><a href="https://jsfiddle.net/mzrn1yvy/18/" _target="blank">Try it on JSFiddle!</a></p>
-</blockquote>
 <h2 id="installation">Installation</h2>
-<pre class="language-"><code class="lang-sh"><span class="token function">npm</span> i --save fela
+<pre class="language-"><code class="lang-sh">yarn add fela
 </code></pre>
-<p>Assuming you are using <a href="https://www.npmjs.com" _target="blank">npm</a> as your package manager you can <code>npm install</code> all packages. <br>
-Otherwise we also provide <a href="https://github.com/umdjs/umd" _target="blank">UMD</a> builds for each package within the <code>dist</code> folder. You can easily use them via <a href="https://unpkg.com/" _target="blank">unpkg</a>.</p>
-<pre class="language-"><code class="lang-HTML"><span class="token comment" spellcheck="true">&lt;!-- Fela (Development): Unminified version including all warnings --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://unpkg.com/fela@4.3.5/dist/fela.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-<span class="token comment" spellcheck="true">&lt;!-- Fela (Production): Minified version --&gt;</span>
-<span class="token tag"><span class="token tag"><span class="token punctuation">&lt;</span>script</span> <span class="token attr-name">src</span><span class="token attr-value"><span class="token punctuation">=</span><span class="token punctuation">&quot;</span>https://unpkg.com/fela@4.3.5/dist/fela.min.js<span class="token punctuation">&quot;</span></span><span class="token punctuation">&gt;</span></span><span class="token tag"><span class="token tag"><span class="token punctuation">&lt;/</span>script</span><span class="token punctuation">&gt;</span></span>
-</code></pre>
+<p>You may alternatively use <code>npm i --save fela</code>.</p>
 <h2 id="features">Features</h2>
 <ul>
 <li>Dynamic styling</li>
@@ -896,12 +926,11 @@ console<span class="token punctuation">.</span><span class="token function">log<
 </ul>
 <h2 id="examples">Examples</h2>
 <ul>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#vanilla" _target="blank">Vanilla JavaScript</a> (<a href="examples/vanilla">source</a>)</li>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#react" _target="blank">Fela + React</a> (<a href="examples/react">source</a>)</li>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#react-native" _target="blank">Fela + React Native</a> (<a href="examples/react-native">source</a>)</li>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#preact" _target="blank">Fela + Preact</a> (<a href="examples/preact">source</a>)</li>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#inferno" _target="blank">Fela + Inferno</a> (<a href="examples/inferno">source</a>)</li>
-<li><a href="http://fela.js.org/docs/introduction/Examples.html#angular-2" _target="blank">Fela + Angular 2</a> (<a href="examples/angular/javascript">source</a>)</li>
+<li><a href="http://fela.js.org/docs/introduction/Examples.html#react" _target="blank">Fela + React</a> (<a href="packages/example-react">source</a>)</li>
+<li><a href="http://fela.js.org/docs/introduction/Examples.html#react-native" _target="blank">Fela + React Native</a> (<a href="packages/example-react-native">source</a>)</li>
+<li><a href="http://fela.js.org/docs/introduction/Examples.html#preact" _target="blank">Fela + Preact</a> (<a href="packages/example-preact">source</a>)</li>
+<li><a href="http://fela.js.org/docs/introduction/Examples.html#inferno" _target="blank">Fela + Inferno</a> (<a href="packages/example-inferno">source</a>)</li>
+<li><a href="http://fela.js.org/docs/introduction/Examples.html#angular-2" _target="blank">Fela + Angular 2</a> (<a href="packages/example-angular2">source</a>)</li>
 <li><a href="https://github.com/zeit/next.js/tree/master/examples/with-fela" _target="blank">Fela + Next</a></li>
 <li><a href="https://github.com/ahdinosaur/hyper-fela#example" _target="blank">Fela + HyperScript</a></li>
 <li><a href="https://github.com/wcastand/cycle-fela-example" _target="blank">Fela + Cycle</a></li>
@@ -928,6 +957,7 @@ We also love to get feedback.</p>
 <li><a href="https://m.mediafire.com" _target="blank">MediaFire</a></li>
 <li><a href="https://n26.com" _target="blank">N26</a></li>
 <li><a href="https://www.ninjaconcept.com" _target="blank">NinjaConcept</a></li>
+<li><a href="https://www.optisure.de" _target="blank">Optisure</a></li>
 </ul>
 <h2 id="license">License</h2>
 <p>Fela is licensed under the <a href="http://opensource.org/licenses/MIT" _target="blank">MIT License</a>.<br>
@@ -972,7 +1002,7 @@ Created with &#x2665; by <a href="http://rofrischmann.de" _target="blank">@rofri
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"Read Me","level":"1.1","depth":1,"next":{"title":"1. Introduction","level":"1.2","depth":1,"path":"docs/Introduction.md","ref":"docs/Introduction.md","articles":[{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},{"title":"1.6. Examples","level":"1.2.6","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"README.md","mtime":"2017-06-06T19:23:49.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-07T20:37:09.173Z"},"basePath":".","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"Read Me","level":"1.1","depth":1,"next":{"title":"1. Introduction","level":"1.2","depth":1,"path":"docs/Introduction.md","ref":"docs/Introduction.md","articles":[{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},{"title":"1.6. Examples","level":"1.2.6","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"README.md","mtime":"2017-06-08T16:58:12.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-14T14:12:48.765Z"},"basePath":".","book":{"language":""}});
         });
     </script>
 </div>
