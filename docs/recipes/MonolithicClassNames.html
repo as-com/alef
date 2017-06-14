@@ -2,7 +2,7 @@
 <!DOCTYPE HTML>
 <html lang="en" >
     <head>
-        <title>1.1. Motivation · Fela</title>
+        <title>5.4. Monolithic Class Names · Fela</title>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
@@ -61,10 +61,10 @@
     <link rel="shortcut icon" href="../../gitbook/images/favicon.ico" type="image/x-icon">
 
     
-    <link rel="next" href="Principles.html" />
+    <link rel="next" href="../API.html" />
     
     
-    <link rel="prev" href="../Introduction.html" />
+    <link rel="prev" href="DisplayNameComponents.html" />
     
 
     </head>
@@ -120,9 +120,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter active" data-level="1.2.1" data-path="Motivation.html">
+        <li class="chapter " data-level="1.2.1" data-path="../introduction/Motivation.html">
             
-                <a href="Motivation.html">
+                <a href="../introduction/Motivation.html">
             
                     
                     1.1. Motivation
@@ -133,9 +133,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.2" data-path="Principles.html">
+        <li class="chapter " data-level="1.2.2" data-path="../introduction/Principles.html">
             
-                <a href="Principles.html">
+                <a href="../introduction/Principles.html">
             
                     
                     1.2. Principles
@@ -146,9 +146,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.3" data-path="Benefits.html">
+        <li class="chapter " data-level="1.2.3" data-path="../introduction/Benefits.html">
             
-                <a href="Benefits.html">
+                <a href="../introduction/Benefits.html">
             
                     
                     1.3. Benefits
@@ -159,9 +159,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.4" data-path="Drawbacks.html">
+        <li class="chapter " data-level="1.2.4" data-path="../introduction/Drawbacks.html">
             
-                <a href="Drawbacks.html">
+                <a href="../introduction/Drawbacks.html">
             
                     
                     1.4. Drawbacks
@@ -172,9 +172,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.5" data-path="Ecosystem.html">
+        <li class="chapter " data-level="1.2.5" data-path="../introduction/Ecosystem.html">
             
-                <a href="Ecosystem.html">
+                <a href="../introduction/Ecosystem.html">
             
                     
                     1.5. Ecosystem
@@ -185,9 +185,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.2.6" data-path="Examples.html">
+        <li class="chapter " data-level="1.2.6" data-path="../introduction/Examples.html">
             
-                <a href="Examples.html">
+                <a href="../introduction/Examples.html">
             
                     
                     1.6. Examples
@@ -495,9 +495,9 @@
             <ul class="articles">
                 
     
-        <li class="chapter " data-level="1.6.1" data-path="../recipes/ResponsiveComponents.html">
+        <li class="chapter " data-level="1.6.1" data-path="ResponsiveComponents.html">
             
-                <a href="../recipes/ResponsiveComponents.html">
+                <a href="ResponsiveComponents.html">
             
                     
                     5.1. Responsive Components
@@ -508,9 +508,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.2" data-path="../recipes/TestingFelaComponents.html">
+        <li class="chapter " data-level="1.6.2" data-path="TestingFelaComponents.html">
             
-                <a href="../recipes/TestingFelaComponents.html">
+                <a href="TestingFelaComponents.html">
             
                     
                     5.2. Testing Fela Components
@@ -521,9 +521,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.3" data-path="../recipes/DisplayNameComponents.html">
+        <li class="chapter " data-level="1.6.3" data-path="DisplayNameComponents.html">
             
-                <a href="../recipes/DisplayNameComponents.html">
+                <a href="DisplayNameComponents.html">
             
                     
                     5.3. Explicit Component displayName
@@ -534,9 +534,9 @@
             
         </li>
     
-        <li class="chapter " data-level="1.6.4" data-path="../recipes/MonolithicClassNames.html">
+        <li class="chapter active" data-level="1.6.4" data-path="MonolithicClassNames.html">
             
-                <a href="../recipes/MonolithicClassNames.html">
+                <a href="MonolithicClassNames.html">
             
                     
                     5.4. Monolithic Class Names
@@ -827,7 +827,7 @@
     <!-- Title -->
     <h1>
         <i class="fa fa-circle-o-notch fa-spin"></i>
-        <a href="../.." >1.1. Motivation</a>
+        <a href="../.." >5.4. Monolithic Class Names</a>
     </h1>
 </div>
 
@@ -842,25 +842,18 @@
     
                                 <section class="normal markdown-section">
                                 
-                                <h1 id="motivation">Motivation</h1>
-<p>In November 2014, <a href="https://twitter.com/vjeux" _target="blank">Christopher &quot;vjeux&quot; Chedeau</a>, who is working on <a href="https://facebook.github.io/react/" _target="blank">React</a> and <a href="https://facebook.github.io/react-native/" _target="blank">React Native</a> at Facebook, gave a thought-provoking talk titled <a href="https://speakerdeck.com/vjeux/react-css-in-js" _target="blank">&quot;CSS in JS&quot;</a>. He outlined the problems of CSS at scale and later showed how they solved those at Facebook. They were able to solve most, but in return had to add a lot of additional tooling.</p>
-<p>Then he introduced a complete new approach to handle those issues without any actual extra work. <strong>Using inline styles</strong>. It seemed crazy, but just worked magically.</p>
-<p>To make a long story short, soon after the talk, dozens of libraries grew on Github. Most of them were built directly for React while others were more open. <br>
-For a quick overview, check out <a href="https://twitter.com/MicheleBertoli" _target="blank">Michele Bertoli</a>&apos;s great  <a href="https://github.com/MicheleBertoli/css-in-js" _target="blank">css-in-js</a> repository.</p>
-<p>Fela&apos;s creator, <a href="https://twitter.com/rofrischmann" _target="blank">Robin Frischmann</a>, also published a solution called <a href="https://github.com/rofrischmann/react-look" _target="blank">react-look</a> himself. It was nicely accepted by the community and grew to a proud number of 550 stars at the time of writing this article.<br>
-Still he noticed that with each new feature and different use-case it would get more and more complicated to handle all the different components. He found that one of the major problems was the deep binding to React itself as well as the approach to satisfy <strong>every</strong> single use-case by providing numerous configuration options and several APIs.<br></p>
-<p>After a long period of research and a lot gained experience with CSS in JS techniques, he created a whole new approach which became the library we now know as Fela.</p>
-<p>Like many powerful and widely adopted libaries such as <a href="https://github.com/facebook/react" _target="blank">React</a> or <a href="https://github.com/reactjs/redux" _target="blank">Redux</a>, <strong>Fela does not explicitly tell you how to write your styles, but rather gives you some nice and simple APIs to help you build your styling environment.</strong></p>
-<h2 id="goals">Goals</h2>
-<p>There is one important feature of react-look which turned out to be really useful in real applications: <strong>dynamic styling</strong>.
-There it seems quite logical that Fela is designed to be dynamic by default.</p>
-<p>Despite many benefical <a href="Benefits.html">side effects</a>, Fela actually only has three major goals.</p>
-<ol>
-<li>Make styling <strong>dynamic by default</strong></li>
-<li>Be <strong>framework-agnostic</strong>, that is being used with any view library</li>
-<li>Be <strong>high performant</strong></li>
-</ol>
-<p>Read about the <a href="Principles.html">principles</a> to understand how and why Fela is dynamic by default.</p>
+                                <h1 id="monolithic-class-names">Monolithic Class Names</h1>
+<p>Using atomic class names design for developing can be quite hard to debug so we support monolithic class names.
+Atomic class names will give you <code>n</code> number of classes when you <code>renderer.renderRule</code> while monolithic design will give you one class name with all the rules. By default, the class names are based on properties (it&apos;s a simple hash function). If you want to fix the class name, you can add property <code>className</code> into your rule set. This can be useful if you want to generate an external stylesheet that&apos;s human readable, deterministic and can be used on non-JS projects.</p>
+<p>Simply include the <a href="https://github.com/rofrischmann/fela/tree/master/packages/fela-monolithic" _target="blank">Fela Monolithic Enhancer</a>.</p>
+<pre class="language-"><code class="lang-javascript"><span class="token keyword">import</span> monolithic <span class="token keyword">from</span> <span class="token string">&apos;fela-monolithic&apos;</span>
+
+<span class="token keyword">const</span> config <span class="token operator">=</span> <span class="token punctuation">{</span>
+  enhancers<span class="token punctuation">:</span> <span class="token punctuation">[</span> <span class="token function">monolithic</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+
+<span class="token keyword">const</span> renderer <span class="token operator">=</span> <span class="token function">createRenderer</span><span class="token punctuation">(</span>config<span class="token punctuation">)</span>
+</code></pre>
 
                                 
                                 </section>
@@ -888,12 +881,12 @@ There it seems quite logical that Fela is designed to be dynamic by default.</p>
 
             
                 
-                <a href="../Introduction.html" class="navigation navigation-prev " aria-label="Previous page: 1. Introduction">
+                <a href="DisplayNameComponents.html" class="navigation navigation-prev " aria-label="Previous page: 5.3. Explicit Component displayName">
                     <i class="fa fa-angle-left"></i>
                 </a>
                 
                 
-                <a href="Principles.html" class="navigation navigation-next " aria-label="Next page: 1.2. Principles">
+                <a href="../API.html" class="navigation navigation-next " aria-label="Next page: 6. API Reference">
                     <i class="fa fa-angle-right"></i>
                 </a>
                 
@@ -904,7 +897,7 @@ There it seems quite logical that Fela is designed to be dynamic by default.</p>
     <script>
         var gitbook = gitbook || [];
         gitbook.push(function() {
-            gitbook.page.hasChanged({"page":{"title":"1.1. Motivation","level":"1.2.1","depth":2,"next":{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},"previous":{"title":"1. Introduction","level":"1.2","depth":1,"path":"docs/Introduction.md","ref":"docs/Introduction.md","articles":[{"title":"1.1. Motivation","level":"1.2.1","depth":2,"path":"docs/introduction/Motivation.md","ref":"docs/introduction/Motivation.md","articles":[]},{"title":"1.2. Principles","level":"1.2.2","depth":2,"path":"docs/introduction/Principles.md","ref":"docs/introduction/Principles.md","articles":[]},{"title":"1.3. Benefits","level":"1.2.3","depth":2,"path":"docs/introduction/Benefits.md","ref":"docs/introduction/Benefits.md","articles":[]},{"title":"1.4. Drawbacks","level":"1.2.4","depth":2,"path":"docs/introduction/Drawbacks.md","ref":"docs/introduction/Drawbacks.md","articles":[]},{"title":"1.5. Ecosystem","level":"1.2.5","depth":2,"path":"docs/introduction/Ecosystem.md","ref":"docs/introduction/Ecosystem.md","articles":[]},{"title":"1.6. Examples","level":"1.2.6","depth":2,"path":"docs/introduction/Examples.md","ref":"docs/introduction/Examples.md","articles":[]}]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/introduction/Motivation.md","mtime":"2017-03-24T09:36:38.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-14T14:15:27.060Z"},"basePath":"../..","book":{"language":""}});
+            gitbook.page.hasChanged({"page":{"title":"5.4. Monolithic Class Names","level":"1.6.4","depth":2,"next":{"title":"6. API Reference","level":"1.7","depth":1,"path":"docs/API.md","ref":"docs/API.md","articles":[{"title":"6.1. fela","level":"1.7.1","depth":2,"ref":"","articles":[{"title":"6.1.1. createRenderer","level":"1.7.1.1","depth":3,"path":"docs/api/fela/createRenderer.md","ref":"docs/api/fela/createRenderer.md","articles":[]},{"title":"6.1.2. Renderer","level":"1.7.1.2","depth":3,"path":"docs/api/fela/Renderer.md","ref":"docs/api/fela/Renderer.md","articles":[]},{"title":"6.1.3. combineRules","level":"1.7.1.3","depth":3,"path":"docs/api/fela/combineRules.md","ref":"docs/api/fela/combineRules.md","articles":[]},{"title":"6.1.4. enhance","level":"1.7.1.4","depth":3,"path":"docs/api/fela/enhance.md","ref":"docs/api/fela/enhance.md","articles":[]}]},{"title":"6.2. fela-dom","level":"1.7.2","depth":2,"ref":"","articles":[{"title":"6.2.1. render","level":"1.7.2.1","depth":3,"path":"docs/api/fela-dom/render.md","ref":"docs/api/fela-dom/render.md","articles":[]},{"title":"6.2.2. renderToMarkup","level":"1.7.2.2","depth":3,"path":"docs/api/fela-dom/renderToMarkup.md","ref":"docs/api/fela-dom/renderToMarkup.md","articles":[]},{"title":"6.2.3. renderToSheetList","level":"1.7.2.3","depth":3,"path":"docs/api/fela-dom/renderToSheetList.md","ref":"docs/api/fela-dom/renderToSheetList.md","articles":[]}]},{"title":"6.3. fela-native","level":"1.7.3","depth":2,"ref":"","articles":[{"title":"6.3.1. createRenderer","level":"1.7.3.1","depth":3,"path":"docs/api/fela-native/createRenderer.md","ref":"docs/api/fela-native/createRenderer.md","articles":[]},{"title":"6.3.2. Renderer","level":"1.7.3.2","depth":3,"path":"docs/api/fela-native/Renderer.md","ref":"docs/api/fela-native/Renderer.md","articles":[]}]}]},"previous":{"title":"5.3. Explicit Component displayName","level":"1.6.3","depth":2,"path":"docs/recipes/DisplayNameComponents.md","ref":"docs/recipes/DisplayNameComponents.md","articles":[]},"dir":"ltr"},"config":{"plugins":["edit-link","prism","-highlight","github","anker-enable","advanced-emoji"],"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"pluginsConfig":{"prism":{},"github":{"url":"https://github.com/rofrischmann/fela/"},"anker-enable":{},"search":{},"lunr":{"maxIndexSize":1000000},"fontsettings":{"theme":"white","family":"sans","size":2},"advanced-emoji":{"embedEmojis":false},"sharing":{"facebook":true,"twitter":true,"google":false,"weibo":false,"instapaper":false,"vk":false,"all":["facebook","google","twitter","weibo","instapaper"]},"edit-link":{"base":"https://github.com/rofrischmann/fela/tree/master","label":"Edit This Page"},"theme-default":{"styles":{"website":"styles/website.css","pdf":"styles/pdf.css","epub":"styles/epub.css","mobi":"styles/mobi.css","ebook":"styles/ebook.css","print":"styles/print.css"},"showLevel":false}},"theme":"default","author":"Robin Frischmann <robin@rofrischmann.de>","pdf":{"pageNumbers":true,"fontSize":12,"fontFamily":"Arial","paperSize":"a4","chapterMark":"pagebreak","pageBreaksBefore":"/","margin":{"right":62,"left":62,"top":56,"bottom":56}},"structure":{"langs":"LANGS.md","readme":"README.md","glossary":"GLOSSARY.md","summary":"SUMMARY.md"},"variables":{},"title":"Fela","language":"en","gitbook":"3.1.0","description":"Official documentation for Fela"},"file":{"path":"docs/recipes/MonolithicClassNames.md","mtime":"2017-06-14T14:15:09.000Z","type":"markdown"},"gitbook":{"version":"3.1.0","time":"2017-06-14T14:15:27.060Z"},"basePath":"../..","book":{"language":""}});
         });
     </script>
 </div>
