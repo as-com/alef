@@ -1,4 +1,4 @@
 export type FontFace = {
-  fontFamily: string,
-  src: string,
+	fontFamily: string,
+	src: string,
 };

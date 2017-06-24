@@ -1,3 +1,3 @@
 export type DOMNode = {
-  textContent: string
+	textContent: string
 };

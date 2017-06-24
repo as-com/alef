@@ -1,7 +1,7 @@
 export type FontProperties = {
-  fontVariant?: string,
-  fontStretch?: string,
-  fontWeight?: string | number,
-  fontStyle?: string,
-  unicodeRange?: string,
+	fontVariant?: string,
+	fontStretch?: string,
+	fontWeight?: string | number,
+	fontStyle?: string,
+	unicodeRange?: string,
 };

@@ -1,7 +1,7 @@
-import {DOMRenderer} from './DOMRenderer'
+import { DOMRenderer } from './DOMRenderer'
 
 type MonolithicRendererMethods = {
-  _renderStyleToCache: Function
+	_renderStyleToCache: Function
 };
 
 export type MonolithicRenderer = MonolithicRendererMethods & DOMRenderer;
