@@ -1,12 +1,11 @@
 import arrayReduce from "./arrayReduce";
 
-import NativeRenderer from "../../../types/NativeRenderer";
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 type Type = "RULE" | "KEYFRAME" | "STATIC";
 
 export default function processStyleWithPlugins(
-	renderer: DOMRenderer | NativeRenderer,
+	renderer: DOMRenderer,
 	style: Object,
 	type: Type,
 	props: Object = {}

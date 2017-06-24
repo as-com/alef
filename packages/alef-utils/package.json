@@ -22,7 +22,5 @@
   "dependencies": {
     "css-in-js-utils": "^1.0.3"
   },
-  "devDependencies": {
-
-  }
+  "devDependencies": {}
 }

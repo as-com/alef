@@ -3,8 +3,8 @@ import assignStyle from "css-in-js-utils/lib/assignStyle";
 import { isObject, arrayEach } from "alef-utils";
 
 function extendStyle(
-	style: Object,
-	extension: Object,
+	style: any,
+	extension: any,
 	extendPlugin: Function
 ): void {
 	// extend conditional style objects

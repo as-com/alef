@@ -3,9 +3,9 @@ import cssbeautify from "cssbeautify";
 
 import { CLEAR_TYPE } from "alef-utils";
 
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
-function addLogger(renderer: DOMRenderer, options: Object): DOMRenderer {
+function addLogger(renderer: DOMRenderer, options: any): DOMRenderer {
 	renderer.subscribe(change => {
 		if (change.type === CLEAR_TYPE) {
 			console.log("Cleared renderer cache.");
@@ -29,7 +29,7 @@ function addLogger(renderer: DOMRenderer, options: Object): DOMRenderer {
 		if (options.logCSS) {
 			console.log(formattedCSS);
 		}
-		console.groupEnd(selector);
+		console.groupEnd();
 	});
 
 	return renderer;

@@ -6,6 +6,7 @@ import {
 	FONT_TYPE,
 	STATIC_TYPE
 } from "alef-utils";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 const sheetMap = {
 	fontFaces: FONT_TYPE,
@@ -29,7 +30,7 @@ function initNode(
 	}
 }
 
-export default function initStyleNodes(renderer: Object): void {
+export default function initStyleNodes(renderer: DOMRenderer): void {
 	renderer.styleNodes = reflushStyleNodes();
 	const baseNode = renderer.styleNodes[RULE_TYPE];
 

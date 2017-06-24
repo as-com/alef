@@ -1,4 +1,4 @@
-function getDocumentHead(): Object {
+function getDocumentHead(): any { // TODO
 	return document.head ? document.head : {};
 }
 

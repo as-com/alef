@@ -1,7 +1,7 @@
 import arrayReduce from "./arrayReduce";
 
 export default function extractPassThroughProps(
-	passThrough: Array<string>,
+	passThrough: string[],
 	ruleProps: Object
 ): Object {
 	return arrayReduce(

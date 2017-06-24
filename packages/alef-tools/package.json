@@ -23,6 +23,5 @@
     "alef-utils": "^5.0.1",
     "css-in-js-utils": "^1.0.3"
   },
-  "devDependencies": {
-  }
+  "devDependencies": {}
 }

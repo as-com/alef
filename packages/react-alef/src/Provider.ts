@@ -2,7 +2,13 @@ import { Component, Children } from "react";
 import PropTypes from "prop-types";
 import { render } from "alef-dom";
 
-export default class Provider extends Component {
+import { DOMRenderer } from "../../../types/DOMRenderer";
+
+export interface IProviderProps {
+	renderer: DOMRenderer;
+}
+
+export default class Provider extends Component<IProviderProps, {}> {
 	static childContextTypes = { renderer: PropTypes.object };
 	static propTypes = {
 		renderer: PropTypes.object.isRequired
@@ -13,12 +19,10 @@ export default class Provider extends Component {
 	}
 
 	componentDidMount() {
-		if (!this.props.renderer.isNativeRenderer) {
-			render(this.props.renderer, this.props.mountNode);
-		}
+		render(this.props.renderer);
 	}
 
-	render() {
+	render(): any { // TODO
 		return Children.only(this.props.children);
 	}
 }

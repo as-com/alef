@@ -1,10 +1,10 @@
 import { isObject } from "alef-utils";
 
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 type Type = 1 | 2 | 3 | 4 | 5;
 
-function embedded(style: Object, type: Type, renderer: DOMRenderer): Object {
+function embedded(style: any, type: Type, renderer: DOMRenderer): Object {
 	for (const property in style) {
 		const value = style[property];
 

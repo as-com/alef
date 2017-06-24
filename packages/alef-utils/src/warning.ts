@@ -1,5 +1,5 @@
 /* eslint-disable import/no-mutable-exports */
-let warning = () => true;
+let warning: (condition: boolean, message: string) => void = () => true;
 
 if (process.env.NODE_ENV !== "production") {
 	warning = (condition: boolean, message: string): void => {

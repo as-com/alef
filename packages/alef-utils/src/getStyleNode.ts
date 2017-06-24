@@ -5,7 +5,7 @@ export default function getStyleNode(
 	baseNode: Object,
 	type: string,
 	media: string = ""
-): Object {
+): any {
 	const key = type + media;
 
 	if (!styleNodes[key]) {

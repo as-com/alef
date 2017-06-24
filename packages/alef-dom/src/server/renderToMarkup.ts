@@ -5,6 +5,7 @@ import {
 	FONT_TYPE,
 	STATIC_TYPE
 } from "alef-utils";
+import {DOMRenderer} from "../../../../types/DOMRenderer";
 
 const sheetMap = {
 	fontFaces: FONT_TYPE,
@@ -13,7 +14,7 @@ const sheetMap = {
 	rules: RULE_TYPE
 };
 
-export default function renderToMarkup(renderer: Object): string {
+export default function renderToMarkup(renderer: DOMRenderer): string {
 	let markup = "";
 
 	for (const style in sheetMap) {

@@ -1,6 +1,5 @@
 export default function isUndefinedValue(value: any): boolean {
 	return (
-		value === undefined ||
-		(typeof value === "string" && value.indexOf("undefined") !== -1)
+		value === undefined || value === null
 	);
 }

@@ -1,7 +1,12 @@
 import { Component, Children } from "react";
 import PropTypes from "prop-types";
 
-export default class ThemeProvider extends Component {
+export interface IThemeProviderProps {
+	overwrite?: boolean;
+	theme?: any;
+}
+
+export default class ThemeProvider extends Component<IThemeProviderProps, {}> {
 	static propTypes = {
 		theme: PropTypes.object.isRequired,
 		overwrite: PropTypes.bool
@@ -22,7 +27,7 @@ export default class ThemeProvider extends Component {
 		};
 	}
 
-	render() {
+	render(): any { // TODO
 		return Children.only(this.props.children);
 	}
 }

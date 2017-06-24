@@ -1,7 +1,7 @@
 import cssbeautify from "cssbeautify";
 import { objectReduce } from "alef-utils";
 
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 function addBeautifier(renderer: DOMRenderer, options: Object): DOMRenderer {
 	renderer.subscribe(() => {

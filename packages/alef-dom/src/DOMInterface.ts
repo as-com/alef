@@ -8,7 +8,7 @@ import {
 	getStyleNode
 } from "alef-utils";
 
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 const sheetMap = {
 	[FONT_TYPE]: "fontFaces",

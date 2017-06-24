@@ -205,7 +205,7 @@ export default function createRenderer(
 		},
 
 		_renderStyleToClassNames(
-			{ _className, ...style }: Object,
+			{ _className, ...style }: any,
 			pseudo: string = "",
 			media: string = ""
 		): string {

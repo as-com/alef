@@ -6,7 +6,7 @@ import objectReduce from "./objectReduce";
 export default function cssifyKeyframe(
 	frames: Object,
 	animationName: string,
-	prefixes: Array<string> = [""]
+	prefixes: string[] = [""]
 ): string {
 	const keyframe = objectReduce(
 		frames,

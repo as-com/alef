@@ -1,6 +1,6 @@
 import { arrayReduce } from "alef-utils";
 
-function addIsolation(style: Object, exclude: Array<string> = []): Object {
+function addIsolation(style: any, exclude: string[] = []): Object {
 	if (style.isolation === false) {
 		// remove the isolation prop to
 		// prevent false CSS properties
@@ -24,6 +24,6 @@ function addIsolation(style: Object, exclude: Array<string> = []): Object {
 	};
 }
 
-export default function isolation(options: Object = {}) {
+export default function isolation(options: any = {}) {
 	return (style: Object) => addIsolation(style, options.exclude);
 }

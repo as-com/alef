@@ -2,14 +2,13 @@ import { isObject } from "alef-utils";
 import assignStyle from "css-in-js-utils/lib/assignStyle";
 
 import { DOMRenderer } from "../../../types/DOMRenderer";
-import { NativeRenderer } from "../../../types/NativeRenderer";
 
 type Type = "KEYFRAME" | "RULE" | "STATIC";
 function resolveSimulation(
 	style: Object,
 	type: Type,
-	renderer: DOMRenderer | NativeRenderer,
-	props: Object
+	renderer: DOMRenderer,
+	props: any
 ): Object {
 	if (props.simulate) {
 		for (const property in style) {

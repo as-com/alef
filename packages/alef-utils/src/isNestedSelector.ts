@@ -1,5 +1,4 @@
-const regex = /^(:|\[|>|&)/;
-
 export default function isNestedSelector(property: string): boolean {
-	return regex.test(property);
+	const firstChar = property.charAt(0);
+	return firstChar === ":" || firstChar === "[" || firstChar === ">" || firstChar === "&";
 }

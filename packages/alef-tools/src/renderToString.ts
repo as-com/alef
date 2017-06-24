@@ -1,6 +1,6 @@
 import { cssifyMediaQueryRules, objectReduce } from "alef-utils";
 
-export default function renderToString(renderer: Object): string {
+export default function renderToString(renderer: any): string {
 	const basicCSS =
 		renderer.fontFaces +
 		renderer.statics +

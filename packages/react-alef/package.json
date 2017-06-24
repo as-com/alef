@@ -26,6 +26,7 @@
     "react": "*"
   },
   "dependencies": {
+    "@types/react": "^15.0.31",
     "alef": "^5.0.1",
     "alef-dom": "^5.0.2",
     "prop-types": "^15.5.8"

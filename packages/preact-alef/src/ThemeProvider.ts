@@ -1,6 +1,11 @@
 import { Component } from "preact";
 
-export default class ThemeProvider extends Component {
+export interface IThemeProviderProps {
+	overwrite?: boolean;
+	theme?: any;
+}
+
+export default class ThemeProvider extends Component<IThemeProviderProps, {}> {
 	static defaultProps = { overwrite: false };
 
 	getChildContext() {

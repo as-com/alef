@@ -1,5 +1,5 @@
 export default function generateMonolithicClassName(
-	style: Object,
+	style: any,
 	prefix: string
 ): string {
 	if (style.className) {

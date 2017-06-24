@@ -3,7 +3,7 @@ import gzipSize from "gzip-size";
 
 import { RULE_TYPE } from "alef-utils";
 
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 function lengthInUtf8Bytes(str: string): number {
 	const m = encodeURIComponent(str).match(/%[89ABab]/g);

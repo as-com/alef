@@ -1,15 +1,15 @@
-import DOMRenderer from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../types/DOMRenderer";
 
 function addLayoutDebugger(
 	renderer: DOMRenderer,
-	options: Object
+	options: any
 ): DOMRenderer {
 	const existingRenderRule = renderer.renderRule.bind(renderer);
 
-	renderer.renderRule = (rule: Function, props: Object): string => {
+	renderer.renderRule = (rule: Function, props: any): string => {
 		const className = existingRenderRule(rule, props);
 
-		const ruleName = rule.name || "debug_layout";
+		const ruleName = (<any>rule /* FIXME: Broken TypeScript definition */).name || "debug_layout";
 		const color = (ruleName + ruleName).length * 17 * ruleName.length;
 
 		const debugLayoutClassName = `alef-debug-layout_${ruleName}`;
