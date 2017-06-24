@@ -22,8 +22,8 @@
     "alef-plugin-unit": "^5.0.1",
     "alef-plugin-validator": "^5.0.1",
     "react": "^15.1.0",
-    "react-dom": "^15.1.0",
-    "react-alef": "^5.0.3"
+    "react-alef": "^5.0.3",
+    "react-dom": "^15.1.0"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

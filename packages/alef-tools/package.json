@@ -20,8 +20,8 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "css-in-js-utils": "^1.0.3",
-    "alef-utils": "^5.0.1"
+    "alef-utils": "^5.0.1",
+    "css-in-js-utils": "^1.0.3"
   },
   "devDependencies": {
     "alef": "^5.0.1"

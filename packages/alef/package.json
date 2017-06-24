@@ -28,8 +28,8 @@
     "alef-monolithic": "^5.0.1"
   },
   "dependencies": {
-    "css-in-js-utils": "^1.0.3",
     "alef-tools": "^5.0.1",
-    "alef-utils": "^5.0.1"
+    "alef-utils": "^5.0.1",
+    "css-in-js-utils": "^1.0.3"
   }
 }
