@@ -1,23 +1,20 @@
 /* eslint-disable no-continue */
 import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 
-import {
-	isObject,
-	isMediaQuery,
-	isNestedSelector,
-	isUndefinedValue,
-	objectReduce,
-	normalizeNestedProperty,
-	processStyleWithPlugins,
-	generateMonolithicClassName,
-	generateCombinedMediaQuery,
-	generateCSSSelector,
-	generateCSSRule,
-	RULE_TYPE
-} from "../../utils";
-
-import {DOMRenderer} from "../../../types/DOMRenderer";
-import {MonolithicRenderer} from "../../../types/MonolithicRenderer";
+import {DOMRenderer} from "../../types/DOMRenderer";
+import {MonolithicRenderer} from "../../types/MonolithicRenderer";
+import objectReduce from "../../utils/objectReduce";
+import isObject from "../../utils/isObject";
+import isNestedSelector from "../../utils/isNestedSelector";
+import normalizeNestedProperty from "../../utils/normalizeNestedProperty";
+import isMediaQuery from "../../utils/isMediaQuery";
+import generateCombinedMediaQuery from "../../utils/generateCombinedMediaQuery";
+import isUndefinedValue from "../../utils/isUndefinedValue";
+import generateCSSSelector from "../../utils/generateCSSSelector";
+import generateCSSRule from "../../utils/generateCSSRule";
+import {RULE_TYPE} from "../../utils/styleType";
+import generateMonolithicClassName from "../../utils/generateMonolithicClassName";
+import processStyleWithPlugins from "../../utils/processStyleWithPlugins";
 
 function useMonolithicRenderer(
 	renderer: DOMRenderer,

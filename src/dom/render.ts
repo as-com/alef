@@ -1,9 +1,7 @@
-import { renderToElement } from "alef-tools";
-
 import createDOMInterface from "./DOMInterface";
 import initStyleNodes from "./initStyleNodes";
 
-import { DOMRenderer } from "../../types/DOMRenderer";
+import { DOMRenderer } from "../types/DOMRenderer";
 
 let warnDeprecated = false;
 

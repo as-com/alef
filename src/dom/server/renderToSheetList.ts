@@ -1,4 +1,4 @@
-import { RULE_TYPE, KEYFRAME_TYPE, FONT_TYPE, STATIC_TYPE } from "alef-utils";
+import {FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE, default as StyleType} from "../../utils/styleType";
 
 const sheetMap = {
 	fontFaces: FONT_TYPE,
@@ -8,11 +8,11 @@ const sheetMap = {
 };
 type Sheet = {
 	css: string;
-	type: RULE_TYPE | KEYFRAME_TYPE | FONT_TYPE | STATIC_TYPE;
+	type: StyleType;
 	media?: string;
 };
 
-export default function renderToSheetList(renderer: Object): Sheet[] {
+export default function renderToSheetList(renderer: any): Sheet[] { // TODO
 	const sheetList = [];
 
 	for (const style in sheetMap) {

@@ -3,9 +3,9 @@ import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 import minifyCSSString from "./minifyCSSString";
 import processStyleWithPlugins from "./processStyleWithPlugins";
 
-import { STATIC_TYPE } from "./styleTypes";
+import { STATIC_TYPE } from "./styleType";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
+import {DOMRenderer} from "../types/DOMRenderer";
 
 export default function cssifyStaticStyle(
 	staticStyle: string | Object,

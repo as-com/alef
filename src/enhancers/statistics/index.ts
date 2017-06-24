@@ -1,8 +1,8 @@
 /* eslint-disable prefer-rest-params */
 import gzipSize from "gzip-size";
 
-import {DOMRenderer} from "../../../types/DOMRenderer";
-import {RULE_TYPE} from "../../utils/styleTypes";
+import {DOMRenderer} from "../../types/DOMRenderer";
+import {RULE_TYPE} from "../../utils/styleType";
 
 function lengthInUtf8Bytes(str: string): number {
 	const m = encodeURIComponent(str).match(/%[89ABab]/g);

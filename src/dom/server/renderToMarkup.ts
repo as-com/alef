@@ -1,11 +1,6 @@
-import {
-	createStyleTagMarkup,
-	RULE_TYPE,
-	KEYFRAME_TYPE,
-	FONT_TYPE,
-	STATIC_TYPE
-} from "alef-utils";
-import {DOMRenderer} from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../types/DOMRenderer";
+import {FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "../../utils/styleType";
+import createStyleTagMarkup from "../../utils/createStyleTagMarkup";
 
 const sheetMap = {
 	fontFaces: FONT_TYPE,

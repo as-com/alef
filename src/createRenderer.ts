@@ -1,37 +1,30 @@
 import cssifyDeclaration from "css-in-js-utils/lib/cssifyDeclaration";
 
-import {
-	cssifyFontFace,
-	cssifyKeyframe,
-	cssifyStaticStyle,
-	generateAnimationName,
-	generateClassName,
-	generateCombinedMediaQuery,
-	generateCSSRule,
-	generateCSSSelector,
-	generateStaticReference,
-	isMediaQuery,
-	isNestedSelector,
-	isUndefinedValue,
-	isObject,
-	normalizeNestedProperty,
-	applyMediaRulesInOrder,
-	processStyleWithPlugins,
-	toCSSString,
-	checkFontFormat,
-	checkFontUrl,
-	arrayEach,
-	STATIC_TYPE,
-	RULE_TYPE,
-	KEYFRAME_TYPE,
-	FONT_TYPE,
-	CLEAR_TYPE
-} from "./utils";
-
 import renderToString from "./tools/renderToString";
 
-import { DOMRenderer, DOMRendererConfig } from "../types/DOMRenderer";
-import { FontProperties } from "../types/FontProperties";
+import { DOMRenderer, DOMRendererConfig } from "./types/DOMRenderer";
+import { FontProperties } from "./types/FontProperties";
+import applyMediaRulesInOrder from "./utils/applyMediaRulesInOrder";
+import processStyleWithPlugins from "./utils/processStyleWithPlugins";
+import generateAnimationName from "./utils/generateAnimationName";
+import cssifyKeyframe from "./utils/cssifyKeyframe";
+import toCSSString from "./utils/toCSSString";
+import checkFontUrl from "./utils/checkFontUrl";
+import checkFontFormat from "./utils/checkFontFormat";
+import cssifyFontFace from "./utils/cssifyFontFace";
+import generateStaticReference from "./utils/generateStaticReference";
+import cssifyStaticStyle from "./utils/cssifyStaticStyle";
+import generateCSSRule from "./utils/generateCSSRule";
+import isObject from "./utils/isObject";
+import isNestedSelector from "./utils/isNestedSelector";
+import normalizeNestedProperty from "./utils/normalizeNestedProperty";
+import isMediaQuery from "./utils/isMediaQuery";
+import generateCombinedMediaQuery from "./utils/generateCombinedMediaQuery";
+import isUndefinedValue from "./utils/isUndefinedValue";
+import generateClassName from "./utils/generateClassName";
+import generateCSSSelector from "./utils/generateCSSSelector";
+import arrayEach from "./utils/arrayEach";
+import {KEYFRAME_TYPE, RULE_TYPE, FONT_TYPE, STATIC_TYPE, CLEAR_TYPE} from "./utils/styleType";
 
 // TODO: Refactor into something more OOP-ish
 

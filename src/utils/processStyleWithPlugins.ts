@@ -1,13 +1,12 @@
 import arrayReduce from "./arrayReduce";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
-
-type Type = "RULE" | "KEYFRAME" | "STATIC";
+import {DOMRenderer} from "../types/DOMRenderer";
+import StyleType from "./styleType";
 
 export default function processStyleWithPlugins(
 	renderer: DOMRenderer,
 	style: Object,
-	type: Type,
+	type: StyleType,
 	props: Object = {}
 ) {
 	if (renderer.plugins.length > 0) {

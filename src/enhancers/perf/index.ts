@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {DOMRenderer} from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../types/DOMRenderer";
 
 let counter = 0;
 

@@ -2,8 +2,8 @@ import isValidHTMLElement from "../utils/isValidHTMLElement";
 
 import renderToString from "./renderToString";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
-import {DOMNode} from "../../types/DOMNode";
+import {DOMRenderer} from "../types/DOMRenderer";
+import {DOMNode} from "../types/DOMNode";
 
 export default function renderToElement(
 	renderer: DOMRenderer,

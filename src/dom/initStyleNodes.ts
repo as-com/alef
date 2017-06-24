@@ -1,12 +1,7 @@
-import {
-	reflushStyleNodes,
-	getStyleNode,
-	RULE_TYPE,
-	KEYFRAME_TYPE,
-	FONT_TYPE,
-	STATIC_TYPE
-} from "alef-utils";
-import {DOMRenderer} from "../../types/DOMRenderer";
+import {DOMRenderer} from "../types/DOMRenderer";
+import {FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE, default as StyleType} from "../utils/styleType";
+import getStyleNode from "../utils/getStyleNode";
+import reflushStyleNodes from "../utils/reflushStyleNodes";
 
 const sheetMap = {
 	fontFaces: FONT_TYPE,
@@ -19,7 +14,7 @@ function initNode(
 	styleNodes: Object,
 	baseNode: Object,
 	css: string,
-	type: string,
+	type: StyleType,
 	media: string = ""
 ): void {
 	const node = getStyleNode(styleNodes, baseNode, type, media);

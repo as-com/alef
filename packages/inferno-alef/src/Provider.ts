@@ -1,7 +1,7 @@
 import Component from "inferno-component";
 import {render} from "alef-dom";
 
-import {DOMRenderer} from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../../src/types/DOMRenderer";
 
 export interface IProviderProps {
 	renderer: DOMRenderer;

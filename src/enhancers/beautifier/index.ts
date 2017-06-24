@@ -1,6 +1,6 @@
 import cssbeautify from "cssbeautify";
 
-import {DOMRenderer} from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../types/DOMRenderer";
 import objectReduce from "../../utils/objectReduce";
 
 function addBeautifier(renderer: DOMRenderer, options: Object): DOMRenderer {

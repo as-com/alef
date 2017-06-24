@@ -1,6 +1,6 @@
 import assignStyle from "css-in-js-utils/lib/assignStyle";
 
-import { DOMRenderer } from "../../../types/DOMRenderer";
+import { DOMRenderer } from "../../types/DOMRenderer";
 import isObject from "../../utils/isObject";
 
 type Type = "KEYFRAME" | "RULE" | "STATIC";

@@ -1,5 +1,5 @@
 /* eslint-disable no-console */
-import {KEYFRAME_TYPE, RULE_TYPE} from "../../utils/styleTypes";
+import {KEYFRAME_TYPE, RULE_TYPE} from "../../utils/styleType";
 import isObject from "../../utils/isObject";
 import isNestedSelector from "../../utils/isNestedSelector";
 import isMediaQuery from "../../utils/isMediaQuery";

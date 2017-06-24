@@ -1,9 +1,10 @@
 import createStyleNode from "./createStyleNode";
+import StyleType from "./styleType";
 
 export default function getStyleNode(
 	styleNodes: Object,
 	baseNode: Object,
-	type: string,
+	type: StyleType,
 	media: string = ""
 ): any {
 	const key = type + media;

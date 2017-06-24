@@ -1,4 +1,4 @@
-import {DOMRenderer} from "../../../types/DOMRenderer";
+import {DOMRenderer} from "../../types/DOMRenderer";
 
 function addLayoutDebugger(
 	renderer: DOMRenderer,

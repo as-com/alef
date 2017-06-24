@@ -2,7 +2,7 @@ import { Component, Children } from "react";
 import PropTypes from "prop-types";
 import { render } from "alef-dom";
 
-import { DOMRenderer } from "../../../types/DOMRenderer";
+import { DOMRenderer } from "../../../src/types/DOMRenderer";
 
 export interface IProviderProps {
 	renderer: DOMRenderer;

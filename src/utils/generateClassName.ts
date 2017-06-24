@@ -1,7 +1,7 @@
 import {encode} from "./base64";
 import problematicClasses from "./problematicClasses";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
+import {DOMRenderer} from "../types/DOMRenderer";
 
 const chars = "abcdefghijklmnopqrstuvwxyz";
 const charLength = chars.length;

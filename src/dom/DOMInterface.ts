@@ -1,14 +1,7 @@
-import {
-	RULE_TYPE,
-	KEYFRAME_TYPE,
-	FONT_TYPE,
-	STATIC_TYPE,
-	CLEAR_TYPE,
-	reflushStyleNodes,
-	getStyleNode
-} from "alef-utils";
-
-import {DOMRenderer} from "../../types/DOMRenderer";
+import {DOMRenderer} from "../types/DOMRenderer";
+import {CLEAR_TYPE, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "../utils/styleType";
+import reflushStyleNodes from "../utils/reflushStyleNodes";
+import getStyleNode from "../utils/getStyleNode";
 
 const sheetMap = {
 	[FONT_TYPE]: "fontFaces",

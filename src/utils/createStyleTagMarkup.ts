@@ -1,8 +1,8 @@
-type Type = "RULE" | "FONT" | "KEYFRAME" | "STATIC";
+import StyleType from "./styleType";
 
 export default function createStyleMarkup(
 	css: string,
-	type: Type,
+	type: StyleType,
 	media: string = ""
 ): string {
 	const mediaAttribute = media.length > 0 ? ` media="${media}"` : "";
