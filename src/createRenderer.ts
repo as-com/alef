@@ -72,7 +72,7 @@ export default function createRenderer(
 			return renderer._renderStyleToClassNames(processedStyle).slice(1);
 		},
 
-		renderKeyframe(keyframe: Function, props: Object = {}): string {
+		renderKeyframe(keyframe: Function, props: Object = {}): string | boolean {
 			const resolvedKeyframe = keyframe(props, renderer);
 			const keyframeReference = JSON.stringify(resolvedKeyframe);
 
@@ -112,7 +112,7 @@ export default function createRenderer(
 			family: string,
 			files: string[],
 			properties: FontProperties = {}
-		): string {
+		): string | boolean {
 			const fontReference = family + JSON.stringify(properties);
 
 			if (!renderer.cache.hasOwnProperty(fontReference)) {

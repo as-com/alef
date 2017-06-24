@@ -1,5 +1,5 @@
-import customProperty from "alef-plugin-custom-property";
-import { arrayReduce } from "alef-utils";
+import customProperty from "../custom-property/index";
+import arrayReduce from "../../utils/arrayReduce";
 
 const placeholderPrefixes = [
 	"::-webkit-input-placeholder",

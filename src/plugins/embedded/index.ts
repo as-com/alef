@@ -1,6 +1,5 @@
-import { isObject } from "alef-utils";
-
 import {DOMRenderer} from "../../../types/DOMRenderer";
+import isObject from "../../utils/isObject";
 
 type Type = 1 | 2 | 3 | 4 | 5;
 

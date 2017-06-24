@@ -1,4 +1,4 @@
-import { isObject } from "alef-utils";
+import isObject from "../../utils/isObject";
 
 function resolveNamedMediaQuery(style: Object, mediaQueryMap: Object) {
 	for (const property in style) {

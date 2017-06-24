@@ -1,4 +1,4 @@
-import { arrayReduce } from "alef-utils";
+import arrayReduce from "./utils/arrayReduce";
 
 export default function enhance(...enhancers: Function[]): Function {
 	return (createRenderer: Function) => (config: Object) =>

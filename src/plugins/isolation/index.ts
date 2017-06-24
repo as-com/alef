@@ -1,4 +1,4 @@
-import { arrayReduce } from "alef-utils";
+import arrayReduce from "../../utils/arrayReduce";
 
 function addIsolation(style: any, exclude: string[] = []): Object {
 	if (style.isolation === false) {

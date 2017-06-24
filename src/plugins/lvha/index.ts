@@ -1,4 +1,4 @@
-import { arrayEach } from "alef-utils";
+import arrayEach from "../../utils/arrayEach";
 
 const precedence = {
 	":link": 0,

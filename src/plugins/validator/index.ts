@@ -1,11 +1,8 @@
 /* eslint-disable no-console */
-import {
-	RULE_TYPE,
-	KEYFRAME_TYPE,
-	isObject,
-	isNestedSelector,
-	isMediaQuery
-} from "alef-utils";
+import {KEYFRAME_TYPE, RULE_TYPE} from "../../utils/styleTypes";
+import isObject from "../../utils/isObject";
+import isNestedSelector from "../../utils/isNestedSelector";
+import isMediaQuery from "../../utils/isMediaQuery";
 
 type Type = typeof RULE_TYPE | typeof KEYFRAME_TYPE;
 // type Type = 1 | 2 | 3 | 4 | 5;

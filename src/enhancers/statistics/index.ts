@@ -1,9 +1,8 @@
 /* eslint-disable prefer-rest-params */
 import gzipSize from "gzip-size";
 
-import { RULE_TYPE } from "alef-utils";
-
 import {DOMRenderer} from "../../../types/DOMRenderer";
+import {RULE_TYPE} from "../../utils/styleTypes";
 
 function lengthInUtf8Bytes(str: string): number {
 	const m = encodeURIComponent(str).match(/%[89ABab]/g);
@@ -54,7 +53,7 @@ function addStatistics(
 	};
 
 	renderer.subscribe(
-		({ type, selector, media, static: isStatic }: Object) => {
+		({ type, selector, media, static: isStatic }: any) => {
 			if (type === RULE_TYPE && !isStatic) {
 				statistics.totalClasses++;
 				const isPseudoSelector: boolean = selector.indexOf(":") > -1;
@@ -95,7 +94,7 @@ function addStatistics(
 		return Math.floor(quotient * 10000) / 10000;
 	}
 
-	renderer.getStatistics = (): Object => {
+	(<any>renderer).getStatistics = (): Object => { // TODO
 		const currentStats = { ...statistics };
 
 		const reuse = calculateReuse();
@@ -117,7 +116,7 @@ function addStatistics(
 		return currentStats;
 	};
 
-	return renderer;
+	return <any>renderer; // TODO
 }
 
 export default () => addStatistics;

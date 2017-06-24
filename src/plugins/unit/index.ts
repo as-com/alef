@@ -1,6 +1,6 @@
 import isUnitlessProperty from "css-in-js-utils/lib/isUnitlessProperty";
-
-import { isObject, warning } from "alef-utils";
+import {isObject} from "util";
+import warning from "../../utils/warning";
 
 function addUnitIfNeeded(
 	property: string,

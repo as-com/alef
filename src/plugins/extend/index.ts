@@ -1,6 +1,6 @@
 import assignStyle from "css-in-js-utils/lib/assignStyle";
-
-import { isObject, arrayEach } from "alef-utils";
+import arrayEach from "../../utils/arrayEach";
+import isObject from "../../utils/isObject";
 
 function extendStyle(
 	style: any,

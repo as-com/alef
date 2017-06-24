@@ -1,9 +1,8 @@
 /* eslint-disable consistent-return, no-console */
 import cssbeautify from "cssbeautify";
 
-import { CLEAR_TYPE } from "alef-utils";
-
 import {DOMRenderer} from "../../../types/DOMRenderer";
+import {CLEAR_TYPE} from "../../utils/styleTypes";
 
 function addLogger(renderer: DOMRenderer, options: any): DOMRenderer {
 	renderer.subscribe(change => {

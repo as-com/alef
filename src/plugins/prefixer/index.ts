@@ -1,8 +1,9 @@
 import prefix from "inline-style-prefixer/static";
 import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 
-import fallbackValue from "alef-plugin-fallback-value";
-import { isObject, objectReduce } from "alef-utils";
+import fallbackValue from "../../plugins/fallback-value";
+import objectReduce from "../../utils/objectReduce";
+import isObject from "../../utils/isObject";
 
 const resolveFallbackValues = fallbackValue();
 
