@@ -6,7 +6,7 @@
     "clean": "lerna clean --yes && rimraf packages/*/es && rimraf packages/*/lib",
     "docs": "gitbook install && gitbook build && gh-pages -d _book",
     "check": "npm run lint && npm run test:coverage",
-    "format": "prettier --single-quote --no-semi --jsx-bracket-same-line --write \"packages/*/src/**/*.js\"",
+    "format": "prettier --jsx-bracket-same-line --use-tabs --tab-width 4 --write \"packages/*/src/**/*.js\" \"packages/*/src/**/*.ts\"",
     "lint": "eslint packages/*/src/**/*.js",
     "publish": "git pull --rebase && npm run build && lerna publish && npm run docs",
     "test": "cross-env BABEL_ENV=commonjs jest",

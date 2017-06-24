@@ -1,48 +1,50 @@
-import DOMRenderer from '../../../types/DOMRenderer'
+import DOMRenderer from "../../../types/DOMRenderer";
 
 function addLayoutDebugger(
-  renderer: DOMRenderer,
-  options: Object
+	renderer: DOMRenderer,
+	options: Object
 ): DOMRenderer {
-  const existingRenderRule = renderer.renderRule.bind(renderer)
+	const existingRenderRule = renderer.renderRule.bind(renderer);
 
-  renderer.renderRule = (rule: Function, props: Object): string => {
-    const className = existingRenderRule(rule, props)
+	renderer.renderRule = (rule: Function, props: Object): string => {
+		const className = existingRenderRule(rule, props);
 
-    const ruleName = rule.name || 'debug_layout'
-    const color = (ruleName + ruleName).length * 17 * ruleName.length
+		const ruleName = rule.name || "debug_layout";
+		const color = (ruleName + ruleName).length * 17 * ruleName.length;
 
-    const debugLayoutClassName = `alef-debug-layout_${ruleName}`
+		const debugLayoutClassName = `alef-debug-layout_${ruleName}`;
 
-    if (options.backgroundColor) {
-      renderer.renderStatic(
-        { backgroundColor: `hsla(${color}, 100%, 25%, 0.1) !important` },
-        `.${debugLayoutClassName}`
-      )
-    } else {
-      renderer.renderStatic(
-        {
-          outline: `${options.thickness}px solid hsl(${color}, 100%, 50%) !important`
-        },
-        `.${debugLayoutClassName}`
-      )
-    }
+		if (options.backgroundColor) {
+			renderer.renderStatic(
+				{
+					backgroundColor: `hsla(${color}, 100%, 25%, 0.1) !important`
+				},
+				`.${debugLayoutClassName}`
+			);
+		} else {
+			renderer.renderStatic(
+				{
+					outline: `${options.thickness}px solid hsl(${color}, 100%, 50%) !important`
+				},
+				`.${debugLayoutClassName}`
+			);
+		}
 
-    return `${debugLayoutClassName} ${className}`
-  }
+		return `${debugLayoutClassName} ${className}`;
+	};
 
-  return renderer
+	return renderer;
 }
 
 const defaultOptions = {
-  backgroundColor: false,
-  thickness: 1
-}
+	backgroundColor: false,
+	thickness: 1
+};
 
 export default function layoutDebugger(options: Object = {}) {
-  return (renderer: DOMRenderer) =>
-    addLayoutDebugger(renderer, {
-      ...defaultOptions,
-      ...options
-    })
+	return (renderer: DOMRenderer) =>
+		addLayoutDebugger(renderer, {
+			...defaultOptions,
+			...options
+		});
 }

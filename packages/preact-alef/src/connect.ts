@@ -1,5 +1,5 @@
-import { h, Component } from 'preact'
+import { h, Component } from "preact";
 
-import { connectFactory } from 'alef'
+import { connectFactory } from "alef";
 
-export default connectFactory(Component, h)
+export default connectFactory(Component, h);

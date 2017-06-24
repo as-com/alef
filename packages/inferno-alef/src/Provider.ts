@@ -1,16 +1,16 @@
-import Component from 'inferno-component'
-import { render } from 'alef-dom'
+import Component from "inferno-component";
+import { render } from "alef-dom";
 
 export default class Provider extends Component {
-  getChildContext() {
-    return { renderer: this.props.renderer }
-  }
+	getChildContext() {
+		return { renderer: this.props.renderer };
+	}
 
-  componentDidMount() {
-    render(this.props.renderer, this.props.mountNode)
-  }
+	componentDidMount() {
+		render(this.props.renderer, this.props.mountNode);
+	}
 
-  render() {
-    return this.props.children
-  }
+	render() {
+		return this.props.children;
+	}
 }

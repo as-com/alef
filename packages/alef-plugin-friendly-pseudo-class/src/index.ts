@@ -1,29 +1,29 @@
-import { isObject } from 'alef-utils'
+import { isObject } from "alef-utils";
 
-const regex = new RegExp('^on([A-Z])')
+const regex = new RegExp("^on([A-Z])");
 
 function friendlyPseudoClass(style: Object): Object {
-  for (const property in style) {
-    const value = style[property]
+	for (const property in style) {
+		const value = style[property];
 
-    if (isObject(value)) {
-      const resolvedValue = friendlyPseudoClass(value)
+		if (isObject(value)) {
+			const resolvedValue = friendlyPseudoClass(value);
 
-      if (regex.test(property)) {
-        const pseudo = property.replace(
-          regex,
-          (match, p1) => `:${p1.toLowerCase()}`
-        )
+			if (regex.test(property)) {
+				const pseudo = property.replace(
+					regex,
+					(match, p1) => `:${p1.toLowerCase()}`
+				);
 
-        style[pseudo] = resolvedValue
-        delete style[property]
-      } else {
-        style[property] = resolvedValue
-      }
-    }
-  }
+				style[pseudo] = resolvedValue;
+				delete style[property];
+			} else {
+				style[property] = resolvedValue;
+			}
+		}
+	}
 
-  return style
+	return style;
 }
 
-export default () => friendlyPseudoClass
+export default () => friendlyPseudoClass;

@@ -1,5 +1,5 @@
-import { h } from 'preact'
+import { h } from "preact";
 
-import { createComponentFactory } from 'alef'
+import { createComponentFactory } from "alef";
 
-export default createComponentFactory(h)
+export default createComponentFactory(h);

@@ -1,34 +1,34 @@
-import { arrayEach } from 'alef-utils'
+import { arrayEach } from "alef-utils";
 
 const precedence = {
-  ':link': 0,
-  ':visited': 1,
-  ':hover': 2,
-  ':focus': 3,
-  ':active': 4
-}
+	":link": 0,
+	":visited": 1,
+	":hover": 2,
+	":focus": 3,
+	":active": 4
+};
 
-const pseudoClasses = Object.keys(precedence)
+const pseudoClasses = Object.keys(precedence);
 
 function orderLVHA(style: Object): Object {
-  const pseudoList = []
+	const pseudoList = [];
 
-  for (const property in style) {
-    if (precedence.hasOwnProperty(property)) {
-      pseudoList[precedence[property]] = style[property]
-      delete style[property]
-    }
-  }
+	for (const property in style) {
+		if (precedence.hasOwnProperty(property)) {
+			pseudoList[precedence[property]] = style[property];
+			delete style[property];
+		}
+	}
 
-  arrayEach(pseudoList, (pseudoStyle, index) => {
-    if (pseudoStyle) {
-      style[pseudoClasses[index]] = pseudoStyle
-    }
-  })
+	arrayEach(pseudoList, (pseudoStyle, index) => {
+		if (pseudoStyle) {
+			style[pseudoClasses[index]] = pseudoStyle;
+		}
+	});
 
-  return style
+	return style;
 }
 
 export default function LVHA() {
-  return orderLVHA
+	return orderLVHA;
 }

@@ -1,46 +1,49 @@
 /* eslint-disable consistent-return, no-console */
-import cssbeautify from 'cssbeautify'
+import cssbeautify from "cssbeautify";
 
-import { CLEAR_TYPE } from 'alef-utils'
+import { CLEAR_TYPE } from "alef-utils";
 
-import DOMRenderer from '../../../types/DOMRenderer'
+import DOMRenderer from "../../../types/DOMRenderer";
 
 function addLogger(renderer: DOMRenderer, options: Object): DOMRenderer {
-  renderer.subscribe(change => {
-    if (change.type === CLEAR_TYPE) {
-      console.log('Cleared renderer cache.')
-      return true
-    }
+	renderer.subscribe(change => {
+		if (change.type === CLEAR_TYPE) {
+			console.log("Cleared renderer cache.");
+			return true;
+		}
 
-    const selector = change.selector || change.fontFamily || change.name
-    const css =
-      change.declaration || change.keyframe || change.fontFace || change.css
-    const formattedCSS = options.format ? cssbeautify(css) : css
-    const isMedia = change.media && change.media.length > 0
+		const selector = change.selector || change.fontFamily || change.name;
+		const css =
+			change.declaration ||
+			change.keyframe ||
+			change.fontFace ||
+			change.css;
+		const formattedCSS = options.format ? cssbeautify(css) : css;
+		const isMedia = change.media && change.media.length > 0;
 
-    // logs all information in a group
-    console.group(selector)
-    if (isMedia) {
-      console.log(change.media)
-    }
-    if (options.logCSS) {
-      console.log(formattedCSS)
-    }
-    console.groupEnd(selector)
-  })
+		// logs all information in a group
+		console.group(selector);
+		if (isMedia) {
+			console.log(change.media);
+		}
+		if (options.logCSS) {
+			console.log(formattedCSS);
+		}
+		console.groupEnd(selector);
+	});
 
-  return renderer
+	return renderer;
 }
 
 const defaultOptions = {
-  logCSS: false,
-  formatCSS: false
-}
+	logCSS: false,
+	formatCSS: false
+};
 
 export default function logger(options: Object = {}) {
-  return (renderer: DOMRenderer) =>
-    addLogger(renderer, {
-      ...defaultOptions,
-      ...options
-    })
+	return (renderer: DOMRenderer) =>
+		addLogger(renderer, {
+			...defaultOptions,
+			...options
+		});
 }

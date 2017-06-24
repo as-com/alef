@@ -1,38 +1,38 @@
-import cssbeautify from 'cssbeautify'
-import { objectReduce } from 'alef-utils'
+import cssbeautify from "cssbeautify";
+import { objectReduce } from "alef-utils";
 
-import DOMRenderer from '../../../types/DOMRenderer'
+import DOMRenderer from "../../../types/DOMRenderer";
 
 function addBeautifier(renderer: DOMRenderer, options: Object): DOMRenderer {
-  renderer.subscribe(() => {
-    renderer.fontFaces = cssbeautify(renderer.fontFaces, options)
-    renderer.keyframes = cssbeautify(renderer.keyframes, options)
-    renderer.statics = cssbeautify(renderer.statics, options)
-    renderer.rules = cssbeautify(renderer.rules, options)
+	renderer.subscribe(() => {
+		renderer.fontFaces = cssbeautify(renderer.fontFaces, options);
+		renderer.keyframes = cssbeautify(renderer.keyframes, options);
+		renderer.statics = cssbeautify(renderer.statics, options);
+		renderer.rules = cssbeautify(renderer.rules, options);
 
-    renderer.mediaRules = objectReduce(
-      renderer.mediaRules,
-      (mediaRules, rules, query) => {
-        mediaRules[query] = cssbeautify(rules, options)
-        return mediaRules
-      },
-      {}
-    )
-  })
+		renderer.mediaRules = objectReduce(
+			renderer.mediaRules,
+			(mediaRules, rules, query) => {
+				mediaRules[query] = cssbeautify(rules, options);
+				return mediaRules;
+			},
+			{}
+		);
+	});
 
-  return renderer
+	return renderer;
 }
 
 const defaultOptions = {
-  indent: '  ',
-  openbrace: 'end-of-line',
-  autosemicolon: false
-}
+	indent: "  ",
+	openbrace: "end-of-line",
+	autosemicolon: false
+};
 
 export default function beautifier(options: Object = {}) {
-  return (renderer: DOMRenderer) =>
-    addBeautifier(renderer, {
-      ...defaultOptions,
-      ...options
-    })
+	return (renderer: DOMRenderer) =>
+		addBeautifier(renderer, {
+			...defaultOptions,
+			...options
+		});
 }

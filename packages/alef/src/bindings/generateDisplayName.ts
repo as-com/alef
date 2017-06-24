@@ -1,9 +1,9 @@
 export default function generateDisplayName(component: any): string {
-  const displayName = component.displayName || component.name
+	const displayName = component.displayName || component.name;
 
-  if (displayName) {
-    return `Alef${displayName}`
-  }
+	if (displayName) {
+		return `Alef${displayName}`;
+	}
 
-  return 'ConnectedAlefComponent'
+	return "ConnectedAlefComponent";
 }

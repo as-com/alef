@@ -1,19 +1,19 @@
-import resolveArrayValue from 'css-in-js-utils/lib/resolveArrayValue'
+import resolveArrayValue from "css-in-js-utils/lib/resolveArrayValue";
 
-import { isObject } from 'alef-utils'
+import { isObject } from "alef-utils";
 
 function resolveFallbackValues(style: Object): Object {
-  for (const property in style) {
-    const value = style[property]
+	for (const property in style) {
+		const value = style[property];
 
-    if (Array.isArray(value)) {
-      style[property] = resolveArrayValue(property, value)
-    } else if (isObject(value) && property !== 'fontFace') {
-      style[property] = resolveFallbackValues(value)
-    }
-  }
+		if (Array.isArray(value)) {
+			style[property] = resolveArrayValue(property, value);
+		} else if (isObject(value) && property !== "fontFace") {
+			style[property] = resolveFallbackValues(value);
+		}
+	}
 
-  return style
+	return style;
 }
 
-export default () => resolveFallbackValues
+export default () => resolveFallbackValues;

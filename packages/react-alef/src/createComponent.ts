@@ -1,9 +1,9 @@
-import { createElement } from 'react'
-import PropTypes from 'prop-types'
+import { createElement } from "react";
+import PropTypes from "prop-types";
 
-import { createComponentFactory } from 'alef'
+import { createComponentFactory } from "alef";
 
 export default createComponentFactory(createElement, {
-  renderer: PropTypes.object,
-  theme: PropTypes.object
-})
+	renderer: PropTypes.object,
+	theme: PropTypes.object
+});

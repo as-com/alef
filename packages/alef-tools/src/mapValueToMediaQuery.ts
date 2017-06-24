@@ -1,20 +1,20 @@
-import { objectReduce } from 'alef-utils'
+import { objectReduce } from "alef-utils";
 
 export default function mapValueToMediaQuery(
-  queryValueMap: Object = {},
-  mapper: Function | string
+	queryValueMap: Object = {},
+	mapper: Function | string
 ): Object {
-  return objectReduce(
-    queryValueMap,
-    (style, value, query) => {
-      if (typeof mapper === 'string') {
-        style[query] = { [mapper]: value }
-      } else {
-        style[query] = mapper(value)
-      }
+	return objectReduce(
+		queryValueMap,
+		(style, value, query) => {
+			if (typeof mapper === "string") {
+				style[query] = { [mapper]: value };
+			} else {
+				style[query] = mapper(value);
+			}
 
-      return style
-    },
-    {}
-  )
+			return style;
+		},
+		{}
+	);
 }

@@ -1,5 +1,5 @@
-import createElement from 'inferno-create-element'
+import createElement from "inferno-create-element";
 
-import { createComponentFactory } from 'alef'
+import { createComponentFactory } from "alef";
 
-export default createComponentFactory(createElement)
+export default createComponentFactory(createElement);

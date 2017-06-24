@@ -1,22 +1,22 @@
-import { isObject } from 'alef-utils'
+import { isObject } from "alef-utils";
 
 function resolveNamedMediaQuery(style: Object, mediaQueryMap: Object) {
-  for (const property in style) {
-    const value = style[property]
+	for (const property in style) {
+		const value = style[property];
 
-    if (isObject(value)) {
-      const resolvedValue = resolveNamedMediaQuery(value, mediaQueryMap)
+		if (isObject(value)) {
+			const resolvedValue = resolveNamedMediaQuery(value, mediaQueryMap);
 
-      if (mediaQueryMap.hasOwnProperty(property)) {
-        style[mediaQueryMap[property]] = resolvedValue
-        delete style[property]
-      }
-    }
-  }
+			if (mediaQueryMap.hasOwnProperty(property)) {
+				style[mediaQueryMap[property]] = resolvedValue;
+				delete style[property];
+			}
+		}
+	}
 
-  return style
+	return style;
 }
 
 export default function namedMediaQuery(mediaQueryMap: Object) {
-  return (style: Object) => resolveNamedMediaQuery(style, mediaQueryMap)
+	return (style: Object) => resolveNamedMediaQuery(style, mediaQueryMap);
 }

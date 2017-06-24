@@ -1,21 +1,21 @@
-import { Component } from 'preact'
+import { Component } from "preact";
 
 export default class ThemeProvider extends Component {
-  static defaultProps = { overwrite: false }
+	static defaultProps = { overwrite: false };
 
-  getChildContext() {
-    const { overwrite, theme } = this.props
-    const previousTheme = this.context.theme
+	getChildContext() {
+		const { overwrite, theme } = this.props;
+		const previousTheme = this.context.theme;
 
-    return {
-      theme: {
-        ...(!overwrite ? previousTheme || {} : {}),
-        ...theme
-      }
-    }
-  }
+		return {
+			theme: {
+				...!overwrite ? previousTheme || {} : {},
+				...theme
+			}
+		};
+	}
 
-  render() {
-    return this.props.children[0]
-  }
+	render() {
+		return this.props.children[0];
+	}
 }
