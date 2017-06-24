@@ -8,7 +8,7 @@ export default function createComponentFactory(
 	return function createComponent(
 		rule: Function,
 		type: any = "div",
-		passThroughProps: Array<string> | Function = []
+		passThroughProps: string[] | Function = []
 	): Function {
 		const displayName = rule.name ? rule.name : "AlefComponent";
 

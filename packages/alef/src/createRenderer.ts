@@ -104,7 +104,7 @@ export default function createRenderer(
 
 		renderFont(
 			family: string,
-			files: Array<string>,
+			files: string[],
 			properties: FontProperties = {}
 		): string {
 			const fontReference = family + JSON.stringify(properties);

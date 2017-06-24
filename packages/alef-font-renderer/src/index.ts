@@ -17,7 +17,7 @@ function addFontRenderer(
 
 	renderer.renderFont = (
 		family: string,
-		files: Array<string>,
+		files: string[],
 		properties: Object
 	): string => renderer.fontRenderer.renderFont(family, files, properties);
 

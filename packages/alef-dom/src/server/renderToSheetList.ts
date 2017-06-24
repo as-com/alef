@@ -12,7 +12,7 @@ type Sheet = {
 	media?: string;
 };
 
-export default function renderToSheetList(renderer: Object): Array<Sheet> {
+export default function renderToSheetList(renderer: Object): Sheet[] {
 	const sheetList = [];
 
 	for (const style in sheetMap) {
