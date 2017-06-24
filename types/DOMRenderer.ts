@@ -11,8 +11,12 @@ export type DOMRenderer = {
 	statics: string,
 	rules: string,
 	mediaRules: { [query: string]: string },
-	uniqueRuleIdentifier: number,
-	uniqueKeyframeIdentifier: number,
+
+	ruleCtr: number,
+	msb: number,
+	power: number,
+
+	keyframeCtr: number,
 	cache: Cache,
 	styleNodes: any,
 	renderRule: Function,

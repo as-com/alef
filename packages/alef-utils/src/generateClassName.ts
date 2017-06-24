@@ -1,17 +1,37 @@
+import {encode} from "./base64";
+import problematicClasses from "./problematicClasses";
+
+import {DOMRenderer} from "../../../types/DOMRenderer";
+
 const chars = "abcdefghijklmnopqrstuvwxyz";
 const charLength = chars.length;
 
-export default function generateClassName(
-	id: number,
-	className: string = ""
-): string {
-	if (id <= charLength) {
-		return chars[id - 1] + className;
+const adSearch = /ad/i;
+
+export default function generateClassName(renderer: DOMRenderer): string {
+	// TODO: Write tests for this fragile thing
+
+	// skipping 0-9, borrowed from Styletron
+	if (renderer.ruleCtr === renderer.msb + 1) {
+		renderer.ruleCtr += (renderer.msb + 1) * 9;
+		renderer.msb = Math.pow(64, ++renderer.power) - 1;
 	}
 
-	// Bitwise floor as safari performs much faster https://jsperf.com/math-floor-vs-math-round-vs-parseint/55
-	return generateClassName(
-		(id / charLength) | 0,
-		chars[id % charLength] + className
-	);
+	let gen = encode(renderer.ruleCtr);
+
+	// make sure the class is not going to be blocked by adblock
+	if (renderer.selectorPrefix && problematicClasses.has(gen)) {
+		this.counter++;
+		return this.generateClass();
+	}
+
+	let adCheck = gen.search(adSearch);
+	if (adCheck !== -1) {
+		this.counter += Math.pow(64, gen.length - adCheck - 2);
+		return this.generateClass();
+	}
+
+	this.counter++;
+
+	return gen;
 }

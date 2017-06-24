@@ -33,6 +33,8 @@ import { renderToString } from "alef-tools";
 import { DOMRenderer, DOMRendererConfig } from "../../../types/DOMRenderer";
 import { FontProperties } from "../../../types/FontProperties";
 
+// TODO: Refactor into something more OOP-ish
+
 export default function createRenderer(
 	config: DOMRendererConfig = {}
 ): DOMRenderer {
@@ -49,8 +51,12 @@ export default function createRenderer(
 		// apply media rules in an explicit order to ensure
 		// correct media query execution order
 		mediaRules: applyMediaRulesInOrder(config.mediaQueryOrder || []),
-		uniqueRuleIdentifier: 0,
-		uniqueKeyframeIdentifier: 0,
+
+		ruleCtr: 10,
+		msb: 63,
+		power: 1,
+
+		keyframeCtr: 0,
 		// use a flat cache object with pure string references
 		// to achieve maximal lookup performance and memoization speed
 		cache: {},
@@ -73,7 +79,7 @@ export default function createRenderer(
 			if (!renderer.cache.hasOwnProperty(keyframeReference)) {
 				// use another unique identifier to ensure minimal css markup
 				const animationName = generateAnimationName(
-					++renderer.uniqueKeyframeIdentifier
+					++renderer.keyframeCtr
 				);
 
 				const processedKeyframe = processStyleWithPlugins(
@@ -197,8 +203,12 @@ export default function createRenderer(
 			renderer.mediaRules = applyMediaRulesInOrder(
 				renderer.mediaQueryOrder
 			);
-			renderer.uniqueRuleIdentifier = 0;
-			renderer.uniqueKeyframeIdentifier = 0;
+			
+			renderer.ruleCtr = 10;
+			renderer.msb = 63;
+			renderer.power = 1;
+
+			renderer.keyframeCtr = 0;
 			renderer.cache = {};
 
 			renderer._emitChange({ type: CLEAR_TYPE });
@@ -251,7 +261,7 @@ export default function createRenderer(
 
 						const className =
 							renderer.selectorPrefix +
-							generateClassName(++renderer.uniqueRuleIdentifier);
+							generateClassName(renderer);
 
 						renderer.cache[declarationReference] = className;
 

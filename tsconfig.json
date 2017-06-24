@@ -39,7 +39,11 @@
 			"inferno-alef": ["packages/inferno-alef/src"],
 			"preact-alef": ["packages/preact-alef/src"],
 			"react-alef": ["packages/react-alef/src"]
-		}
+		},
+		"lib": [
+			"es2015",
+			"dom"
+		]
 	},
 	"exclude": [
 		"node_modules"
