@@ -21,17 +21,17 @@ export default function generateClassName(renderer: DOMRenderer): string {
 
 	// make sure the class is not going to be blocked by adblock
 	if (renderer.selectorPrefix && problematicClasses.has(gen)) {
-		this.counter++;
-		return this.generateClass();
+		renderer.ruleCtr++;
+		return generateClassName(renderer);
 	}
 
 	let adCheck = gen.search(adSearch);
 	if (adCheck !== -1) {
-		this.counter += Math.pow(64, gen.length - adCheck - 2);
-		return this.generateClass();
+		renderer.ruleCtr += Math.pow(64, gen.length - adCheck - 2);
+		return generateClassName(renderer);
 	}
 
-	this.counter++;
+	renderer.ruleCtr++;
 
 	return gen;
 }
