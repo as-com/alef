@@ -1,4 +1,4 @@
-import { createComponent } from 'preact-fela'
+import { createComponent } from 'preact-alef'
 
 const center = props => ({
   padding: 10,

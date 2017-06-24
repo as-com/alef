@@ -1,5 +1,5 @@
 import Inferno from 'inferno'
-import { createComponent } from 'inferno-fela'
+import { createComponent } from 'inferno-alef'
 
 const Header = ({ title, className }) => (
   <div className={className}>

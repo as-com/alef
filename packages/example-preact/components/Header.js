@@ -1,5 +1,5 @@
 import { h } from 'preact'
-import { createComponent } from 'preact-fela'
+import { createComponent } from 'preact-alef'
 
 const Header = ({ title, className }) => (
   <div className={className}>

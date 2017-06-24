@@ -1,5 +1,5 @@
 import Inferno, { render } from 'inferno'
-import { Provider } from 'inferno-fela'
+import { Provider } from 'inferno-alef'
 import App from './app'
 import createRenderer from './renderer'
 

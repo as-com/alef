@@ -1,0 +1,30 @@
+{
+  "name": "alef-logger",
+  "version": "5.0.1",
+  "description": "Logging tool for Fela",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "es/**",
+    "lib/**"
+  ],
+  "repository": "https://github.com/rofrischmann/fela/",
+  "keywords": [
+    "fela",
+    "fela-devtools",
+    "fela-logger",
+    "dx",
+    "devtools",
+    "cssinjs",
+    "logging"
+  ],
+  "author": "Robin Frischmann",
+  "license": "MIT",
+  "dependencies": {
+    "cssbeautify": "^0.3.1",
+    "fela-utils": "^5.0.1"
+  }
+}

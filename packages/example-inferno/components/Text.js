@@ -1,4 +1,4 @@
-import { createComponent } from 'inferno-fela'
+import { createComponent } from 'inferno-alef'
 
 const info = () => ({
   padding: 5,

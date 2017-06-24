@@ -1,0 +1,26 @@
+{
+  "name": "alef-perf",
+  "version": "5.0.1",
+  "description": "Fela enhancer to log performance information",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "es/**"
+  ],
+  "repository": "https://github.com/rofrischmann/fela/",
+  "keywords": [
+    "fela",
+    "fela-devtools",
+    "fela-enhancer",
+    "dx",
+    "devtools",
+    "cssinjs",
+    "performance"
+  ],
+  "author": "Robin Frischmann",
+  "license": "MIT"
+}

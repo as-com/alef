@@ -1,5 +1,5 @@
 import { createRenderer } from 'fela'
-import embedded from 'fela-plugin-embedded'
+import embedded from 'alef-plugin-embedded'
 import prefixer from 'fela-plugin-prefixer'
 import fallbackValue from 'fela-plugin-fallback-value'
 import unit from 'fela-plugin-unit'

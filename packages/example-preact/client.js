@@ -1,5 +1,5 @@
 import { render, h } from 'preact'
-import { Provider } from 'preact-fela'
+import { Provider } from 'preact-alef'
 import App from './app'
 import createRenderer from './renderer'
 

@@ -1,0 +1,29 @@
+{
+  "name": "alef-preset-web",
+  "version": "5.0.2",
+  "description": "Fela plugin preset for web applications",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "es/**"
+  ],
+  "repository": "https://github.com/rofrischmann/fela/",
+  "keywords": [
+    "fela",
+    "fela-plugin",
+    "cssinjs"
+  ],
+  "author": "Robin Frischmann",
+  "license": "MIT",
+  "dependencies": {
+    "fela-plugin-extend": "^5.0.1",
+    "fela-plugin-fallback-value": "^5.0.2",
+    "fela-plugin-lvha": "^5.0.1",
+    "fela-plugin-prefixer": "^5.0.2",
+    "fela-plugin-unit": "^5.0.1"
+  }
+}

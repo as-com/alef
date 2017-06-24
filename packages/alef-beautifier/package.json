@@ -1,0 +1,31 @@
+{
+  "name": "alef-beautifier",
+  "version": "5.0.1",
+  "description": "Fela enhancer to beautify CSS output",
+  "main": "lib/index.js",
+  "module": "es/index.js",
+  "jsnext:main": "es/index.js",
+  "files": [
+    "LICENSE",
+    "README.md",
+    "lib/**",
+    "es/**"
+  ],
+  "repository": "https://github.com/rofrischmann/fela/",
+  "keywords": [
+    "fela",
+    "fela-devtools",
+    "fela-enhancer",
+    "dx",
+    "devtools",
+    "cssinjs",
+    "beautifier",
+    "cssbeautify"
+  ],
+  "author": "Robin Frischmann",
+  "license": "MIT",
+  "dependencies": {
+    "cssbeautify": "^0.3.1",
+    "fela-utils": "^5.0.1"
+  }
+}
