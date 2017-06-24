@@ -24,6 +24,5 @@
     "alef-utils": "^5.0.1"
   },
   "devDependencies": {
-    "alef": "^5.0.1"
   }
 }
