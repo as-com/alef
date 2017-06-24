@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-simulate",
   "version": "5.0.1",
-  "description": "Fela plugin to simulate pseudo classes and media queries",
+  "description": "Alef plugin to simulate pseudo classes and media queries",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-native",
+    "alef",
+    "alef-native",
     "react-native",
     "media query",
     "cssinjs"
@@ -23,6 +23,6 @@
   "license": "MIT",
   "dependencies": {
     "css-in-js-utils": "^1.0.3",
-    "fela-utils": "^5.0.1"
+    "alef-utils": "^5.0.1"
   }
 }

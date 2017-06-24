@@ -1,7 +1,7 @@
 {
   "name": "alef-utils",
   "version": "5.0.1",
-  "description": "Internal utilities for Fela",
+  "description": "Internal utilities for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-utils",
+    "alef",
+    "alef-utils",
     "cssinjs"
   ],
   "author": "Robin Frischmann",
@@ -23,6 +23,6 @@
     "css-in-js-utils": "^1.0.3"
   },
   "devDependencies": {
-    "fela": "^5.0.1"
+    "alef": "^5.0.1"
   }
 }

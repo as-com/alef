@@ -1,4 +1,4 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import monolithic from '../index'
 
 const options = { enhancers: [monolithic()] }
@@ -76,11 +76,11 @@ describe('Monolithic enhancer', () => {
   it('should prefix classNames', () => {
     const rule = () => ({ color: 'red' })
 
-    const renderer = createRenderer({ selectorPrefix: 'fela_' })
+    const renderer = createRenderer({ selectorPrefix: 'alef_' })
     const className = renderer.renderRule(rule)
 
     expect(renderer.rules).toEqual(`.${className}{color:red}`)
-    expect(className).toContain('fela_')
+    expect(className).toContain('alef_')
   })
 
   it('should render attribute selectors', () => {

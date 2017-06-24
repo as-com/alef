@@ -1,5 +1,5 @@
 /* @flow weak */
-import logger from 'fela-plugin-logger'
-import validator from 'fela-plugin-validator'
+import logger from 'alef-plugin-logger'
+import validator from 'alef-plugin-validator'
 
 export default [logger({ logMetaData: true }), validator()]

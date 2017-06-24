@@ -11,10 +11,10 @@ export default function createComponentFactory(
     type: any = 'div',
     passThroughProps: Array<string> | Function = []
   ): Function {
-    const displayName = rule.name ? rule.name : 'FelaComponent'
+    const displayName = rule.name ? rule.name : 'AlefComponent'
 
-    const FelaComponent = (
-      { children, _felaRule, passThrough = [], ...ruleProps },
+    const AlefComponent = (
+      { children, _alefRule, passThrough = [], ...ruleProps },
       { renderer, theme }
     ) => {
       if (!renderer) {
@@ -23,7 +23,7 @@ export default function createComponentFactory(
         )
       }
 
-      const combinedRule = _felaRule ? combineRules(rule, _felaRule) : rule
+      const combinedRule = _alefRule ? combineRules(rule, _alefRule) : rule
 
       // improve developer experience with monolithic renderer
       if (renderer.prettySelectors) {
@@ -40,13 +40,13 @@ export default function createComponentFactory(
         ...resolvePassThrough(passThrough, ruleProps)
       ]
 
-      // if the component renders into another Fela component
+      // if the component renders into another Alef component
       // we pass down the combinedRule as well as both
-      if (type._isFelaComponent) {
+      if (type._isAlefComponent) {
         return createElement(
           type,
           {
-            _felaRule: combinedRule,
+            _alefRule: combinedRule,
             passThrough: resolvedPassThrough,
             ...ruleProps
           },
@@ -63,10 +63,10 @@ export default function createComponentFactory(
 
       // alef-native support
       if (renderer.isNativeRenderer) {
-        const felaStyle = renderer.renderRule(combinedRule, ruleProps)
+        const alefStyle = renderer.renderRule(combinedRule, ruleProps)
         componentProps.style = ruleProps.style
-          ? [ruleProps.style, felaStyle]
-          : felaStyle
+          ? [ruleProps.style, alefStyle]
+          : alefStyle
       } else {
         if (ruleProps.style) {
           componentProps.style = ruleProps.style
@@ -89,13 +89,13 @@ export default function createComponentFactory(
     }
 
     if (contextTypes) {
-      FelaComponent.contextTypes = contextTypes
+      AlefComponent.contextTypes = contextTypes
     }
 
     // use the rule name as display name to better debug with react inspector
-    FelaComponent.displayName = displayName
-    FelaComponent._isFelaComponent = true
+    AlefComponent.displayName = displayName
+    AlefComponent._isAlefComponent = true
 
-    return FelaComponent
+    return AlefComponent
   }
 }

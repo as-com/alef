@@ -13,8 +13,8 @@ Renders all cached styles into a single CSS string. Styles are grouped in the fo
 
 ### Example
 ```javascript
-import { renderToString } from 'fela-dom/server'
-import { createRenderer } from 'fela'
+import { renderToString } from 'alef-dom/server'
+import { createRenderer } from 'alef'
 
 const renderer = createRenderer()
 

@@ -1,4 +1,4 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import variations from './_variations'
 
 export const unoptimizedActual = () => {

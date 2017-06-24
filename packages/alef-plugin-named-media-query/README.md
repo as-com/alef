@@ -1,24 +1,24 @@
-# fela-plugin-named-media-query
+# alef-plugin-named-media-query
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-named-media-query.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.49kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-named-media-query.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.49kb-brightgreen.svg">
 
 This plugin is basically a convenient plugin for more readable code and better maintenance.<br>
 It enables the use of named media query keys.
 
 ## Installation
 ```sh
-yarn add fela-plugin-named-media-query
+yarn add alef-plugin-named-media-query
 ```
-You may alternatively use `npm i --save fela-plugin-named-media-query`.
+You may alternatively use `npm i --save alef-plugin-named-media-query`.
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import namedMediaQuery from 'fela-plugin-named-media-query'
+import { createRenderer } from 'alef'
+import namedMediaQuery from 'alef-plugin-named-media-query'
 
 const renderer = createRenderer({
   plugins: [ namedMediaQuery() ]
@@ -33,8 +33,8 @@ const renderer = createRenderer({
 
 ##### Example
 ```javascript
-import { createRenderer } from 'fela'
-import namedMediaQuery from 'fela-plugin-named-media-query'
+import { createRenderer } from 'alef'
+import namedMediaQuery from 'alef-plugin-named-media-query'
 
 const namedMediaQueryPlugin = namedMediaQuery({
   desktop: '@media (min-width: 1024px)',
@@ -69,6 +69,6 @@ Using the above example code:
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

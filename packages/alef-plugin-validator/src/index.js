@@ -6,7 +6,7 @@ import {
   isObject,
   isNestedSelector,
   isMediaQuery
-} from 'fela-utils'
+} from 'alef-utils'
 
 type Type = 1 | 2 | 3 | 4 | 5
 

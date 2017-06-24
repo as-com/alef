@@ -1,7 +1,7 @@
 {
   "name": "alef-layout-debugger",
   "version": "5.0.1",
-  "description": "Fela enhancer to debug app layouts",
+  "description": "Alef enhancer to debug app layouts",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-enhancer",
+    "alef",
+    "alef-enhancer",
     "devTool",
     "debugger",
     "cssinjs"

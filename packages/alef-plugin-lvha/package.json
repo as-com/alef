@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-lvha",
   "version": "5.0.1",
-  "description": "Fela plugin that sorts pseudo classes according to LVH(F)A",
+  "description": "Alef plugin that sorts pseudo classes according to LVH(F)A",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "lvha",
     "pseudo classes",
     "cssinjs"
@@ -22,6 +22,6 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-utils": "^5.0.1"
+    "alef-utils": "^5.0.1"
   }
 }

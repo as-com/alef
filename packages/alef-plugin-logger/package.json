@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-logger",
   "version": "5.0.1",
-  "description": "Fela plugin to log processed style objects",
+  "description": "Alef plugin to log processed style objects",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "logger",
     "logging",
     "cssinjs"

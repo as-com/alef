@@ -11,7 +11,7 @@ It provides all classNames using the `styles` prop.
 
 ## Example
 ```javascript
-import { connect } from 'react-fela'
+import { connect } from 'react-alef'
 
 const Header = ({ title, styles }) => (
   <header className={styles.container}>

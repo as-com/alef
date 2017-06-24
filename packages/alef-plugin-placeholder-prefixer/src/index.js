@@ -1,5 +1,5 @@
 /* @flow */
-import customProperty from 'fela-plugin-custom-property'
+import customProperty from 'alef-plugin-custom-property'
 import { arrayReduce } from 'alef-utils'
 
 const placeholderPrefixes = [

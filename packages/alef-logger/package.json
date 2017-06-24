@@ -1,7 +1,7 @@
 {
   "name": "alef-logger",
   "version": "5.0.1",
-  "description": "Logging tool for Fela",
+  "description": "Logging tool for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,11 +11,11 @@
     "es/**",
     "lib/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-devtools",
-    "fela-logger",
+    "alef",
+    "alef-devtools",
+    "alef-logger",
     "dx",
     "devtools",
     "cssinjs",
@@ -25,6 +25,6 @@
   "license": "MIT",
   "dependencies": {
     "cssbeautify": "^0.3.1",
-    "fela-utils": "^5.0.1"
+    "alef-utils": "^5.0.1"
   }
 }

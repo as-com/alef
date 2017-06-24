@@ -1,5 +1,5 @@
-# fela-dom
+# alef-dom
 
-NPM package shipping DOM bindings for [Fela](fela.js.org).
+NPM package shipping DOM bindings for [Alef](alef.js.org).
 
-Check out the [Fela repository](https://github.com/rofrischmann/fela) for further information.
+Check out the [Alef repository](https://github.com/as-com/alef) for further information.

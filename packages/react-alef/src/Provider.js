@@ -1,7 +1,7 @@
 /* @flow */
 import { Component, Children } from 'react'
 import PropTypes from 'prop-types'
-import { render } from 'fela-dom'
+import { render } from 'alef-dom'
 
 export default class Provider extends Component {
   static childContextTypes = { renderer: PropTypes.object }

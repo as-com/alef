@@ -9,7 +9,7 @@ var _assignStyle = require('css-in-js-utils/lib/assignStyle');
 
 var _assignStyle2 = _interopRequireDefault(_assignStyle);
 
-var _felaUtils = require('alef-utils');
+var _alefUtils = require('alef-utils');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -19,7 +19,7 @@ function combineRules() {
   }
 
   return function (props) {
-    return (0, _felaUtils.arrayReduce)(rules, function (style, rule) {
+    return (0, _alefUtils.arrayReduce)(rules, function (style, rule) {
       return (0, _assignStyle2.default)(style, rule(props));
     }, {});
   };

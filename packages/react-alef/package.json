@@ -1,7 +1,7 @@
 {
-  "name": "react-fela",
+  "name": "react-alef",
   "version": "5.0.3",
-  "description": "React bindings for Fela",
+  "description": "React bindings for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,9 +11,9 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
+    "alef",
     "dynamic styling",
     "react",
     "css",
@@ -26,8 +26,8 @@
     "react": "*"
   },
   "dependencies": {
-    "fela": "^5.0.1",
-    "fela-dom": "^5.0.2",
+    "alef": "^5.0.1",
+    "alef-dom": "^5.0.2",
     "prop-types": "^15.5.8"
   }
 }

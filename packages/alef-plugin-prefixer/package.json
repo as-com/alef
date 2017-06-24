@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-prefixer",
   "version": "5.0.2",
-  "description": "Fela plugin to add vendor prefixes",
+  "description": "Alef plugin to add vendor prefixes",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "vendor prefixing",
     "prefixer",
     "autoprefixer",
@@ -24,8 +24,8 @@
   "license": "MIT",
   "dependencies": {
     "css-in-js-utils": "^1.0.3",
-    "fela-plugin-fallback-value": "^5.0.2",
-    "fela-utils": "^5.0.1",
+    "alef-plugin-fallback-value": "^5.0.2",
+    "alef-utils": "^5.0.1",
     "inline-style-prefixer": "^3.0.0"
   }
 }

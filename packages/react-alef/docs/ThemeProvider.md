@@ -14,7 +14,7 @@ Nested themes automatically get combined if not explicitly prevented. This helps
 ## Example
 ```javascript
 import React from 'react'
-import { createComponent, ThemeProvider } from 'react-fela'
+import { createComponent, ThemeProvider } from 'react-alef'
 
 const text = props => ({
   fontSize: props.theme.fontSize,
@@ -42,7 +42,7 @@ The `overwrite` options help to prevent theme inheritance for nested `<ThemeProv
 
 ```javascript
 import React from 'react'
-import { createComponent, ThemeProvider } from 'react-fela'
+import { createComponent, ThemeProvider } from 'react-alef'
 
 const text = props => ({
   fontSize: props.theme.fontSize,

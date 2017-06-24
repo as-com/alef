@@ -2,7 +2,7 @@
 
 This HoCs ([Higher-order Components](https://medium.com/@dan_abramov/mixins-are-dead-long-live-higher-order-components-94a0d2f9e750#.njbld18x8)) creates a presentational React component using the rendered `rule` as className.
 
-It automatically composes rules and passed props for nested Fela components.
+It automatically composes rules and passed props for nested Alef components.
 
 ## Arguments
 1. `rule` (*Function*): A function which satisfies the [rule](../basics/Rules.md) behavior. It **must** return a valid [style object](../basics/Rules.md#styleobject).
@@ -14,7 +14,7 @@ It automatically composes rules and passed props for nested Fela components.
 
 ## Example
 ```javascript
-import { createComponent } from 'react-fela'
+import { createComponent } from 'react-alef'
 
 const title = props => ({
   lineHeight: props['data-foo'] === 'bar' ? 1.2 : 1.5,
@@ -40,7 +40,7 @@ Using the `passThroughProps` parameter allows us to pass props to the underlying
 * `style`
 * `id`
 
-If passing a className, it will automatically be concatenated with the Fela generated className. This allows composing multiple Fela Components.
+If passing a className, it will automatically be concatenated with the Alef generated className. This allows composing multiple Alef Components.
 
 #### Functional passThroughProps
 You may also pass a function of `props` as `passThroughProps`. It must return an array of prop names. e.g. to pass all props you can do:
@@ -53,7 +53,7 @@ This use case is especially important for library owners. Instead of passing the
 
 ##### Example
 ```javascript
-import { createComponent } from 'react-fela'
+import { createComponent } from 'react-alef'
 
 const title = props => ({
   color: 'red'
@@ -73,7 +73,7 @@ ReactDOM.render(
 ## Custom type on runtime
 To change the `type` on runtime and/or for each component, you may use the `is` prop.
 ```javascript
-import { createComponent } from 'react-fela'
+import { createComponent } from 'react-alef'
 
 const title = props => ({
   color: 'red'
@@ -90,4 +90,4 @@ ReactDOM.render(
 
 ## Related
 
-- [Explicit displayName for React components](http://fela.js.org/docs/recipes/DisplayNameComponents.html)
+- [Explicit displayName for React components](http://alef.js.org/docs/recipes/DisplayNameComponents.html)

@@ -7,7 +7,7 @@ import {
   CLEAR_TYPE,
   reflushStyleNodes,
   getStyleNode
-} from 'fela-utils'
+} from 'alef-utils'
 
 import type DOMRenderer from '../../../flowtypes/DOMRenderer'
 

@@ -11,7 +11,7 @@ Transforms a set of mediaQuery-value pairs into valid style object media queries
 
 ## Example
 ```javascript
-import { mapValueToMediaQuery } from 'fela-tools'
+import { mapValueToMediaQuery } from 'alef-tools'
 
 const rule = props => ({
   color: 'red',
@@ -41,6 +41,6 @@ style === {
 ```
 
 ## Tips & Tricks
-It is best used within the `extend` value provided by [fela-plugin-extend](../../fela-plugin-extend), because it merges nested objects (such as media queries) instead of overwriting them.
+It is best used within the `extend` value provided by [alef-plugin-extend](../../alef-plugin-extend), because it merges nested objects (such as media queries) instead of overwriting them.
 
-It can also be combined with the [fela-plugin-named-media-query](../../fela-plugin-named-media-query) to have short query keys.
+It can also be combined with the [alef-plugin-named-media-query](../../alef-plugin-named-media-query) to have short query keys.

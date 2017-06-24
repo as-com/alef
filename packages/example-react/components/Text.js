@@ -1,4 +1,4 @@
-import { createComponent } from 'react-fela'
+import { createComponent } from 'react-alef'
 
 const info = () => ({
   padding: 5,

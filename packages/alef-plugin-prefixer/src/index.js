@@ -2,7 +2,7 @@
 import prefix from 'inline-style-prefixer/static'
 import cssifyObject from 'css-in-js-utils/lib/cssifyObject'
 
-import fallbackValue from 'fela-plugin-fallback-value'
+import fallbackValue from 'alef-plugin-fallback-value'
 import { isObject, objectReduce } from 'alef-utils'
 
 const resolveFallbackValues = fallbackValue()

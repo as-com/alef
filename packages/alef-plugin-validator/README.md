@@ -1,24 +1,24 @@
-# fela-plugin-validator
+# alef-plugin-validator
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-validator.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.96kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-validator.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.96kb-brightgreen.svg">
 
 Enforces object validation for keyframes and rules.
 Logs invalid properties to the `console`. One might also enable automatic property deletion.
 
 ## Installation
 ```sh
-yarn add fela-plugin-validator
+yarn add alef-plugin-validator
 ```
-You may alternatively use `npm i --save fela-plugin-validator`.
+You may alternatively use `npm i --save alef-plugin-validator`.
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import validator from 'fela-plugin-validator'
+import { createRenderer } from 'alef'
+import validator from 'alef-plugin-validator'
 
 const renderer = createRenderer({
   plugins: [ validator() ]
@@ -33,8 +33,8 @@ const renderer = createRenderer({
 
 ##### Example
 ```javascript
-import { createRenderer } from 'fela'
-import validator from 'fela-plugin-validator'
+import { createRenderer } from 'alef'
+import validator from 'alef-plugin-validator'
 
 const validatorPlugin = validator({
   logInvalid: true,
@@ -102,6 +102,6 @@ If the `deleteInvalid` option is enabled.
 
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

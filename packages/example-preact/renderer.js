@@ -1,13 +1,13 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import embedded from 'alef-plugin-embedded'
-import prefixer from 'fela-plugin-prefixer'
-import fallbackValue from 'fela-plugin-fallback-value'
-import unit from 'fela-plugin-unit'
-import lvha from 'fela-plugin-lvha'
-import validator from 'fela-plugin-validator'
-import logger from 'fela-plugin-logger'
-import perf from 'fela-perf'
-import beautifier from 'fela-beautifier'
+import prefixer from 'alef-plugin-prefixer'
+import fallbackValue from 'alef-plugin-fallback-value'
+import unit from 'alef-plugin-unit'
+import lvha from 'alef-plugin-lvha'
+import validator from 'alef-plugin-validator'
+import logger from 'alef-plugin-logger'
+import perf from 'alef-perf'
+import beautifier from 'alef-beautifier'
 
 export default () => {
   const renderer = createRenderer({

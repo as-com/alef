@@ -8,7 +8,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 exports.default = createComponentFactory;
 
-var _felaUtils = require('alef-utils');
+var _alefUtils = require('alef-utils');
 
 var _combineRules = require('../combineRules');
 
@@ -25,23 +25,23 @@ function createComponentFactory(createElement, contextTypes) {
     var type = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 'div';
     var passThroughProps = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : [];
 
-    var displayName = rule.name ? rule.name : 'FelaComponent';
+    var displayName = rule.name ? rule.name : 'AlefComponent';
 
-    var FelaComponent = function FelaComponent(_ref, _ref2) {
+    var AlefComponent = function AlefComponent(_ref, _ref2) {
       var renderer = _ref2.renderer,
           theme = _ref2.theme;
 
       var children = _ref.children,
-          _felaRule = _ref._felaRule,
+          _alefRule = _ref._alefRule,
           _ref$passThrough = _ref.passThrough,
           passThrough = _ref$passThrough === undefined ? [] : _ref$passThrough,
-          ruleProps = _objectWithoutProperties(_ref, ['children', '_felaRule', 'passThrough']);
+          ruleProps = _objectWithoutProperties(_ref, ['children', '_alefRule', 'passThrough']);
 
       if (!renderer) {
         throw new Error("createComponent() can't render styles without the renderer in the context. Missing react-alef's <Provider /> at the app root?");
       }
 
-      var combinedRule = _felaRule ? (0, _combineRules2.default)(rule, _felaRule) : rule;
+      var combinedRule = _alefRule ? (0, _combineRules2.default)(rule, _alefRule) : rule;
 
       // improve developer experience with monolithic renderer
       if (renderer.prettySelectors) {
@@ -51,25 +51,25 @@ function createComponentFactory(createElement, contextTypes) {
       }
 
       // compose passThrough props from arrays or functions
-      var resolvedPassThrough = [].concat(_toConsumableArray((0, _felaUtils.resolvePassThrough)(passThroughProps, ruleProps)), _toConsumableArray((0, _felaUtils.resolvePassThrough)(passThrough, ruleProps)));
+      var resolvedPassThrough = [].concat(_toConsumableArray((0, _alefUtils.resolvePassThrough)(passThroughProps, ruleProps)), _toConsumableArray((0, _alefUtils.resolvePassThrough)(passThrough, ruleProps)));
 
-      // if the component renders into another Fela component
+      // if the component renders into another Alef component
       // we pass down the combinedRule as well as both
-      if (type._isFelaComponent) {
+      if (type._isAlefComponent) {
         return createElement(type, _extends({
-          _felaRule: combinedRule,
+          _alefRule: combinedRule,
           passThrough: resolvedPassThrough
         }, ruleProps), children);
       }
 
-      var componentProps = (0, _felaUtils.extractPassThroughProps)(resolvedPassThrough, ruleProps);
+      var componentProps = (0, _alefUtils.extractPassThroughProps)(resolvedPassThrough, ruleProps);
 
       ruleProps.theme = theme || {};
 
       // alef-native support
       if (renderer.isNativeRenderer) {
-        var felaStyle = renderer.renderRule(combinedRule, ruleProps);
-        componentProps.style = ruleProps.style ? [ruleProps.style, felaStyle] : felaStyle;
+        var alefStyle = renderer.renderRule(combinedRule, ruleProps);
+        componentProps.style = ruleProps.style ? [ruleProps.style, alefStyle] : alefStyle;
       } else {
         if (ruleProps.style) {
           componentProps.style = ruleProps.style;
@@ -91,13 +91,13 @@ function createComponentFactory(createElement, contextTypes) {
     };
 
     if (contextTypes) {
-      FelaComponent.contextTypes = contextTypes;
+      AlefComponent.contextTypes = contextTypes;
     }
 
     // use the rule name as display name to better debug with react inspector
-    FelaComponent.displayName = displayName;
-    FelaComponent._isFelaComponent = true;
+    AlefComponent.displayName = displayName;
+    AlefComponent._isAlefComponent = true;
 
-    return FelaComponent;
+    return AlefComponent;
   };
 }

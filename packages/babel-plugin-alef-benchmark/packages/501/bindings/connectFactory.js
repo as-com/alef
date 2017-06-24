@@ -10,7 +10,7 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 exports.default = connectFactory;
 
-var _felaUtils = require('alef-utils');
+var _alefUtils = require('alef-utils');
 
 var _generateDisplayName = require('./generateDisplayName');
 
@@ -61,7 +61,7 @@ function connectFactory(BaseComponent, createElement, contextTypes) {
                 this.warnDeprecated = true;
               }
             } else {
-              styles = (0, _felaUtils.objectReduce)(rules, function (styleMap, rule, name) {
+              styles = (0, _alefUtils.objectReduce)(rules, function (styleMap, rule, name) {
                 styleMap[name] = renderer.renderRule(rule, styleProps);
                 return styleMap;
               }, {});

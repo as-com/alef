@@ -1,5 +1,5 @@
 /* @flow */
-import { objectReduce } from 'fela-utils'
+import { objectReduce } from 'alef-utils'
 
 export default {
   create(styleSheet: Object): Object {

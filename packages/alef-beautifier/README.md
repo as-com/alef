@@ -1,19 +1,19 @@
-# fela-beautifier
+# alef-beautifier
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-beautifier.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-1.91kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-beautifier.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-1.91kb-brightgreen.svg">
 
 The beautifier enhancer is a developer tool that automatically formats the rendered CSS markup on every change. It uses [cssbeautify](https://github.com/senchalabs/cssbeautify) to achieve this.
 
 ## Installation
 ```sh
-yarn add fela-beautifier
+yarn add alef-beautifier
 ```
-You may alternatively use `npm i --save fela-beautifier`.
+You may alternatively use `npm i --save alef-beautifier`.
 
 ## Usage
 ```javascript
-import { createRenderer } from 'fela'
-import beautifier from 'fela-beautifier'
+import { createRenderer } from 'alef'
+import beautifier from 'alef-beautifier'
 
 const renderer = createRenderer({
   enhancers: [ beautifier() ]
@@ -33,8 +33,8 @@ Uses the same options as [cssbeautify](https://github.com/senchalabs/cssbeautify
 
 ##### Example
 ```javascript
-import { createRenderer } from 'fela'
-import beautifier from 'fela-beautifier'
+import { createRenderer } from 'alef'
+import beautifier from 'alef-beautifier'
 
 const beautifyEnhancer = beautifier({
   openbrace: 'separate-line',
@@ -51,6 +51,6 @@ const renderer = createRenderer({
 ![Preview](preview.png)
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

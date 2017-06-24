@@ -5,7 +5,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = enhance;
 
-var _felaUtils = require('alef-utils');
+var _alefUtils = require('alef-utils');
 
 function enhance() {
   for (var _len = arguments.length, enhancers = Array(_len), _key = 0; _key < _len; _key++) {
@@ -14,7 +14,7 @@ function enhance() {
 
   return function (createRenderer) {
     return function (config) {
-      return (0, _felaUtils.arrayReduce)(enhancers, function (enhancedRenderer, enhancer) {
+      return (0, _alefUtils.arrayReduce)(enhancers, function (enhancedRenderer, enhancer) {
         enhancedRenderer = enhancer(enhancedRenderer);
         return enhancedRenderer;
       }, createRenderer(config));

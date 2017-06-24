@@ -1,23 +1,23 @@
-# fela-plugin-isolation
+# alef-plugin-isolation
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-isolation.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-isolation.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
 
 Adds style isolation to every rule by attaching `all: initial` to every class.
 
 ## Installation
 ```sh
-yarn add fela-plugin-isolation
+yarn add alef-plugin-isolation
 ```
-You may alternatively use `npm i --save fela-plugin-isolation`.
+You may alternatively use `npm i --save alef-plugin-isolation`.
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import isolation from 'fela-plugin-isolation'
+import { createRenderer } from 'alef'
+import isolation from 'alef-plugin-isolation'
 
 const renderer = createRenderer({
   plugins: [ isolation() ]
@@ -32,8 +32,8 @@ const renderer = createRenderer({
 
 ##### Example
 ```javascript
-import { createRenderer } from 'fela'
-import isolation from 'fela-plugin-isolation'
+import { createRenderer } from 'alef'
+import isolation from 'alef-plugin-isolation'
 
 const isolationPlugin = isolation({
   exclude: [
@@ -80,6 +80,6 @@ const rule = props => ({
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

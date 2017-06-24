@@ -1,25 +1,25 @@
-# fela-plugin-unit
+# alef-plugin-unit
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-unit.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-1.53kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-unit.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-1.53kb-brightgreen.svg">
 
 Always writing length values as string with a value applied seems not like the JavaScript way to do it. You can also use mathematics to process number values. <br>
 It is aware of unitless properties such as `lineHeight` and also adds units to multiple values inside an array.
 
 ## Installation
 ```sh
-yarn add fela-plugin-unit
+yarn add alef-plugin-unit
 ```
-You may alternatively use `npm i --save fela-plugin-unit`.
+You may alternatively use `npm i --save alef-plugin-unit`.
 
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import unit from 'fela-plugin-unit'
+import { createRenderer } from 'alef'
+import unit from 'alef-plugin-unit'
 
 const renderer = createRenderer({
   plugins: [ unit() ]
@@ -35,8 +35,8 @@ const renderer = createRenderer({
 
 ##### Example
 ```javascript
-import { createRenderer } from 'fela'
-import unit from 'fela-plugin-unit'
+import { createRenderer } from 'alef'
+import unit from 'alef-plugin-unit'
 
 const unitPlugin = unit('em', {
   margin: '%',
@@ -74,6 +74,6 @@ Using the above example code:
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

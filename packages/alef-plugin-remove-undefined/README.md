@@ -1,25 +1,25 @@
-# fela-plugin-remove-undefined
+# alef-plugin-remove-undefined
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-remove-undefined.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.52kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-remove-undefined.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.52kb-brightgreen.svg">
 
 Removes any `undefined` value or string values containing `undefined`.
-It also checks array values. This plugin has been used to ensure auto prefixing to work. It is not necessary anymore as Fela automatically strips all undefined values.
+It also checks array values. This plugin has been used to ensure auto prefixing to work. It is not necessary anymore as Alef automatically strips all undefined values.
 
 ## Installation
 ```sh
-yarn add fela-plugin-remove-undefined
+yarn add alef-plugin-remove-undefined
 ```
-You may alternatively use `npm i --save fela-plugin-remove-undefined`.
+You may alternatively use `npm i --save alef-plugin-remove-undefined`.
 
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import removeUndefined from 'fela-plugin-remove-undefined'
+import { createRenderer } from 'alef'
+import removeUndefined from 'alef-plugin-remove-undefined'
 
 const renderer = createRenderer({
   plugins: [ removeUndefined() ]
@@ -51,6 +51,6 @@ const renderer = createRenderer({
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

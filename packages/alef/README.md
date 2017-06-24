@@ -1,4 +1,4 @@
-# fela
+# alef
 
-NPM package to get access to Fela's API.<br>
-Check out the [Fela repository](https://github.com/rofrischmann/fela) for further information.
+NPM package to get access to Alef's API.<br>
+Check out the [Alef repository](https://github.com/as-com/alef) for further information.

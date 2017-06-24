@@ -1,4 +1,4 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import cssifyStaticStyle from '../cssifyStaticStyle'
 
 describe('Cssifying static css declarations', () => {

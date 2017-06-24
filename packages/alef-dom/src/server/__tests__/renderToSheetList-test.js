@@ -1,5 +1,5 @@
 import renderToSheetList from '../renderToSheetList'
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 
 describe('Rendering to a sheet list', () => {
   it('should return a list of style sheets', () => {

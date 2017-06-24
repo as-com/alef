@@ -1,7 +1,7 @@
 {
   "name": "alef-statistics",
   "version": "5.0.1",
-  "description": "Statistic generation tool for Fela",
+  "description": "Statistic generation tool for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-devtools",
+    "alef",
+    "alef-devtools",
     "statistics",
     "stats",
     "dx",
@@ -24,7 +24,7 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-utils": "^5.0.1",
+    "alef-utils": "^5.0.1",
     "gzip-size": "^3.0.0"
   }
 }

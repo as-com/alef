@@ -132,11 +132,11 @@ describe('Renderer', () => {
     it('should prefix classNames', () => {
       const rule = () => ({ color: 'red' })
 
-      const renderer = createRenderer({ selectorPrefix: 'fela_' })
+      const renderer = createRenderer({ selectorPrefix: 'alef_' })
       const className = renderer.renderRule(rule)
 
-      expect(renderer.rules).toEqual('.fela_a{color:red}')
-      expect(className).toEqual('fela_a')
+      expect(renderer.rules).toEqual('.alef_a{color:red}')
+      expect(className).toEqual('alef_a')
     })
 
     it('should render attribute selectors', () => {

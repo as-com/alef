@@ -6,7 +6,7 @@ import Input from './containers/Input'
 
 export default () => (
   <Wrapper>
-    <Header title="Welcome to Fela." />
+    <Header title="Welcome to Alef." />
     <Text>
       This is the basic example with Preact.
     </Text>

@@ -1,7 +1,7 @@
 {
   "name": "alef-preset-dev",
   "version": "5.0.1",
-  "description": "Fela plugin preset for web applications",
+  "description": "Alef plugin preset for web applications",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,16 +11,16 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "cssinjs"
   ],
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-plugin-logger": "^5.0.1",
-    "fela-plugin-validator": "^5.0.1"
+    "alef-plugin-logger": "^5.0.1",
+    "alef-plugin-validator": "^5.0.1"
   }
 }

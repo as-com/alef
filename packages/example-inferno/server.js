@@ -4,7 +4,7 @@ import Inferno from 'inferno'
 import { renderToString } from 'inferno-server'
 import { Provider } from 'inferno-alef'
 import fs from 'fs'
-import { renderToMarkup } from 'fela-dom'
+import { renderToMarkup } from 'alef-dom'
 import App from './app'
 import createRenderer from './renderer'
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import { createComponent } from 'react-fela'
+import { createComponent } from 'react-alef'
 
 const Header = ({ title, className }) => (
   <div className={className}>

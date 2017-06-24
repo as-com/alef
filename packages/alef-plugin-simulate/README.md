@@ -1,23 +1,23 @@
-# fela-plugin-simulate
+# alef-plugin-simulate
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-simulate.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.49kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-simulate.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.49kb-brightgreen.svg">
 
 This plugin can be used to quickly simulate nested style objects such as pseudo classes, media queries or attribute selectors.
 
 ## Installation
 ```sh
-yarn add fela-plugin-simulate
+yarn add alef-plugin-simulate
 ```
-You may alternatively use `npm i --save fela-plugin-simulate`.
+You may alternatively use `npm i --save alef-plugin-simulate`.
 
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import simulate from 'fela-plugin-simulate'
+import { createRenderer } from 'alef'
+import simulate from 'alef-plugin-simulate'
 
 const renderer = createRenderer({
   plugins: [ simulate() ]
@@ -64,6 +64,6 @@ rendered with the following props
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

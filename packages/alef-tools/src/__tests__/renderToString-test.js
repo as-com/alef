@@ -1,4 +1,4 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 
 import renderToString from '../renderToString'
 

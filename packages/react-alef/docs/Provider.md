@@ -1,14 +1,14 @@
 # `<Provider>`
 
-The `<Provider>` component wraps your whole application. It uses React's [context](https://facebook.github.io/react/docs/context.html) to pass down the renderer. It actually is all you need to fully use Fela within your React application.
+The `<Provider>` component wraps your whole application. It uses React's [context](https://facebook.github.io/react/docs/context.html) to pass down the renderer. It actually is all you need to fully use Alef within your React application.
 
 ## Props
-1. `renderer` ([*Renderer*](http://fela.js.org/docs/api/Renderer.html)): Fela renderer which is used to actually render our styles.
+1. `renderer` ([*Renderer*](http://alef.js.org/docs/api/Renderer.html)): Alef renderer which is used to actually render our styles.
 
 ## Example
 ```javascript
-import { createRenderer } from 'fela'
-import { Provider } from 'react-fela'
+import { createRenderer } from 'alef'
+import { Provider } from 'react-alef'
 import { render } from 'react-dom'
 import React from 'react'
 

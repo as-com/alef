@@ -8,8 +8,8 @@ function generateDisplayName(component) {
   var displayName = component.displayName || component.name;
 
   if (displayName) {
-    return 'Fela' + displayName;
+    return 'Alef' + displayName;
   }
 
-  return 'ConnectedFelaComponent';
+  return 'ConnectedAlefComponent';
 }

@@ -1,5 +1,5 @@
 /* @flow */
-import { RULE_TYPE, KEYFRAME_TYPE, FONT_TYPE, STATIC_TYPE } from 'fela-utils'
+import { RULE_TYPE, KEYFRAME_TYPE, FONT_TYPE, STATIC_TYPE } from 'alef-utils'
 
 const sheetMap = {
   fontFaces: FONT_TYPE,

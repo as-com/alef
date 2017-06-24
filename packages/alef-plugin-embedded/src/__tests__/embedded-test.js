@@ -1,4 +1,4 @@
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import embedded from '../index'
 
 describe('Embedded plugin', () => {

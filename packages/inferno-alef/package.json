@@ -1,7 +1,7 @@
 {
-  "name": "inferno-fela",
+  "name": "inferno-alef",
   "version": "5.0.2",
-  "description": "Inferno bindings for Fela",
+  "description": "Inferno bindings for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,9 +11,9 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
+    "alef",
     "dynamic styling",
     "inferno",
     "css",
@@ -23,8 +23,8 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela": "^5.0.1",
-    "fela-dom": "^5.0.2",
+    "alef": "^5.0.1",
+    "alef-dom": "^5.0.2",
     "inferno": "^1.0.1",
     "inferno-component": "^1.0.1",
     "inferno-create-element": "^1.0.1"

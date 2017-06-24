@@ -1,22 +1,22 @@
-# fela-plugin-extend
+# alef-plugin-extend
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-extend.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.60kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-extend.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.60kb-brightgreen.svg">
 
 Allows styles to be extended with other style objects. Supports a condition-based API.
 
 ## Installation
 ```sh
-yarn add fela-plugin-extend
+yarn add alef-plugin-extend
 ```
-You may alternatively use `npm i --save fela-plugin-extend`.
+You may alternatively use `npm i --save alef-plugin-extend`.
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import extend from 'fela-plugin-extend'
+import { createRenderer } from 'alef'
+import extend from 'alef-plugin-extend'
 
 const renderer = createRenderer({
   plugins: [ extend() ]
@@ -96,6 +96,6 @@ Using `{ bg: true }` as `props`:
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

@@ -1,5 +1,5 @@
 import { html as beautify } from 'js-beautify'
-import { createRenderer } from 'fela'
+import { createRenderer } from 'alef'
 import render from '../render'
 
 describe('render', () => {

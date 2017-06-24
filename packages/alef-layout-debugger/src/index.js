@@ -13,7 +13,7 @@ function addLayoutDebugger(
     const ruleName = rule.name || 'debug_layout'
     const color = (ruleName + ruleName).length * 17 * ruleName.length
 
-    const debugLayoutClassName = `fela-debug-layout_${ruleName}`
+    const debugLayoutClassName = `alef-debug-layout_${ruleName}`
 
     if (options.backgroundColor) {
       renderer.renderStatic(

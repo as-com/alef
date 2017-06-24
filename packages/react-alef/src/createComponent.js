@@ -2,7 +2,7 @@
 import { createElement } from 'react'
 import PropTypes from 'prop-types'
 
-import { createComponentFactory } from 'fela'
+import { createComponentFactory } from 'alef'
 
 export default createComponentFactory(createElement, {
   renderer: PropTypes.object,

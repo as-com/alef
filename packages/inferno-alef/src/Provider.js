@@ -1,6 +1,6 @@
 /* @flow */
 import Component from 'inferno-component'
-import { render } from 'fela-dom'
+import { render } from 'alef-dom'
 
 export default class Provider extends Component {
   getChildContext() {

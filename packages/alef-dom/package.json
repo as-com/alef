@@ -1,7 +1,7 @@
 {
   "name": "alef-dom",
   "version": "5.0.2",
-  "description": "Fela package for working with the DOM",
+  "description": "Alef package for working with the DOM",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -12,9 +12,9 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
+    "alef",
     "dynamic styling",
     "stylesheet",
     "css",
@@ -24,10 +24,10 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-tools": "^5.0.1",
-    "fela-utils": "^5.0.1"
+    "alef-tools": "^5.0.1",
+    "alef-utils": "^5.0.1"
   },
   "devDependencies": {
-    "fela": "^5.0.1"
+    "alef": "^5.0.1"
   }
 }

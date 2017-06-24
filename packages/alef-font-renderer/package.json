@@ -1,7 +1,7 @@
 {
   "name": "alef-font-renderer",
   "version": "5.0.2",
-  "description": "Fela enhancer to render fonts into a separate stylesheet",
+  "description": "Alef enhancer to render fonts into a separate stylesheet",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,11 +11,11 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-devtools",
-    "fela-enhancer",
+    "alef",
+    "alef-devtools",
+    "alef-enhancer",
     "dx",
     "devtools",
     "cssinjs"
@@ -23,7 +23,7 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela": "^5.0.1",
-    "fela-dom": "^5.0.2"
+    "alef": "^5.0.1",
+    "alef-dom": "^5.0.2"
   }
 }

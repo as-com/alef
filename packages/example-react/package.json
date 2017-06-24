@@ -2,7 +2,7 @@
   "private": true,
   "name": "example-react",
   "version": "2.0.4",
-  "description": "Fela example with React",
+  "description": "Alef example with React",
   "scripts": {
     "client": "NODE_ENV=development webpack-dev-server",
     "start": "concurrently --kill-others \"npm run client\" \"babel-node server.js\""
@@ -10,20 +10,20 @@
   "author": "Robin Frischmann <robin@rofrischmann.de>",
   "license": "MIT",
   "dependencies": {
-    "fela": "^5.0.1",
-    "fela-beautifier": "^5.0.1",
-    "fela-dom": "^5.0.2",
-    "fela-perf": "^5.0.1",
-    "fela-plugin-embedded": "^5.0.3",
-    "fela-plugin-fallback-value": "^5.0.2",
-    "fela-plugin-logger": "^5.0.1",
-    "fela-plugin-lvha": "^5.0.1",
-    "fela-plugin-prefixer": "^5.0.2",
-    "fela-plugin-unit": "^5.0.1",
-    "fela-plugin-validator": "^5.0.1",
+    "alef": "^5.0.1",
+    "alef-beautifier": "^5.0.1",
+    "alef-dom": "^5.0.2",
+    "alef-perf": "^5.0.1",
+    "alef-plugin-embedded": "^5.0.3",
+    "alef-plugin-fallback-value": "^5.0.2",
+    "alef-plugin-logger": "^5.0.1",
+    "alef-plugin-lvha": "^5.0.1",
+    "alef-plugin-prefixer": "^5.0.2",
+    "alef-plugin-unit": "^5.0.1",
+    "alef-plugin-validator": "^5.0.1",
     "react": "^15.1.0",
     "react-dom": "^15.1.0",
-    "react-fela": "^5.0.3"
+    "react-alef": "^5.0.3"
   },
   "devDependencies": {
     "babel-cli": "^6.24.1",

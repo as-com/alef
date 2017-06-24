@@ -1,6 +1,6 @@
 import { createElement } from 'react'
 import PropTypes from 'prop-types'
-import monolithic from 'fela-monolithic'
+import monolithic from 'alef-monolithic'
 
 import createComponentFactory from '../createComponentFactory'
 import createRenderer from '../../createRenderer'
@@ -10,7 +10,7 @@ const createComponent = createComponentFactory(createElement, {
   theme: PropTypes.object
 })
 
-describe('Creating Components from Fela rules', () => {
+describe('Creating Components from Alef rules', () => {
   it('should return a Component', () => {
     const rule = props => ({
       color: props.color,
@@ -102,7 +102,7 @@ describe('Creating Components from Fela rules', () => {
     expect(element.props.onHover).not.toEqual(undefined)
   })
 
-  it('should only use passed props to render Fela rules', () => {
+  it('should only use passed props to render Alef rules', () => {
     const rule = props => ({
       color: props.foo && props.color,
       fontSize: '16px'
@@ -202,13 +202,13 @@ describe('Creating Components from Fela rules', () => {
 
     const renderer = createRenderer({
       enhancers: [monolithic({ prettySelectors: true })],
-      selectorPrefix: 'Fela-'
+      selectorPrefix: 'Alef-'
     })
 
     const element = component({ color: 'black' }, { renderer })
 
-    expect(element.props.className).toEqual('Fela-Button_div__abrv9k')
-    expect(renderer.rules).toEqual('.Fela-Button_div__abrv9k{font-size:16}')
+    expect(element.props.className).toEqual('Alef-Button_div__abrv9k')
+    expect(renderer.rules).toEqual('.Alef-Button_div__abrv9k{font-size:16}')
   })
 
   it('should only use the rule name as displayName', () => {

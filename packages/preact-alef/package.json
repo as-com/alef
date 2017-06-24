@@ -1,7 +1,7 @@
 {
-  "name": "preact-fela",
+  "name": "preact-alef",
   "version": "5.0.2",
-  "description": "Preact bindings for Fela",
+  "description": "Preact bindings for Alef",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,9 +11,9 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
+    "alef",
     "dynamic styling",
     "preact",
     "css",
@@ -23,8 +23,8 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela": "^5.0.1",
-    "fela-dom": "^5.0.2",
+    "alef": "^5.0.1",
+    "alef-dom": "^5.0.2",
     "preact": "^8.0.0"
   }
 }

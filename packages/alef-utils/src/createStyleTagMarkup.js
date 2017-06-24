@@ -8,5 +8,5 @@ export default function createStyleMarkup(
 ): string {
   const mediaAttribute = media.length > 0 ? ` media="${media}"` : ''
 
-  return `<style type="text/css" data-fela-type="${type}"${mediaAttribute}>${css}</style>`
+  return `<style type="text/css" data-alef-type="${type}"${mediaAttribute}>${css}</style>`
 }

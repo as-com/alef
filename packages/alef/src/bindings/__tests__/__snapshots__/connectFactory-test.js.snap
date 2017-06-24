@@ -11,7 +11,7 @@ Array [
         color: red
     }
 </style>",
-  <ConnectedFelaComponent>
+  <ConnectedAlefComponent>
     <Component
         styles={
             Object {
@@ -29,6 +29,6 @@ Array [
             />
         </div>
     </Component>
-</ConnectedFelaComponent>,
+</ConnectedAlefComponent>,
 ]
 `;

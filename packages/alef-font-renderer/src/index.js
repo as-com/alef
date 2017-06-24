@@ -1,6 +1,6 @@
 /* @flow  */
-import { createRenderer } from 'fela'
-import { render } from 'fela-dom'
+import { createRenderer } from 'alef'
+import { render } from 'alef-dom'
 
 import type DOMRenderer from '../../../flowtypes/DOMRenderer'
 import type DOMNode from '../../../flowtypes/DOMNode'

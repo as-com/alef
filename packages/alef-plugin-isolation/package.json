@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-isolation",
   "version": "5.0.1",
-  "description": "Fela plugin that adds style isolation",
+  "description": "Alef plugin that adds style isolation",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "es/**",
     "lib/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "cascading",
     "isolation",
     "cssinjs"
@@ -22,6 +22,6 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-utils": "^5.0.1"
+    "alef-utils": "^5.0.1"
   }
 }

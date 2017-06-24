@@ -1,7 +1,7 @@
 {
   "name": "alef-plugin-placeholder-prefixer",
   "version": "5.0.1",
-  "description": "Fela plugin to add ::placeholder prefxies",
+  "description": "Alef plugin to add ::placeholder prefxies",
   "main": "lib/index.js",
   "module": "es/index.js",
   "jsnext:main": "es/index.js",
@@ -11,10 +11,10 @@
     "lib/**",
     "es/**"
   ],
-  "repository": "https://github.com/rofrischmann/fela/",
+  "repository": "https://github.com/as-com/alef/",
   "keywords": [
-    "fela",
-    "fela-plugin",
+    "alef",
+    "alef-plugin",
     "vendor prefixing",
     "prefixer",
     "autoprefixer",
@@ -23,7 +23,7 @@
   "author": "Robin Frischmann",
   "license": "MIT",
   "dependencies": {
-    "fela-plugin-custom-property": "^5.0.1",
-    "fela-utils": "^5.0.1"
+    "alef-plugin-custom-property": "^5.0.1",
+    "alef-utils": "^5.0.1"
   }
 }

@@ -1,7 +1,7 @@
-# fela-plugin-custom-property
+# alef-plugin-custom-property
 
 
-<img alt="npm downloads" src="https://img.shields.io/npm/dm/fela-plugin-custom-property.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
+<img alt="npm downloads" src="https://img.shields.io/npm/dm/alef-plugin-custom-property.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-0.53kb-brightgreen.svg">
 
 Sometimes it's handy to define some custom properties mostly used as shortcuts.
 
@@ -9,16 +9,16 @@ A custom property basically is just a plain function that takes a value as input
 
 ## Installation
 ```sh
-yarn add fela-plugin-custom-property
+yarn add alef-plugin-custom-property
 ```
-You may alternatively use `npm i --save fela-plugin-custom-property`.
+You may alternatively use `npm i --save alef-plugin-custom-property`.
 
 ## Usage
-Make sure to read the documentation on [how to use plugins](http://fela.js.org/docs/advanced/Plugins.html).
+Make sure to read the documentation on [how to use plugins](http://alef.js.org/docs/advanced/Plugins.html).
 
 ```javascript
-import { createRenderer } from 'fela'
-import customProperty from 'fela-plugin-custom-property'
+import { createRenderer } from 'alef'
+import customProperty from 'alef-plugin-custom-property'
 
 const renderer = createRenderer({
   plugins: [ customProperty() ]
@@ -29,8 +29,8 @@ const renderer = createRenderer({
 In order to get custom properties resolved, you need to configure the plugin with all custom properties once.
 
 ```javascript
-import { createRenderer } from 'fela'
-import customProperty from 'fela-plugin-custom-property'
+import { createRenderer } from 'alef'
+import customProperty from 'alef-plugin-custom-property'
 
 const sizeProperty = size => ({
   width: size + 'px',
@@ -66,6 +66,6 @@ Let's say we want to have a custom property `size` that accepts a single number 
 ```
 
 ## License
-Fela is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
+Alef is licensed under the [MIT License](http://opensource.org/licenses/MIT).<br>
 Documentation is licensed under [Creative Common License](http://creativecommons.org/licenses/by/4.0/).<br>
 Created with ♥ by [@rofrischmann](http://rofrischmann.de) and all the great contributors.

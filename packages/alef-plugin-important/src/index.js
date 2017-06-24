@@ -1,5 +1,5 @@
 /* @flow */
-import { isObject } from 'fela-utils'
+import { isObject } from 'alef-utils'
 
 function addImportantToValue(value: any): any {
   if (
