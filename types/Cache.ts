@@ -1,3 +1,3 @@
 export type Cache = {
-	[reference: string]: string,
+	[reference: string]: string | boolean,
 };
