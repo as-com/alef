@@ -1,7 +1,7 @@
-import {DOMRenderer} from "../types/DOMRenderer";
 import {CLEAR_TYPE, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "../utils/styleType";
 import reflushStyleNodes from "../utils/reflushStyleNodes";
 import getStyleNode from "../utils/getStyleNode";
+import Renderer from "../Renderer";
 
 const sheetMap = {
 	[FONT_TYPE]: "fontFaces",
@@ -9,7 +9,7 @@ const sheetMap = {
 	[KEYFRAME_TYPE]: "keyframes"
 };
 
-export default function createDOMInterface(renderer: DOMRenderer): Function {
+export default function createDOMInterface(renderer: Renderer): Function {
 	renderer.styleNodes = reflushStyleNodes();
 	const baseNode = renderer.styleNodes[RULE_TYPE];
 

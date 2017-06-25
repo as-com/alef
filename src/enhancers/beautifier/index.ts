@@ -1,27 +1,7 @@
 import cssbeautify from "cssbeautify";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
 import objectReduce from "../../utils/objectReduce";
-
-function addBeautifier(renderer: DOMRenderer, options: Object): DOMRenderer {
-	renderer.subscribe(() => {
-		renderer.fontFaces = cssbeautify(renderer.fontFaces, options);
-		renderer.keyframes = cssbeautify(renderer.keyframes, options);
-		renderer.statics = cssbeautify(renderer.statics, options);
-		renderer.rules = cssbeautify(renderer.rules, options);
-
-		renderer.mediaRules = objectReduce(
-			renderer.mediaRules,
-			(mediaRules, rules, query) => {
-				mediaRules[query] = cssbeautify(rules, options);
-				return mediaRules;
-			},
-			{}
-		);
-	});
-
-	return renderer;
-}
+import {default as Renderer, RendererConstructor} from "../../Renderer";
 
 const defaultOptions = {
 	indent: "  ",
@@ -29,10 +9,31 @@ const defaultOptions = {
 	autosemicolon: false
 };
 
-export default function beautifier(options: Object = {}) {
-	return (renderer: DOMRenderer) =>
-		addBeautifier(renderer, {
-			...defaultOptions,
-			...options
-		});
+export default function BeautifierEnhancer<T extends RendererConstructor>(Base: T, options: object = {}) {
+	const opts = {
+		...defaultOptions,
+		...options
+	};
+
+	return class extends Base {
+		public constructor(...args: any[]) {
+			super(...args);
+
+			this.subscribe(() => {
+				this.fontFaces = cssbeautify(this.fontFaces, opts);
+				this.keyframes = cssbeautify(this.keyframes, opts);
+				this.statics = cssbeautify(this.statics, opts);
+				this.rules = cssbeautify(this.rules, opts);
+
+				this.mediaRules = objectReduce(
+					this.mediaRules,
+					(mediaRules, rules, query) => {
+						mediaRules[query] = cssbeautify(rules, opts);
+						return mediaRules;
+					},
+					{}
+				);
+			});
+		}
+	}
 }

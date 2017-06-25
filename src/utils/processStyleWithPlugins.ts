@@ -2,9 +2,10 @@ import arrayReduce from "./arrayReduce";
 
 import {DOMRenderer} from "../types/DOMRenderer";
 import StyleType from "./styleType";
+import Renderer from "../Renderer";
 
 export default function processStyleWithPlugins(
-	renderer: DOMRenderer,
+	renderer: Renderer,
 	style: Object,
 	type: StyleType,
 	props: Object = {}

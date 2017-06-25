@@ -5,11 +5,11 @@ import processStyleWithPlugins from "./processStyleWithPlugins";
 
 import { STATIC_TYPE } from "./styleType";
 
-import {DOMRenderer} from "../types/DOMRenderer";
+import Renderer from "../Renderer";
 
 export default function cssifyStaticStyle(
 	staticStyle: string | Object,
-	renderer: DOMRenderer
+	renderer: Renderer
 ): string {
 	if (typeof staticStyle === "string") {
 		return minifyCSSString(staticStyle);

@@ -1,12 +1,9 @@
 import createDOMInterface from "./DOMInterface";
 import initStyleNodes from "./initStyleNodes";
-
-import { DOMRenderer } from "../types/DOMRenderer";
-
-let warnDeprecated = false;
+import Renderer from "../Renderer";
 
 export default function render(
-	renderer: DOMRenderer
+	renderer: Renderer
 ): void {
 	initStyleNodes(renderer);
 	const updateInterface = createDOMInterface(renderer);
