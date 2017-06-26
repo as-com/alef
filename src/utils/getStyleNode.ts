@@ -1,12 +1,13 @@
 import createStyleNode from "./createStyleNode";
 import StyleType from "./styleType";
+import {IStyleNodes} from "../client/ClientRenderer";
 
 export default function getStyleNode(
-	styleNodes: Object,
+	styleNodes: IStyleNodes,
 	baseNode: Object,
 	type: StyleType,
 	media: string = ""
-): any {
+): HTMLStyleElement {
 	const key = type + media;
 
 	if (!styleNodes[key]) {

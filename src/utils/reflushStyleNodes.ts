@@ -1,15 +1,17 @@
-import arrayReduce from "./arrayReduce";
+import {IStyleNodes} from "../client/ClientRenderer";
 
-export default function reflushStyleNodes(): Object {
-	return arrayReduce(
-		document.querySelectorAll("[data-alef-type]"),
-		(styleNodes, element) => {
-			const type = element.getAttribute("data-alef-type") || "";
-			const media = element.getAttribute("media") || "";
+export default function reflushStyleNodes(): IStyleNodes {
+	const sheets = document.querySelectorAll("[data-alef-type]");
 
-			styleNodes[type + media] = element;
-			return styleNodes;
-		},
-		{}
-	);
+	let styleNodes: { [node: string]: HTMLStyleElement } = {};
+	for (let i = 0, len = sheets.length; i < len; i++) {
+		const element = sheets[i];
+
+		const type = element.getAttribute("data-alef-type") || "";
+		const media = element.getAttribute("media") || "";
+
+		styleNodes[type + media] = <HTMLStyleElement>element;
+	}
+
+	return styleNodes;
 }

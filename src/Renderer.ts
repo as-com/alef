@@ -59,7 +59,6 @@ export default class Renderer {
 	// use a flat cache object with pure string references
 	// to achieve maximal lookup performance and memoization speed
 	protected cache: Cache = {};
-	private styleNodes: any = {}; // TODO
 
 	public constructor(config: IRendererConfig) {
 		this.keyframePrefixes = config.keyframePrefixes || ["-webkit-", "-moz-"];
@@ -208,7 +207,7 @@ export default class Renderer {
 		};
 	}
 
-	public clear() {
+	public clear(): void {
 		const renderer = this;
 
 		renderer.fontFaces = "";
