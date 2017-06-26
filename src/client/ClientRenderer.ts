@@ -12,13 +12,11 @@ const sheetMap = {
 	rules: RULE_TYPE
 };
 
-function initNode(
-	styleNodes: IStyleNodes,
-	baseNode: HTMLStyleElement,
-	css: string,
-	type: StyleType,
-	media: string = ""
-): void {
+function initNode(styleNodes: IStyleNodes,
+                  baseNode: HTMLStyleElement,
+                  css: string,
+                  type: StyleType,
+                  media: string = ""): void {
 	const node = getStyleNode(styleNodes, baseNode, type, media);
 	// in case that there is a node coming from server already
 	// but rules are not matchnig
@@ -56,7 +54,13 @@ export default class ClientRenderer extends Renderer {
 
 		// createDOMInterface
 		this.subscribe((change) => {
-			// CLEAR_TYPE handled the OOP way(tm)
+			if (change.type === CLEAR_TYPE) {
+				for (const node in this.styleNodes) {
+					this.styleNodes[node].textContent = "";
+				}
+
+				return;
+			}
 
 			const styleNode = getStyleNode(
 				this.styleNodes,
@@ -89,16 +93,5 @@ export default class ClientRenderer extends Renderer {
 			}
 		});
 	}
-
-	public clear(): void {
-		super.clear();
-
-		for (const node in this.styleNodes) {
-			this.styleNodes[node].textContent = "";
-		}
-
-		return;
-	}
-
 
 }
