@@ -1,4 +1,4 @@
-import renderToSheetList from "../renderToSheetList";
+import renderToSheetList from "../../../dom/server/renderToSheetList";
 import { createRenderer } from "alef";
 
 describe("Rendering to a sheet list", () => {

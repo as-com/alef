@@ -1,6 +1,6 @@
 import StyleType from "./styleType";
 
-export default function createStyleMarkup(
+export default function createStyleTagMarkup(
 	css: string,
 	type: StyleType,
 	media: string = ""

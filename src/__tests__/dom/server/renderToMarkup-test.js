@@ -1,4 +1,4 @@
-import renderToMarkup from "../renderToMarkup";
+import renderToMarkup from "../../../dom/server/renderToMarkup";
 import { createRenderer } from "alef";
 
 describe("Rendering to HTML markup", () => {
