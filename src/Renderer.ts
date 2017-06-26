@@ -15,7 +15,7 @@ import generateStaticReference from "./utils/generateStaticReference";
 import cssifyStaticStyle from "./utils/cssifyStaticStyle";
 import generateCSSRule from "./utils/generateCSSRule";
 import renderToString from "./tools/renderToString";
-import isObject from "src/utils/isObject";
+import isObject from "./utils/isObject";
 import isNestedSelector from "./utils/isNestedSelector";
 import normalizeNestedProperty from "./utils/normalizeNestedProperty";
 import isMediaQuery from "./utils/isMediaQuery";
