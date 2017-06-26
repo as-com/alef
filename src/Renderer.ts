@@ -347,7 +347,9 @@ export default class Renderer {
 	}
 
 	protected _emitChange(change: object): void {
-		arrayEach(this.listeners, listener => listener(change));
+		for (let i = 0, len = this.listeners.length; i < len; i++) {
+			this.listeners[i](change);
+		}
 	}
 }
 
