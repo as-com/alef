@@ -1,5 +1,32 @@
 {
-	"private": true,
+	"name": "alef",
+	"version": "0.1.0",
+	"description": "Dynamic and high-performance CSS in JavaScript",
+	"keywords": [
+		"alef",
+		"fela",
+		"dynamic styling",
+		"stylesheet",
+		"css",
+		"styling",
+		"cssinjs"
+	],
+	"bugs": "https://github.com/as-com/alef/issues",
+	"license": "MIT",
+	"author": {
+		"name": "Andrew Sun",
+		"email": "me@andrewsun.com",
+		"url": "https://andrewsun.com"
+	},
+	"files": [
+		"README.md",
+		"lib",
+		"es",
+		"LICENSE"
+	],
+	"main": "lib/index.js",
+	"jsnext:main": "es/index.js",
+	"module": "es/index.js",
 	"scripts": {
 		"bootstrap": "lerna bootstrap",
 		"build": "./scripts/build.sh",
