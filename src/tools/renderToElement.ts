@@ -2,11 +2,11 @@ import isValidHTMLElement from "../utils/isValidHTMLElement";
 
 import renderToString from "./renderToString";
 
-import {DOMRenderer} from "../types/DOMRenderer";
 import {DOMNode} from "../types/DOMNode";
+import Renderer from "../Renderer";
 
-export default function renderToElement(renderer: DOMRenderer,
-                                        mountNode: DOMNode): Function {
+export default function renderToElement(renderer: Renderer,
+                                        mountNode: DOMNode): any { // TODO
 	// mountNode must be a valid HTML element to be able
 	// to set mountNode.textContent later on
 	if (!isValidHTMLElement(mountNode)) {

@@ -43,9 +43,12 @@
 		"lib": [
 			"es2015",
 			"dom"
-		]
+		],
+		"alwaysStrict": true,
+		"strict": false
 	},
 	"exclude": [
-		"node_modules"
+		"node_modules",
+		"packages"
 	]
 }

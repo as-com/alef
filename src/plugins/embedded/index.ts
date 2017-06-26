@@ -1,9 +1,8 @@
-import {DOMRenderer} from "../../types/DOMRenderer";
 import isObject from "../../utils/isObject";
+import Renderer from "../../Renderer";
+import StyleType from "../../utils/styleType";
 
-type Type = 1 | 2 | 3 | 4 | 5;
-
-function embedded(style: any, type: Type, renderer: DOMRenderer): Object {
+function embedded(style: any, type: StyleType, renderer: Renderer): Object {
 	for (const property in style) {
 		const value = style[property];
 

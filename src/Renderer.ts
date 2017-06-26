@@ -1,6 +1,6 @@
 import cssifyDeclaration from "css-in-js-utils/lib/cssifyDeclaration";
 
-import applyMediaRulesInOrder from "./utils/applyMediaRulesInOrder";
+import applyMediaRulesInOrder, {MediaRules} from "./utils/applyMediaRulesInOrder";
 import {Cache} from "./types/Cache";
 import {CLEAR_TYPE, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "./utils/styleType";
 import processStyleWithPlugins from "./utils/processStyleWithPlugins";
@@ -47,7 +47,7 @@ export default class Renderer {
 	protected statics = "";
 	protected rules = "";
 
-	protected mediaRules;
+	protected mediaRules: MediaRules;
 
 	private ruleCtr = 10;
 	private msb = 63;
@@ -192,7 +192,7 @@ export default class Renderer {
 		return renderToString(this);
 	}
 
-	public subscribe(callback: Function): { unsubscribe: Function } {
+	public subscribe(callback: (change?: any) => void): { unsubscribe: Function } {
 		this.listeners.push(callback);
 
 		return {

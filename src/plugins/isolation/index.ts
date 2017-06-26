@@ -8,14 +8,10 @@ function addIsolation(style: any, exclude: string[] = []): Object {
 		return style;
 	}
 
-	const excludedDeclarations = arrayReduce(
-		exclude,
-		(exclusion, property) => {
-			exclusion[property] = "inherit";
-			return exclusion;
-		},
-		{}
-	);
+	const excludedDeclarations: { [p: string]: string } = {};
+	for (let i = 0, len = exclude.length; i < len; i++) {
+		excludedDeclarations[exclude[i]] = "inherit";
+	}
 
 	return {
 		all: "initial",

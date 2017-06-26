@@ -3,10 +3,12 @@ import arrayReduce from "./utils/arrayReduce";
 import Renderer from "./Renderer";
 
 export default function combineRules(...rules: Function[]): Function {
-	return (props: Object, renderer: Renderer): Object =>
-		arrayReduce(
-			rules,
-			(style, rule) => assignStyle(style, rule(props, renderer)),
-			{}
-		);
+	return (props: Object, renderer: Renderer): object => { // TODO
+		const rule = {};
+		for (let i = 0, len = rules.length; i < len; i++) {
+			assignStyle(rule, rules[i](props, renderer));
+		}
+
+		return rule;
+	};
 }

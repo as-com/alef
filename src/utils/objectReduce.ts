@@ -1,4 +1,4 @@
-export default function objectReduce(object: Object,
+export default function objectReduce(object: any,
                                      iterator: Function,
                                      initialValue: any): any {
 	for (const key in object) {

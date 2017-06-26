@@ -1,13 +1,12 @@
 import arrayReduce from "./arrayReduce";
 
 export default function extractPassThroughProps(passThrough: string[],
-                                                ruleProps: Object): any {
-	return arrayReduce(
-		passThrough,
-		(output, property) => {
-			output[property] = ruleProps[property];
-			return output;
-		},
-		{}
-	);
+                                                ruleProps: any): any {
+	const output: { [p: string]: any } = {}; // TODO
+	for (let i = 0, len = passThrough.length; i < len; i++) {
+		const property = passThrough[i];
+
+		output[property] = ruleProps[property];
+	}
+	return output;
 }

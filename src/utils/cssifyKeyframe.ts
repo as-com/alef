@@ -1,6 +1,5 @@
 import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 
-import arrayReduce from "./arrayReduce";
 import objectReduce from "./objectReduce";
 
 export default function cssifyKeyframe(frames: Object,
@@ -13,10 +12,10 @@ export default function cssifyKeyframe(frames: Object,
 		""
 	);
 
-	return arrayReduce(
-		prefixes,
-		(cssKeyframe, prefix) =>
-			`${cssKeyframe}@${prefix}keyframes ${animationName}{${keyframe}}`,
-		""
-	);
+	let cssKeyframe = "";
+	for (let i = 0, len = prefixes.length; i < len; i++) {
+		cssKeyframe += `@${prefixes[i]}keyframes ${animationName}{${keyframe}}`;
+	}
+
+	return cssKeyframe;
 }

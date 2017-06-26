@@ -1,12 +1,12 @@
 import assignStyle from "css-in-js-utils/lib/assignStyle";
 
-import {DOMRenderer} from "../../types/DOMRenderer";
 import isObject from "../../utils/isObject";
+import Renderer from "../../Renderer";
 
 type Type = "KEYFRAME" | "RULE" | "STATIC";
-function resolveSimulation(style: Object,
+function resolveSimulation(style: any, // TODO
                            type: Type,
-                           renderer: DOMRenderer,
+                           renderer: Renderer,
                            props: any): Object {
 	if (props.simulate) {
 		for (const property in style) {

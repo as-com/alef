@@ -1,13 +1,12 @@
 import arrayReduce from "./arrayReduce";
 
-type MediaRules = { [mediaQuery: string]: string };
+export type MediaRules = { [mediaQuery: string]: string };
+
 export default function applyMediaRulesInOrder(order: string[]): MediaRules {
-	return arrayReduce(
-		order,
-		(mediaRules, query) => {
-			mediaRules[query] = "";
-			return mediaRules;
-		},
-		{}
-	);
+	let mediaRules: MediaRules = {};
+	for (let i = 0, len = order.length; i < len; i++) {
+		mediaRules[order[i]] = "";
+	}
+
+	return mediaRules;
 }
