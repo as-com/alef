@@ -1,5 +1,3 @@
-import arrayReduce from "./arrayReduce";
-
 export type MediaRules = { [mediaQuery: string]: string };
 
 export default function applyMediaRulesInOrder(order: string[]): MediaRules {

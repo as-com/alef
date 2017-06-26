@@ -1,5 +1,3 @@
-import arrayReduce from "../../utils/arrayReduce";
-
 function addIsolation(style: any, exclude: string[] = []): Object {
 	if (style.isolation === false) {
 		// remove the isolation prop to

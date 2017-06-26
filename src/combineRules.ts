@@ -1,5 +1,4 @@
 import assignStyle from "css-in-js-utils/lib/assignStyle";
-import arrayReduce from "./utils/arrayReduce";
 import Renderer from "./Renderer";
 
 export default function combineRules(...rules: Function[]): Function {

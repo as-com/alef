@@ -1,5 +1,3 @@
-import arrayReduce from "./arrayReduce";
-
 export default function extractPassThroughProps(passThrough: string[],
                                                 ruleProps: any): any {
 	const output: { [p: string]: any } = {}; // TODO

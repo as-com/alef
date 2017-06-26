@@ -1,5 +1,4 @@
 import customProperty from "../custom-property/index";
-import arrayReduce from "../../utils/arrayReduce";
 
 const placeholderPrefixes = [
 	"::-webkit-input-placeholder",
