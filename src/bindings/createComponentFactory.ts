@@ -2,6 +2,8 @@ import extractPassThroughProps from "../utils/extractPassThroughProps";
 import resolvePassThrough from "../utils/resolvePassThrough";
 import combineRules from "../combineRules";
 
+// TODO: Fix up this thing
+
 export default function createComponentFactory(createElement: Function,
                                                contextTypes?: Object): Function {
 	return function createComponent(rule: Function,
