@@ -19,7 +19,13 @@ export interface IMonolithicOptions {
 	prettySelectors?: boolean
 }
 
-export default function MonolithicEnhancer<T extends RendererConstructor>(Base: T, options: IMonolithicOptions) {
+export type WithMonolithicInstance = {};
+
+export interface WithMonolithic {
+	new (...args: any[]): WithMonolithicInstance;
+}
+
+export default function MonolithicEnhancer<T extends RendererConstructor>(Base: T, options: IMonolithicOptions): WithMonolithic & T {
 	return class extends Base {
 		private _renderStyleToCache(className: string, style: object, pseudo: string = "", media: string = "") {
 			const ruleSet = objectReduce(

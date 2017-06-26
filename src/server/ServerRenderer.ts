@@ -9,7 +9,7 @@ const sheetMap = {
 	rules: RULE_TYPE
 };
 
-type Sheet = {
+export type Sheet = {
 	css: string;
 	type: StyleType;
 	media?: string;

@@ -1,11 +1,8 @@
 /* eslint-disable no-console */
-import {KEYFRAME_TYPE, RULE_TYPE} from "../../utils/styleType";
+import {KEYFRAME_TYPE, RULE_TYPE, default as StyleType} from "../../utils/styleType";
 import isObject from "../../utils/isObject";
 import isNestedSelector from "../../utils/isNestedSelector";
 import isMediaQuery from "../../utils/isMediaQuery";
-
-type Type = typeof RULE_TYPE | typeof KEYFRAME_TYPE;
-// type Type = 1 | 2 | 3 | 4 | 5;
 
 function validateStyleObject(style: Object,
                              logInvalid: boolean,
@@ -91,7 +88,7 @@ function validateKeyframeObject(style: Object,
 	}
 }
 
-function validateStyle(style: Object, type: Type, options: any): Object {
+function validateStyle(style: Object, type: StyleType, options: any): Object {
 	const {logInvalid, deleteInvalid} = options;
 
 	if (type === KEYFRAME_TYPE) {
@@ -109,7 +106,7 @@ const defaultOptions = {
 };
 
 export default function validator(options: Object = {}) {
-	return (style: Object, type: Type) =>
+	return (style: Object, type: StyleType) =>
 		validateStyle(style, type, {
 			...defaultOptions,
 			...options

@@ -10,7 +10,13 @@ const defaultOptions: ILayoutDebuggerOptions = {
 	thickness: 1
 };
 
-export default function LayoutDebuggerEnhancer<T extends RendererConstructor>(Base: T, options: ILayoutDebuggerOptions = {}) {
+export type WithLayoutDebuggerInstance = {};
+
+export interface WithLayoutDebugger {
+	new (...args: any[]): WithLayoutDebuggerInstance;
+}
+
+export default function LayoutDebuggerEnhancer<T extends RendererConstructor>(Base: T, options: ILayoutDebuggerOptions = {}): WithLayoutDebugger & T {
 	const opts = {
 		...defaultOptions,
 		...options

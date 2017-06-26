@@ -3,7 +3,13 @@ import {RendererConstructor} from "../../Renderer";
 
 let counter = 0;
 
-export default function PerfEnhancer<T extends RendererConstructor>(Base: T) {
+export type WithPerfInstance = {}
+
+export interface WithPerf {
+	new (...args: any[]): WithPerfInstance;
+}
+
+export default function PerfEnhancer<T extends RendererConstructor>(Base: T): WithPerf & T {
 	return class extends Base {
 		public renderRule(rule: Function, props: Object = {}): string {
 			const timerCounter = `[${++counter}]`;

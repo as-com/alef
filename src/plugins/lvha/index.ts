@@ -1,3 +1,5 @@
+import {Style} from "../../types/Style";
+import {Plugin} from "../../types/Plugin";
 const precedence = {
 	":link": 0,
 	":visited": 1,
@@ -8,7 +10,7 @@ const precedence = {
 
 const pseudoClasses = Object.keys(precedence);
 
-function orderLVHA(style: object): Object {
+function orderLVHA(style: Style): Style {
 	const pseudoList = [];
 
 	for (const property in style) {
@@ -28,6 +30,6 @@ function orderLVHA(style: object): Object {
 	return style;
 }
 
-export default function LVHA() {
+export default function LVHA(): Plugin {
 	return orderLVHA;
 }

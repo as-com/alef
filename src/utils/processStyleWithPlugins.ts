@@ -2,9 +2,9 @@ import StyleType from "./styleType";
 import Renderer from "../Renderer";
 
 export default function processStyleWithPlugins(renderer: Renderer,
-                                                style: Object,
+                                                style: object,
                                                 type: StyleType,
-                                                props: Object = {}) {
+                                                props: object = {}) {
 	const plugins = renderer.plugins;
 	if (plugins.length > 0) {
 		let processedStyle = style;

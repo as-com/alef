@@ -9,16 +9,47 @@ function lengthInUtf8Bytes(str: string): number {
 	return str.length + (m ? m.length : 0);
 }
 
-export default function StatisticsEnhancer<T extends RendererConstructor>(Base: T) {
+export interface WithStatisticsInstance {
+	getStatistics(): IStatistics;
+}
+
+export interface WithStatistics {
+	new (...args: any[]): WithStatisticsInstance;
+}
+
+export interface IStatistics {
+	count: {
+		classes: number;
+		pseudoClasses: number
+	};
+	usage: {};
+	size: {
+		bytes: number;
+		bytesGzipped: number;
+		kbytes: number;
+		kbytesGzipped: number;
+	};
+	reuse: {
+		percentage: string;
+		number: number;
+	};
+	totalPseudoClasses: number;
+	totalMediaQueryClasses: number;
+	totalClasses: number;
+	totalRenders: number;
+	totalUsage: number;
+};
+
+export default function StatisticsEnhancer<T extends RendererConstructor>(Base: T): WithStatistics & T {
 	return class extends Base {
-		private statistics = {
+		private statistics: IStatistics = {
 			count: {
 				classes: 0,
 				pseudoClasses: 0
 			},
 			usage: {},
-			size: {},
-			reuse: {},
+			size: null,
+			reuse: null,
 			totalPseudoClasses: 0,
 			totalMediaQueryClasses: 0,
 			totalClasses: 0,
@@ -43,8 +74,8 @@ export default function StatisticsEnhancer<T extends RendererConstructor>(Base: 
 			return Math.floor(quotient * 10000) / 10000;
 		}
 
-		public getStatistics() {
-			const currentStats = {...this.statistics};
+		public getStatistics(): IStatistics {
+			const currentStats: IStatistics = {...this.statistics};
 
 			const reuse = this._calculateReuse();
 			currentStats.reuse = {

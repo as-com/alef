@@ -9,7 +9,13 @@ const defaultOptions = {
 	autosemicolon: false
 };
 
-export default function BeautifierEnhancer<T extends RendererConstructor>(Base: T, options: object = {}) {
+export type WithBeautifierInstance = {};
+
+export interface WithBeautifier {
+	new (...args: any[]): WithBeautifierInstance;
+}
+
+export default function BeautifierEnhancer<T extends RendererConstructor>(Base: T, options: object = {}): WithBeautifier & T {
 	const opts = {
 		...defaultOptions,
 		...options

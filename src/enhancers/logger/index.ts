@@ -9,7 +9,13 @@ export interface ILoggerOptions {
 	formatCSS?: boolean;
 }
 
-export default function LoggerEnhancer<T extends RendererConstructor>(Base: T, options: ILoggerOptions) {
+export type WithLoggerInstance = {};
+
+export interface WithLogger {
+	new (...args: any[]): WithLoggerInstance;
+}
+
+export default function LoggerEnhancer<T extends RendererConstructor>(Base: T, options: ILoggerOptions): WithLogger & T {
 	return class extends Base {
 		public constructor(...args: any[]) {
 			super(...args);
