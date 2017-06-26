@@ -1,8 +1,8 @@
-import React, { createElement, Component } from "react";
+import React, {Component, createElement} from "react";
 import PropTypes from "prop-types";
-import { mount } from "enzyme";
+import {mount} from "enzyme";
 import toJson from "enzyme-to-json";
-import { html as beautify } from "js-beautify";
+import {html as beautify} from "js-beautify";
 import createRenderer from "../../createRenderer";
 import connectFactory from "../connectFactory";
 
@@ -21,10 +21,10 @@ describe("Connect Factory for bindings", () => {
 			})
 		};
 
-		const MyComponent = connect(rules)(({ styles }) =>
+		const MyComponent = connect(rules)(({styles}) =>
 			<div>
-				<span className={styles.rule1} />
-				<span className={styles.rule2} />
+				<span className={styles.rule1}/>
+				<span className={styles.rule2}/>
 			</div>
 		);
 

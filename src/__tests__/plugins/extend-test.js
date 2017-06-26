@@ -2,7 +2,7 @@ import extend from "../../plugins/extend/index";
 
 describe("Extend plugin", () => {
 	it("should extend style objects", () => {
-		const extension = { backgroundColor: "blue" };
+		const extension = {backgroundColor: "blue"};
 		const base = {
 			color: "blue",
 			extend: extension
@@ -15,7 +15,7 @@ describe("Extend plugin", () => {
 	});
 
 	it("should extend nested style objects", () => {
-		const extension = { backgroundColor: "blue" };
+		const extension = {backgroundColor: "blue"};
 		const base = {
 			color: "blue",
 			":hover": {
@@ -34,7 +34,7 @@ describe("Extend plugin", () => {
 	});
 
 	it("should extend conditional style object", () => {
-		const extension = { backgroundColor: "blue" };
+		const extension = {backgroundColor: "blue"};
 		const base = {
 			color: "blue",
 			extend: {
@@ -50,7 +50,7 @@ describe("Extend plugin", () => {
 	});
 
 	it("should not extend conditional style object", () => {
-		const extension = { backgroundColor: "blue" };
+		const extension = {backgroundColor: "blue"};
 		const base = {
 			color: "blue",
 			extend: {
@@ -59,12 +59,12 @@ describe("Extend plugin", () => {
 			}
 		};
 
-		expect(extend()(base)).toEqual({ color: "blue" });
+		expect(extend()(base)).toEqual({color: "blue"});
 	});
 
 	it("should extend multiple style objects", () => {
-		const extension = { backgroundColor: "blue" };
-		const otherExtension = { fontSize: "12px" };
+		const extension = {backgroundColor: "blue"};
+		const otherExtension = {fontSize: "12px"};
 
 		const base = {
 			color: "blue",
@@ -79,8 +79,8 @@ describe("Extend plugin", () => {
 	});
 
 	it("should extend multiple style objects and conditional style objects", () => {
-		const extension = { backgroundColor: "blue" };
-		const otherExtension = { fontSize: "12px" };
+		const extension = {backgroundColor: "blue"};
+		const otherExtension = {fontSize: "12px"};
 
 		const base = {
 			color: "blue",
@@ -101,8 +101,8 @@ describe("Extend plugin", () => {
 	});
 
 	it("should extend multiple style objects but not conditional style objects", () => {
-		const extension = { backgroundColor: "blue" };
-		const otherExtension = { fontSize: "12px" };
+		const extension = {backgroundColor: "blue"};
+		const otherExtension = {fontSize: "12px"};
 
 		const base = {
 			color: "blue",

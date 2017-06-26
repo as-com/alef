@@ -3,14 +3,12 @@ import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 import minifyCSSString from "./minifyCSSString";
 import processStyleWithPlugins from "./processStyleWithPlugins";
 
-import { STATIC_TYPE } from "./styleType";
+import {STATIC_TYPE} from "./styleType";
 
 import Renderer from "../Renderer";
 
-export default function cssifyStaticStyle(
-	staticStyle: string | Object,
-	renderer: Renderer
-): string {
+export default function cssifyStaticStyle(staticStyle: string | Object,
+                                          renderer: Renderer): string {
 	if (typeof staticStyle === "string") {
 		return minifyCSSString(staticStyle);
 	}

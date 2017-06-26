@@ -1,17 +1,17 @@
 import renderToSheetList from "../../../dom/server/renderToSheetList";
-import { createRenderer } from "alef";
+import {createRenderer} from "alef";
 
 describe("Rendering to a sheet list", () => {
 	it("should return a list of style sheets", () => {
 		const rule = props => ({
 			color: props.color,
-			"@media (min-height: 300px)": { color: "blue" }
+			"@media (min-height: 300px)": {color: "blue"}
 		});
 
 		const renderer = createRenderer();
-		renderer.renderRule(rule, { color: "red" });
+		renderer.renderRule(rule, {color: "red"});
 		renderer.renderStatic("*{box-sizing:border-box}");
-		renderer.renderStatic({ display: "flex" }, "div");
+		renderer.renderStatic({display: "flex"}, "div");
 
 		expect(renderToSheetList(renderer)).toEqual([
 			{

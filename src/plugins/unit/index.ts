@@ -2,11 +2,9 @@ import isUnitlessProperty from "css-in-js-utils/lib/isUnitlessProperty";
 import {isObject} from "util";
 import warning from "../../utils/warning";
 
-function addUnitIfNeeded(
-	property: string,
-	value: any,
-	propertyUnit: string
-): any {
+function addUnitIfNeeded(property: string,
+                         value: any,
+                         propertyUnit: string): any {
 	const valueType = typeof value;
 	/* eslint-disable eqeqeq */
 	if (
@@ -19,11 +17,9 @@ function addUnitIfNeeded(
 	return value;
 }
 
-function addUnit(
-	style: Object,
-	defaultUnit: string,
-	propertyMap: Object
-): Object {
+function addUnit(style: Object,
+                 defaultUnit: string,
+                 propertyMap: Object): Object {
 	for (const property in style) {
 		if (!isUnitlessProperty(property)) {
 			const cssValue = style[property];
@@ -48,10 +44,8 @@ function addUnit(
 	return style;
 }
 
-export default function unit(
-	defaultUnit: string = "px",
-	propertyMap: Object = {}
-) {
+export default function unit(defaultUnit: string = "px",
+                             propertyMap: Object = {}) {
 	warning(
 		defaultUnit.match(
 			/ch|em|ex|rem|vh|vw|vmin|vmax|px|cm|mm|in|pc|pt|mozmm|%/

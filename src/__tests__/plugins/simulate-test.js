@@ -4,26 +4,26 @@ describe("Simulating nested styles", () => {
 	it("should simulate pseudo classes", () => {
 		const style = {
 			width: 20,
-			":hover": { color: "red" },
-			":active": { color: "blue" }
+			":hover": {color: "red"},
+			":active": {color: "blue"}
 		};
 
 		expect(
 			simulate()(style, undefined, undefined, {
-				simulate: { ":hover": true }
+				simulate: {":hover": true}
 			})
 		).toEqual({
 			width: 20,
 			color: "red",
-			":active": { color: "blue" }
+			":active": {color: "blue"}
 		});
 	});
 
 	it("should simulate media queries", () => {
 		const style = {
 			width: 20,
-			":hover": { color: "red" },
-			"@media (min-height: 300px)": { color: "blue" }
+			":hover": {color: "red"},
+			"@media (min-height: 300px)": {color: "blue"}
 		};
 
 		expect(
@@ -36,7 +36,7 @@ describe("Simulating nested styles", () => {
 		).toEqual({
 			width: 20,
 			color: "blue",
-			":hover": { color: "red" }
+			":hover": {color: "red"}
 		});
 	});
 
@@ -47,7 +47,7 @@ describe("Simulating nested styles", () => {
 				color: "red",
 				backgroundColor: "blue"
 			},
-			"@media (min-height: 300px)": { color: "blue" }
+			"@media (min-height: 300px)": {color: "blue"}
 		};
 
 		expect(

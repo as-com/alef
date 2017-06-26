@@ -1,10 +1,8 @@
 import StyleType from "./styleType";
 
-export default function createStyleTagMarkup(
-	css: string,
-	type: StyleType,
-	media: string = ""
-): string {
+export default function createStyleTagMarkup(css: string,
+                                             type: StyleType,
+                                             media: string = ""): string {
 	const mediaAttribute = media.length > 0 ? ` media="${media}"` : "";
 
 	return `<style type="text/css" data-alef-type="${type}"${mediaAttribute}>${css}</style>`;

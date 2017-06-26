@@ -1,4 +1,4 @@
-import { createRenderer } from "alef";
+import {createRenderer} from "alef";
 import embedded from "../../plugins/embedded/index";
 
 describe("Embedded plugin", () => {
@@ -6,8 +6,8 @@ describe("Embedded plugin", () => {
 		const rule = () => ({
 			color: "red",
 			animationName: {
-				"0%": { color: "red" },
-				"100%": { color: "blue" }
+				"0%": {color: "red"},
+				"100%": {color: "blue"}
 			},
 			fontFace: {
 				fontFamily: "Arial",
@@ -16,7 +16,7 @@ describe("Embedded plugin", () => {
 			}
 		});
 
-		const renderer = createRenderer({ plugins: [embedded()] });
+		const renderer = createRenderer({plugins: [embedded()]});
 		renderer.renderRule(rule);
 
 		expect(renderer.rules).toEqual(
@@ -35,8 +35,8 @@ describe("Embedded plugin", () => {
 			color: "red",
 			":hover": {
 				animationName: {
-					"0%": { color: "red" },
-					"100%": { color: "blue" }
+					"0%": {color: "red"},
+					"100%": {color: "blue"}
 				},
 				fontFace: {
 					fontFamily: "Arial",
@@ -46,7 +46,7 @@ describe("Embedded plugin", () => {
 			}
 		});
 
-		const renderer = createRenderer({ plugins: [embedded()] });
+		const renderer = createRenderer({plugins: [embedded()]});
 		renderer.renderRule(rule);
 
 		expect(renderer.rules).toEqual(
@@ -70,7 +70,7 @@ describe("Embedded plugin", () => {
 				fontWeight: 500
 			}
 		});
-		const renderer = createRenderer({ plugins: [embedded()] });
+		const renderer = createRenderer({plugins: [embedded()]});
 		renderer.renderRule(rule);
 		expect(renderer.rules).toEqual('.a{font-family:"foo"}');
 		expect(renderer.fontFaces).toEqual(

@@ -1,5 +1,5 @@
 import Renderer from "../Renderer";
-import {FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE, default as StyleType} from "../utils/styleType";
+import {default as StyleType, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "../utils/styleType";
 import createStyleTagMarkup from "../utils/createStyleTagMarkup";
 
 const sheetMap = {

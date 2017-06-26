@@ -2,21 +2,15 @@ import extractPassThroughProps from "../utils/extractPassThroughProps";
 import resolvePassThrough from "../utils/resolvePassThrough";
 import combineRules from "../combineRules";
 
-export default function createComponentFactory(
-	createElement: Function,
-	contextTypes?: Object
-): Function {
-	return function createComponent(
-		rule: Function,
-		type: any = "div",
-		passThroughProps: string[] | Function = []
-	): Function {
+export default function createComponentFactory(createElement: Function,
+                                               contextTypes?: Object): Function {
+	return function createComponent(rule: Function,
+	                                type: any = "div",
+	                                passThroughProps: string[] | Function = []): Function {
 		const displayName = rule.name ? rule.name : "AlefComponent";
 
-		const AlefComponent = (
-			{ children, _alefRule, passThrough = [], ...ruleProps },
-			{ renderer, theme }
-		) => {
+		const AlefComponent = ({children, _alefRule, passThrough = [], ...ruleProps},
+		                       {renderer, theme}) => {
 			if (!renderer) {
 				throw new Error(
 					"createComponent() can't render styles without the renderer in the context. Missing react-alef's <Provider /> at the app root?"

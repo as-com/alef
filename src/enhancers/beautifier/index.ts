@@ -1,7 +1,7 @@
 import cssbeautify from "cssbeautify";
 
 import objectReduce from "../../utils/objectReduce";
-import {default as Renderer, RendererConstructor} from "../../Renderer";
+import {RendererConstructor} from "../../Renderer";
 
 const defaultOptions = {
 	indent: "  ",

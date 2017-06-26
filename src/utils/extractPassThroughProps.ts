@@ -1,9 +1,7 @@
 import arrayReduce from "./arrayReduce";
 
-export default function extractPassThroughProps(
-	passThrough: string[],
-	ruleProps: Object
-): any {
+export default function extractPassThroughProps(passThrough: string[],
+                                                ruleProps: Object): any {
 	return arrayReduce(
 		passThrough,
 		(output, property) => {

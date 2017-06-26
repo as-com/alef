@@ -7,11 +7,9 @@ import isMediaQuery from "../../utils/isMediaQuery";
 type Type = typeof RULE_TYPE | typeof KEYFRAME_TYPE;
 // type Type = 1 | 2 | 3 | 4 | 5;
 
-function validateStyleObject(
-	style: Object,
-	logInvalid: boolean,
-	deleteInvalid: boolean
-): void {
+function validateStyleObject(style: Object,
+                             logInvalid: boolean,
+                             deleteInvalid: boolean): void {
 	for (const property in style) {
 		const value = style[property];
 
@@ -48,11 +46,9 @@ function isValidPercentage(percentage: string): boolean {
 	);
 }
 
-function validateKeyframeObject(
-	style: Object,
-	logInvalid: boolean,
-	deleteInvalid: boolean
-): void {
+function validateKeyframeObject(style: Object,
+                                logInvalid: boolean,
+                                deleteInvalid: boolean): void {
 	for (const percentage in style) {
 		const value = style[percentage];
 		if (!isObject(value)) {
@@ -96,7 +92,7 @@ function validateKeyframeObject(
 }
 
 function validateStyle(style: Object, type: Type, options: any): Object {
-	const { logInvalid, deleteInvalid } = options;
+	const {logInvalid, deleteInvalid} = options;
 
 	if (type === KEYFRAME_TYPE) {
 		validateKeyframeObject(style, logInvalid, deleteInvalid);

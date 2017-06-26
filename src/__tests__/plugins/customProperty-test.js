@@ -14,7 +14,7 @@ describe("Custom property plugin", () => {
 			position: [0, 20, 50, 20]
 		};
 
-		expect(customProperty({ position })(style)).toEqual({
+		expect(customProperty({position})(style)).toEqual({
 			width: 20,
 			top: 0,
 			right: 20,
@@ -33,10 +33,10 @@ describe("Custom property plugin", () => {
 
 		const style = {
 			width: 20,
-			onHover: { position: [0, 20, 50, 20] }
+			onHover: {position: [0, 20, 50, 20]}
 		};
 
-		expect(customProperty({ position })(style)).toEqual({
+		expect(customProperty({position})(style)).toEqual({
 			width: 20,
 			onHover: {
 				top: 0,

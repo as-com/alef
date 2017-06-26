@@ -32,7 +32,7 @@ function addVendorPrefixes(style: Object): Object {
 
 					prefixedStyle[
 						referenceProperty
-					] = `${referenceValue};${inlinedProperties}`;
+						] = `${referenceValue};${inlinedProperties}`;
 				}
 			}
 

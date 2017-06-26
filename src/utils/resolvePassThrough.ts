@@ -1,9 +1,7 @@
 const warnDeprecated = false;
 
-export default function resolvePassThrough(
-	passThrough: Function | string[],
-	ruleProps: Object
-): string[] {
+export default function resolvePassThrough(passThrough: Function | string[],
+                                           ruleProps: Object): string[] {
 	if (typeof passThrough === "function") {
 		const resolved = passThrough(ruleProps);
 

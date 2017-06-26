@@ -4,7 +4,7 @@ function addImportantToValue(value: any): any {
 	if (
 		typeof value === "number" ||
 		(typeof value === "string" &&
-			value.toLowerCase().indexOf("!important") === -1)
+		value.toLowerCase().indexOf("!important") === -1)
 	) {
 		return `${value}!important`;
 	}

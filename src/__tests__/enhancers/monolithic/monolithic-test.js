@@ -1,11 +1,11 @@
-import { createRenderer } from "alef";
+import {createRenderer} from "alef";
 import monolithic from "../../../enhancers/monolithic/index";
 
-const options = { enhancers: [monolithic()] };
+const options = {enhancers: [monolithic()]};
 
 describe("Monolithic enhancer", () => {
 	it("should add a cache entry", () => {
-		const rule = () => ({ color: "red" });
+		const rule = () => ({color: "red"});
 		const renderer = createRenderer(options);
 
 		const className = renderer.renderRule(rule);
@@ -20,8 +20,8 @@ describe("Monolithic enhancer", () => {
 		});
 		const renderer = createRenderer(options);
 
-		const className1 = renderer.renderRule(rule, { color: "red" });
-		const className2 = renderer.renderRule(rule, { color: "red" });
+		const className1 = renderer.renderRule(rule, {color: "red"});
+		const className2 = renderer.renderRule(rule, {color: "red"});
 
 		expect(className1).toEqual(className2);
 	});
@@ -55,7 +55,7 @@ describe("Monolithic enhancer", () => {
 		const renderer = createRenderer(options);
 
 		const className = renderer.renderRule(rule, {
-			theme: { color: "red" }
+			theme: {color: "red"}
 		});
 
 		expect(renderer.rules).toEqual(`.${className}{color:red;font-size:15}`);
@@ -64,7 +64,7 @@ describe("Monolithic enhancer", () => {
 	it("should render pseudo classes", () => {
 		const rule = () => ({
 			color: "red",
-			":hover": { color: "blue" }
+			":hover": {color: "blue"}
 		});
 
 		const renderer = createRenderer(options);
@@ -76,9 +76,9 @@ describe("Monolithic enhancer", () => {
 	});
 
 	it("should prefix classNames", () => {
-		const rule = () => ({ color: "red" });
+		const rule = () => ({color: "red"});
 
-		const renderer = createRenderer({ selectorPrefix: "alef_" });
+		const renderer = createRenderer({selectorPrefix: "alef_"});
 		const className = renderer.renderRule(rule);
 
 		expect(renderer.rules).toEqual(`.${className}{color:red}`);
@@ -88,7 +88,7 @@ describe("Monolithic enhancer", () => {
 	it("should render attribute selectors", () => {
 		const rule = () => ({
 			color: "red",
-			"[bool=true]": { color: "blue" }
+			"[bool=true]": {color: "blue"}
 		});
 		const renderer = createRenderer(options);
 
@@ -102,7 +102,7 @@ describe("Monolithic enhancer", () => {
 	it("should render child selectors", () => {
 		const rule = () => ({
 			color: "red",
-			">div": { color: "blue" }
+			">div": {color: "blue"}
 		});
 		const renderer = createRenderer(options);
 
@@ -116,8 +116,8 @@ describe("Monolithic enhancer", () => {
 	it("should render any nested selector with the &-prefix", () => {
 		const rule = () => ({
 			color: "red",
-			"&~#foo": { color: "blue" },
-			"& .bar": { color: "green" }
+			"&~#foo": {color: "blue"},
+			"& .bar": {color: "green"}
 		});
 		const renderer = createRenderer(options);
 
@@ -131,7 +131,7 @@ describe("Monolithic enhancer", () => {
 	it("should render media queries", () => {
 		const rule = () => ({
 			color: "red",
-			"@media (min-height:300px)": { color: "blue" }
+			"@media (min-height:300px)": {color: "blue"}
 		});
 
 		const renderer = createRenderer(options);
@@ -156,10 +156,10 @@ describe("Monolithic enhancer", () => {
 	});
 
 	it("should generate pretty selectors", () => {
-		const colorRed = () => ({ color: "red" });
+		const colorRed = () => ({color: "red"});
 
 		const renderer = createRenderer({
-			enhancers: [monolithic({ prettySelectors: true })]
+			enhancers: [monolithic({prettySelectors: true})]
 		});
 		renderer.renderRule(colorRed);
 

@@ -1,4 +1,4 @@
-import { html as beautify } from "js-beautify";
+import {html as beautify} from "js-beautify";
 import createStyleNode from "../../utils/createStyleNode";
 
 describe("Create style node", () => {
@@ -6,7 +6,7 @@ describe("Create style node", () => {
 		createStyleNode("RULE");
 		createStyleNode("RULE", "(max-width: 800px)");
 		expect(
-			beautify(document.documentElement.outerHTML, { indent_size: 2 })
+			beautify(document.documentElement.outerHTML, {indent_size: 2})
 		).toMatchSnapshot();
 	});
 });

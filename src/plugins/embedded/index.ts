@@ -8,7 +8,7 @@ function embedded(style: any, type: Type, renderer: DOMRenderer): Object {
 		const value = style[property];
 
 		if (property === "fontFace" && isObject(value)) {
-			const { fontFamily, src, ...otherProps } = value;
+			const {fontFamily, src, ...otherProps} = value;
 			if (typeof fontFamily === "string" && Array.isArray(src)) {
 				style.fontFamily = renderer.renderFont(
 					fontFamily,

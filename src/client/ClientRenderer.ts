@@ -1,6 +1,6 @@
 import Renderer, {IRendererConfig} from "../Renderer";
 import reflushStyleNodes from "../utils/reflushStyleNodes";
-import {FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE, default as StyleType, CLEAR_TYPE} from "../utils/styleType";
+import {CLEAR_TYPE, default as StyleType, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "../utils/styleType";
 import getStyleNode from "../utils/getStyleNode";
 
 export type IStyleNodes = { [p: string]: HTMLStyleElement };

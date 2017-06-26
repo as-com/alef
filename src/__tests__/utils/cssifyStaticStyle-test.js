@@ -1,4 +1,4 @@
-import { createRenderer } from "alef";
+import {createRenderer} from "alef";
 import cssifyStaticStyle from "../../utils/cssifyStaticStyle";
 
 describe("Cssifying static css declarations", () => {

@@ -1,7 +1,5 @@
-export default function generateMonolithicClassName(
-	style: any,
-	prefix: string
-): string {
+export default function generateMonolithicClassName(style: any,
+                                                    prefix: string): string {
 	if (style.className) {
 		const name = prefix + style.className;
 		delete style.className;

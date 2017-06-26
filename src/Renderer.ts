@@ -1,7 +1,7 @@
 import cssifyDeclaration from "css-in-js-utils/lib/cssifyDeclaration";
 
 import applyMediaRulesInOrder from "./utils/applyMediaRulesInOrder";
-import {Cache} from './types/Cache'
+import {Cache} from "./types/Cache";
 import {CLEAR_TYPE, FONT_TYPE, KEYFRAME_TYPE, RULE_TYPE, STATIC_TYPE} from "./utils/styleType";
 import processStyleWithPlugins from "./utils/processStyleWithPlugins";
 import generateAnimationName from "./utils/generateAnimationName";
@@ -24,7 +24,6 @@ import isUndefinedValue from "./utils/isUndefinedValue";
 import {encode} from "./utils/base64";
 import problematicClasses from "./utils/problematicClasses";
 import generateCSSSelector from "./utils/generateCSSSelector";
-import arrayEach from "./utils/arrayEach";
 
 export interface IRendererConfig {
 	keyframePrefixes?: string[];
@@ -116,11 +115,9 @@ export default class Renderer {
 		return renderer.cache[keyframeReference];
 	}
 
-	public renderFont(
-		family: string,
-		files: string[],
-		properties: FontProperties = {}
-	): string | boolean {
+	public renderFont(family: string,
+	                  files: string[],
+	                  properties: FontProperties = {}): string | boolean {
 		const renderer = this;
 		const fontReference = family + JSON.stringify(properties);
 
@@ -225,14 +222,12 @@ export default class Renderer {
 		renderer.keyframeCtr = 0;
 		renderer.cache = {};
 
-		renderer._emitChange({ type: CLEAR_TYPE });
+		renderer._emitChange({type: CLEAR_TYPE});
 	}
 
-	protected _renderStyleToClassNames(
-		{ _className, ...style }: any,
-		pseudo: string = "",
-		media: string = ""
-	): string {
+	protected _renderStyleToClassNames({_className, ...style}: any,
+	                                   pseudo: string = "",
+	                                   media: string = ""): string {
 		const renderer = this;
 
 		let classNames = _className || "";

@@ -1,4 +1,4 @@
-import { RULE_TYPE } from "alef-utils";
+import {RULE_TYPE} from "alef-utils";
 import createRenderer from "../createRenderer";
 
 describe("Renderer", () => {
@@ -21,7 +21,7 @@ describe("Renderer", () => {
 				renderer.foo = "bar";
 				return renderer;
 			};
-			const renderer = createRenderer({ enhancers: [enhancer] });
+			const renderer = createRenderer({enhancers: [enhancer]});
 
 			expect(renderer.foo).toEqual("bar");
 		});
@@ -41,7 +41,7 @@ describe("Renderer", () => {
 	describe("Clearing a Renderer", () => {
 		it("should reset all caches", () => {
 			const renderer = createRenderer();
-			const rule = () => ({ color: "red" });
+			const rule = () => ({color: "red"});
 
 			renderer.renderRule(rule);
 			renderer.clear();
@@ -59,7 +59,7 @@ describe("Renderer", () => {
 
 	describe("Rendering rules", () => {
 		it("should add a cache entry", () => {
-			const rule = () => ({ color: "red" });
+			const rule = () => ({color: "red"});
 			const renderer = createRenderer();
 
 			renderer.renderRule(rule);
@@ -74,9 +74,9 @@ describe("Renderer", () => {
 			});
 			const renderer = createRenderer();
 
-			const className1 = renderer.renderRule(rule, { color: "red" });
-			const className2 = renderer.renderRule(rule, { color: "red" });
-			const className3 = renderer.renderRule(rule, { color: "blue" });
+			const className1 = renderer.renderRule(rule, {color: "red"});
+			const className2 = renderer.renderRule(rule, {color: "red"});
+			const className3 = renderer.renderRule(rule, {color: "blue"});
 
 			expect(className1).toEqual(className2);
 			expect(className1).toEqual("a b");
@@ -113,7 +113,7 @@ describe("Renderer", () => {
 			const renderer = createRenderer();
 
 			const className = renderer.renderRule(rule, {
-				theme: { color: "red" }
+				theme: {color: "red"}
 			});
 
 			expect(className).toEqual("a b");
@@ -122,7 +122,7 @@ describe("Renderer", () => {
 		it("should render pseudo classes", () => {
 			const rule = () => ({
 				color: "red",
-				":hover": { color: "blue" }
+				":hover": {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -132,9 +132,9 @@ describe("Renderer", () => {
 		});
 
 		it("should prefix classNames", () => {
-			const rule = () => ({ color: "red" });
+			const rule = () => ({color: "red"});
 
-			const renderer = createRenderer({ selectorPrefix: "alef_" });
+			const renderer = createRenderer({selectorPrefix: "alef_"});
 			const className = renderer.renderRule(rule);
 
 			expect(renderer.rules).toEqual(".alef_a{color:red}");
@@ -144,7 +144,7 @@ describe("Renderer", () => {
 		it("should render attribute selectors", () => {
 			const rule = () => ({
 				color: "red",
-				"[bool=true]": { color: "blue" }
+				"[bool=true]": {color: "blue"}
 			});
 			const renderer = createRenderer();
 
@@ -158,7 +158,7 @@ describe("Renderer", () => {
 		it("should render child selectors", () => {
 			const rule = () => ({
 				color: "red",
-				">div": { color: "blue" }
+				">div": {color: "blue"}
 			});
 			const renderer = createRenderer();
 
@@ -170,7 +170,7 @@ describe("Renderer", () => {
 		it("should render pseudo class selectors", () => {
 			const rule = () => ({
 				color: "red",
-				":hover": { color: "blue" }
+				":hover": {color: "blue"}
 			});
 			const renderer = createRenderer();
 
@@ -182,8 +182,8 @@ describe("Renderer", () => {
 		it("should render any nested selector with the &-prefix", () => {
 			const rule = () => ({
 				color: "red",
-				"&~#foo": { color: "blue" },
-				"& .bar": { color: "green" }
+				"&~#foo": {color: "blue"},
+				"& .bar": {color: "green"}
 			});
 			const renderer = createRenderer();
 
@@ -197,7 +197,7 @@ describe("Renderer", () => {
 		it("should render media queries", () => {
 			const rule = () => ({
 				color: "red",
-				"@media (min-height:300px)": { color: "blue" }
+				"@media (min-height:300px)": {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -213,8 +213,8 @@ describe("Renderer", () => {
 	describe("Rendering keyframes", () => {
 		it("should add a cache entry", () => {
 			const keyframe = () => ({
-				from: { color: "red" },
-				to: { color: "blue" }
+				from: {color: "red"},
+				to: {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -227,8 +227,8 @@ describe("Renderer", () => {
 
 		it("should return a valid animation name", () => {
 			const keyframe = () => ({
-				from: { color: "red" },
-				to: { color: "blue" }
+				from: {color: "red"},
+				to: {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -239,8 +239,8 @@ describe("Renderer", () => {
 
 		it("should render dynamic keyframe variations", () => {
 			const keyframe = props => ({
-				from: { color: props.color },
-				to: { color: "blue" }
+				from: {color: props.color},
+				to: {color: "blue"}
 			});
 			const renderer = createRenderer();
 
@@ -295,7 +295,7 @@ describe("Renderer", () => {
 				},
 				"html,body"
 			);
-			renderer.renderStatic({ color: "red" }, "html,body");
+			renderer.renderStatic({color: "red"}, "html,body");
 
 			expect(
 				renderer.cache.hasOwnProperty(
@@ -315,7 +315,7 @@ describe("Renderer", () => {
 		it("should cache the font-face", () => {
 			const renderer = createRenderer();
 			const family = "Arial";
-			const properties = { fontWeight: 300 };
+			const properties = {fontWeight: 300};
 
 			renderer.renderFont(
 				family,
@@ -333,7 +333,7 @@ describe("Renderer", () => {
 			const family = renderer.renderFont(
 				"Arial",
 				["../fonts/Arial.ttf", "../fonts/Arial.woff"],
-				{ fontWeight: 300 }
+				{fontWeight: 300}
 			);
 
 			expect(family).toEqual('"Arial"');
@@ -344,7 +344,7 @@ describe("Renderer", () => {
 		it("should call the callback each time it emits changes", () => {
 			const rule = () => ({
 				color: "red",
-				"@media (min-height: 300px)": { color: "blue" }
+				"@media (min-height: 300px)": {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -358,7 +358,7 @@ describe("Renderer", () => {
 		it("should call the callback with a change object", () => {
 			const rule = () => ({
 				color: "red",
-				"@media (min-height: 300px)": { color: "blue" }
+				"@media (min-height: 300px)": {color: "blue"}
 			});
 
 			const renderer = createRenderer();
@@ -387,7 +387,8 @@ describe("Renderer", () => {
 
 		it("should return a unsubscribe method", () => {
 			const renderer = createRenderer();
-			const subscriber = () => {};
+			const subscriber = () => {
+			};
 
 			const unsubscriber = renderer.subscribe(subscriber);
 			unsubscriber.unsubscribe();

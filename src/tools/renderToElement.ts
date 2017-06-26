@@ -5,10 +5,8 @@ import renderToString from "./renderToString";
 import {DOMRenderer} from "../types/DOMRenderer";
 import {DOMNode} from "../types/DOMNode";
 
-export default function renderToElement(
-	renderer: DOMRenderer,
-	mountNode: DOMNode
-): Function {
+export default function renderToElement(renderer: DOMRenderer,
+                                        mountNode: DOMNode): Function {
 	// mountNode must be a valid HTML element to be able
 	// to set mountNode.textContent later on
 	if (!isValidHTMLElement(mountNode)) {

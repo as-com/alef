@@ -2,11 +2,9 @@ import assignStyle from "css-in-js-utils/lib/assignStyle";
 import arrayEach from "../../utils/arrayEach";
 import isObject from "../../utils/isObject";
 
-function extendStyle(
-	style: any,
-	extension: any,
-	extendPlugin: Function
-): void {
+function extendStyle(style: any,
+                     extension: any,
+                     extendPlugin: Function): void {
 	// extend conditional style objects
 	if (extension.hasOwnProperty("condition")) {
 		if (extension.condition) {

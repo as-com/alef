@@ -3,11 +3,9 @@ import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 import arrayReduce from "./arrayReduce";
 import objectReduce from "./objectReduce";
 
-export default function cssifyKeyframe(
-	frames: Object,
-	animationName: string,
-	prefixes: string[] = [""]
-): string {
+export default function cssifyKeyframe(frames: Object,
+                                       animationName: string,
+                                       prefixes: string[] = [""]): string {
 	const keyframe = objectReduce(
 		frames,
 		(css, frame, percentage) =>

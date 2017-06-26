@@ -1,4 +1,4 @@
-import { createElement } from "react";
+import {createElement} from "react";
 import PropTypes from "prop-types";
 import monolithic from "alef-monolithic";
 
@@ -30,7 +30,7 @@ describe("Creating Components from Alef rules", () => {
 
 		const renderer = createRenderer();
 
-		const element = component({ color: "black" }, { renderer });
+		const element = component({color: "black"}, {renderer});
 
 		expect(element.type).toEqual("div");
 
@@ -50,7 +50,7 @@ describe("Creating Components from Alef rules", () => {
 			{},
 			{
 				renderer,
-				theme: { color: "red" }
+				theme: {color: "red"}
 			}
 		);
 
@@ -74,7 +74,7 @@ describe("Creating Components from Alef rules", () => {
 				onClick: false,
 				onHover: true
 			},
-			{ renderer }
+			{renderer}
 		);
 
 		expect(element.props.onClick).toEqual(false);
@@ -95,7 +95,7 @@ describe("Creating Components from Alef rules", () => {
 				onClick: false,
 				onHover: true
 			},
-			{ renderer }
+			{renderer}
 		);
 
 		expect(element.props.onClick).toEqual(false);
@@ -116,7 +116,7 @@ describe("Creating Components from Alef rules", () => {
 				foo: true,
 				color: "black"
 			},
-			{ renderer }
+			{renderer}
 		);
 
 		expect(element.props.foo).toEqual(true);
@@ -139,8 +139,8 @@ describe("Creating Components from Alef rules", () => {
 
 		const renderer = createRenderer();
 
-		const element = ComposedComp({}, { renderer });
-		const renderedElement = element.type(element.props, { renderer });
+		const element = ComposedComp({}, {renderer});
+		const renderedElement = element.type(element.props, {renderer});
 
 		expect(renderer.rules).toEqual(
 			".a{color:red}.b{font-size:16px}.c{line-height:1.2}"
@@ -157,13 +157,13 @@ describe("Creating Components from Alef rules", () => {
 		const renderer = createRenderer();
 
 		const onClick = () => true;
-		const element = composedComponent({ color: "red" }, { renderer });
+		const element = composedComponent({color: "red"}, {renderer});
 		const renderedElement = element.type(
 			{
 				...element.props,
 				onClick
 			},
-			{ renderer }
+			{renderer}
 		);
 
 		expect(renderedElement.props.color).toEqual("red");
@@ -181,31 +181,31 @@ describe("Creating Components from Alef rules", () => {
 	});
 
 	it("should use a dev-friendly className with monolithic renderer", () => {
-		const Button = () => ({ fontSize: 16 });
+		const Button = () => ({fontSize: 16});
 
 		const component = createComponent(Button);
 
 		const renderer = createRenderer({
-			enhancers: [monolithic({ prettySelectors: true })]
+			enhancers: [monolithic({prettySelectors: true})]
 		});
 
-		const element = component({ color: "black" }, { renderer });
+		const element = component({color: "black"}, {renderer});
 
 		expect(element.props.className).toEqual("Button_div__abrv9k");
 		expect(renderer.rules).toEqual(".Button_div__abrv9k{font-size:16}");
 	});
 
 	it("should use a dev-friendly className and the selectorPrefix", () => {
-		const Button = () => ({ fontSize: 16 });
+		const Button = () => ({fontSize: 16});
 
 		const component = createComponent(Button);
 
 		const renderer = createRenderer({
-			enhancers: [monolithic({ prettySelectors: true })],
+			enhancers: [monolithic({prettySelectors: true})],
 			selectorPrefix: "Alef-"
 		});
 
-		const element = component({ color: "black" }, { renderer });
+		const element = component({color: "black"}, {renderer});
 
 		expect(element.props.className).toEqual("Alef-Button_div__abrv9k");
 		expect(renderer.rules).toEqual(
@@ -220,7 +220,7 @@ describe("Creating Components from Alef rules", () => {
 		});
 		const component = createComponent(Button);
 		const renderer = createRenderer();
-		const buttonInstance = component({ is: "button" }, { renderer });
+		const buttonInstance = component({is: "button"}, {renderer});
 
 		expect(buttonInstance.type).toEqual("button");
 	});

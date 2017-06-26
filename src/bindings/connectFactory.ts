@@ -1,18 +1,16 @@
 import objectReduce from "../utils/objectReduce";
 import generateDisplayName from "./generateDisplayName";
 
-export default function connectFactory(
-	BaseComponent: any,
-	createElement: Function,
-	contextTypes?: Object
-): Function {
+export default function connectFactory(BaseComponent: any,
+                                       createElement: Function,
+                                       contextTypes?: Object): Function {
 	return function connect(rules: Object | Function): Function {
 		return (component: any): any => {
 			class EnhancedComponent extends BaseComponent {
 				static displayName = generateDisplayName(component);
 
 				render() {
-					const { renderer, theme } = this.context;
+					const {renderer, theme} = this.context;
 
 					const styleProps = {
 						...this.props,
