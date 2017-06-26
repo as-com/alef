@@ -1,6 +1,6 @@
 import createStyleNode from "./createStyleNode";
 import StyleType from "./styleType";
-import {IStyleNodes} from "../client/ClientRenderer";
+import {IStyleNodes} from "../client/AlefClient";
 
 export default function getStyleNode(styleNodes: IStyleNodes,
                                      baseNode: Object,

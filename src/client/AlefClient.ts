@@ -25,7 +25,7 @@ function initNode(styleNodes: IStyleNodes,
 	}
 }
 
-export default class ClientRenderer extends Renderer {
+export default class AlefClient extends Renderer {
 	private styleNodes: IStyleNodes = reflushStyleNodes();
 	private baseNode = this.styleNodes[RULE_TYPE];
 

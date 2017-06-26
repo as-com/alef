@@ -46,8 +46,7 @@
 			"es2015",
 			"dom"
 		],
-		"alwaysStrict": true,
-		"strict": false
+		"alwaysStrict": true
 	},
 	"exclude": [
 		"node_modules",

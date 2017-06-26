@@ -15,7 +15,7 @@ export type Sheet = {
 	media?: string;
 };
 
-export default class ServerRenderer extends Renderer {
+export default class AlefServer extends Renderer {
 	public renderToMarkup(): string {
 		let markup = "";
 

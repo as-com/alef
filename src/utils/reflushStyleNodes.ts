@@ -1,4 +1,4 @@
-import {IStyleNodes} from "../client/ClientRenderer";
+import {IStyleNodes} from "../client/AlefClient";
 
 export default function reflushStyleNodes(): IStyleNodes {
 	const sheets = document.querySelectorAll("[data-alef-type]");

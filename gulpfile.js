@@ -1,6 +1,7 @@
 const gulp = require("gulp");
 const ts = require("gulp-typescript");
 const sourceMaps = require("gulp-sourcemaps");
+const del = require("del");
 
 const tsProjectCJS = ts.createProject("tsconfig.json", {
 	module: "commonjs"
@@ -12,7 +13,14 @@ const tsProjectES = ts.createProject("tsconfig.json", {
 
 gulp.task("default", ["lib", "es"]);
 
-gulp.task("lib", function() {
+gulp.task("clean", function () {
+	return del([
+		"lib/**/*",
+		"es/**/*"
+	]);
+});
+
+gulp.task("lib", ["clean"], function() {
 	tsProjectCJS.src()
 		.pipe(sourceMaps.init())
 		.pipe(tsProjectCJS())
@@ -20,7 +28,7 @@ gulp.task("lib", function() {
 		.pipe(gulp.dest("lib"));
 });
 
-gulp.task("es", function () {
+gulp.task("es", ["clean"], function () {
 	tsProjectES.src()
 		.pipe(sourceMaps.init())
 		.pipe(tsProjectES())
