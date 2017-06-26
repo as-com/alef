@@ -29,7 +29,7 @@
 	"module": "es/index.js",
 	"scripts": {
 		"bootstrap": "lerna bootstrap",
-		"build": "./scripts/build.sh",
+		"build": "gulp",
 		"clean": "lerna clean --yes && rimraf packages/*/es && rimraf packages/*/lib",
 		"docs": "gitbook install && gitbook build && gh-pages -d _book",
 		"check": "npm run lint && npm run test:coverage",
@@ -48,6 +48,7 @@
 		]
 	},
 	"devDependencies": {
+		"@types/gulp": "^4.0.4",
 		"@types/node": "^8.0.2",
 		"babel": "^6.5.2",
 		"babel-cli": "^6.6.0",
@@ -74,6 +75,9 @@
 		"gitbook-plugin-edit-link": "^2.0.2",
 		"gitbook-plugin-github": "^2.0.0",
 		"gitbook-plugin-prism": "^2.2.0",
+		"gulp": "^3.9.1",
+		"gulp-sourcemaps": "^2.6.0",
+		"gulp-typescript": "^3.1.7",
 		"gzip-size": "^3.0.0",
 		"inferno-component": "^3.3.1",
 		"inferno-create-element": "^3.3.1",
@@ -89,6 +93,7 @@
 	"dependencies": {
 		"css-in-js-utils": "^1.0.3",
 		"cssbeautify": "^0.3.1",
-		"inline-style-prefixer": "^3.0.6"
+		"inline-style-prefixer": "^3.0.6",
+		"tslib": "^1.7.1"
 	}
 }
