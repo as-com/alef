@@ -324,7 +324,7 @@ export default class Renderer {
 		}
 
 		// make sure the class is not going to be blocked by adblock
-		if (renderer.selectorPrefix && isClassnameProblematic(renderer.ruleCtr)) {
+		if (!renderer.selectorPrefix && isClassnameProblematic(renderer.ruleCtr)) {
 			renderer.ruleCtr++;
 			return renderer._generateClassName();
 		}
