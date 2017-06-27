@@ -1,4 +1,4 @@
-import {Style} from "./Style";
+import {StyleObject} from "./StyleObject";
 export interface Plugin {
-	(style: Style): Style;
+	(style: StyleObject): StyleObject;
 }

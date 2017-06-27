@@ -1,5 +1,5 @@
-import {Style} from "../types/Style";
-export default function generateStaticReference(style: string | Style,
+import {StyleObject} from "../types/StyleObject";
+export default function generateStaticReference(style: string | StyleObject,
                                                 selector?: string): string {
 	if (typeof style === "string") {
 		return style;

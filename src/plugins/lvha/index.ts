@@ -1,4 +1,4 @@
-import {Style} from "../../types/Style";
+import {StyleObject} from "../../types/StyleObject";
 import {Plugin} from "../../types/Plugin";
 const precedence = {
 	":link": 0,
@@ -10,7 +10,7 @@ const precedence = {
 
 const pseudoClasses = Object.keys(precedence);
 
-function orderLVHA(style: Style): Style {
+function orderLVHA(style: StyleObject): StyleObject {
 	const pseudoList = [];
 
 	for (const property in style) {

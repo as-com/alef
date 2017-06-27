@@ -4,12 +4,12 @@ import cssifyObject from "css-in-js-utils/lib/cssifyObject";
 import fallbackValue from "../../plugins/fallback-value";
 import objectReduce from "../../utils/objectReduce";
 import isObject from "../../utils/isObject";
-import {Style} from "../../types/Style";
+import {StyleObject} from "../../types/StyleObject";
 import {Plugin} from "../../types/Plugin";
 
 const resolveFallbackValues = fallbackValue();
 
-function addVendorPrefixes(style: Style): Style {
+function addVendorPrefixes(style: StyleObject): StyleObject {
 	return objectReduce(
 		style,
 		(prefixedStyle, value, property) => {
