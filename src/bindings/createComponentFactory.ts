@@ -6,7 +6,7 @@ import {WithMonolithicInstance} from "../enhancers/monolithic/index";
 
 // XXX: This should no longer be used
 
-/*export default*/ function createComponentFactory(createElement: Function,
+export default function createComponentFactory(createElement: Function,
                                                contextTypes?: Object): Function {
 	return function createComponent(rule: Function,
 	                                type: any = "div",

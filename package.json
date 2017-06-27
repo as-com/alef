@@ -1,6 +1,6 @@
 {
 	"name": "alef",
-	"version": "0.1.2",
+	"version": "0.1.3",
 	"description": "Dynamic and high-performance CSS in JavaScript",
 	"keywords": [
 		"alef",
@@ -35,7 +35,7 @@
 		"check": "npm run lint && npm run test:coverage",
 		"format": "prettier --jsx-bracket-same-line --use-tabs --tab-width 4 --write \"packages/*/src/**/*.js\" \"packages/*/src/**/*.ts\"",
 		"lint": "eslint packages/*/src/**/*.js",
-		"publish": "npm run build",
+		"prepublish": "npm run build",
 		"test": "cross-env BABEL_ENV=commonjs jest",
 		"test:coverage": "cross-env BABEL_ENV=commonjs jest --coverage",
 		"setup": "yarn run clean && yarn run bootstrap && yarn run build"
