@@ -22,7 +22,7 @@ import isMediaQuery from "./utils/isMediaQuery";
 import generateCombinedMediaQuery from "./utils/generateCombinedMediaQuery";
 import isUndefinedValue from "./utils/isUndefinedValue";
 import {encode} from "./utils/base64";
-import problematicClasses from "./utils/problematicClasses";
+import isClassnameProblematic from "./utils/isClassnameProblematic";
 import generateCSSSelector from "./utils/generateCSSSelector";
 
 export interface IRendererConfig {
@@ -322,13 +322,13 @@ export default class Renderer {
 			renderer.msb = Math.pow(64, ++renderer.power) - 1;
 		}
 
-		let gen = encode(renderer.ruleCtr);
-
 		// make sure the class is not going to be blocked by adblock
-		if (renderer.selectorPrefix && problematicClasses.has(gen)) {
+		if (renderer.selectorPrefix && isClassnameProblematic(renderer.ruleCtr)) {
 			renderer.ruleCtr++;
 			return renderer._generateClassName();
 		}
+
+		let gen = encode(renderer.ruleCtr);
 
 		let adCheck = gen.search(adSearch);
 		if (adCheck !== -1) {
