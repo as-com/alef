@@ -1,10 +1,12 @@
 import extractPassThroughProps from "../utils/extractPassThroughProps";
 import resolvePassThrough from "../utils/resolvePassThrough";
 import combineRules from "../combineRules";
+import Renderer from "../Renderer";
+import {WithMonolithicInstance} from "../enhancers/monolithic/index";
 
-// TODO: Fix up this thing
+// XXX: This should no longer be used
 
-export default function createComponentFactory(createElement: Function,
+/*export default*/ function createComponentFactory(createElement: Function,
                                                contextTypes?: Object): Function {
 	return function createComponent(rule: Function,
 	                                type: any = "div",
@@ -12,7 +14,7 @@ export default function createComponentFactory(createElement: Function,
 		const displayName = rule.name ? rule.name : "AlefComponent";
 
 		const AlefComponent = ({children, _alefRule, passThrough = [], ...ruleProps},
-		                       {renderer, theme}) => {
+		                       {renderer, theme}: { renderer: Renderer, theme: any }) => {
 			if (!renderer) {
 				throw new Error(
 					"createComponent() can't render styles without the renderer in the context. Missing react-alef's <Provider /> at the app root?"
@@ -24,7 +26,7 @@ export default function createComponentFactory(createElement: Function,
 				: rule;
 
 			// improve developer experience with monolithic renderer
-			if (renderer.prettySelectors) {
+			if ((renderer as Renderer & WithMonolithicInstance).prettySelectors) {
 				const componentName = typeof type === "string"
 					? type
 					: type.displayName || type.name || "";
@@ -59,22 +61,14 @@ export default function createComponentFactory(createElement: Function,
 
 			ruleProps.theme = theme || {};
 
-			// alef-native support
-			if (renderer.isNativeRenderer) {
-				const alefStyle = renderer.renderRule(combinedRule, ruleProps);
-				componentProps.style = ruleProps.style
-					? [ruleProps.style, alefStyle]
-					: alefStyle;
-			} else {
-				if (ruleProps.style) {
-					componentProps.style = ruleProps.style;
-				}
-				const cls = ruleProps.className
-					? `${ruleProps.className} `
-					: "";
-				componentProps.className =
-					cls + renderer.renderRule(combinedRule, ruleProps);
+			if (ruleProps.style) {
+				componentProps.style = ruleProps.style;
 			}
+			const cls = ruleProps.className
+				? `${ruleProps.className} `
+				: "";
+			componentProps.className =
+				cls + renderer.renderRule(combinedRule, ruleProps);
 
 			if (ruleProps.id) {
 				componentProps.id = ruleProps.id;

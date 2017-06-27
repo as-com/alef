@@ -16,10 +16,12 @@ import processStyleWithPlugins from "../../utils/processStyleWithPlugins";
 import {RendererConstructor} from "../../Renderer";
 
 export interface IMonolithicOptions {
-	prettySelectors?: boolean
+	prettySelectors?: boolean;
 }
 
-export type WithMonolithicInstance = {};
+export interface WithMonolithicInstance {
+	prettySelectors: boolean;
+}
 
 export interface WithMonolithic {
 	new (...args: any[]): WithMonolithicInstance;
@@ -27,6 +29,8 @@ export interface WithMonolithic {
 
 export default function MonolithicEnhancer<T extends RendererConstructor>(Base: T, options: IMonolithicOptions): WithMonolithic & T {
 	return class extends Base {
+		public prettySelectors: boolean = options.prettySelectors;
+
 		private _renderStyleToCache(className: string, style: object, pseudo: string = "", media: string = "") {
 			const ruleSet = objectReduce(
 				style,
