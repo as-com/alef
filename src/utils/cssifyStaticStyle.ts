@@ -6,8 +6,9 @@ import processStyleWithPlugins from "./processStyleWithPlugins";
 import {STATIC_TYPE} from "./styleType";
 
 import Renderer from "../Renderer";
+import {Style} from "../types/Style";
 
-export default function cssifyStaticStyle(staticStyle: string | Object,
+export default function cssifyStaticStyle(staticStyle: string | Style,
                                           renderer: Renderer): string {
 	if (typeof staticStyle === "string") {
 		return minifyCSSString(staticStyle);

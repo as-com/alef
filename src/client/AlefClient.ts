@@ -5,12 +5,18 @@ import getStyleNode from "../utils/getStyleNode";
 
 export type IStyleNodes = { [p: string]: HTMLStyleElement };
 
-const sheetMap = {
+const initSheetMap = {
 	fontFaces: FONT_TYPE,
 	statics: STATIC_TYPE,
 	keyframes: KEYFRAME_TYPE,
 	rules: RULE_TYPE
 };
+
+const sheetMap = {
+	[FONT_TYPE]: 'fontFaces',
+	[STATIC_TYPE]: 'statics',
+	[KEYFRAME_TYPE]: 'keyframes'
+}
 
 function initNode(styleNodes: IStyleNodes,
                   baseNode: HTMLStyleElement,
@@ -33,13 +39,13 @@ export default class AlefClient extends Renderer {
 		super(config);
 
 		// initStyleNodes
-		for (const style in sheetMap) {
+		for (const style in initSheetMap) {
 			if (this[style].length > 0) { // TODO: ????
 				initNode(
 					this.styleNodes,
 					this.baseNode,
 					this[style],
-					sheetMap[style]
+					initSheetMap[style]
 				);
 			}
 		}

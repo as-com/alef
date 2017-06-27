@@ -24,6 +24,7 @@ import isUndefinedValue from "./utils/isUndefinedValue";
 import {encode} from "./utils/base64";
 import isClassnameProblematic from "./utils/isClassnameProblematic";
 import generateCSSSelector from "./utils/generateCSSSelector";
+import {Style} from "./types/Style";
 
 export interface IRendererConfig {
 	keyframePrefixes?: string[];
@@ -152,7 +153,7 @@ export default class Renderer {
 		return renderer.cache[fontReference];
 	}
 
-	public renderStatic(staticStyle: object | string, selector?: string): void {
+	public renderStatic(staticStyle: Style | string, selector?: string): void {
 		const renderer = this;
 
 		const staticReference = generateStaticReference(
