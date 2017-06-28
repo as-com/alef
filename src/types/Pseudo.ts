@@ -38,5 +38,4 @@ export type Pseudo = ":before" |
 	":target" |
 	":user-invalid" |
 	":valid" |
-	":visited" |
-	string;
+	":visited";
