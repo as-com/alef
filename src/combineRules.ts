@@ -1,11 +1,14 @@
 import assignStyle from "css-in-js-utils/lib/assignStyle";
 import Renderer from "./Renderer";
+import {Rule} from "./types/Rule";
+import {StyleObject} from "./types/StyleObject";
 
-export default function combineRules(...rules: Function[]): Function {
-	return (props: Object, renderer: Renderer): object => { // TODO
+export default function combineRules(...rules: Rule[]) {
+	return (props: object, renderer: Renderer): StyleObject => { // TODO
 		const rule = {};
 		for (let i = 0, len = rules.length; i < len; i++) {
-			assignStyle(rule, rules[i](props, renderer));
+			const r = rules[i];
+			assignStyle(rule, typeof r === "function" ? r(props, renderer) : r);
 		}
 
 		return rule;

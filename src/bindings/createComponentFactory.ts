@@ -3,17 +3,18 @@ import resolvePassThrough from "../utils/resolvePassThrough";
 import combineRules from "../combineRules";
 import Renderer from "../Renderer";
 import {WithMonolithicInstance} from "../enhancers/monolithic/index";
+import {Rule} from "../types/Rule";
 
 // XXX: This should no longer be used
 
 export default function createComponentFactory(createElement: Function,
                                                contextTypes?: Object): Function {
-	return function createComponent(rule: Function,
+	return function createComponent(rule: Rule,
 	                                type: any = "div",
-	                                passThroughProps: string[] | Function = []): Function {
-		const displayName = rule.name ? rule.name : "AlefComponent";
+	                                passThroughProps: (() => string[]) | string[] = []): Function {
+		const displayName = typeof rule === "function" && rule.name ? rule.name : "AlefComponent";
 
-		const AlefComponent = ({children, _alefRule, passThrough = [], ...ruleProps},
+		const AlefComponent = ({children, _alefRule, ...ruleProps},
 		                       {renderer, theme}: { renderer: Renderer, theme: any }) => {
 			if (!renderer) {
 				throw new Error(
@@ -21,24 +22,21 @@ export default function createComponentFactory(createElement: Function,
 				);
 			}
 
-			const combinedRule: any = _alefRule
+			const combinedRule = _alefRule
 				? combineRules(rule, _alefRule)
 				: rule;
 
 			// improve developer experience with monolithic renderer
-			if ((renderer as Renderer & WithMonolithicInstance).prettySelectors) {
-				const componentName = typeof type === "string"
-					? type
-					: type.displayName || type.name || "";
-
-				combinedRule.selectorPrefix = `${displayName}_${componentName}__`;
-			}
+			// if ((renderer as Renderer & WithMonolithicInstance).prettySelectors) { // TODO???
+			// 	const componentName = typeof type === "string"
+			// 		? type
+			// 		: type.displayName || type.name || "";
+			//
+			// 	combinedRule.selectorPrefix = `${displayName}_${componentName}__`;
+			// }
 
 			// compose passThrough props from arrays or functions
-			const resolvedPassThrough = [
-				...resolvePassThrough(passThroughProps, ruleProps),
-				...resolvePassThrough(passThrough, ruleProps)
-			];
+			const resolvedPassThrough = resolvePassThrough(passThroughProps, ruleProps);
 
 			// if the component renders into another Alef component
 			// we pass down the combinedRule as well as both

@@ -1,6 +1,6 @@
 export default function extractPassThroughProps(passThrough: string[],
-                                                ruleProps: any): any {
-	const output: { [p: string]: any } = {}; // TODO
+                                                ruleProps: object): any {
+	const output: object = {}; // TODO
 	for (let i = 0, len = passThrough.length; i < len; i++) {
 		const property = passThrough[i];
 

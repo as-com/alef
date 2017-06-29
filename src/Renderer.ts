@@ -25,6 +25,7 @@ import {encode} from "./utils/base64";
 import isClassnameProblematic from "./utils/isClassnameProblematic";
 import generateCSSSelector from "./utils/generateCSSSelector";
 import {StyleObject} from "./types/StyleObject";
+import {Rule} from "./types/Rule";
 
 export interface IRendererConfig {
 	keyframePrefixes?: string[];
@@ -68,10 +69,10 @@ export default class Renderer {
 		this.mediaRules = applyMediaRulesInOrder(config.mediaQueryOrder || []);
 	}
 
-	public renderRule(rule: Function, props: object = {}): string {
+	public renderRule(rule: Rule, props: object = {}): string {
 		const processedStyle = processStyleWithPlugins(
 			this,
-			rule(props, this),
+			typeof rule === "function" ? rule(props, this) /* TODO: Figure out the second argument */ : rule,
 			RULE_TYPE,
 			props
 		);

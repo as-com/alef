@@ -1,8 +1,9 @@
 import StyleType from "./styleType";
 import Renderer from "../Renderer";
+import {StyleObject} from "../types/StyleObject";
 
 export default function processStyleWithPlugins(renderer: Renderer,
-                                                style: object,
+                                                style: StyleObject,
                                                 type: StyleType,
                                                 props: object = {}) {
 	const plugins = renderer.plugins;
