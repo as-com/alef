@@ -1,6 +1,6 @@
 {
 	"name": "alef",
-	"version": "0.1.5",
+	"version": "0.1.6",
 	"description": "Dynamic and high-performance CSS in JavaScript",
 	"keywords": [
 		"alef",
@@ -20,11 +20,10 @@
 	},
 	"files": [
 		"README.md",
-		"lib",
 		"es",
 		"LICENSE"
 	],
-	"main": "lib/index.js",
+	"main": "es/index.js",
 	"jsnext:main": "es/index.js",
 	"module": "es/index.js",
 	"scripts": {
