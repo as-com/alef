@@ -14,6 +14,7 @@ import {RULE_TYPE} from "../../utils/styleType";
 import generateMonolithicClassName from "../../utils/generateMonolithicClassName";
 import processStyleWithPlugins from "../../utils/processStyleWithPlugins";
 import {RendererConstructor} from "../../Renderer";
+import {Rule} from "../../types/Rule";
 
 export interface IMonolithicOptions {
 	prettySelectors?: boolean;
@@ -118,10 +119,10 @@ export default function MonolithicEnhancer<T extends RendererConstructor>(Base: 
 		}
 
 
-		public renderRule(rule: Function, props: Object = {}): string {
+		public renderRule(rule: Rule, props: Object = {}): string {
 			const processedStyle = processStyleWithPlugins(
 				this,
-				rule(props, this),
+				typeof rule === "function" ? rule(props, this) : rule,
 				RULE_TYPE,
 				props
 			);

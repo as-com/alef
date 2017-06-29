@@ -3,6 +3,7 @@ import gzipSize from "gzip-size";
 
 import {RULE_TYPE} from "../../utils/styleType";
 import {RendererConstructor} from "../../Renderer";
+import {Rule} from "../../types/Rule";
 
 function lengthInUtf8Bytes(str: string): number {
 	const m = encodeURIComponent(str).match(/%[89ABab]/g);
@@ -136,7 +137,7 @@ export default function StatisticsEnhancer<T extends RendererConstructor>(Base: 
 		}
 
 
-		public renderRule(rule: Function, props: Object = {}): string {
+		public renderRule(rule: Rule, props: Object = {}): string {
 			this.statistics.totalRenders++;
 			const classNames: string = super.renderRule(rule, props);
 

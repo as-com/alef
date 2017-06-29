@@ -1,4 +1,5 @@
 import {RendererConstructor} from "../../Renderer";
+import {Rule} from "../../types/Rule";
 
 export interface ILayoutDebuggerOptions {
 	mode?: "outline" | "backgroundColor";
@@ -23,7 +24,7 @@ export default function LayoutDebuggerEnhancer<T extends RendererConstructor>(Ba
 	};
 
 	return class extends Base {
-		public renderRule(rule: Function, props: any): string {
+		public renderRule(rule: Rule, props: any): string {
 			const className = super.renderRule(rule, props);
 
 			const ruleName = (<any>rule /* FIXME: Broken TypeScript definition */).name || "debug_layout";

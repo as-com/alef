@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import {RendererConstructor} from "../../Renderer";
+import {Rule} from "../../types/Rule";
 
 let counter = 0;
 
@@ -11,7 +12,7 @@ export interface WithPerf {
 
 export default function PerfEnhancer<T extends RendererConstructor>(Base: T): WithPerf & T {
 	return class extends Base {
-		public renderRule(rule: Function, props: Object = {}): string {
+		public renderRule(rule: Rule, props: Object = {}): string {
 			const timerCounter = `[${++counter}]`;
 
 			console.time(timerCounter);
