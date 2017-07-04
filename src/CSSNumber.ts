@@ -3,8 +3,8 @@ export type CSSUnit = "em" | "px" | "rem" | "%" | "vh" | "vw" | "vi" | "vb" | "v
 	"Hz" | "kHz" | "dpi" | "dpcm" | "dppx" | "s" | "ms" | string;
 
 export default class CSSNumber {
-	public value: number;
-	public unit: CSSUnit;
+	public readonly value: number;
+	public readonly unit: CSSUnit;
 
 	public constructor(value: number, unit: CSSUnit) {
 		this.value = value;
@@ -15,16 +15,35 @@ export default class CSSNumber {
 		return new CSSNumber(this.value + num.value, unit);
 	}
 
+	public addN(num: number, unit: CSSUnit = this.unit) {
+		return new CSSNumber(this.value + num, unit);
+	}
+
+
 	public sub(num: CSSNumber, unit: CSSUnit = this.unit) {
 		return new CSSNumber(this.value - num.value, unit);
 	}
+
+	public subN(num: number, unit: CSSUnit = this.unit) {
+		return new CSSNumber(this.value - num, unit);
+	}
+
 
 	public mul(num: CSSNumber, unit: CSSUnit = this.unit) {
 		return new CSSNumber(this.value * num.value, unit);
 	}
 
+	public mulN(num: number, unit: CSSUnit = this.unit) {
+		return new CSSNumber(this.value * num, unit);
+	}
+
+
 	public div(num: CSSNumber, unit: CSSUnit = this.unit) {
 		return new CSSNumber(this.value / num.value, unit);
+	}
+
+	public divN(num: number, unit: CSSUnit = this.unit) {
+		return new CSSNumber(this.value / num, unit);
 	}
 
 	public toString() {
