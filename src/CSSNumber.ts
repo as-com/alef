@@ -5,6 +5,7 @@ export type CSSUnit = "em" | "px" | "rem" | "%" | "vh" | "vw" | "vi" | "vb" | "v
 export default class CSSNumber {
 	public readonly value: number;
 	public readonly unit: CSSUnit;
+	public readonly __cssnumber = true;
 
 	public constructor(value: number, unit: CSSUnit) {
 		this.value = value;

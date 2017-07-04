@@ -237,7 +237,7 @@ export default class Renderer {
 		for (const property in style) {
 			const value = style[property];
 
-			if (isObject(value)) {
+			if (isObject(value) && !value.__cssnumber) {
 				if (isNestedSelector(property)) {
 					classNames += renderer._renderStyleToClassNames(
 						value,
