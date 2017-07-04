@@ -267,9 +267,7 @@ export default class Renderer {
 					// usage of optional props without side-effects
 					if (isUndefinedValue(value)) {
 						renderer.cache[declarationReference] = "";
-						/* eslint-disable no-continue */
 						continue;
-						/* eslint-enable */
 					}
 
 					const className =
