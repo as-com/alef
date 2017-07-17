@@ -69,10 +69,10 @@ export default class Renderer {
 		this.mediaRules = applyMediaRulesInOrder(config.mediaQueryOrder || []);
 	}
 
-	public renderRule(rule: Rule, props: object = {}): string {
+	public renderRule(rule: Rule, props: object = {}, context: object = {}): string {
 		const processedStyle = processStyleWithPlugins(
 			this,
-			typeof rule === "function" ? rule(props, this) /* TODO: Figure out the second argument */ : rule,
+			typeof rule === "function" ? rule(props, context) : rule,
 			RULE_TYPE,
 			props
 		);
