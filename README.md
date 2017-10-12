@@ -18,6 +18,9 @@ Alef can be used with [React](https://github.com/as-com/alef/tree/master/package
 
 <!--<img alt="TravisCI" src="https://travis-ci.org/as-com/alef.svg?branch=master"> <a href="https://codeclimate.com/github/as-com/alef/coverage"><img alt="Test Coverage" src="https://codeclimate.com/github/as-com/alef/badges/coverage.svg"></a> <img alt="npm downloads" src="https://img.shields.io/npm/dm/alef.svg"> <img alt="gzipped size" src="https://img.shields.io/badge/gzipped-3.16kb-brightgreen.svg"> <img alt="npm version" src="https://badge.fury.io/js/alef.svg"> <a href="https://gitter.im/as-com/alef"><img alt="Gitter" src="https://img.shields.io/gitter/room/as-com/alef.svg"></a>-->
 
+## Disclaimer
+Any resemblance to a similarly-named programming language, bank, football player, farm, album, or a letter in a writing system is purely coincidental.
+
 ## Installation
 <!--```sh
 yarn add alef
